@@ -1,0 +1,409 @@
+<!DOCTYPE html><html><head>
+  <title>Branches test 0</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Demo project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" crossorigin="anonymous">
+  <script src="assets/p5-svg/p5.js"></script>
+  <script src="assets/p5-svg/p5.svg.js"></script>
+  <script src="assets/svg.js/svg.min.js"></script>
+  <script src="assets/lodash.js"></script>
+  <script src="assets/transformer.js"></script>
+  <script src="assets/functions-polyfills.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    * { margin: 0; padding: 0; }
+    path {
+      cursor: pointer;
+    }
+    p.log {
+      position: absolute; top: 20px; left: 20px;
+    }
+    #container{
+      height: 90vh;
+      position: relative;
+    }
+    svg.artboard {
+      position: absolute;
+      left: 0; top: 0;
+      /*width: 100%; height: 100%;*/
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+<script type="text/javascript">
+
+var state = {
+  loadingData: true,
+  data: {},
+  logp: null,
+  p5setupDone: false,
+  p5Finished: false,
+};
+
+setupLogP();
+
+loadData("data/all.json", function (fullTreeData) {
+  state.data = fullTreeData;
+  console.log("state.data", state.data);
+  state.loadingData = false;
+  state.logp.innerText = "data loaded.";
+});
+
+
+
+function setupLogP () {
+  state.logp = document.createElement("p");
+  state.logp.classList.add("log");
+  document.body.appendChild(state.logp);
+  state.logp.innerText = "loading data";
+}
+
+function loadData (file, callback) {
+  var middata = {};
+  $.getJSON( file, function(jsonData) {
+
+    // --- mid data structure
+  
+    for (var i = 0; i < jsonData.length; i++) {
+      var d = jsonData[i];
+      var area = d.area.slug();
+      var level = d["level-simplified"].slug();
+      var sector = d.sector.slug();
+      if (!middata.hasOwnProperty(area)) {
+        middata[area] = {};
+      }
+      if (!middata[area].hasOwnProperty(level)) {
+        middata[area][level] = {};
+      }
+      if (!middata[area][level].hasOwnProperty(sector)) {
+        middata[area][level][sector] = [];
+      }
+      middata[area][level][sector].push(d);
+    }
+    console.log("middata", middata);
+
+    // --- full tree data structure
+
+    fullTreeData = {
+      "id": "root",
+      "children": []
+    };
+    var areas = Object.keys(middata);
+    for (var i = 0; i < areas.length; i++) {
+      var area = areas[i];
+      var areaChildrenArray = [];
+      fullTreeData.children.push({
+        "id": area,
+        "children": areaChildrenArray
+      });
+      var levels = Object.keys(middata[area]);
+      for (var j = 0; j < levels.length; j++) {
+        var level = levels[j];
+        var levelChildrenArray = [];
+        areaChildrenArray.push({
+          "id": level,
+          "children": levelChildrenArray
+        });
+        var sectors = Object.keys(middata[area][level]);
+        for (var k = 0; k < sectors.length; k++) {
+          var sector = sectors[k];
+          var sectorChildrenArray = middata[area][level][sector].map(function (d) {
+            return {
+              "id": area +"---"+ level +"---"+ sector,
+              "children": [],
+              "d": d
+            };
+          });
+          levelChildrenArray.push({
+            "id": sector,
+            "children": sectorChildrenArray
+          });
+        }
+      }
+    }
+
+    callback(fullTreeData);
+  }); 
+}
+
+var cnt = document.getElementById("container");
+
+// ----------------------------------------------
+// SVG.js
+// ----------------------------------------------
+
+var svg = SVG().addTo('#container')
+  .size(cnt.offsetWidth, cnt.offsetHeight)
+  .addClass("artboard");
+
+function sssLine (x1, y1, x2, y2) {
+  var line = svg.line(x1, y1, x2, y2)
+    .stroke({ color: '#f06', opacity: 0.6, width: 5 });
+}
+
+
+// ----------------------------------------------
+// P5
+// ----------------------------------------------
+
+var tree1, tree2;
+var tf = new Transformer();
+
+function setup() {
+  var cvs = createCanvas(100, 100);
+  cvs.parent("container");
+  resizeCanvas(cnt.offsetWidth, cnt.offsetHeight);
+
+  // createCanvas(windowWidth, windowHeight, SVG);
+  background(244);
+  strokeWeight(2);
+
+}
+
+function draw() {
+  if (state.loadingData) {
+    return;
+  }
+  if (!state.p5setupDone) {
+    
+    function randomAngle (max) {
+      return map(random(1), 0,1, -max, max);
+    } 
+
+    var len0 = 150;
+    var metadata = {
+      "europe": {
+        "root": createVector(width*0.66, height*0.78)
+      },
+      "north-america": {
+        "root": createVector(width*0.33, height*0.88)
+      }
+    }
+    var dataEu = _.find(state.data.children, {"id": "europe"});
+    var dataUsa = _.find(state.data.children, {"id": "north-america"});
+    b1 = new Branch (dataEu.id, dataEu.children, null, len0, randomAngle(PI/15));
+    b2 = new Branch (dataUsa.id, dataUsa.children, null, len0, randomAngle(PI/15));
+    tree1 = new Tree (metadata["europe"].root, b1);
+    tree2 = new Tree (metadata["north-america"].root, b2);
+
+    state.p5setupDone = true;
+  }
+
+  background(244);
+  tree1.run();
+  tree2.run();
+
+  if(!tree1.isAlive() && !tree2.isAlive()){
+    noLoop();
+    state.logp.innerText = "p5 end";
+    state.p5Finished = true;
+  }
+
+}
+
+
+// ----------------------------------------------
+// Tree Class
+// ----------------------------------------------
+
+function Tree (root, branch0) {
+ 
+  // construct
+
+  this.root = root;
+  this.branches = [];
+  this.alive = true;
+ 
+  // methods
+
+  this.addBranch = function (b) {
+    b.attachTo(this);
+    this.branches.push(b);
+  }
+  this.addBranch(branch0);  // finish to construct
+
+  this.run = function () {
+    var aiveBranches = 0;
+    for (var i = 0; i < this.branches.length; i++) {
+      this.branches[i].grow();
+      tf.push();
+      tf.translate(this.root.x, this.root.y);
+      this.branches[i].display();
+      tf.pop();
+
+      if (this.branches[i].isAlive()) {
+        aiveBranches++;
+      }
+    }
+    if (aiveBranches == 0){
+      this.die();
+    }
+  }
+
+  this.die = function () {
+    this.alive = false;
+  }
+  this.isAlive = function () {
+    return this.alive;
+  }
+}
+
+// ----------------------------------------------
+// Branch Class
+// ----------------------------------------------
+
+function Branch (id, children, start, len, angle) {
+
+  // construct
+
+  this.tree = null;
+  this.id = id;
+  this.children = children;
+  this.start = (start != null) ? start.copy() : createVector(0,0);
+  this.len = len;
+  this.angle = angle;
+  
+  this.dir = createVector(0, 1);
+  this.dir.mult(this.len);
+  this.dir.rotate(this.angle);
+  this.end = p5.Vector.sub(this.start, this.dir);
+
+  // this.end = end.copy();
+  this.currentEnd = this.start.copy();
+  this.life = 0;
+  this.branched = false;
+
+  // methods
+
+  this.attachTo = function (tree) {
+    this.tree = tree;
+  }
+
+  this.isAlive = function () {
+    return (this.life < 1);
+  }
+
+  this.incrementLife = function () {
+    this.life += (1 - this.life) * 0.15;
+    if (this.life > 0.99) {
+      this.life = 1;
+
+      // make child branches
+      if (!this.branched && this.children.length > 0) {
+
+        // --- count total children
+
+        var normAngles = [];
+        var totalCount = countChildren(this);
+        var normSum = 0;
+        this.children.forEach(function (child) {
+          var count = countChildren(child);
+          console.log("count", count);
+          var norm = count/totalCount;
+          var normAngle = normSum + norm/2;
+          normAngles.push(normAngle);
+          normSum += norm;
+        });
+        console.log("normAngles", normAngles);
+
+        // --- make branches
+
+        for (var i = 0; i < this.children.length; i++) {
+          var newLen = this.len*0.66 * map(random(), 0,1, 0.8, 1.2);
+          
+          // var newAngle = this.angle + randomAngle(PI/5);
+          var availableAngle = PI*0.6; // PI = 180°
+          var startAngle = -availableAngle/2;
+          var newRelAngle = startAngle + availableAngle*normAngles[i];
+          var newAngle = this.angle + newRelAngle; //randomAngle(PI/5);
+
+          var b = new Branch(this.children[i].id, this.children[i].children, this.end.copy(), newLen, newAngle);
+          this.tree.addBranch(b);
+        }
+        this.branched = true;
+      }
+
+    }
+  }
+
+  this.grow = function () {
+    if (!this.isAlive()) {
+      return; 
+    }
+    this.incrementLife();
+    this.currentEnd.x = map(this.life, 0,1, this.start.x, this.end.x);
+    this.currentEnd.y = map(this.life, 0,1, this.start.y, this.end.y);
+    state.logp.innerText = this.id +" › life: "+ this.life;
+  }
+
+  this.display = function () {
+    if (this.life == 0) {
+      return; 
+    }
+
+
+    /*
+    push();
+    translate(this.pos.x, this.pos.y);
+    rotate(this.vel.heading());
+    ....
+    pop();
+    */
+
+
+    var c1 = color(0,0,0, 50);
+    var c2 = color(0,0,0, 150);
+    stroke(this.isAlive() ? c1 : c2);
+    
+    var op = map(this.life, 0,1, 20,150)
+    stroke(0,0,0, op);
+
+    line(this.start.x, this.start.y, this.currentEnd.x, this.currentEnd.y);
+
+
+
+    sssLine(
+      tf.x + this.start.x, 
+      tf.y + this.start.y, 
+      tf.x + this.currentEnd.x, 
+      tf.y + this.currentEnd.y);
+  }
+}
+
+
+// ----------------------------------------------
+// Listeners & functions
+// ----------------------------------------------
+
+function countChildren (item, sum) {
+  currentSum = sum ? sum : 0;
+  if (item.children.length == 0) return 1;
+  var newSum = 0;
+  item.children.forEach(function(c) {
+    newSum += countChildren(c, currentSum);
+  });
+  return newSum + currentSum;
+}
+
+function addListeners () {
+
+  $("path").mouseover(function(e){ 
+    this.style.fill = "red";
+  });
+
+  $("path").click(function(e){ 
+    this.style.fill = "blue";
+  });
+
+}
+
+
+
+</script></body></html>
