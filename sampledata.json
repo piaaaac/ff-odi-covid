@@ -1,0 +1,103 @@
+{
+  "id": "usa",
+  "children": [{
+    "id": "usa-indv",
+    "children": [{
+      "id": "usa-indv-agri",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }, {
+      "id": "usa-indv-all",
+      "children": [{
+        "id": "0",
+        "children": []
+      }, {
+        "id": "1",
+        "children": []
+      }]
+    }, {
+      "id": "usa-indv-hlth",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }]
+  }, {
+    "id": "usa-inst",
+    "children": [{
+      "id": "usa-inst-hlth",
+      "children": [{
+        "id": "0",
+        "children": []
+      }, {
+        "id": "1",
+        "children": []
+      }, {
+        "id": "2",
+        "children": []
+      }]
+    }, {
+      "id": "usa-inst-all",
+      "children": [{
+        "id": "0",
+        "children": []
+      }, {
+        "id": "1",
+        "children": []
+      }]
+    }, {
+      "id": "usa-inst-imgr",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }]
+  }, {
+    "id": "usa-nat",
+    "children": [{
+      "id": "usa-nat-agri",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }, {
+      "id": "usa-nat-hlth",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }]
+  }, {
+    "id": "usa-reg",
+    "children": [{
+      "id": "usa-reg-econ",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }, {
+      "id": "usa-reg-hlth",
+      "children": [{
+        "id": "0",
+        "children": []
+      }, {
+        "id": "1",
+        "children": []
+      }, {
+        "id": "2",
+        "children": []
+      }, {
+        "id": "3",
+        "children": []
+      }]
+    }, {
+      "id": "usa-reg-tech",
+      "children": [{
+        "id": "0",
+        "children": []
+      }]
+    }]
+  }]
+}

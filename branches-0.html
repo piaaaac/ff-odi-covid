@@ -1,0 +1,466 @@
+<!DOCTYPE html><html><head>
+  <title>Branches test 0</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Demo project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" crossorigin="anonymous">
+  <script src="assets/p5-svg/p5.js"></script>
+  <script src="assets/p5-svg/p5.svg.js"></script>
+  <script src="assets/lodash.js"></script>
+  <script src="assets/functions-polyfills.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    * { margin: 0; padding: 0; }
+    path {
+      cursor: pointer;
+    }
+    p.log {
+      position: absolute; top: 20px; left: 20px;
+    }
+  </style>
+</head>
+<body><script type="text/javascript">
+
+var state = {
+  loading: true,
+  p5setupDone: false
+};
+
+var logp;
+logp = document.createElement("p");
+logp.classList.add("log");
+document.body.appendChild(logp);
+logp.innerText = "loading data";
+
+// --------------------------------------- data start
+var data = {
+  "id": "root",
+  "children": []
+};
+var middata = {};
+$.getJSON( "data/all.json", function(jsonData) {
+  jj = jsonData;
+  for (var i = 0; i < jsonData.length; i++) {
+    var d = jsonData[i];
+    var area = d.area.slug();
+    var level = d["level-simplified"].slug();
+    var sector = d.sector.slug();
+    if (!middata.hasOwnProperty(area)) {
+      middata[area] = {};
+    }
+    if (!middata[area].hasOwnProperty(level)) {
+      middata[area][level] = {};
+    }
+    if (!middata[area][level].hasOwnProperty(sector)) {
+      middata[area][level][sector] = [];
+    }
+    middata[area][level][sector].push(d);
+  }
+
+  console.log("middata", middata);
+
+  var areas = Object.keys(middata);
+  for (var i = 0; i < areas.length; i++) {
+    var area = areas[i];
+    var areaChildrenArray = [];
+    data.children.push({
+      "id": area,
+      "children": areaChildrenArray
+    });
+    var levels = Object.keys(middata[area]);
+    for (var j = 0; j < levels.length; j++) {
+      var level = levels[j];
+      var levelChildrenArray = [];
+      areaChildrenArray.push({
+        "id": level,
+        "children": levelChildrenArray
+      });
+      var sectors = Object.keys(middata[area][level]);
+      for (var k = 0; k < sectors.length; k++) {
+        var sector = sectors[k];
+        var sectorChildrenArray = middata[area][level][sector].map(function (d) {
+          return {
+            "id": area +"---"+ level +"---"+ sector,
+            "children": [],
+            "d": d
+          };
+        });
+        levelChildrenArray.push({
+          "id": sector,
+          "children": sectorChildrenArray
+        });
+      }
+    }
+  }
+
+  console.log("data", data);
+  state.loading = false;
+  logp.innerText = "data loaded.";
+
+
+});
+
+// --------------------------------------- data end
+
+/*
+var europeData = {
+  "id": "0",
+  "children": [{ 
+    "id": "0i",
+    "children": [{ 
+      "id": "0i0",
+      "children" : [{
+        "id": "0i00",
+        "children" : []
+      }]
+    }]
+  },{ 
+    "id": "0l",
+    "children": [{ 
+      "id": "0l0",
+      "children": [{ 
+        "id": "0l00",
+        "children" : []
+      },{ 
+        "id": "0l01",
+        "children" : []
+      },{ 
+        "id": "0l02",
+        "children" : []
+      }]
+    },{ 
+      "id": "0l1",
+      "children": [{ 
+        "id": "0l10",
+        "children" : []
+      }] 
+    },{ 
+      "id": "0l2",
+      "children": [{ 
+        "id": "0l20",
+        "children" : []
+      }]
+    },{ 
+      "id": "0l3",
+      "children": [{ 
+        "id": "0l30",
+        "children" : []
+      },{ 
+        "id": "0l31",
+        "children" : []
+      },{ 
+        "id": "0l32",
+        "children" : []
+      }]
+    },{ 
+      "id": "0l4",
+      "children": [{ 
+        "id": "0l40",
+        "children" : []
+      }]
+    },{ 
+      "id": "0l5",
+      "children": [{ 
+        "id": "0l50",
+        "children" : []
+      }]
+    }]
+  },{ 
+    "id": "0n",
+    "children": [{ 
+      "id": "0n0",
+      "children": [{ 
+        "id": "0n00",
+        "children" : []
+      },{ 
+        "id": "0n01",
+        "children" : []
+      },{ 
+        "id": "0n02",
+        "children" : []
+      }]
+    }, {
+      "id": "0n1",
+      "children": [{ 
+        "id": "0n10",
+        "children" : []
+      },{ 
+        "id": "0n11",
+        "children" : []
+      },{ 
+        "id": "0n12",
+        "children" : []
+      },{ 
+        "id": "0n13",
+        "children" : []
+      },{ 
+        "id": "0n14",
+        "children" : []
+      },{ 
+        "id": "0n15",
+        "children" : []
+      },{ 
+        "id": "0n16",
+        "children" : []
+      },{ 
+        "id": "0n17",
+        "children" : []
+      },{ 
+        "id": "0n18",
+        "children" : []
+      }]
+    }, {
+      "id": "0n2",
+      "children": [{ 
+        "id": "0n20",
+        "children" : []
+      }]
+    }]
+  }]
+};
+*/
+
+                // var b1, b2;
+
+
+var tree1, tree2;
+var randomAngle;
+
+function setup() {
+  // createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, SVG);
+  background(255);
+  strokeWeight(2);
+                  // var start1 = createVector(width/2, height*0.76);
+                  // b1 = new Branch("b1", [], start1, 150, PI/4);
+                  // b2 = new Branch("b2", [], b1.end, 100, PI/2);
+                  // id, children, start, len, angle
+
+  // tree = new Tree (europeData.id, europeData.children, createVector(width/2, height*0.88));
+  randomAngle = function (max) {
+    return map(random(1), 0,1, -max, max);
+  } 
+
+}
+
+function draw() {
+  if (state.loading) {
+    return;
+  }
+  if (!state.p5setupDone) {
+
+    var len0 = 150;
+    var metadata = {
+      "europe": {
+        "root": createVector(width*0.66, height*0.78)
+      },
+      "north-america": {
+        "root": createVector(width*0.33, height*0.88)
+      }
+    }
+    var dataEu = _.find(data.children, {"id": "europe"});
+    var dataUsa = _.find(data.children, {"id": "north-america"});
+    b1 = new Branch (dataEu.id, dataEu.children, null, len0, randomAngle(PI/15));
+    b2 = new Branch (dataUsa.id, dataUsa.children, null, len0, randomAngle(PI/15));
+    tree1 = new Tree (metadata["europe"].root, b1);
+    tree2 = new Tree (metadata["north-america"].root, b2);
+
+    state.p5setupDone = true;
+  }
+  background(255);
+
+                  // if (b1.isAlive()) {
+                  //   b1.grow();
+                  // } else {
+                  //   if (b2.isAlive()) {
+                  //     b2.grow();
+                  //   }
+                  // }
+                  // b1.display();
+                  // b2.display();
+
+  // b0.grow();
+  // b0.display();
+
+  tree1.run();
+  tree2.run();
+
+  if(!tree1.isAlive() && !tree2.isAlive()){
+    console.log("noLoop()")
+    noLoop();
+  }
+  // tree.display();
+}
+
+
+// ----------------------------------------------
+// Tree Class
+// ----------------------------------------------
+
+function Tree (root, branch0) {
+ 
+  // construct
+
+  this.root = root;
+  this.branches = [];
+  this.alive = true;
+  
+  // this.len = 150;
+  // this.angle = PI / random(10, 20);
+  
+  // this.dir = createVector(0, -this.len);
+  // this.dir.rotate(this.angle);
+  // // this.dir.mult(this.len);
+  // var a = this.root;
+  // var b = p5.Vector.add(this.root, this.dir);
+  // var firstBranch = new Branch(this.id, a, b);
+ 
+  // methods
+
+  this.addBranch = function (b) {
+    b.attachTo(this);
+    this.branches.push(b);
+  }
+  this.addBranch(branch0);
+
+  this.run = function () {
+    var aiveBranches = 0;
+    for (var i = 0; i < this.branches.length; i++) {
+      this.branches[i].grow();
+      push();
+      translate(this.root.x, this.root.y);
+      this.branches[i].display();
+      pop();
+
+      if (this.branches[i].isAlive()) {
+        aiveBranches++;
+      }
+    }
+    if (aiveBranches == 0){
+      this.die();
+    }
+  }
+
+  this.die = function () {
+    this.alive = false;
+  }
+  this.isAlive = function () {
+    return this.alive;
+  }
+}
+
+// ----------------------------------------------
+// Branch Class
+// ----------------------------------------------
+
+function Branch (id, children, start, len, angle) {
+
+  // construct
+
+  this.tree = null;
+  this.id = id;
+  this.children = children;
+  this.start = (start != null) ? start.copy() : createVector(0,0);
+  this.len = len;
+  this.angle = angle;
+  
+  this.dir = createVector(0, 1);
+  this.dir.mult(this.len);
+  this.dir.rotate(this.angle);
+  this.end = p5.Vector.sub(this.start, this.dir);
+
+  // this.end = end.copy();
+  this.currentEnd = this.start.copy();
+  this.life = 0;
+  this.branched = false;
+
+  // methods
+
+  this.attachTo = function (tree) {
+    this.tree = tree;
+  }
+
+  this.isAlive = function () {
+    return (this.life < 1);
+  }
+
+  this.incrementLife = function () {
+    this.life += (1 - this.life) * 0.15;
+    if (this.life > 0.99) {
+      this.life = 1;
+
+      // make child branches
+      if (!this.branched && this.children.length > 0) {
+        for (var i = 0; i < this.children.length; i++) {
+          var newLen = this.len*0.66 * map(random(), 0,1, 0.8, 1.2);
+          var newAngle = this.angle + randomAngle(PI/5);
+          var b = new Branch(this.children[i].id, this.children[i].children, this.end.copy(), newLen, newAngle);
+          this.tree.addBranch(b);
+        }
+        this.branched = true;
+      }
+
+    }
+  }
+
+  this.grow = function () {
+    if (!this.isAlive()) {
+      return; 
+    }
+    this.incrementLife();
+    this.currentEnd.x = map(this.life, 0,1, this.start.x, this.end.x);
+    this.currentEnd.y = map(this.life, 0,1, this.start.y, this.end.y);
+    logp.innerText = this.id +" › life: "+ this.life;
+  }
+
+  this.display = function () {
+    if (this.life == 0) {
+      return; 
+    }
+
+
+    /*
+    push();
+    translate(this.pos.x, this.pos.y);
+    rotate(this.vel.heading());
+    ....
+    pop();
+    */
+
+
+    var c1 = color(0,0,0, 50);
+    var c2 = color(0,0,0, 150);
+    stroke(this.isAlive() ? c1 : c2);
+    
+    var op = map(this.life, 0,1, 20,150)
+    stroke(0,0,0, op);
+
+    line(this.start.x, this.start.y, this.currentEnd.x, this.currentEnd.y);
+  }
+}
+
+
+// ----------------------------------------------
+// Listeners & functions
+// ----------------------------------------------
+
+function addListeners () {
+
+  $("path").mouseover(function(e){ 
+    this.style.fill = "red";
+  });
+
+  $("path").click(function(e){ 
+    this.style.fill = "blue";
+  });
+
+}
+
+
+
+</script></body></html>

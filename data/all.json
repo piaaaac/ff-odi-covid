@@ -1,0 +1,317 @@
+[
+  {
+    "days-old": 5,
+    "area": "Europe",
+    "level-simplified": "Individual",
+    "sector": "Hospitality",
+    "target-size": 450.000
+  },
+  {
+    "days-old": 9,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": 13,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": 11,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": 3,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": 7,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Basic Necessities",
+    "target-size": null
+  },
+  {
+    "days-old": 21,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 15,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 24,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 6,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Hospitality",
+    "target-size": 65
+  },
+  {
+    "days-old": 9,
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Hygiene",
+    "target-size": null
+  },
+  {
+    "days-old": 21,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": 14,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": 8,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 5,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 3,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 24,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 100
+  },
+  {
+    "days-old": 15,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 14,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 13,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 30
+  },
+  {
+    "days-old": 10,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 2800
+  },
+  {
+    "days-old": 9,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "days-old": 3,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "days-old": 10,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "days-old": 21,
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Information",
+    "target-size": null
+  },
+  {
+    "days-old": 9,
+    "area": "North America",
+    "level-simplified": "Individual",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Individual",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Individual",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Individual",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": 22,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 40,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 7,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": 3,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Immigration",
+    "target-size": 40.000
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "days-old": 22,
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "days-old": 15,
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 9,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 6,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 4,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Technology",
+    "target-size": null
+  },
+  {
+    "days-old": 2,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Economy",
+    "target-size": null
+  },
+  {
+    "days-old": null,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 19,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "days-old": 19,
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  }
+]
