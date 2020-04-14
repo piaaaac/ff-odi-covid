@@ -8,12 +8,16 @@ To do
 
 ------------------------------------- */
 
+var cnt = document.getElementById("container");
+
 var state = {
   loadingData: true,
   data: {},
   logp: null,
   p5setupDone: false,
   p5Finished: false,
+  w: cnt.offsetWidth,
+  h: cnt.offsetHeight,
 };
 
 setupLogP();
@@ -25,14 +29,13 @@ loadData("data/all.json", function (fullTreeData) {
   state.logp.innerText = "data loaded.";
 });
 
-var cnt = document.getElementById("container");
 
 // ----------------------------------------------
 // SVG.js
 // ----------------------------------------------
 
 var svg = SVG().addTo('#container')
-  .size(cnt.offsetWidth, cnt.offsetHeight)
+  .size(state.w, state.h)
   .addClass("artboard");
 
 var svgStyles = {
@@ -113,36 +116,6 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
   return g;
 }
 
-function moveTree (id, x, y, animate) {
-  var a = animate || false;
-  var g = SVG(".tree#"+ id);
-  var rootBranch = g.findOne(".branch-area");
-  if (!rootBranch.hasOwnProperty("_array")) {
-    g.dmove(0, 0);
-  }
-  var origin = [rootBranch._array[0][1], rootBranch._array[0][2]];
-  // console.log(newOrigin);
-  if (a) {
-    g.animate().transform({
-      origin: origin,
-      position: [x, y],
-    });
-  } else {
-    g.transform({
-      origin: origin,
-      position: [x, y],
-    });
-  }
-}
-
-function selectTree (id) {
-  var g = SVG(".tree#"+ id);
-  g.animate().move(100, 100);
-  // SVG.find("group.tree:not(#"+ groupNode.id +")").animate().attr({ opacity: 0 });
-  // SVG.find(".tree#"+ id).animate().attr({ opacity: 0 });
-}
-
-
 
 // ----------------------------------------------
 // P5
@@ -162,7 +135,7 @@ var len0 = 70;
 function setup() {
   var cvs = createCanvas(100, 100);
   cvs.parent("container");
-  resizeCanvas(cnt.offsetWidth, cnt.offsetHeight);
+  resizeCanvas(state.w, state.h);
 }
 
 function setup2 () {
@@ -230,10 +203,13 @@ function Tree (root, branch0) {
   
   this.addBranch(branch0);
 
-  // other methods
+  // other methods --- draw
 
   this.complete = function () {
     this.drawn = true;
+    this.rootPoint = {};
+    this.rootPoint.x = this.svgGroup.bbox().x;
+    this.rootPoint.y = this.svgGroup.bbox().y;
   }
 
   this.display = function () {
@@ -252,6 +228,57 @@ function Tree (root, branch0) {
       this.complete();
     }
   }
+
+  // other methods --- after drawn
+
+  // this.rootPoint = function () {
+  //   var rootBranch = this.svgGroup.findOne(".branch-area");
+  //   if (!rootBranch.hasOwnProperty("_array")) {
+  //     this.svgGroup.dmove(0, 0);
+  //   }
+  //   var origin = [rootBranch._array[0][1], rootBranch._array[0][2]];
+  //   console.log(origin);
+  // }
+
+  this.moveRoot = function (x, y, animate) {
+    var a = animate || false;
+
+    // var rootBranch = this.svgGroup.findOne(".branch-area");
+    // if (!rootBranch.hasOwnProperty("_array")) {
+    //   this.svgGroup.dmove(0, 0);
+    // }
+    // var origin = [rootBranch._array[0][1], rootBranch._array[0][2]];
+
+    if (a) {
+      this.svgGroup.animate().move(x + this.rootPoint.x, y + this.rootPoint.y);
+    } else {
+      this.svgGroup.move(x + this.rootPoint.x, y + this.rootPoint.y);
+    }
+  }
+
+  this.moveCenter = function (x, y, animate) {
+    var a = animate || false;
+
+    if (a) {
+      this.svgGroup.animate().move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
+    } else {
+      this.svgGroup.move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
+    }
+  }
+
+  this.select = function () {
+    
+    // console.log(this.svgGroup.bbox());
+
+    this.moveCenter(state.w*0.25, state.h/2, true);
+    // this.svgGroup.animate().move(100, 100);
+
+
+    // SVG.find("group.tree:not(#"+ groupNode.id +")").animate().attr({ opacity: 0 });
+    // SVG.find(".tree#"+ id).animate().attr({ opacity: 0 });
+  }
+
+
 }
 
 // ----------------------------------------------
@@ -346,14 +373,6 @@ function Branch (children, start, len, angle, props) {
     var p1 = v1.rotate(angle1).mult(mag).add(this.start);
     var p2 = v2.rotate(angle2).mult(mag).add(this.end);
 
-    // var path = svgBranchCurved(
-      // tf.x + this.start.x,  tf.y + this.start.y, 
-      // tf.x + p1.x,          tf.y + p1.y, 
-      // tf.x + p2.x,          tf.y + p2.y, 
-      // tf.x + this.end.x,    tf.y + this.end.y,
-      // this.props);
-    // this.tree.svgGroup.add(path);
-
     var path = svgBranchCurved(
       this.start.x, this.start.y, 
       p1.x,         p1.y, 
@@ -361,14 +380,6 @@ function Branch (children, start, len, angle, props) {
       this.end.x,   this.end.y,
       this.props);
     this.tree.svgGroup.add(path);
-
-    // p5 skeleton
-    // strokeWeight(0.3);
-    // noFill();
-    // stroke(random(255), random(255), random(255));
-    // circle(p1.x, p1.y, 5);
-    // circle(p2.x, p2.y, 5);
-    // line(this.start.x, this.start.y, this.end.x, this.end.y);
 
     this.drawn = true;
   }
@@ -381,11 +392,18 @@ function Branch (children, start, len, angle, props) {
 
 
 function initialize () {
-  Object.keys(trees).forEach(function(k) {
-    var x = cnt.offsetWidth * Math.random(), 
-        y = cnt.offsetHeight * Math.random();
-    moveTree(k, x, y, true);
-  });
+  var x1 = state.w * 0.20;
+  var x2 = state.w * 0.50;
+  var x3 = state.w * 0.80;
+  var y1 = state.h * 0.45;
+  var y2 = state.h * 0.90;
+  
+  trees["north-america"].moveRoot(x1, y1);
+  trees["europe"].moveRoot(x2, y1);
+  trees["asia"].moveRoot(x3, y1);
+  trees["south-america"].moveRoot(x1, y2);
+  trees["africa"].moveRoot(x2, y2);
+  trees["oceania"].moveRoot(x3, y2);
 }
 
 function countChildren (item, sum) {
