@@ -1,3 +1,14 @@
+<!--  
+
+Trees are calculated from real data
+
+Branches are distanced proportionally to the number of children they carry
+
+Added svg.js to draw on svg canvas in parallel
+
+-->
+
+
 <!DOCTYPE html><html><head>
   <title>Branches test 0</title>
   <meta charset="utf-8">
@@ -145,7 +156,7 @@ var svg = SVG().addTo('#container')
 
 function sssLine (x1, y1, x2, y2) {
   var line = svg.line(x1, y1, x2, y2)
-    .stroke({ color: '#f06', opacity: 0.6, width: 5 });
+    .stroke({ color: '#f06', opacity: 0.6, width: 1 });
 }
 
 

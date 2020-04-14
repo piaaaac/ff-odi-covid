@@ -1,0 +1,126 @@
+*:not(i), *:not(i)::before, *:not(i)::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape while allowing user zoom */ }
+
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary {
+  display: block; }
+
+::-moz-selection {
+  background: white;
+  color: black; }
+
+::selection {
+  background: white;
+  color: black; }
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none; }
+
+button,
+input,
+optgroup,
+select,
+textarea, html input[type="button"],
+input[type="reset"],
+input[type="submit"], button[disabled],
+html input[disabled], button::-moz-focus-inner,
+input::-moz-focus-inner, input[type="checkbox"],
+input[type="radio"], input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button, input[type="search"], input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  border: none;
+  background-image: none;
+  background-color: transparent !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+html body input:-internal-autofill-selected {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: -internal-light-dark-color(black, white) !important; }
+
+/*
+
+@import url('https://fonts.googleapis.com/css?family=Adamina|Playfair+Display:400,400i&display=swap');
+
+$font-display: 'Playfair Display', serif;
+$font-body: 'Adamina', serif;
+$font-sans: sans-serif;
+
+@mixin font-style($font-fam, $xs, $sm, $md, $lg, $xl, $letter-sp, $line-h, $weight, $style){
+  font-family: $font-fam;
+  font-size: $xs;
+  letter-spacing: $letter-sp;
+  line-height: $line-h;
+  font-weight: $weight;
+  font-style: $style;
+  font-stretch: normal;
+  @include media-breakpoint-up(sm) { font-size: $sm; }
+  @include media-breakpoint-up(md) { font-size: $md; }
+  @include media-breakpoint-up(lg) { font-size: $lg; }
+  @include media-breakpoint-up(xl) { font-size: $xl; }  
+}
+
+// --------------------------------------------------------- xs --- sm --- md --- lg --- xl ---- lsp -- lh ---- w --- style
+@mixin font-page-titles { @include font-style($font-display, 80px,  80px,  80px,  80px,  80px,   0,     1.3em,  400,  normal); }
+@mixin font-huge-intro  { @include font-style($font-display, 42px,  42px,  42px,  42px,  42px,   0,     1.3em,  400,  normal); }
+@mixin font-large       { @include font-style($font-display, 27px,  27px,  27px,  27px,  27px,   0,     1.3em,  400,  normal); }
+@mixin font-body        { @include font-style($font-body,    17px,  17px,  17px,  17px,  17px,   0,     1.5em,  400,  normal); }
+@mixin font-small       { @include font-style($font-sans,    15px,  15px,  15px,  15px,  15px,   0,     1.3em,  400,  normal); }
+
+.font-page-titles { @include font-page-titles; }
+.font-huge-intro  { @include font-huge-intro; }
+.font-large       { @include font-large; }
+.font-body        { @include font-body; }
+.font-small       { @include font-small; }
+
+h1 { 
+  @include font-page-titles; 
+  &.product-name {
+    @include font-huge-intro;
+    font-style: italic;
+  }
+}
+h2 { @include font-huge-intro; }
+h3 { @include font-large; }
+
+.font-large, .font-huge-intro, h2, h3 {
+  strong {
+    font-weight: 400;
+    color: $gold-dark;
+    @at-root .bg-grey-dark & {
+      color: $gold-light;
+    }
+  }
+}
+
+*/
+p.log {
+  position: absolute;
+  top: 20px;
+  left: 20px; }
+
+#container {
+  height: 96vh;
+  position: relative;
+  background-color: #E7E5F1; }
+
+svg.artboard {
+  position: absolute;
+  left: 0;
+  top: 0; }
+  svg.artboard .branch-g.story {
+    cursor: pointer; }
+
+/*# sourceMappingURL=index.css.map */

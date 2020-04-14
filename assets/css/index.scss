@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+// ------------------------------------------------------------------------
+// Variables
+// ------------------------------------------------------------------------
+
+$color-bg: #E7E5F1;
+
+// ------------------------------------------------------------------------
+// External files import
+// ------------------------------------------------------------------------
+
+// @import 'bootstrap-scss/_functions';
+// @import 'bootstrap-scss/_variables';
+// @import 'bootstrap-scss/mixins/_breakpoints';
+// @import '_variables';
+@import '_reset';
+@import '_typography';
+@import '_mixins';
+
+
+// ------------------------------------------------------------------------
+// General tags & classes
+// ------------------------------------------------------------------------
+
+p.log {
+  position: absolute; top: 20px; left: 20px;
+}
+
+#container{
+  height: 96vh;
+  position: relative;
+  background-color: $color-bg;
+}
+
+// ------------------------------------------------------------------------
+// Svg
+// ------------------------------------------------------------------------
+
+svg.artboard {
+  position: absolute;
+  left: 0; top: 0;
+
+  .branch-g.story {
+    cursor: pointer; 
+  }
+
+}
