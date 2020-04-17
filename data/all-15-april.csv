@@ -1,0 +1,63 @@
+area,level-simplified,sector,target-size
+Europe,National,Healthcare,30
+Europe,Regional,Information,
+Europe,National,Immigration,
+Europe,National,Healthcare,
+Europe,Regional,Agriculture,
+Europe,Regional,Healthcare,
+Europe,National,Healthcare,100
+Europe,National,Immigration,
+Europe,National,Healthcare,
+Europe,Local,Agriculture,
+Europe,National,Immigration,
+Europe,Local,Hygiene,
+Europe,National,Healthcare,
+Europe,National,Immigration,
+Europe,National,All,
+Europe,Regional,Agriculture,500
+Europe,Local,Hospitality,65
+Europe,National,Healthcare,200
+Europe,National,Healthcare,
+Europe,Local,Basic Necessities,
+Europe,National,Healthcare,2800
+Europe,National,Immigration,
+North America,National,Agriculture,
+North America,National,Healthcare,
+North America,National,Agriculture,
+North America,Regional,Healthcare,
+North America,Regional,Healthcare,
+North America,Regional,Technology,
+North America,Regional,Healthcare,
+Asia & Oceania,National,Healthcare,20000
+Asia & Oceania,National,Healthcare,500
+Latin America,Local,Healthcare,418
+Latin America,National,Healthcare,
+Latin America,Local,Healthcare,
+Latin America,National,Healthcare,
+Latin America,Regional,Healthcare,
+Africa,Local,Basic Necessities,
+Europe,National,Hospitality,"450,000"
+Europe,National,Healthcare,
+Europe,Local,Agriculture,
+Europe,National,Healthcare,
+Europe,National,All,
+Europe,International,Immigration,
+Europe,National,Healthcare,
+Europe,National,Agriculture,"150,000"
+North America,National,Healthcare,
+North America,National,Healthcare,
+North America,National,All,
+North America,National,Healthcare,
+North America,National,All,
+North America,National,Immigration,"40,000"
+North America,National,Healthcare,
+North America,Regional,Healthcare,
+North America,Local,Basic Services,
+North America,Regional,Healthcare,
+North America,Regional,Economy,
+Latin America,National,Healthcare,
+Asia & Oceania,International,Scientists,
+North America,,,
+North America,,,
+North America,,,
+Africa,,,

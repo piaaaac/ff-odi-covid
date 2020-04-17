@@ -4,15 +4,19 @@
 // Variables
 // ------------------------------------------------------------------------
 
-$color-bg: #E7E5F1;
+$color-bg: #EAEBEB;
+$color-coral: #E75F52;
+$color-blue: #3EBFB9;
+$color-green: #147666;
+$header-height: 90px;
 
 // ------------------------------------------------------------------------
 // External files import
 // ------------------------------------------------------------------------
 
-// @import 'bootstrap-scss/_functions';
-// @import 'bootstrap-scss/_variables';
-// @import 'bootstrap-scss/mixins/_breakpoints';
+@import 'bootstrap-scss/_functions';
+@import 'bootstrap-scss/_variables';
+@import 'bootstrap-scss/mixins/_breakpoints';
 // @import '_variables';
 @import '_reset';
 @import '_typography';
@@ -23,14 +27,158 @@ $color-bg: #E7E5F1;
 // General tags & classes
 // ------------------------------------------------------------------------
 
-p.log {
-  position: absolute; top: 20px; left: 20px;
+* {
+  color: black;
 }
 
-#container{
-  height: 96vh;
+// --- links
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 20px;
+  @include font-small-bold;
+  & + a.btn {
+    margin-left: 30px;
+  }
+  &:not(.no-arrow)::after {
+    content: "→";
+    padding-left: 10px;
+  }
+  &.coral {
+    color: white;
+    background-color: $color-coral;
+    &:hover {
+      background-color: darken($color-coral, 5%);
+    }
+  }
+  &.white {
+    color: $color-coral;
+    background-color: white;
+    &:hover {
+      background-color: #f8f8f8;
+      color: $color-coral;
+    }
+  }
+  &.green {
+    color: white;
+    background-color: $color-green;
+    &:hover {
+      background-color: darken($color-green, 5%);
+    }
+  }
+}
+
+#header a.item {
+  @include transition(color 400ms);
+  &.active, &:hover {
+    color: $color-coral;
+  }
+}
+
+#to-top {
+  position: fixed;
+  top: 30px;
+  right: 45px;
+  @include transition(opacity 400ms);
+  &.hide {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+section {
+  padding: 30px;
+
+  &.footer {
+    background-color: $color-green;
+    color: white;
+    a, p {
+      color: white;
+    }
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+p.log {
+  // position: absolute; top: 20px; left: 20px;
+  display: none;
+}
+
+#fill-window {
   position: relative;
-  background-color: $color-bg;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100vh;
+  
+  #container {
+    // height: 80vh;
+    width: 100%;
+    flex-grow: 2;
+    position: relative;
+    background-color: $color-bg;
+  }
+
+  #header {
+    height: $header-height;
+    min-height: $header-height;
+    width: 100%;
+    position: relative;
+    .wrapper-menu-home, .wrapper-menu-full {
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        cursor: pointer;
+      }
+      a.item {
+        margin-left: 20px;
+      }
+    }
+    &.home {
+      .wrapper-menu-home { opacity: 1; pointer-events: all; }
+      .wrapper-menu-full { opacity: 0; pointer-events: none; }
+    }
+    &.full {
+      .wrapper-menu-home { opacity: 0; pointer-events: none; }
+      .wrapper-menu-full { opacity: 1; pointer-events: all; }
+    }
+    &.north-america a[data-value="north-america"] { 
+      color: $color-coral; pointer-events: none; }
+    &.latin-america a[data-value="latin-america"] { 
+      color: $color-coral; pointer-events: none; }
+    &.europe a[data-value="europe"] { 
+      color: $color-coral; pointer-events: none; }
+    &.africa a[data-value="africa"] { 
+      color: $color-coral; pointer-events: none; }
+    &.asia-oceania a[data-value="asia-oceania"] { 
+      color: $color-coral; pointer-events: none; }
+  }
+}
+
+#below {
+  &.hide {
+    display: none;
+  }
 }
 
 // ------------------------------------------------------------------------
@@ -45,4 +193,27 @@ svg.artboard {
     cursor: pointer; 
   }
 
+  g.tree {
+    cursor: pointer;
+    @include transition(opacity 400ms);
+    &.hide {
+      pointer-events: none;
+      opacity: 0;
+    }
+    circle.story-count {
+      @include transition(opacity 400ms);
+    }
+    &:hover circle.story-count {
+      opacity: 0.5;
+    }
+  }
+
+
 }
+
+
+// ------------------------------------------------------------------------
+// Utilities
+// ------------------------------------------------------------------------
+
+.color-white { color: white; }

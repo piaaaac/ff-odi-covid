@@ -1,0 +1,374 @@
+[
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 30
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Regional",
+    "sector": "Information",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Regional",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 100
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Hygiene",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Regional",
+    "sector": "Agriculture",
+    "target-size": 500
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Hospitality",
+    "target-size": 65
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 200
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Basic Necessities",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 2800
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Technology",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Asia & Oceania",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 20000
+  },
+  {
+    "area": "Asia & Oceania",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": 500
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": 418
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "Local",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Africa",
+    "level-simplified": "Local",
+    "sector": "Basic Necessities",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Hospitality",
+    "target-size": 450.000
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "Local",
+    "sector": "Agriculture",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "International",
+    "sector": "Immigration",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Europe",
+    "level-simplified": "National",
+    "sector": "Agriculture",
+    "target-size": 150.000
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "All",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Immigration",
+    "target-size": 40.000
+  },
+  {
+    "area": "North America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Local",
+    "sector": "Basic Services",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "Regional",
+    "sector": "Economy",
+    "target-size": null
+  },
+  {
+    "area": "Latin America",
+    "level-simplified": "National",
+    "sector": "Healthcare",
+    "target-size": null
+  },
+  {
+    "area": "Asia & Oceania",
+    "level-simplified": "International",
+    "sector": "Scientists",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "",
+    "sector": "",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "",
+    "sector": "",
+    "target-size": null
+  },
+  {
+    "area": "North America",
+    "level-simplified": "",
+    "sector": "",
+    "target-size": null
+  },
+  {
+    "area": "Africa",
+    "level-simplified": "",
+    "sector": "",
+    "target-size": null
+  }
+]

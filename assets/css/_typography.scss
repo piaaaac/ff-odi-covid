@@ -4,13 +4,31 @@
 // Fonts
 // ------------------------------------------------------------------------
 
-/*
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Adamina|Playfair+Display:400,400i&display=swap');
+@font-face {
+  font-family: Sabon;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/sabon/SabonMTStd-Regular.otf") format("opentype");
+}
 
-$font-display: 'Playfair Display', serif;
-$font-body: 'Adamina', serif;
-$font-sans: sans-serif;
+@font-face {
+  font-family: Sabon;
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/sabon/SabonMTStd-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Sabon;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/sabon/SabonMTStd-Semibold.otf") format("opentype");
+}
+
+$font-serif: "Sabon", serif;
+$font-sans: "Karla", sans-serif;
 
 @mixin font-style($font-fam, $xs, $sm, $md, $lg, $xl, $letter-sp, $line-h, $weight, $style){
   font-family: $font-fam;
@@ -27,41 +45,37 @@ $font-sans: sans-serif;
 }
 
 // --------------------------------------------------------- xs --- sm --- md --- lg --- xl ---- lsp -- lh ---- w --- style
-@mixin font-page-titles { @include font-style($font-display, 80px,  80px,  80px,  80px,  80px,   0,     1.3em,  400,  normal); }
-@mixin font-huge-intro  { @include font-style($font-display, 42px,  42px,  42px,  42px,  42px,   0,     1.3em,  400,  normal); }
-@mixin font-large       { @include font-style($font-display, 27px,  27px,  27px,  27px,  27px,   0,     1.3em,  400,  normal); }
-@mixin font-body        { @include font-style($font-body,    17px,  17px,  17px,  17px,  17px,   0,     1.5em,  400,  normal); }
-@mixin font-small       { @include font-style($font-sans,    15px,  15px,  15px,  15px,  15px,   0,     1.3em,  400,  normal); }
+@mixin font-serif-xl    { @include font-style($font-serif,   40px,  40px,  40px,  40px,  40px,   0,     1.3em,  600,  normal); }
+@mixin font-serif-l     { @include font-style($font-serif,   27px,  27px,  27px,  27px,  27px,   0,     1.3em,  600,  normal); }
+@mixin font-serif-m     { @include font-style($font-serif,   21px,  21px,  21px,  21px,  21px,   0,     1.3em,  600,  normal); }
+@mixin font-body        { @include font-style($font-serif,   21px,  21px,  21px,  21px,  21px,   0,     1.3em,  400,  normal); }
+@mixin font-small       { @include font-style($font-sans,    14px,  14px,  14px,  14px,  14px,   0,     1.3em,  400,  normal); }
+@mixin font-small-bold  { @include font-style($font-sans,    14px,  14px,  14px,  14px,  14px,   0,     1.3em,  700,  normal); }
 
-.font-page-titles { @include font-page-titles; }
-.font-huge-intro  { @include font-huge-intro; }
-.font-large       { @include font-large; }
+.font-serif-xl    { @include font-serif-xl; }
+.font-serif-l     { @include font-serif-l; }
+.font-serif-m     { @include font-serif-m; }
 .font-body        { @include font-body; }
 .font-small       { @include font-small; }
+.font-small-bold  { @include font-small-bold; }
 
-h1 { 
-  @include font-page-titles; 
-  &.product-name {
-    @include font-huge-intro;
-    font-style: italic;
-  }
-}
-h2 { @include font-huge-intro; }
-h3 { @include font-large; }
+// h1 { 
+//   @include font-page-titles; 
+//   &.product-name {
+//     @include font-huge-intro;
+//     font-style: italic;
+//   }
+// }
+// h2 { @include font-huge-intro; }
+// h3 { @include font-large; }
 
-.font-large, .font-huge-intro, h2, h3 {
-  strong {
-    font-weight: 400;
-    color: $gold-dark;
-    @at-root .bg-grey-dark & {
-      color: $gold-light;
-    }
-  }
-}
-
-*/
-
-
-
-
+// .font-large, .font-huge-intro, h2, h3 {
+//   strong {
+//     font-weight: 400;
+//     color: $gold-dark;
+//     @at-root .bg-grey-dark & {
+//       color: $gold-light;
+//     }
+//   }
+// }
 

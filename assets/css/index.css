@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 *:not(i), *:not(i)::before, *:not(i)::after {
   margin: 0;
   padding: 0;
@@ -50,71 +52,301 @@ html body input:-internal-autofill-selected {
   background-image: none !important;
   color: -internal-light-dark-color(black, white) !important; }
 
-/*
+@font-face {
+  font-family: Sabon;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/sabon/SabonMTStd-Regular.otf") format("opentype"); }
+@font-face {
+  font-family: Sabon;
+  font-style: italic;
+  font-weight: 400;
+  src: url("../fonts/sabon/SabonMTStd-Italic.otf") format("opentype"); }
+@font-face {
+  font-family: Sabon;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/sabon/SabonMTStd-Semibold.otf") format("opentype"); }
+.font-serif-xl {
+  font-family: "Sabon", serif;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-serif-xl {
+      font-size: 40px; } }
+  @media (min-width: 768px) {
+    .font-serif-xl {
+      font-size: 40px; } }
+  @media (min-width: 992px) {
+    .font-serif-xl {
+      font-size: 40px; } }
+  @media (min-width: 1200px) {
+    .font-serif-xl {
+      font-size: 40px; } }
 
-@import url('https://fonts.googleapis.com/css?family=Adamina|Playfair+Display:400,400i&display=swap');
+.font-serif-l {
+  font-family: "Sabon", serif;
+  font-size: 27px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-serif-l {
+      font-size: 27px; } }
+  @media (min-width: 768px) {
+    .font-serif-l {
+      font-size: 27px; } }
+  @media (min-width: 992px) {
+    .font-serif-l {
+      font-size: 27px; } }
+  @media (min-width: 1200px) {
+    .font-serif-l {
+      font-size: 27px; } }
 
-$font-display: 'Playfair Display', serif;
-$font-body: 'Adamina', serif;
-$font-sans: sans-serif;
+.font-serif-m {
+  font-family: "Sabon", serif;
+  font-size: 21px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-serif-m {
+      font-size: 21px; } }
+  @media (min-width: 768px) {
+    .font-serif-m {
+      font-size: 21px; } }
+  @media (min-width: 992px) {
+    .font-serif-m {
+      font-size: 21px; } }
+  @media (min-width: 1200px) {
+    .font-serif-m {
+      font-size: 21px; } }
 
-@mixin font-style($font-fam, $xs, $sm, $md, $lg, $xl, $letter-sp, $line-h, $weight, $style){
-  font-family: $font-fam;
-  font-size: $xs;
-  letter-spacing: $letter-sp;
-  line-height: $line-h;
-  font-weight: $weight;
-  font-style: $style;
-  font-stretch: normal;
-  @include media-breakpoint-up(sm) { font-size: $sm; }
-  @include media-breakpoint-up(md) { font-size: $md; }
-  @include media-breakpoint-up(lg) { font-size: $lg; }
-  @include media-breakpoint-up(xl) { font-size: $xl; }  
-}
+.font-body {
+  font-family: "Sabon", serif;
+  font-size: 21px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-body {
+      font-size: 21px; } }
+  @media (min-width: 768px) {
+    .font-body {
+      font-size: 21px; } }
+  @media (min-width: 992px) {
+    .font-body {
+      font-size: 21px; } }
+  @media (min-width: 1200px) {
+    .font-body {
+      font-size: 21px; } }
 
-// --------------------------------------------------------- xs --- sm --- md --- lg --- xl ---- lsp -- lh ---- w --- style
-@mixin font-page-titles { @include font-style($font-display, 80px,  80px,  80px,  80px,  80px,   0,     1.3em,  400,  normal); }
-@mixin font-huge-intro  { @include font-style($font-display, 42px,  42px,  42px,  42px,  42px,   0,     1.3em,  400,  normal); }
-@mixin font-large       { @include font-style($font-display, 27px,  27px,  27px,  27px,  27px,   0,     1.3em,  400,  normal); }
-@mixin font-body        { @include font-style($font-body,    17px,  17px,  17px,  17px,  17px,   0,     1.5em,  400,  normal); }
-@mixin font-small       { @include font-style($font-sans,    15px,  15px,  15px,  15px,  15px,   0,     1.3em,  400,  normal); }
+.font-small {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-small {
+      font-size: 14px; } }
+  @media (min-width: 768px) {
+    .font-small {
+      font-size: 14px; } }
+  @media (min-width: 992px) {
+    .font-small {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    .font-small {
+      font-size: 14px; } }
 
-.font-page-titles { @include font-page-titles; }
-.font-huge-intro  { @include font-huge-intro; }
-.font-large       { @include font-large; }
-.font-body        { @include font-body; }
-.font-small       { @include font-small; }
+.font-small-bold {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    .font-small-bold {
+      font-size: 14px; } }
+  @media (min-width: 768px) {
+    .font-small-bold {
+      font-size: 14px; } }
+  @media (min-width: 992px) {
+    .font-small-bold {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    .font-small-bold {
+      font-size: 14px; } }
 
-h1 { 
-  @include font-page-titles; 
-  &.product-name {
-    @include font-huge-intro;
-    font-style: italic;
-  }
-}
-h2 { @include font-huge-intro; }
-h3 { @include font-large; }
+* {
+  color: black; }
 
-.font-large, .font-huge-intro, h2, h3 {
-  strong {
-    font-weight: 400;
-    color: $gold-dark;
-    @at-root .bg-grey-dark & {
-      color: $gold-light;
-    }
-  }
-}
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none; }
+  a:hover {
+    color: inherit;
+    text-decoration: none; }
 
-*/
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 20px;
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal; }
+  @media (min-width: 576px) {
+    a.btn {
+      font-size: 14px; } }
+  @media (min-width: 768px) {
+    a.btn {
+      font-size: 14px; } }
+  @media (min-width: 992px) {
+    a.btn {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    a.btn {
+      font-size: 14px; } }
+  a.btn + a.btn {
+    margin-left: 30px; }
+  a.btn:not(.no-arrow)::after {
+    content: "→";
+    padding-left: 10px; }
+  a.btn.coral {
+    color: white;
+    background-color: #E75F52; }
+    a.btn.coral:hover {
+      background-color: #e44a3c; }
+  a.btn.white {
+    color: #E75F52;
+    background-color: white; }
+    a.btn.white:hover {
+      background-color: #f8f8f8;
+      color: #E75F52; }
+  a.btn.green {
+    color: white;
+    background-color: #147666; }
+    a.btn.green:hover {
+      background-color: #106053; }
+
+#header a.item {
+  -webkit-transition: color 400ms;
+  -moz-transition: color 400ms;
+  -ms-transition: color 400ms;
+  -o-transition: color 400ms;
+  transition: color 400ms; }
+  #header a.item.active, #header a.item:hover {
+    color: #E75F52; }
+
+#to-top {
+  position: fixed;
+  top: 30px;
+  right: 45px;
+  -webkit-transition: opacity 400ms;
+  -moz-transition: opacity 400ms;
+  -ms-transition: opacity 400ms;
+  -o-transition: opacity 400ms;
+  transition: opacity 400ms; }
+  #to-top.hide {
+    pointer-events: none;
+    opacity: 0; }
+
+section {
+  padding: 30px; }
+  section.footer {
+    background-color: #147666;
+    color: white; }
+    section.footer a, section.footer p {
+      color: white; }
+    section.footer p {
+      margin-bottom: 0.5em; }
+
 p.log {
-  position: absolute;
-  top: 20px;
-  left: 20px; }
+  display: none; }
 
-#container {
-  height: 96vh;
+#fill-window {
   position: relative;
-  background-color: #E7E5F1; }
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100vh; }
+  #fill-window #container {
+    width: 100%;
+    flex-grow: 2;
+    position: relative;
+    background-color: #EAEBEB; }
+  #fill-window #header {
+    height: 90px;
+    min-height: 90px;
+    width: 100%;
+    position: relative; }
+    #fill-window #header .wrapper-menu-home, #fill-window #header .wrapper-menu-full {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #fill-window #header .wrapper-menu-home .logo, #fill-window #header .wrapper-menu-full .logo {
+        cursor: pointer; }
+      #fill-window #header .wrapper-menu-home a.item, #fill-window #header .wrapper-menu-full a.item {
+        margin-left: 20px; }
+    #fill-window #header.home .wrapper-menu-home {
+      opacity: 1;
+      pointer-events: all; }
+    #fill-window #header.home .wrapper-menu-full {
+      opacity: 0;
+      pointer-events: none; }
+    #fill-window #header.full .wrapper-menu-home {
+      opacity: 0;
+      pointer-events: none; }
+    #fill-window #header.full .wrapper-menu-full {
+      opacity: 1;
+      pointer-events: all; }
+    #fill-window #header.north-america a[data-value="north-america"] {
+      color: #E75F52;
+      pointer-events: none; }
+    #fill-window #header.latin-america a[data-value="latin-america"] {
+      color: #E75F52;
+      pointer-events: none; }
+    #fill-window #header.europe a[data-value="europe"] {
+      color: #E75F52;
+      pointer-events: none; }
+    #fill-window #header.africa a[data-value="africa"] {
+      color: #E75F52;
+      pointer-events: none; }
+    #fill-window #header.asia-oceania a[data-value="asia-oceania"] {
+      color: #E75F52;
+      pointer-events: none; }
+
+#below.hide {
+  display: none; }
 
 svg.artboard {
   position: absolute;
@@ -122,5 +354,26 @@ svg.artboard {
   top: 0; }
   svg.artboard .branch-g.story {
     cursor: pointer; }
+  svg.artboard g.tree {
+    cursor: pointer;
+    -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    transition: opacity 400ms; }
+    svg.artboard g.tree.hide {
+      pointer-events: none;
+      opacity: 0; }
+    svg.artboard g.tree circle.story-count {
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
+      transition: opacity 400ms; }
+    svg.artboard g.tree:hover circle.story-count {
+      opacity: 0.5; }
+
+.color-white {
+  color: white; }
 
 /*# sourceMappingURL=index.css.map */

@@ -2,13 +2,25 @@
 
 To do
 
-- Svg group for each tree
+- consider css transitions and transformations instead of svg.js
+  - can't use to position, use svg.js instead 
+    (ie/edge support issues https://css-tricks.com/transforms-on-svg-elements/)
 
-- Circle under each tree
+
+SELECT A TREE
+- #header: change class (- home, + full)
+- #header: add area class (after removing all area classes)
+- move tree and hide others
+- make sure content below is hidden
+
+SELECT A STORY
+- if tree is not selected, do it
+- show story content
 
 ------------------------------------- */
 
 var cnt = document.getElementById("container");
+var animms = 600;
 
 var state = {
   loadingData: true,
@@ -18,17 +30,27 @@ var state = {
   p5Finished: false,
   w: cnt.offsetWidth,
   h: cnt.offsetHeight,
+  treePositions: {},
+  selectedArea: null,
 };
 
 setupLogP();
 
-loadData("data/all.json", function (fullTreeData) {
+loadData("data/all-15-april.json", function (fullTreeData) {
   state.data = fullTreeData;
   console.log("state.data", state.data);
   state.loadingData = false;
   state.logp.innerText = "data loaded.";
 });
 
+
+// ----------------------------------------------
+// jQuery start
+// ----------------------------------------------
+
+// $(document).ready(function() {
+//   if ($(document).scrollTop() > 0)
+// });
 
 // ----------------------------------------------
 // SVG.js
@@ -46,13 +68,13 @@ var svgStyles = {
     "stroke-linecap": "round"
   },
   "friut": {
-    "fill": "#B92E6C",
-    "stroke": "#E7E5F1",
+    "fill": "#E75F52",
+    "stroke": "#EAEBEB",
     "stroke-width": 1,
   },
   "friut-selected": {
     "fill": "none",
-    "stroke": "#B92E6C",
+    "stroke": "#E75F52",
     "stroke-width": 0.5,
     "opacity": 0,
   },
@@ -88,15 +110,12 @@ function svgBranchStraight (x1, y1, x2, y2, props) {
 
 function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
   var g = svg.group()
-    .addClass("branch-g")
+    .addClass("branch-g").addClass(props.class)
     .attr("id", props.id)
     .data(props);
-  if (props.dimension == "story") {
-    g.addClass("story");
-  }
   var additionalStyle = {
     "stroke-width": (props.depth < 3) ? 2 : (props.depth == 3) ? 0.7 : 0.5,
-    "stroke": (props.depth <= 3) ? "#000" : "#B92E6C",
+    "stroke": (props.depth <= 3) ? "#000" : "#E75F52",
     "stroke-dasharray": (props.dimension != "level") ? "" 
       : (props.value == "local") ? "7 5"
       : (props.value == "individual") ? "0 5"
@@ -111,7 +130,8 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
   if (props.dimension == "story") {
     g.path(pathString).attr(svgStyles["transp-sensi"]);
     g.circle(csize).attr(svgStyles.friut).attr({ cx: x, cy: y });
-    g.circle(csize2).attr(svgStyles["friut-selected"]).addClass("selected").attr({ cx: x, cy: y });
+    g.circle(csize).attr(svgStyles["transp-sensi"]).attr({ cx: x, cy: y });
+    g.circle(csize2).attr(svgStyles["friut-selected"]).addClass("selection-circle").attr({ cx: x, cy: y });
   }
   return g;
 }
@@ -122,15 +142,28 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
 // ----------------------------------------------
 
 var trees = {
-  "north-america": null,
-  "south-america": null,
+
+
   "europe": null,
+  "north-america": null,
+  "asia-oceania": null,
+  "latin-america": null,
   "africa": null,
-  "asia": null,
-  "oceania": null,
+
+  // "north-america": null,
+  // "south-america": null,
+  // "europe": null,
+  // "africa": null,
+  // "asia": null,
+  // "oceania": null,
 };
 // var tf = new Transformer();
-var len0 = 70;
+
+// PARAMS
+// var len0 = 70;
+var lenW = state.w / 17;
+var lenH = state.h / 9;
+var len0 = Math.min(lenW, lenH);
 
 function setup() {
   var cvs = createCanvas(100, 100);
@@ -144,7 +177,9 @@ function setup2 () {
   } 
   Object.keys(trees).forEach(function(key, i) {
     var data = _.find(state.data.children, function (e) { return e.props.id == key; });
-    var b = new Branch (data.children, null, len0, randomAngle(PI/15), data.props);
+    var totalTreeStories = countChildren(data);
+    data.props.totalTreeStories = totalTreeStories;
+    var b = new Branch (data.children, null, len0*0.5, randomAngle(PI/20), data.props);
     var t = new Tree (createVector(0,0), b);
     trees[key] = t;
   });
@@ -189,8 +224,10 @@ function Tree (root, branch0) {
   this.root = root;
   this.branches = [];
   this.storyCount = countChildren(branch0, 0);
-  this.svgGroup = svg.group().addClass("tree").attr({ id: branch0.props.id });
   this.drawn = false;
+  this.svgGroup = svg.group()
+    .addClass("tree").addClass("hide")
+    .attr({ "id": branch0.props.id });
  
   // methods essential to construct
 
@@ -204,13 +241,6 @@ function Tree (root, branch0) {
   this.addBranch(branch0);
 
   // other methods --- draw
-
-  this.complete = function () {
-    this.drawn = true;
-    this.rootPoint = {};
-    this.rootPoint.x = this.svgGroup.bbox().x;
-    this.rootPoint.y = this.svgGroup.bbox().y;
-  }
 
   this.display = function () {
     if (this.drawn) {
@@ -229,6 +259,32 @@ function Tree (root, branch0) {
     }
   }
 
+  this.complete = function () {
+    
+    // --- draw bg, root point, data circle and Area name
+
+    this.svgGroup
+      .rect(this.svgGroup.bbox().w, this.svgGroup.bbox().h)
+      .move(this.svgGroup.bbox().x, this.svgGroup.bbox().y)
+      .back()
+      .attr({ "fill": "red", "opacity": 0 });
+
+    this.svgGroup
+      .circle(this.storyCount * len0/10)
+      .cx(0).cy(0)
+      .addClass("story-count")
+      .back()
+      .attr({ "fill": "#3EBFB9", opacity: 0.25 });
+
+    this.svgGroup
+      .circle(4).cx(0).cy(0).attr({ "fill": "black" });
+
+    this.drawn = true;
+    this.rootPoint = {};
+    this.rootPoint.x = this.svgGroup.bbox().x;
+    this.rootPoint.y = this.svgGroup.bbox().y;
+  }
+
   // other methods --- after drawn
 
   // this.rootPoint = function () {
@@ -241,44 +297,55 @@ function Tree (root, branch0) {
   // }
 
   this.moveRoot = function (x, y, animate) {
-    var a = animate || false;
-
-    // var rootBranch = this.svgGroup.findOne(".branch-area");
-    // if (!rootBranch.hasOwnProperty("_array")) {
-    //   this.svgGroup.dmove(0, 0);
-    // }
-    // var origin = [rootBranch._array[0][1], rootBranch._array[0][2]];
-
-    if (a) {
-      this.svgGroup.animate().move(x + this.rootPoint.x, y + this.rootPoint.y);
-    } else {
-      this.svgGroup.move(x + this.rootPoint.x, y + this.rootPoint.y);
-    }
+    var ms = (animate === true) ? animms : 0;
+    this.svgGroup.animate(ms).move(x + this.rootPoint.x, y + this.rootPoint.y);
   }
 
   this.moveCenter = function (x, y, animate) {
-    var a = animate || false;
-
-    if (a) {
-      this.svgGroup.animate().move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
-    } else {
-      this.svgGroup.move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
-    }
+    var ms = (animate === true) ? animms : 0;
+    this.svgGroup.animate(ms).move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
   }
 
-  this.select = function () {
-    
-    // console.log(this.svgGroup.bbox());
-
-    this.moveCenter(state.w*0.25, state.h/2, true);
-    // this.svgGroup.animate().move(100, 100);
-
-
-    // SVG.find("group.tree:not(#"+ groupNode.id +")").animate().attr({ opacity: 0 });
-    // SVG.find(".tree#"+ id).animate().attr({ opacity: 0 });
+  this.show = function (/*animate*/) {
+    // var ms = (animate === true) ? animms : 0;
+    // this.svgGroup.animate(ms).opacity(1);
+    this.svgGroup.removeClass("hide");
   }
 
+  this.hide = function (/*animate*/) {
+    // var ms = (animate === true) ? animms : 0;
+    // this.svgGroup.animate(ms).opacity(0);
+    this.svgGroup.addClass("hide");
+  }
 
+  this.isVisible = function () {
+    return !this.svgGroup.hasClass("hide");
+  }
+
+  this.moveLeft = function (animate) {
+    this.moveCenter(state.w*0.25, state.h/2, animate);
+  }
+
+  this.moveInPosition = function (animate) {
+    var pos = state.treePositions[this.id];
+    this.moveRoot(pos.x, pos.y, animate);
+  }
+
+  this.selectStory = function (id) {
+
+  }
+
+  this.scale = function (factor, animate) { // BROKEN
+    var ms = (animate === true) ? animms : 0;
+    this.svgGroup
+      .animate(ms)
+      .transform({
+        translateX: -this.rootPoint.x,
+        translateY: -this.rootPoint.y,
+        scale: factor 
+      });
+
+  }
 }
 
 // ----------------------------------------------
@@ -295,6 +362,9 @@ function Branch (children, start, len, angle, props) {
   this.len = len;
   this.angle = angle;
   this.props = props;
+  this.curveDir = this.props.hasOwnProperty("forceCurveDir") 
+    ? this.props.forceCurveDir
+    : (random(1) > 0.5) ? -1 : 1;
   
   this.dir = createVector(0, 1);
   this.dir.mult(this.len);
@@ -330,22 +400,29 @@ function Branch (children, start, len, angle, props) {
 
       for (var i = 0; i < this.children.length; i++) {
         
-        // --- V1
-        // var newLen = this.len*0.66 * map(random(), 0,1, 0.9, 1.1);
-        // var availableAngle = PI*0.8; // PI = 180°
-        
-        // --- V2
+        // --- PARAMS
+        var chNum = countChildren(this.children[i], 0);
         var dimension = this.children[i].props.dimension;
-        var newLen = (dimension == "area") ? len0 * 0.2
-          : (dimension == "level") ? len0 * 1.6
-          : (dimension == "sector") ? len0 * 0.5
-          : len0 * 0.4; // story
-        var newLen = newLen * map(random(), 0,1, 0.9, 1.1);
-        var availableAngle = PI*0.5; // PI = 180°
+        var newLen = (dimension == "area") ? len0 * 0.2 // never happens, defined on tree creation
+          : (dimension == "level") ? len0           * map(chNum, 1,25, 1, 2.5)  // level
+          : (dimension == "sector") ? len0          * random(0.5, 0.8)  // sector
+          : len0                                    * random(0.4, 0.6); // story
+        
+        // total angle --- ( PI = 180° )
+        var availableAngle = (dimension == "level") 
+          ? PI * 0.45 * map(this.props.totalTreeStories, 1,35, 0.8, 1.6)
+          : PI * 0.55;
 
         var startAngle = -availableAngle/2;
         var newRelAngle = startAngle + availableAngle*normAngles[i];
         var newAngle = this.angle + newRelAngle; //randomAngle(PI/5);
+
+        // edit props
+        this.children[i].props.totalTreeStories = this.props.totalTreeStories;
+        if (this.children.length == 1) {
+          this.children[i].props.forceCurveDir = -this.curveDir;
+        }
+
         var b = new Branch(
           this.children[i].children, 
           this.end.copy(), 
@@ -368,7 +445,10 @@ function Branch (children, start, len, angle, props) {
     var mag = 0.3;
     var v1 = p5.Vector.sub(this.end, this.start);
     var v2 = p5.Vector.sub(this.start, this.end);
-    var angle1 = random() > 0.5 ? angle : -angle;
+    
+    // var angle1 = random() > 0.5 ? angle : -angle;
+    var angle1 = angle * this.curveDir;
+
     var angle2 = angle1 != angle ? angle : -angle;
     var p1 = v1.rotate(angle1).mult(mag).add(this.start);
     var p2 = v2.rotate(angle2).mult(mag).add(this.end);
@@ -390,21 +470,211 @@ function Branch (children, start, len, angle, props) {
 // Listeners & functions
 // ----------------------------------------------
 
+// --- Regarding interaction w/ trees and branches
 
 function initialize () {
-  var x1 = state.w * 0.20;
-  var x2 = state.w * 0.50;
-  var x3 = state.w * 0.80;
-  var y1 = state.h * 0.45;
-  var y2 = state.h * 0.90;
-  
-  trees["north-america"].moveRoot(x1, y1);
-  trees["europe"].moveRoot(x2, y1);
-  trees["asia"].moveRoot(x3, y1);
-  trees["south-america"].moveRoot(x1, y2);
-  trees["africa"].moveRoot(x2, y2);
-  trees["oceania"].moveRoot(x3, y2);
+
+  state.treePositions = updateTreesPos();
+
+  Object.keys(trees).forEach(function (k) {
+    // trees[k].hide();
+    trees[k].moveInPosition();
+  });
+  setTimeout(function() {
+    Object.keys(trees).forEach(function (k) {
+      trees[k].show();
+    });
+  }, animms);
 }
+
+
+function updateTreesPos () {
+  var x1 = state.w * 0.15;
+  var x4 = state.w * 0.325;
+  var x2 = state.w * 0.50;
+  var x5 = state.w * 0.675;
+  var x3 = state.w * 0.85;
+  var y1 = state.h * 0.50;
+  var y2 = state.h * 0.85;
+  return {
+    "north-america":  { "x": x1, "y": y1 },
+    "europe":         { "x": x2, "y": y1 },
+    "asia-oceania":   { "x": x3, "y": y1 },
+    "latin-america":  { "x": x4, "y": y2 },
+    "africa":         { "x": x5, "y": y2 },
+  };
+}
+
+
+function showTrees (/*animate*/) {
+  Object.keys(trees).forEach(function (k) {
+    if (!trees[k].isVisible()) {
+      trees[k].show(/*animate*/);
+    }
+  });
+}
+
+
+function hideTrees (/*animate*/) {
+  Object.keys(trees).forEach(function (k) {
+    if (trees[k].isVisible()) {
+      trees[k].hide(/*animate*/);
+    }
+  });
+}
+
+
+function repositionAllTrees (animate) {
+  Object.keys(trees).forEach(function (k) {
+    var pos = state.treePositions[k];
+    trees[k].moveRoot(pos.x, pos.y, animate);
+  });
+}
+
+
+function selectArea (id) {
+
+  if (id === null) {
+    if (state.selectedArea !== null) {
+      var oldId = state.selectedArea;
+      trees[oldId].moveInPosition(true);
+      setTimeout(function() { showTrees(/*true*/); }, animms);
+      state.selectedArea = null;
+    }
+    updateHeader();
+    return;
+  }
+
+  if (state.selectedArea !== null) {
+    var oldId = state.selectedArea;
+    state.selectedArea = id;
+    trees[oldId].hide(true);
+    setTimeout(function() { trees[oldId].moveInPosition(); }, animms);
+    trees[state.selectedArea].moveLeft();
+    trees[state.selectedArea].show(true);
+  } else {
+    hideTrees(/*true*/);
+    state.selectedArea = id;
+    setTimeout(function() { 
+      trees[state.selectedArea].moveLeft(); 
+      trees[state.selectedArea].show(true);
+    }, animms*2);
+  }
+
+  toggleBelow(false);
+  updateHeader();
+}
+
+function updateHeader () {
+  $("#header")
+    .removeClass("europe")
+    .removeClass("north-america")
+    .removeClass("asia-oceania")
+    .removeClass("latin-america")
+    .removeClass("africa");
+  if (state.selectedArea){
+    $("#header").addClass(state.selectedArea);
+  }
+}
+
+// --- Listeners and events
+
+function addListeners () {
+
+  $("svg .branch-g").mouseover(function(e){ 
+    // this.instance.find(".branch-path").animate(200).attr(svgStyles.hover);
+    this.instance.find(".selection-circle").attr({ opacity: 1 });
+    state.logp.innerText = this.dataset.value.toUpperCase();
+  });
+
+  $("svg .branch-g").mouseout(function(e){ 
+    // this.instance.find(".branch-path").animate(200).attr(svgStyles.normal);
+    this.instance.find(".selection-circle").attr({ opacity: 0 });
+    state.logp.innerText = "";
+  });
+
+  $("svg .branch-story").click(function(e){ 
+    e.stopPropagation();
+    var area = this.dataset.id.split("---")[0];
+    var level = this.dataset.id.split("---")[1];
+    var sector = this.dataset.id.split("---")[2];
+    var id = this.dataset.id.split("---")[3];
+    console.log("area", area);
+    console.log("level", level);
+    console.log("sector", sector);
+    console.log("id", id);
+  });
+
+  $("svg g.tree").click(function(e){ 
+    // if (!trees[this.id].isVisible()) {
+    //   return;
+    // }
+    if (state.selectedArea !== this.id) {
+      selectArea(this.id);
+    }
+  });
+
+  $("#header .item").click(function(e) {
+    handleMenuClick(e.target.dataset.type, e.target.dataset.value);
+  });
+
+  $("#header .logo").click(function(e) {
+    handleMenuClick("area", null);
+  });
+
+  $("#to-top").click(function() {
+    $(this).addClass("hide");
+    $("html, body").animate({ "scrollTop": 0 }, animms);
+  });
+
+}
+
+
+function handleMenuClick (type, value) {
+  if (type == "area") {
+    selectArea(value);
+  } else if (type == "anchor") {
+    var wait = 0;
+    if (state.selectedArea !== null) {
+      selectArea(null);
+      wait = animms;
+    }
+    setTimeout(function() {
+      toggleBelow(true, function () {
+        var to = $("#"+ value).offset().top;
+        $("html, body").animate({ "scrollTop": to }, animms);
+      });
+    }, wait);
+  }
+}
+
+
+// --- Utilities
+
+
+function toggleBelow (show, callback) {
+
+  $("#to-top").toggleClass("hide", !show);
+
+  if (!$("#below").hasClass("hide") === show) {
+    if (callback) {
+      callback();
+    }
+    return;
+  }
+
+  if (show === true) {
+    $("#below").removeClass("hide");
+    callback();
+  } else if (show === false) {
+    $("html, body").animate({ "scrollTop": 0 }, animms, function() {
+      $("#below").addClass("hide");
+    });
+  } else {
+    throw "show parameter missing.";
+  }
+}
+
 
 function countChildren (item, sum) {
   currentSum = sum ? sum : 0;
@@ -416,26 +686,6 @@ function countChildren (item, sum) {
   return newSum + currentSum;
 }
 
-function addListeners () {
-
-  $("svg .branch-g").mouseover(function(e){ 
-    // this.instance.find(".branch-path").animate(200).attr(svgStyles.hover);
-    this.instance.find(".selected").attr({ opacity: 1 });
-    state.logp.innerText = this.dataset.value.toUpperCase();
-  });
-
-  $("svg .branch-g").mouseout(function(e){ 
-    // this.instance.find(".branch-path").animate(200).attr(svgStyles.normal);
-    this.instance.find(".selected").attr({ opacity: 0 });
-    state.logp.innerText = "";
-  });
-
-  $("svg .branch-g").click(function(e){ 
-    e.stopPropagation();
-    console.log(this.dataset.id);
-  });
-
-}
 
 function setupLogP () {
   state.logp = document.createElement("p");
