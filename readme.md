@@ -1,4 +1,6 @@
-# Key Workers minisite
+Key Workers minisite
+====================
+
 Stories of migrants contributing to the COVID-19 response and saving lives across the globe
 
 ## To do list
