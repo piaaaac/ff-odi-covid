@@ -48,9 +48,9 @@ loadData("data/all-15-april.json", function (fullTreeData) {
 // jQuery start
 // ----------------------------------------------
 
-// $(document).ready(function() {
-//   if ($(document).scrollTop() > 0)
-// });
+$(document).ready(function() {
+  updateTopBtn($(document).scrollTop());
+});
 
 // ----------------------------------------------
 // SVG.js
@@ -161,8 +161,8 @@ var trees = {
 
 // PARAMS
 // var len0 = 70;
-var lenW = state.w / 17;
-var lenH = state.h / 9;
+var lenW = state.w * 0.05;
+var lenH = state.h * 0.14;
 var len0 = Math.min(lenW, lenH);
 
 function setup() {
@@ -179,7 +179,7 @@ function setup2 () {
     var data = _.find(state.data.children, function (e) { return e.props.id == key; });
     var totalTreeStories = countChildren(data);
     data.props.totalTreeStories = totalTreeStories;
-    var b = new Branch (data.children, null, len0*0.5, randomAngle(PI/20), data.props);
+    var b = new Branch (data.children, null, len0*0.5, randomAngle(PI/30), data.props);
     var t = new Tree (createVector(0,0), b);
     trees[key] = t;
   });
@@ -269,15 +269,46 @@ function Tree (root, branch0) {
       .back()
       .attr({ "fill": "red", "opacity": 0 });
 
+    // var circleDiameter = this.storyCount * len0/10;
+    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
+
+    console.log(this.id, circleDiameter);
     this.svgGroup
-      .circle(this.storyCount * len0/10)
+      .circle(circleDiameter)
       .cx(0).cy(0)
       .addClass("story-count")
       .back()
       .attr({ "fill": "#3EBFB9", opacity: 0.25 });
 
+    // Math.sqrt()
+
+    // this.svgGroup
+    //   .line(0,0, ).cx(0).cy(0)
+    //   .addClass("root-point")
+    //   .attr({ "fill": "black" });
+
     this.svgGroup
-      .circle(4).cx(0).cy(0).attr({ "fill": "black" });
+      .circle(4).cx(0).cy(0)
+      .addClass("root-point")
+      .attr({ "fill": "black" });
+
+    var areaNames = {
+      "north-america":  "North America",
+      "latin-america":  "Latin America",
+      "europe":         "Europe",
+      "africa":         "Africa",
+      "asia-oceania":   "Asia & Oceania",
+    };
+    var gt = this.svgGroup.group();
+    gt.text(areaNames[this.id]).x(0).y(50)
+      .addClass("font-serif-m")
+      .font({ 
+        // "fill": "black",
+        "anchor": "middle",
+      });
+    gt.text(this.storyCount +" stories").x(0).y(80)
+      .addClass("font-small-stories")
+      .font({ "anchor": "middle" });
 
     this.drawn = true;
     this.rootPoint = {};
@@ -324,11 +355,13 @@ function Tree (root, branch0) {
 
   this.moveLeft = function (animate) {
     this.moveCenter(state.w*0.25, state.h/2, animate);
+    this.svgGroup.addClass("selected");
   }
 
   this.moveInPosition = function (animate) {
     var pos = state.treePositions[this.id];
     this.moveRoot(pos.x, pos.y, animate);
+    this.svgGroup.removeClass("selected");
   }
 
   this.selectStory = function (id) {
@@ -494,8 +527,8 @@ function updateTreesPos () {
   var x2 = state.w * 0.50;
   var x5 = state.w * 0.675;
   var x3 = state.w * 0.85;
-  var y1 = state.h * 0.50;
-  var y2 = state.h * 0.85;
+  var y1 = state.h * 0.45;
+  var y2 = state.h * 0.80;
   return {
     "north-america":  { "x": x1, "y": y1 },
     "europe":         { "x": x2, "y": y1 },
@@ -624,16 +657,23 @@ function addListeners () {
   });
 
   $("#to-top").click(function() {
-    $(this).addClass("hide");
+    // $(this).addClass("hide");
     $("html, body").animate({ "scrollTop": 0 }, animms);
   });
 
+  $(document).scroll(function () {
+    var scroll = $(document).scrollTop();
+    updateTopBtn(scroll);
+  });
 }
 
 
 function handleMenuClick (type, value) {
   if (type == "area") {
     selectArea(value);
+    if (value === null) {
+      toggleBelow(true);
+    }
   } else if (type == "anchor") {
     var wait = 0;
     if (state.selectedArea !== null) {
@@ -653,9 +693,18 @@ function handleMenuClick (type, value) {
 // --- Utilities
 
 
-function toggleBelow (show, callback) {
+function updateTopBtn (scroll) {
+  var limit = 200;
+  if (scroll > limit && $("#to-top").hasClass("hide")) {
+    $("#to-top").removeClass("hide");
+  }
+  if (scroll <= limit && !$("#to-top").hasClass("hide")) {
+    $("#to-top").addClass("hide");
+  }
+}
 
-  $("#to-top").toggleClass("hide", !show);
+
+function toggleBelow (show, callback) {
 
   if (!$("#below").hasClass("hide") === show) {
     if (callback) {

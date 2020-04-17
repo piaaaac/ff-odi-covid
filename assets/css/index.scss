@@ -50,9 +50,7 @@ a.btn {
   padding: 0 30px;
   border-radius: 20px;
   @include font-small-bold;
-  & + a.btn {
-    margin-left: 30px;
-  }
+
   &:not(.no-arrow)::after {
     content: "→";
     padding-left: 10px;
@@ -121,14 +119,10 @@ p.log {
 
 #fill-window {
   position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
   height: 100vh;
   
   #container {
-    // height: 80vh;
+    height: calc(100vh - #{$header-height});
     width: 100%;
     flex-grow: 2;
     position: relative;
@@ -217,3 +211,4 @@ svg.artboard {
 // ------------------------------------------------------------------------
 
 .color-white { color: white; }
+.color-green { color: $color-green; }
