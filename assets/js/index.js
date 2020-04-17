@@ -599,6 +599,7 @@ function addListeners () {
     var level = this.dataset.id.split("---")[1];
     var sector = this.dataset.id.split("---")[2];
     var id = this.dataset.id.split("---")[3];
+    console.log("--------------------");
     console.log("area", area);
     console.log("level", level);
     console.log("sector", sector);
