@@ -7,8 +7,16 @@
 $color-bg: #EAEBEB;
 $color-coral: #E75F52;
 $color-blue: #3EBFB9;
+
 $color-green: #147666;
+$color-green: lighten($color-blue, 3%);
+$color-green: darken($color-blue, 5%);
+
 $header-height: 90px;
+$mobile-h-d0: 143vw;
+$mobile-h-d1: 60vw;
+$mobile-h-d2: 0vw;
+
 $padding-l: 45px;
 $padding-s: 20px;
 
@@ -82,9 +90,13 @@ a.btn {
 }
 
 #header a.item {
-  @include transition(color 400ms);
+  &, span {
+    @include transition(color 400ms);
+  }
   &.active, &:hover {
-    color: $color-coral;
+    &, span {
+      color: $color-coral;
+    }
   }
 }
 
@@ -123,15 +135,33 @@ p.log {
 
 #fill-window {
   position: relative;
+  overflow: hidden;
+
   height: 100vh;
+  @include transition(height 400ms);
+  @include media-breakpoint-down(md) { // --- Mobile version
+    height: $mobile-h-d0; //.home
+    &.area {
+      height: $mobile-h-d1;
+    }
+    &.story {
+      height: $mobile-h-d2;
+    }
+  }
   
   #container {
-    height: calc(100vh - #{$header-height});
+    height: calc(100% - #{$header-height});
+    // height: calc(100vh - #{$header-height});
+    // @include media-breakpoint-down(md) { // --- Mobile version
+    //   height: calc(#{$mobile-h-d0} - #{$header-height});
+    // }
+
     width: 100%;
     position: relative;
     background-color: $color-bg;
-    padding: $padding-l;
-    @include media-breakpoint-down(sm) { padding: $padding-s; }
+
+    // padding: $padding-l;
+    // @include media-breakpoint-down(sm) { padding: $padding-s; }
     #ui {
 
     }
@@ -147,9 +177,9 @@ p.log {
       top: 0; left: 0; bottom: 0; right: 0;
       padding: 0 $padding-l;
       @include media-breakpoint-down(sm) { padding: $padding-s; }
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
       .logo {
         cursor: pointer;
       }
@@ -157,6 +187,30 @@ p.log {
         margin-left: 20px;
       }
     }
+
+    .wrapper-menu-full {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo {
+        @include media-breakpoint-up(xl) { width: 10%; overflow: visible; }
+        white-space: nowrap;
+
+      }
+      .center { // lg up
+        flex-grow: 1;
+        white-space: nowrap;
+        text-align: right;
+        @include media-breakpoint-up(xl) { text-align: center; }
+
+      }
+      .right {
+        @include media-breakpoint-up(xl) { width: 10%; overflow: visible; }
+        text-align: right;
+        white-space: nowrap;
+      }
+    }
+
     &.home {
       .wrapper-menu-home { opacity: 1; pointer-events: all; }
       .wrapper-menu-full { opacity: 0; pointer-events: none; }
@@ -226,6 +280,7 @@ svg.artboard {
 
 .color-white { color: white; }
 .color-green { color: $color-green; }
+
 
 
 // ------------------------------------------------------------------------

@@ -23,12 +23,12 @@ footer, header, main, menu, nav, section, summary {
 }
 
 ::-moz-selection {
-  background: lighten(pink, 15%);
+  background: lighten($color-blue, 5%);
   color: black;
 }
 
 ::selection {
-  background: lighten(pink, 15%);
+  background: lighten($color-blue, 5%);
   color: black;
 }
 

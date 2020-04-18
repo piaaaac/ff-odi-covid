@@ -42,6 +42,8 @@ var state = {
   selectedArea: null,
   firstDate: moment(),
   lastDate: moment("2000-01-01"),
+  isMobile: isMobile(),
+  currentPage: {},
 };
 
 setupLogP();
@@ -174,6 +176,9 @@ var trees = {
 var lenW = state.w * 0.05;
 var lenH = state.h * 0.14;
 var len0 = Math.min(lenW, lenH);
+if (state.isMobile) {
+  len0 = state.w * 0.06;
+}
 
 function setup() {
   var cvs = createCanvas(100, 100);
@@ -218,6 +223,7 @@ function draw() {
     noLoop();
     addListeners();
     initialize();
+    setTimeout(function () { remove(); }, 200); // remove p5 sketch and canvas
   }
 
 }
@@ -363,8 +369,15 @@ function Tree (root, branch0) {
   }
 
   this.moveLeft = function (animate) {
-    this.moveCenter(state.w*0.25, state.h/2, animate);
-    this.svgGroup.addClass("selected");
+    if (isMobile()) {
+      var x = state.w / 2;
+      var y = state.treePositions[Object.keys(state.treePositions)[0]].y;
+      this.moveRoot(x, y, animate);
+      this.svgGroup.addClass("selected");      
+    } else {
+      this.moveCenter(state.w*0.25, state.h/2, animate);
+      this.svgGroup.addClass("selected");
+    }
   }
 
   this.moveInPosition = function (animate) {
@@ -531,20 +544,35 @@ function initialize () {
 
 
 function updateTreesPos () {
-  var x1 = state.w * 0.15;
-  var x4 = state.w * 0.325;
-  var x2 = state.w * 0.50;
-  var x5 = state.w * 0.675;
-  var x3 = state.w * 0.85;
-  var y1 = state.h * 0.45;
-  var y2 = state.h * 0.80;
-  return {
-    "north-america":  { "x": x1, "y": y1 },
-    "europe":         { "x": x2, "y": y1 },
-    "asia-oceania":   { "x": x3, "y": y1 },
-    "latin-america":  { "x": x4, "y": y2 },
-    "africa":         { "x": x5, "y": y2 },
-  };
+  if (state.isMobile) {
+    var x1 = state.w * 0.3;
+    var x2 = state.w * 0.7;
+    var y1 = state.h * 0.25;
+    var y2 = state.h * 0.55;
+    var y3 = state.h * 0.85;
+    return {
+      "north-america":  { "x": x1, "y": y1 },
+      "europe":         { "x": x2, "y": y1 },
+      "asia-oceania":   { "x": x1, "y": y2 },
+      "latin-america":  { "x": x2, "y": y2 },
+      "africa":         { "x": x1, "y": y3 },
+    };
+  } else {
+    var x1 = state.w * 0.15;
+    var x4 = state.w * 0.325;
+    var x2 = state.w * 0.50;
+    var x5 = state.w * 0.675;
+    var x3 = state.w * 0.85;
+    var y1 = state.h * 0.45;
+    var y2 = state.h * 0.80;
+    return {
+      "north-america":  { "x": x1, "y": y1 },
+      "europe":         { "x": x2, "y": y1 },
+      "asia-oceania":   { "x": x3, "y": y1 },
+      "latin-america":  { "x": x4, "y": y2 },
+      "africa":         { "x": x5, "y": y2 },
+    };
+  }
 }
 
 
@@ -571,6 +599,22 @@ function repositionAllTrees (animate) {
     var pos = state.treePositions[k];
     trees[k].moveRoot(pos.x, pos.y, animate);
   });
+}
+
+
+// --- Pages states
+
+function setStatePage (type, depth, id) {
+
+  state.currentPage = {
+    "type":   type,   // ---  home  area      story
+    "id":     id,     // ---  null  "europe"  "story-slug-lorem-ipsum"
+    "depth":  depth,  // ---  0     1         2
+  };
+
+  $("#fill-window").removeClass("area").removeClass("story");
+  $("#fill-window").addClass(type);
+
 }
 
 
@@ -701,7 +745,9 @@ function addListeners () {
   });
 
   $("#header .item").click(function(e) {
-    handleMenuClick(e.target.dataset.type, e.target.dataset.value);
+    console.log(e)
+    var target = (e.target.tagName == "SPAN") ? e.target.parentNode : e.target;
+    handleMenuClick(target.dataset.type, target.dataset.value);
   });
 
   $("#header .logo").click(function(e) {
@@ -813,6 +859,11 @@ function countChildren (item, sum) {
   return newSum + currentSum;
 }
 
+
+function isMobile () {
+  var mql = window.matchMedia('(max-width: 991px)');
+  return mql.matches;
+}
 
 function setupLogP () {
   state.logp = document.createElement("p");

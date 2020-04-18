@@ -15,11 +15,11 @@ footer, header, main, menu, nav, section, summary {
   display: block; }
 
 ::-moz-selection {
-  background: white;
+  background: #50c6c1;
   color: black; }
 
 ::selection {
-  background: white;
+  background: #50c6c1;
   color: black; }
 
 body:not(.user-is-tabbing) button:focus,
@@ -270,18 +270,18 @@ a.btn {
       color: #E75F52; }
   a.btn.green {
     color: white;
-    background-color: #147666; }
+    background-color: #38aca6; }
     a.btn.green:hover {
-      background-color: #106053; }
+      background-color: #329894; }
 
-#header a.item {
+#header a.item, #header a.item span {
   -webkit-transition: color 400ms;
   -moz-transition: color 400ms;
   -ms-transition: color 400ms;
   -o-transition: color 400ms;
   transition: color 400ms; }
-  #header a.item.active, #header a.item:hover {
-    color: #E75F52; }
+#header a.item.active, #header a.item.active span, #header a.item:hover, #header a.item:hover span {
+  color: #E75F52; }
 
 #to-top {
   position: fixed;
@@ -305,7 +305,7 @@ section {
     section {
       padding: 5px; } }
   section.footer {
-    background-color: #147666;
+    background-color: #38aca6;
     color: white; }
     section.footer a, section.footer p {
       color: white; }
@@ -317,16 +317,25 @@ p.log {
 
 #fill-window {
   position: relative;
-  height: 100vh; }
+  overflow: hidden;
+  height: 100vh;
+  -webkit-transition: height 400ms;
+  -moz-transition: height 400ms;
+  -ms-transition: height 400ms;
+  -o-transition: height 400ms;
+  transition: height 400ms; }
+  @media (max-width: 991.98px) {
+    #fill-window {
+      height: 143vw; }
+      #fill-window.area {
+        height: 60vw; }
+      #fill-window.story {
+        height: 0vw; } }
   #fill-window #container {
-    height: calc(100vh - 90px);
+    height: calc(100% - 90px);
     width: 100%;
     position: relative;
-    background-color: #EAEBEB;
-    padding: 45px; }
-    @media (max-width: 767.98px) {
-      #fill-window #container {
-        padding: 20px; } }
+    background-color: #EAEBEB; }
   #fill-window #header {
     height: 90px;
     min-height: 90px;
@@ -338,10 +347,7 @@ p.log {
       left: 0;
       bottom: 0;
       right: 0;
-      padding: 0 45px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
+      padding: 0 45px; }
       @media (max-width: 767.98px) {
         #fill-window #header .wrapper-menu-home, #fill-window #header .wrapper-menu-full {
           padding: 20px; } }
@@ -349,6 +355,30 @@ p.log {
         cursor: pointer; }
       #fill-window #header .wrapper-menu-home a.item, #fill-window #header .wrapper-menu-full a.item {
         margin-left: 20px; }
+    #fill-window #header .wrapper-menu-full {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #fill-window #header .wrapper-menu-full .logo {
+        white-space: nowrap; }
+        @media (min-width: 1200px) {
+          #fill-window #header .wrapper-menu-full .logo {
+            width: 10%;
+            overflow: visible; } }
+      #fill-window #header .wrapper-menu-full .center {
+        flex-grow: 1;
+        white-space: nowrap;
+        text-align: right; }
+        @media (min-width: 1200px) {
+          #fill-window #header .wrapper-menu-full .center {
+            text-align: center; } }
+      #fill-window #header .wrapper-menu-full .right {
+        text-align: right;
+        white-space: nowrap; }
+        @media (min-width: 1200px) {
+          #fill-window #header .wrapper-menu-full .right {
+            width: 10%;
+            overflow: visible; } }
     #fill-window #header.home .wrapper-menu-home {
       opacity: 1;
       pointer-events: all; }
@@ -404,6 +434,6 @@ svg.artboard {
   color: white; }
 
 .color-green {
-  color: #147666; }
+  color: #38aca6; }
 
 /*# sourceMappingURL=index.css.map */
