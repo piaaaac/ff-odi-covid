@@ -24,3 +24,4 @@ Development: Alex Piacentini
 - lodash 4.17.15
 - jQuery 3.4.1
 - momentjs
+- handlebars.js 4.7.6

@@ -603,21 +603,40 @@ function repositionAllTrees (animate) {
 
 // --- Pages states
 
-function setStatePage (type, depth, id) {
+function setStatePage (type, id) {
+  
+  // --- manage state
 
+  var depth = (type == "trees") ? 0 : (type == "area") ? 1 : (type == "story") ? 2 : null;
+  if (depth === null) {
+    throw "Wrong page passed to setter: "+ type;
+  }
   state.currentPage = {
     "type":   type,   // ---  home  area      story
     "id":     id,     // ---  null  "europe"  "story-slug-lorem-ipsum"
     "depth":  depth,  // ---  0     1         2
   };
 
+
+  // --- manage body classes
+
   $("#fill-window").removeClass("area").removeClass("story");
   $("#fill-window").addClass(type);
+
+  // --- manage svg trees
+  
+  // --- manage content
+  
+  // --- manage header class
+
+  // --- manage left ui
+
+
 
 }
 
 
-function selectArea (id) {
+function selectTree (id) {
 
   // deselect
 
@@ -704,7 +723,7 @@ function handleStoryClick (d) {
   // --- tree / area
 
   if (state.selectedTree === null || state.selectedTree !== area) {
-    selectArea(area);
+    selectTree(area);
   }
   
   // --- timeline
@@ -739,7 +758,7 @@ function addListeners () {
     //   return;
     // }
     if (state.selectedTree !== this.id) {
-      selectArea(this.id);
+      selectTree(this.id);
     }
   });
 
@@ -765,9 +784,9 @@ function handleMenuClick (type, value) {
   if (type == "area") {
 
     if (value === state.selectedTree) {
-      selectArea(null);
+      selectTree(null);
     } else {
-      selectArea(value);
+      selectTree(value);
     }
 
     // if (value === null) {
@@ -776,7 +795,7 @@ function handleMenuClick (type, value) {
   } else if (type == "anchor") {
     var wait = 0;
     if (state.selectedTree !== null) {
-      selectArea(null);
+      selectTree(null);
       wait = animms;
     }
 

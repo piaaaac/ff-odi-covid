@@ -12,6 +12,7 @@
   <script src="assets/js/functions-polyfills.js"></script>
   <script src="assets/js/jquery-3.4.1.min.js"></script>
   <script src="assets/js/moment.min.js"></script>
+  <script src="assets/js/handlebars.min-v4.7.6.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-custom.css">
   <link rel="stylesheet" type="text/css" href="assets/css/index.css">
 </head>
@@ -19,13 +20,6 @@
 
   <div id="fill-window">
     
-
-<!-- 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
- -->
-
     <div id="header" class="full">
       <div class="wrapper-menu-home d-flex align-items-center justify-content-between">
         <div class="logo d-flex align-items-center justify-content-start">
@@ -89,7 +83,7 @@
 
       <div class="row">
 
-        <div class="col-12 col-xl-8 mb-4 mt-4">
+        <div class="col-12 col-xl-9 mb-5 mt-4">
           <h2 class="font-serif-xl mb-4">About the project</h2>
           <p class="font-body-l pr-5 mb-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed turpis sed ipsum vehicula bibendum imperdiet in orci. In vel vestibulum nisi. Donec sagittis nunc id erat aliquam blandit. Ut in sapien magna. Mauris lacus ex, pretium nec odio sit amet, gravida faucibus nisi. Fusce vel nisi scelerisque, gravida purus.
@@ -97,12 +91,12 @@
         </div>
 
       </div>
-      <div class="row">
+      <div class="row mb-3">
 
         <div class="col-md-6 col-lg-4 mb-5">
           <p class="font-small-bold pr-2 mb-3">TRACKER SPREADSHEET</p>
           <p class="font-small pr-2" style="max-width: 400px;">
-            We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>!
+            We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use&nbsp;it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>.
           </p>
           <p class="mt-4">
             <a class="btn green mr-3 mb-3" href="https://docs.google.com/spreadsheets/d/1yrhvW80BzVU7-3bsTY7l8PDSYB9Q4XztHHLQ8Oy69NY/edit?ts=5e9572e8#gid=0" target="_blank">
@@ -140,19 +134,6 @@
                 <img src="assets/images/ODI-logo-white.svg" />
               </a>
             </div>
-            <!--  
-            <div class="col">
-              <p class="font-small">ODI LINKS</p>
-              <p class="font-small-bold">
-                <a class="" href="https://odi.org" target="_blank">ODI homepage</a></p>
-              <p class="font-small-bold">
-                <a class="" href="https://odi.org" target="_blank">ODI homepage</a></p>
-              <p class="font-small-bold">
-                <a class="" href="https://odi.org" target="_blank">ODI homepage</a></p>
-              <p class="font-small-bold">
-                <a class="" href="https://odi.org" target="_blank">ODI homepage</a></p>
-            </div>
-            -->
           </div>
         </div>
         <div class="col-sm-6">
@@ -164,28 +145,39 @@
                 OTHER PROJECTS</a>
               <a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
                 PRIVACY POLICY</a>
-              <!--  
-              <p class="font-small">COLOPHON</p>
-              <p class="font-small">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                <br />Mauris sed turpis sed ipsum vehicula
-                <br />In vel vestibulum sagittis nunc aliquam blandit
-              </p>
-              -->
             </div>
-            <!--  
-            <div class="col">
-              <p class="font-small">OVERSEAS DEVELOPMENT INSTITUTE</p>
-              <p class="font-small">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed turpis sed ipsum vehicula bibendum imperdiet in orci. In vel vestibulum nisi. Donec sagittis nunc id erat aliquam blandit
-              </p>
-            </div>
-            -->
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Templates start -->
+  <!-- https://www.youtube.com/watch?v=3zVYH16yogQ -->
+
+  <script id="story-preview" type="text/x-handlebars-template">
+    <div>{{title}}</div>
+  </script>
+  
+  <script id="area-stat" type="text/x-handlebars-template">
+    <div>{{value}}</div>
+  </script>
+  
+  <script>
+    var templates = {};
+    templates.storyPreview  = Handlebars.compile($("#story-preview").html());
+    templates.areaStat      = Handlebars.compile($("#area-stat").html());
+
+    // use
+    var html1 = templates.storyPreview({ title: "Story A" });
+    var html2 = templates.areaStat({ value: "12" });
+
+    console.log(html1);
+    console.log(html2);
+
+  </script>
+
+  <!-- Templates end -->
 
   <script src="assets/js/index.js"></script>
 </body>
