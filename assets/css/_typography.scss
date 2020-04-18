@@ -68,6 +68,11 @@ $font-sans: "Karla", sans-serif;
   }
 }
 
+.font-body-l {
+  @include font-serif-l;
+  font-weight: 400;
+}
+
 // h1 { 
 //   @include font-page-titles; 
 //   &.product-name {

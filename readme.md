@@ -6,6 +6,7 @@ Stories of migrants contributing to the COVID-19 response and saving lives acros
 ## To do list
 
 - [BUG] Error if an area has no stories
+- id=about { max-height: 500px;
 
 ## About the project
 

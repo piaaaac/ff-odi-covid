@@ -101,30 +101,20 @@ a.btn {
 }
 
 #to-top {
-  position: fixed;
-  top: 30px;
+  position: absolute;
+  top: 0;
   right: $padding-l;
-  @include media-breakpoint-down(sm) { right: $padding-s; }
-  @include transition(opacity 400ms);
-  &.hide {
-    pointer-events: none;
-    opacity: 0;
+  @include media-breakpoint-down(sm) { 
+    right: $padding-s; 
   }
 }
 
 section {
-  padding: $padding-l - 15px;
-  @include media-breakpoint-down(sm) { padding: $padding-s - 15px; }
-
-  &.footer {
-    background-color: $color-green;
-    color: white;
-    a, p {
-      color: white;
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
+  padding-left: $padding-l - 15px;
+  padding-right: $padding-l - 15px;
+  @include media-breakpoint-down(sm) { 
+    padding-left: $padding-s - 15px; 
+    padding-right: $padding-s - 15px; 
   }
 }
 
@@ -211,14 +201,24 @@ p.log {
       }
     }
 
-    &.home {
+    // &.home {
+    //   .wrapper-menu-home { opacity: 1; pointer-events: all; }
+    //   .wrapper-menu-full { opacity: 0; pointer-events: none; }
+    // }
+    // &.full {
+    //   .wrapper-menu-home { opacity: 0; pointer-events: none; }
+    //   .wrapper-menu-full { opacity: 1; pointer-events: all; }
+    // }
+
+    @at-root body.trees {
       .wrapper-menu-home { opacity: 1; pointer-events: all; }
       .wrapper-menu-full { opacity: 0; pointer-events: none; }
     }
-    &.full {
+    @at-root body.tree, body.story {
       .wrapper-menu-home { opacity: 0; pointer-events: none; }
       .wrapper-menu-full { opacity: 1; pointer-events: all; }
     }
+
     &.north-america a[data-value="north-america"] { 
       color: $color-coral; 
     }
@@ -237,11 +237,67 @@ p.log {
   }
 }
 
-#below {
-  &.hide {
-    display: none;
+$dsk-my: 0px; // px
+$dsk-mx: 0%; // %
+#content {
+  background-color: rgba(255,0,0,0.1);
+  overflow: hidden;
+  @include media-breakpoint-down(md) { // --- Mobile version
+    // @include transition (max-height 400ms);
+    @at-root body.trees &{
+      height: 0;
+    }
+  }
+  @include media-breakpoint-up(lg) { // --- Desktop version
+    position: fixed;
+    left: 50% + $dsk-mx;
+    right: $dsk-mx;
+    top: $header-height + $dsk-my;
+    bottom: $dsk-my;
+    overflow: scroll;
+    @at-root body.trees &{
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
+
+
+#about {
+  position: relative;
+  overflow: hidden;
+  @include transition (max-height 400ms);
+  @at-root body.trees &{
+    max-height: 1000px;
+  }
+  @at-root body.tree &, body.story &{
+    max-height: 0;
+  }
+}
+
+#footer {
+  overflow: hidden;
+  @include transition (max-height 400ms);
+  @at-root body.trees &{
+    max-height: 500px;
+  }
+  @at-root body.tree &, body.story &{
+    @include media-breakpoint-up(lg) { // --- Desktop version
+      max-height: 0;
+    }
+  }
+
+  background-color: $color-green;
+  color: white;
+  a, p {
+    color: white;
+  }
+  p {
+    margin-bottom: 0.5em;
+  }
+
+}
+
 
 // ------------------------------------------------------------------------
 // Svg

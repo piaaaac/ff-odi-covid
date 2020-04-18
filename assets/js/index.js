@@ -39,7 +39,7 @@ var state = {
   w: cnt.offsetWidth,
   h: cnt.offsetHeight,
   treePositions: {},
-  selectedArea: null,
+  selectedTree: null,
   firstDate: moment(),
   lastDate: moment("2000-01-01"),
   isMobile: isMobile(),
@@ -60,9 +60,8 @@ loadData("data/all-17-april-placehold.json", function (fullTreeData) {
 // jQuery start
 // ----------------------------------------------
 
-$(document).ready(function() {
-  updateTopBtn($(document).scrollTop());
-});
+// $(document).ready(function() {
+// });
 
 // ----------------------------------------------
 // SVG.js
@@ -623,45 +622,45 @@ function selectArea (id) {
   // deselect
 
   if (id === null) {
-    if (state.selectedArea !== null) {
-      var oldId = state.selectedArea;
+    if (state.selectedTree !== null) {
+      var oldId = state.selectedTree;
       trees[oldId].moveInPosition(true);
       setTimeout(function() { showTrees(); }, animms/2);
-      state.selectedArea = null;
+      state.selectedTree = null;
     }
     updateHeader();
     return;
   }
 
-  if (state.selectedArea !== null) {
+  if (state.selectedTree !== null) {
 
     // swap selection
 
-    var oldId = state.selectedArea;
-    state.selectedArea = id;
+    var oldId = state.selectedTree;
+    state.selectedTree = id;
     trees[oldId].hide();
     trees[oldId].svgGroup.removeClass("selected"); // hack
     setTimeout(function() { 
       trees[oldId].moveInPosition(); 
-      trees[state.selectedArea].moveLeft();
+      trees[state.selectedTree].moveLeft();
     }, animms);
     setTimeout(function() { 
-      trees[state.selectedArea].show();
+      trees[state.selectedTree].show();
     }, animms*2);
   
   } else {
     
     // all > select one
 
-    state.selectedArea = id;
-    trees[state.selectedArea].moveLeft(true); 
+    state.selectedTree = id;
+    trees[state.selectedTree].moveLeft(true); 
     hideTrees();
     setTimeout(function() { 
-      trees[state.selectedArea].show();
+      trees[state.selectedTree].show();
     }, animms*2);
   }
 
-  toggleBelow(false);
+  // toggleBelow(false);
   updateHeader();
 }
 
@@ -673,8 +672,8 @@ function updateHeader () {
     .removeClass("asia-oceania")
     .removeClass("latin-america")
     .removeClass("africa");
-  if (state.selectedArea){
-    $("#header").addClass(state.selectedArea);
+  if (state.selectedTree){
+    $("#header").addClass(state.selectedTree);
   }
 }
 
@@ -704,7 +703,7 @@ function handleStoryClick (d) {
 
   // --- tree / area
 
-  if (state.selectedArea === null || state.selectedArea !== area) {
+  if (state.selectedTree === null || state.selectedTree !== area) {
     selectArea(area);
   }
   
@@ -739,7 +738,7 @@ function addListeners () {
     // if (!trees[this.id].isVisible()) {
     //   return;
     // }
-    if (state.selectedArea !== this.id) {
+    if (state.selectedTree !== this.id) {
       selectArea(this.id);
     }
   });
@@ -755,14 +754,9 @@ function addListeners () {
   });
 
   $("#to-top").click(function() {
-    // $(this).addClass("hide");
     $("html, body").animate({ "scrollTop": 0 }, animms);
   });
 
-  $(document).scroll(function () {
-    var scroll = $(document).scrollTop();
-    updateTopBtn(scroll);
-  });
 }
 
 
@@ -770,26 +764,27 @@ function handleMenuClick (type, value) {
 
   if (type == "area") {
 
-    if (value === state.selectedArea) {
+    if (value === state.selectedTree) {
       selectArea(null);
     } else {
       selectArea(value);
     }
 
-    if (value === null) {
-      toggleBelow(true);
-    }
+    // if (value === null) {
+    //   toggleBelow(true);
+    // }
   } else if (type == "anchor") {
     var wait = 0;
-    if (state.selectedArea !== null) {
+    if (state.selectedTree !== null) {
       selectArea(null);
       wait = animms;
     }
+
     setTimeout(function() {
-      toggleBelow(true, function () {
-        var to = $("#"+ value).offset().top;
-        $("html, body").animate({ "scrollTop": to }, animms);
-      });
+      var to = $("#"+ value).offset().top;
+      $("html, body").animate({ "scrollTop": to }, animms);
+      // toggleBelow(true, function () {
+      // });
     }, wait);
   }
 }
@@ -797,16 +792,6 @@ function handleMenuClick (type, value) {
 
 // --- Utilities
 
-
-function updateTopBtn (scroll) {
-  var limit = 200;
-  if (scroll > limit && $("#to-top").hasClass("hide")) {
-    $("#to-top").removeClass("hide");
-  }
-  if (scroll <= limit && !$("#to-top").hasClass("hide")) {
-    $("#to-top").addClass("hide");
-  }
-}
 
 // WIP
 // WIP
@@ -825,28 +810,28 @@ function createTimeline (area) {
 }
 
 
-function toggleBelow (show, callback) {
+// function toggleBelow (show, callback) {
 
-  if (!$("#below").hasClass("hide") === show) {
-    if (callback) {
-      callback();
-    }
-    return;
-  }
+//   if (!$("#below").hasClass("hide") === show) {
+//     if (callback) {
+//       callback();
+//     }
+//     return;
+//   }
 
-  if (show === true) {
-    $("#below").removeClass("hide");
-    if (callback) {
-      callback();
-    }
-  } else if (show === false) {
-    $("html, body").animate({ "scrollTop": 0 }, animms, function() {
-      $("#below").addClass("hide");
-    });
-  } else {
-    throw "show parameter missing.";
-  }
-}
+//   if (show === true) {
+//     $("#below").removeClass("hide");
+//     if (callback) {
+//       callback();
+//     }
+//   } else if (show === false) {
+//     $("html, body").animate({ "scrollTop": 0 }, animms, function() {
+//       $("#below").addClass("hide");
+//     });
+//   } else {
+//     throw "show parameter missing.";
+//   }
+// }
 
 
 function countChildren (item, sum) {

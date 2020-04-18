@@ -218,6 +218,28 @@ html body input:-internal-autofill-selected {
     color: #E75F52;
     fill: #E75F52; }
 
+.font-body-l {
+  font-family: "Sabon", serif;
+  font-size: 27px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400; }
+  @media (min-width: 576px) {
+    .font-body-l {
+      font-size: 27px; } }
+  @media (min-width: 768px) {
+    .font-body-l {
+      font-size: 27px; } }
+  @media (min-width: 992px) {
+    .font-body-l {
+      font-size: 27px; } }
+  @media (min-width: 1200px) {
+    .font-body-l {
+      font-size: 27px; } }
+
 * {
   color: black; }
 
@@ -284,33 +306,20 @@ a.btn {
   color: #E75F52; }
 
 #to-top {
-  position: fixed;
-  top: 30px;
-  right: 45px;
-  -webkit-transition: opacity 400ms;
-  -moz-transition: opacity 400ms;
-  -ms-transition: opacity 400ms;
-  -o-transition: opacity 400ms;
-  transition: opacity 400ms; }
+  position: absolute;
+  top: 0;
+  right: 45px; }
   @media (max-width: 767.98px) {
     #to-top {
       right: 20px; } }
-  #to-top.hide {
-    pointer-events: none;
-    opacity: 0; }
 
 section {
-  padding: 30px; }
+  padding-left: 30px;
+  padding-right: 30px; }
   @media (max-width: 767.98px) {
     section {
-      padding: 5px; } }
-  section.footer {
-    background-color: #38aca6;
-    color: white; }
-    section.footer a, section.footer p {
-      color: white; }
-    section.footer p {
-      margin-bottom: 0.5em; }
+      padding-left: 5px;
+      padding-right: 5px; } }
 
 p.log {
   display: none; }
@@ -379,16 +388,16 @@ p.log {
           #fill-window #header .wrapper-menu-full .right {
             width: 10%;
             overflow: visible; } }
-    #fill-window #header.home .wrapper-menu-home {
+    body.trees .wrapper-menu-home {
       opacity: 1;
       pointer-events: all; }
-    #fill-window #header.home .wrapper-menu-full {
+    body.trees .wrapper-menu-full {
       opacity: 0;
       pointer-events: none; }
-    #fill-window #header.full .wrapper-menu-home {
+    body.tree .wrapper-menu-home, body.story .wrapper-menu-home {
       opacity: 0;
       pointer-events: none; }
-    #fill-window #header.full .wrapper-menu-full {
+    body.tree .wrapper-menu-full, body.story .wrapper-menu-full {
       opacity: 1;
       pointer-events: all; }
     #fill-window #header.north-america a[data-value="north-america"] {
@@ -402,8 +411,55 @@ p.log {
     #fill-window #header.asia-oceania a[data-value="asia-oceania"] {
       color: #E75F52; }
 
-#below.hide {
-  display: none; }
+#content {
+  background-color: rgba(255, 0, 0, 0.1);
+  overflow: hidden; }
+  @media (max-width: 991.98px) {
+    body.trees #content {
+      height: 0; } }
+  @media (min-width: 992px) {
+    #content {
+      position: fixed;
+      left: 50%;
+      right: 0%;
+      top: 90px;
+      bottom: 0px;
+      overflow: scroll; }
+      body.trees #content {
+        opacity: 0;
+        pointer-events: none; } }
+
+#about {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: max-height 400ms;
+  -moz-transition: max-height 400ms;
+  -ms-transition: max-height 400ms;
+  -o-transition: max-height 400ms;
+  transition: max-height 400ms; }
+  body.trees #about {
+    max-height: 1000px; }
+  body.tree #about, body.story #about {
+    max-height: 0; }
+
+#footer {
+  overflow: hidden;
+  -webkit-transition: max-height 400ms;
+  -moz-transition: max-height 400ms;
+  -ms-transition: max-height 400ms;
+  -o-transition: max-height 400ms;
+  transition: max-height 400ms;
+  background-color: #38aca6;
+  color: white; }
+  body.trees #footer {
+    max-height: 500px; }
+  @media (min-width: 992px) {
+    body.tree #footer, body.story #footer {
+      max-height: 0; } }
+  #footer a, #footer p {
+    color: white; }
+  #footer p {
+    margin-bottom: 0.5em; }
 
 svg.artboard {
   position: absolute;
