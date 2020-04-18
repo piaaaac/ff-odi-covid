@@ -334,17 +334,17 @@ p.log {
   -o-transition: height 400ms;
   transition: height 400ms; }
   @media (max-width: 991.98px) {
-    #fill-window {
-      height: 143vw; }
-      #fill-window.area {
-        height: 60vw; }
-      #fill-window.story {
-        height: 0vw; } }
+    body.home #fill-window {
+      height: calc(113vw + 120px * 3); }
+    body.area #fill-window {
+      height: calc(60vw + 120px); }
+    body.story #fill-window {
+      height: 90px; } }
   #fill-window #container {
     height: calc(100% - 90px);
     width: 100%;
     position: relative;
-    background-color: #EAEBEB; }
+    background-color: #E6E7E7; }
   #fill-window #header {
     height: 90px;
     min-height: 90px;
@@ -388,16 +388,16 @@ p.log {
           #fill-window #header .wrapper-menu-full .right {
             width: 10%;
             overflow: visible; } }
-    body.trees .wrapper-menu-home {
+    body.home .wrapper-menu-home {
       opacity: 1;
       pointer-events: all; }
-    body.trees .wrapper-menu-full {
+    body.home .wrapper-menu-full {
       opacity: 0;
       pointer-events: none; }
-    body.tree .wrapper-menu-home, body.story .wrapper-menu-home {
+    body.area .wrapper-menu-home, body.story .wrapper-menu-home {
       opacity: 0;
       pointer-events: none; }
-    body.tree .wrapper-menu-full, body.story .wrapper-menu-full {
+    body.area .wrapper-menu-full, body.story .wrapper-menu-full {
       opacity: 1;
       pointer-events: all; }
     #fill-window #header.north-america a[data-value="north-america"] {
@@ -412,22 +412,52 @@ p.log {
       color: #E75F52; }
 
 #content {
-  background-color: rgba(255, 0, 0, 0.1);
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0 40px; }
   @media (max-width: 991.98px) {
-    body.trees #content {
+    body.home #content {
       height: 0; } }
   @media (min-width: 992px) {
     #content {
       position: fixed;
       left: 50%;
-      right: 0%;
+      right: 0;
       top: 90px;
-      bottom: 0px;
-      overflow: scroll; }
-      body.trees #content {
+      bottom: 0;
+      overflow: scroll;
+      -webkit-transition: opacity 600ms;
+      -moz-transition: opacity 600ms;
+      -ms-transition: opacity 600ms;
+      -o-transition: opacity 600ms;
+      transition: opacity 600ms; }
+      body.home #content {
         opacity: 0;
         pointer-events: none; } }
+
+#ui-left {
+  pointer-events: none;
+  -webkit-transition: opacity 600ms;
+  -moz-transition: opacity 600ms;
+  -ms-transition: opacity 600ms;
+  -o-transition: opacity 600ms;
+  transition: opacity 600ms;
+  position: fixed;
+  left: 0;
+  right: 50%;
+  top: 90px;
+  bottom: 0; }
+  body.home #ui-left {
+    opacity: 0; }
+  #ui-left .top {
+    padding: 40px;
+    pointer-events: all; }
+  #ui-left .bottom {
+    padding: 40px;
+    pointer-events: all;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; }
 
 #about {
   position: relative;
@@ -437,9 +467,9 @@ p.log {
   -ms-transition: max-height 400ms;
   -o-transition: max-height 400ms;
   transition: max-height 400ms; }
-  body.trees #about {
+  body.home #about {
     max-height: 1000px; }
-  body.tree #about, body.story #about {
+  body.area #about, body.story #about {
     max-height: 0; }
 
 #footer {
@@ -451,10 +481,10 @@ p.log {
   transition: max-height 400ms;
   background-color: #38aca6;
   color: white; }
-  body.trees #footer {
+  body.home #footer {
     max-height: 500px; }
   @media (min-width: 992px) {
-    body.tree #footer, body.story #footer {
+    body.area #footer, body.story #footer {
       max-height: 0; } }
   #footer a, #footer p {
     color: white; }
@@ -465,8 +495,6 @@ svg.artboard {
   position: absolute;
   left: 0;
   top: 0; }
-  svg.artboard .branch-g.story {
-    cursor: pointer; }
   svg.artboard g.tree {
     cursor: pointer;
     -webkit-transition: opacity 400ms;
@@ -483,8 +511,18 @@ svg.artboard {
       -ms-transition: opacity 400ms;
       -o-transition: opacity 400ms;
       transition: opacity 400ms; }
-    svg.artboard g.tree:hover circle.story-count {
+    svg.artboard g.tree:not(.selected):hover circle.story-count {
       opacity: 0.5; }
+    svg.artboard g.tree .branch-g {
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
+      transition: opacity 400ms; }
+      svg.artboard g.tree .branch-g.selected, svg.artboard g.tree .branch-g.hovered {
+        opacity: 1 !important; }
+      svg.artboard g.tree .branch-g.branch-story:hover .selection-circle, svg.artboard g.tree .branch-g.branch-story.selected .selection-circle, svg.artboard g.tree .branch-g.branch-story.hovered .selection-circle {
+        opacity: 1; }
 
 .color-white {
   color: white; }

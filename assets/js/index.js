@@ -25,15 +25,17 @@ SELECT A STORY
 
 ------------------------------------- */
 
+var releaseFolder = "data/release-folder";
+
 var cnt = document.getElementById("container");
 var animms = 600;
+var templates = {};
 
 var state = {
   loadingData: true,
   flatData: null,
   data: {},
-  dataCopy: {},
-  logp: null,
+  storiesMap: {},
   p5setupDone: false,
   p5Finished: false,
   w: cnt.offsetWidth,
@@ -46,13 +48,10 @@ var state = {
   currentPage: {},
 };
 
-setupLogP();
-
-loadData("data/all-17-april-placehold.json", function (fullTreeData) {
+loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
   console.log("state.data", state.data);
   state.loadingData = false;
-  state.logp.innerText = "data loaded.";
 });
 
 
@@ -86,7 +85,7 @@ var svgStyles = {
   "friut-selected": {
     "fill": "none",
     "stroke": "#E75F52",
-    "stroke-width": 0.5,
+    "stroke-width": 1,
     "opacity": 0,
   },
   "hover": {
@@ -222,8 +221,19 @@ function draw() {
     noLoop();
     addListeners();
     initialize();
+    registerTemplates();
     setTimeout(function () { remove(); }, 200); // remove p5 sketch and canvas
   }
+
+}
+function registerTemplates () {
+  templates.storyPreviews = Handlebars.compile($("#template-story-previews").html());
+  templates.areaStats     = Handlebars.compile($("#template-area-stats").html());
+  templates.story         = Handlebars.compile($("#template-story").html());
+
+  // use
+  // var html1 = templates.storyPreviews({ title: "Story A" });
+  // var html2 = templates.areaStats({ value: "12" });
 
 }
 
@@ -374,7 +384,7 @@ function Tree (root, branch0) {
       this.moveRoot(x, y, animate);
       this.svgGroup.addClass("selected");      
     } else {
-      this.moveCenter(state.w*0.25, state.h/2, animate);
+      this.moveCenter(state.w*0.25, state.h * 0.45, animate);
       this.svgGroup.addClass("selected");
     }
   }
@@ -546,9 +556,11 @@ function updateTreesPos () {
   if (state.isMobile) {
     var x1 = state.w * 0.3;
     var x2 = state.w * 0.7;
-    var y1 = state.h * 0.25;
-    var y2 = state.h * 0.55;
-    var y3 = state.h * 0.85;
+    var mt = 40;
+    var mb = 20;
+    var y1 = mt + ((state.h - mt - mb) * 0.333) - 150; // state.h * 0.22;
+    var y2 = mt + ((state.h - mt - mb) * 0.666) - 150; // state.h * 0.52;
+    var y3 = mt + ((state.h - mt - mb) * 0.999) - 150; // state.h * 0.82;
     return {
       "north-america":  { "x": x1, "y": y1 },
       "europe":         { "x": x2, "y": y1 },
@@ -601,37 +613,141 @@ function repositionAllTrees (animate) {
 }
 
 
+function deselectAllBranches () {
+  $(".branch-g").removeClass("selected").css("opacity", 1);
+}
+
+
+// ------------------------------------
 // --- Pages states
+// ------------------------------------
 
 function setStatePage (type, id) {
   
   // --- manage state
 
-  var depth = (type == "trees") ? 0 : (type == "area") ? 1 : (type == "story") ? 2 : null;
-  if (depth === null) {
-    throw "Wrong page passed to setter: "+ type;
+  var oldPage = {
+    "type":   state.currentPage.type,
+    "id":     state.currentPage.id,
+    "depth":  state.currentPage.depth,
   }
+
+  if (type == "area") {
+    if (oldPage.type === "area" && oldPage.id === id) {
+      type = "home";
+    }
+  }
+
+  var depths = { "home": 0, "area": 1, "story": 2 };
+  var depth = depths[type];
+  if (depth === null) {
+    throw "Wrong type passed to setter: "+ type;
+  }
+
+
+  // --- manage body classes
+
+  $("body").removeClass("home").removeClass("area").removeClass("story");
+  $("body").addClass(type);
+
+  
+
+  // --- manage svg trees
+
+  if (type == "home" && state.selectedTree !== null) {
+    
+    deselectAllBranches();
+    selectTree(null);
+  
+  } else if (type == "area") {
+
+    deselectAllBranches();
+    if (!(oldPage.type === "story" && state.selectedTree === id)) {
+      selectTree(id);
+    }
+  
+  } else if (type == "story") {
+
+    var story = state.storiesMap[id];
+    console.log("story", story);
+
+    var wait = 0;
+
+    if (story.area !== state.selectedTree) {
+      selectTree(story.area);
+    }
+
+    // --- branch and cherry
+
+    $("g.tree#"+ story.area +" .branch-g").removeClass("selected").css("opacity", 0.1);
+    $("g.tree#"+ story.area +" .branch-g.branch-story").css("opacity", 0.2);
+
+    $(".branch-g#"+ story.area).addClass("selected");
+    $(".branch-g#"+ story.area +"---"+ story.level).addClass("selected");
+    $(".branch-g#"+ story.area +"---"+ story.level +"---"+ story.sector).addClass("selected");
+    $(".branch-g[data-value='"+ story.slug +"']").addClass("selected");
+
+  }
+
+
+
+  // --- manage content
+
+  if (type == "home") {
+
+    $("#content").html("");
+  
+  } else if (type == "area") {
+    
+    var stories = getAreaStories(state.selectedTree);
+    var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
+    var countBy = _.countBy(stories, "sectorCopy");
+    var sectors = Object.keys(countBy).map(function(sectorCopy) {
+      return { "sectorCopy": sectorCopy, "sector": sectorCopy.slug(), "count": countBy[sectorCopy] };
+    });
+    var context1 = { 
+      "imgSrc": areaImgUrl,
+      "sectors": sectors,
+    };
+    var context2 = { 
+      "stories": stories 
+    };
+    var htmlAreaStats = templates.areaStats(context1);
+    var htmlStories = templates.storyPreviews(context2);
+    // $("#content").html("<h1 class='font-serif-l'>Area overview: "+ id +"</h1>");
+    $("#content").html(htmlAreaStats).append(htmlStories);
+
+  } else if (type == "story") {
+
+    var story = state.storiesMap[id];
+    // $("#content").html("<h1 class='font-serif-l'>Story: "+ story.titleCopy +"</h1>");
+    var htmlStory = templates.story(story);
+    $("#content").html(htmlStory);
+
+  }
+
+
+  
+  // --- manage timeline
+
+
+
+
+  // --- manage left ui
+
+  /***
+  if story
+    show title
+    show nav
+  */
+
+  // --- update state
+
   state.currentPage = {
     "type":   type,   // ---  home  area      story
     "id":     id,     // ---  null  "europe"  "story-slug-lorem-ipsum"
     "depth":  depth,  // ---  0     1         2
   };
-
-
-  // --- manage body classes
-
-  $("#fill-window").removeClass("area").removeClass("story");
-  $("#fill-window").addClass(type);
-
-  // --- manage svg trees
-  
-  // --- manage content
-  
-  // --- manage header class
-
-  // --- manage left ui
-
-
 
 }
 
@@ -697,69 +813,51 @@ function updateHeader () {
 }
 
 
-function handleStoryClick (d) {
+function handleStoryClick (slug) {
 
-  // --- prepare / parse
+  setStatePage("story", slug);
 
-  var area = d.id.split("---")[0];
-  var level = d.id.split("---")[1];
-  var sector = d.id.split("---")[2];
-  var slug = d.value;
-  var areaCopy = d.area;
-  var levelCopy = d.levelSimplified;
-  var sectorCopy = d.sector;
-  var textCopy = state.dataCopy[slug].text;
-  var titleCopy = d.title;
-  var date = moment(d.date);
-  console.log("--------------------");
-  console.log(d);
-  console.log(areaCopy);
-  console.log(levelCopy);
-  console.log(sectorCopy);
-  console.log(titleCopy);
-  console.log(textCopy);
-  console.log(date);
-
-  // --- tree / area
-
-  if (state.selectedTree === null || state.selectedTree !== area) {
-    selectTree(area);
-  }
+  // if (state.selectedTree === null || state.selectedTree !== area) {
+  //   selectTree(area);
+  // }
   
-  // --- timeline
-  
-  // --- story
-
 }
 
 // --- Listeners and events
 
 function addListeners () {
 
-  $("svg .branch-g").mouseover(function(e){ 
-    // this.instance.find(".branch-path").animate(200).attr(svgStyles.hover);
-    this.instance.find(".selection-circle").attr({ opacity: 1 });
-    state.logp.innerText = this.dataset.value.toUpperCase();
+  $("svg g.tree .branch-g.branch-story").mouseover(function(e){     
+    var area = this.id.split("---")[0];
+    var level = this.id.split("---")[1];
+    var sector = this.id.split("---")[2];
+    if (area == state.selectedTree && state.currentPage.type == "story") {
+      $(".branch-g#"+ area).addClass("hovered");
+      $(".branch-g#"+ area +"---"+ level).addClass("hovered");
+      $(".branch-g#"+ area +"---"+ level +"---"+ sector).addClass("hovered");
+      $(this).addClass("hovered");
+    }
   });
 
-  $("svg .branch-g").mouseout(function(e){ 
-    // this.instance.find(".branch-path").animate(200).attr(svgStyles.normal);
-    this.instance.find(".selection-circle").attr({ opacity: 0 });
-    state.logp.innerText = "";
+  $("svg g.tree .branch-g.branch-story").mouseout(function(e){ 
+    var area = this.id.split("---")[0];
+    var level = this.id.split("---")[1];
+    var sector = this.id.split("---")[2];
+    if (area == state.selectedTree && state.currentPage.type == "story") {
+      $(".branch-g#"+ area).removeClass("hovered");
+      $(".branch-g#"+ area +"---"+ level).removeClass("hovered");
+      $(".branch-g#"+ area +"---"+ level +"---"+ sector).removeClass("hovered");
+      $(this).removeClass("hovered");
+    }
   });
 
   $("svg .branch-story").click(function(e){ 
     e.stopPropagation();
-    handleStoryClick(this.dataset);
+    handleStoryClick(this.dataset.value);
   });
 
   $("svg g.tree").click(function(e){ 
-    // if (!trees[this.id].isVisible()) {
-    //   return;
-    // }
-    if (state.selectedTree !== this.id) {
-      selectTree(this.id);
-    }
+    setStatePage("area", this.id);
   });
 
   $("#header .item").click(function(e) {
@@ -769,13 +867,20 @@ function addListeners () {
   });
 
   $("#header .logo").click(function(e) {
-    handleMenuClick("area", null);
+    setStatePage("home", null);
   });
 
   $("#to-top").click(function() {
     $("html, body").animate({ "scrollTop": 0 }, animms);
   });
 
+  $("#nav-back").click(function() {
+    if (state.currentPage.type == "story") {
+      setStatePage("area", state.selectedTree);
+    } else if (state.currentPage.type == "area") {
+      setStatePage("home", null);
+    }
+  });
 }
 
 
@@ -783,27 +888,18 @@ function handleMenuClick (type, value) {
 
   if (type == "area") {
 
-    if (value === state.selectedTree) {
-      selectTree(null);
-    } else {
-      selectTree(value);
-    }
+    setStatePage("area", value);
 
-    // if (value === null) {
-    //   toggleBelow(true);
-    // }
   } else if (type == "anchor") {
+
     var wait = 0;
     if (state.selectedTree !== null) {
-      selectTree(null);
       wait = animms;
     }
-
+    setStatePage("home", null);
     setTimeout(function() {
       var to = $("#"+ value).offset().top;
       $("html, body").animate({ "scrollTop": to }, animms);
-      // toggleBelow(true, function () {
-      // });
     }, wait);
   }
 }
@@ -820,12 +916,21 @@ function handleMenuClick (type, value) {
 // WIP
 // WIP
 // WIP
+
+
+function getAreaStories (area) {
+  var stories = Object.keys(state.storiesMap)
+    .map(function(k) { 
+      return state.storiesMap[k]; 
+    })
+    .filter(function(story) {
+      return story.area == area;
+    });
+  return stories;
+}
+
 function createTimeline (area) {
-  state.flatData.filter(function(d) {
-    return d.area.slug() == area;
-  }).map(function(d) {
-    return d.area.slug() == area;
-  });
+  console.log("stories", stories);
 }
 
 
@@ -867,13 +972,6 @@ function countChildren (item, sum) {
 function isMobile () {
   var mql = window.matchMedia('(max-width: 991px)');
   return mql.matches;
-}
-
-function setupLogP () {
-  state.logp = document.createElement("p");
-  state.logp.classList.add("log");
-  document.body.appendChild(state.logp);
-  state.logp.innerText = "loading data";
 }
 
 
@@ -947,16 +1045,28 @@ function loadData (file, callback) {
             var storyTitle = d.title;
             var storyText = d.text;
             var storySlug = d.title.slug();
-            state.dataCopy[storySlug] = {
-              "title": storyTitle,
-              "text": storyText,
+            var storyDate = moment(d.date);
+
+            var story = {
+              "area":       area,
+              "level":      level,
+              "sector":     sector,
+              "slug":       storySlug,
+              "date":       storyDate,
+              "areaCopy":   d.area,
+              "levelCopy":  d["level-simplified"],
+              "sectorCopy": d.sector,
+              "textCopy":   storyText,
+              "titleCopy":  storyTitle,
+              "dateCopy":   storyDate.format("D MMM YYYY"),
             };
-            var date = moment(d.date);
-            if (date.isAfter(state.lastDate)) {
-              state.lastDate = date;
+            state.storiesMap[storySlug] = story;
+
+            if (storyDate.isAfter(state.lastDate)) {
+              state.lastDate = storyDate;
             }
-            if (date.isBefore(state.firstDate)) {
-              state.firstDate = date;
+            if (storyDate.isBefore(state.firstDate)) {
+              state.firstDate = storyDate;
             }
             delete d.text;
             var props = $.extend({}, d, {

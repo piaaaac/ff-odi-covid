@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-custom.css">
   <link rel="stylesheet" type="text/css" href="assets/css/index.css">
 </head>
-<body class="trees">
+<body class="home">
 
   <div id="fill-window">
     
@@ -27,7 +27,7 @@
           <img class="logo-landing ml-3 pl-1" src="assets/images/logo-subtitle.svg" alt="Stories of migrants contributing to the COVID-19 response and saving lives across the globe" />
         </div>
         <div class="right">
-          <a class="item font-small-bold" data-type="anchor" data-value="about">
+          <a role="button" class="item font-small-bold" data-type="anchor" data-value="about">
             ABOUT<span class="d-none d-sm-inline d-lg-none d-xl-inline"> THE PROJECT</span>
           </a>
         </div>
@@ -37,14 +37,19 @@
           <h1 class="font-serif-xl">Key workers</h1>
         </div>
         <div class="center d-none d-lg-block">
-          <a class="item font-small-bold" data-type="area" data-value="north-america">NORTH AMERICA</a>
-          <a class="item font-small-bold" data-type="area" data-value="latin-america">LATIN AMERICA</a>
-          <a class="item font-small-bold" data-type="area" data-value="europe">EUROPE</a>
-          <a class="item font-small-bold" data-type="area" data-value="africa">AFRICA</a>
-          <a class="item font-small-bold" data-type="area" data-value="asia-oceania">ASIA &amp; OCEANIA</a>
+          <a role="button" class="item font-small-bold" data-type="area" data-value="north-america">
+            NORTH AMERICA</a>
+          <a role="button" class="item font-small-bold" data-type="area" data-value="latin-america">
+            LATIN AMERICA</a>
+          <a role="button" class="item font-small-bold" data-type="area" data-value="europe">
+            EUROPE</a>
+          <a role="button" class="item font-small-bold" data-type="area" data-value="africa">
+            AFRICA</a>
+          <a role="button" class="item font-small-bold" data-type="area" data-value="asia-oceania">
+            ASIA &amp; OCEANIA</a>
         </div>
         <div class="right">
-          <a class="item font-small-bold" data-type="anchor" data-value="about">
+          <a role="button" class="item font-small-bold" data-type="anchor" data-value="about">
             ABOUT<span class="d-none d-sm-inline d-lg-none d-xl-inline"> THE PROJECT</span>
           </a>
         </div>
@@ -55,24 +60,13 @@
 
   </div>
 
-  <div id="content">
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
-    Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />Story title ABC<br />
+  <div id="content"></div>
+
+  <div id="ui-left">
+    <div class="top">
+      <a id="nav-back" role="button" class="font-small-bold">&larr; BACK</a>
+    </div>
+    <div class="bottom">Story {{n}} of {{total}}</div>
   </div>
 
   <section id="about">
@@ -155,28 +149,46 @@
   <!-- Templates start -->
   <!-- https://www.youtube.com/watch?v=3zVYH16yogQ -->
 
-  <script id="story-preview" type="text/x-handlebars-template">
-    <div>{{title}}</div>
+  <script id="template-story-previews" type="text/x-handlebars-template">
+    <div class="container-fluid story-previews">
+      <div class="row">    
+        {{#each stories}}
+          <div class="col-6 story-preview">
+            {{this.titleCopy}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
   </script>
   
-  <script id="area-stat" type="text/x-handlebars-template">
-    <div>{{value}}</div>
+  <script id="template-area-stats" type="text/x-handlebars-template">
+    <div class="container-fluid area-stats">
+      <div class="row">
+        {{#each sectors}}
+          <div class="col-3 stat">
+            {{this.sectorCopy}} ({{this.sector}}) >> {{this.count}}
+          </div>
+        {{/each}}
+        <div class="col-12">
+          <img src="{{imgSrc}}" />
+        </div>
+      </div>
+    </div>
   </script>
   
-  <script>
-    var templates = {};
-    templates.storyPreview  = Handlebars.compile($("#story-preview").html());
-    templates.areaStat      = Handlebars.compile($("#area-stat").html());
-
-    // use
-    var html1 = templates.storyPreview({ title: "Story A" });
-    var html2 = templates.areaStat({ value: "12" });
-
-    console.log(html1);
-    console.log(html2);
-
+  <script id="template-story" type="text/x-handlebars-template">
+    <div class="container-fluid area-stats">
+      <div class="row">
+        <div class="col-12">
+          <p class="font-small-bold">{{dateCopy}}</p>
+          <p class="font-small-bold">{{levelCopy}}</p>
+          <p class="font-small-bold">{{sectorCopy}}</p>
+          <p class="font-body">{{textCopy}}</p>
+        </div>
+      </div>
+    </div>
   </script>
-
+  
   <!-- Templates end -->
 
   <script src="assets/js/index.js"></script>
