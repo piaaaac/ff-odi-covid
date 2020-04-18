@@ -5,6 +5,7 @@ Stories of migrants contributing to the COVID-19 response and saving lives acros
 
 ## To do list
 
+- [BUG] Error if an area has no stories
 
 ## About the project
 
@@ -21,3 +22,4 @@ Development: Alex Piacentini
 - SVG.js 3.0
 - lodash 4.17.15
 - jQuery 3.4.1
+- momentjs

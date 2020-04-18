@@ -1,0 +1,62 @@
+date,area,level-simplified,sector,target-size,title,text
+2020-02-03,Europe,National,Healthcare,30,Lorem ipsum dolor sit amet 2,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-03,Europe,Regional,Information,,Lorem ipsum dolor sit amet 3,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-29,Europe,National,Immigration,,Lorem ipsum dolor sit amet 4,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-16,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 5,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-27,Europe,Regional,Agriculture,,Lorem ipsum dolor sit amet 6,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-24,Europe,Regional,Healthcare,,Lorem ipsum dolor sit amet 7,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-25,Europe,National,Healthcare,100,Lorem ipsum dolor sit amet 8,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-18,Europe,National,Immigration,,Lorem ipsum dolor sit amet 9,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-06,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 10,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-09,Europe,Local,Agriculture,,Lorem ipsum dolor sit amet 11,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-16,Europe,National,Immigration,,Lorem ipsum dolor sit amet 12,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-03,Europe,Local,Hygiene,,Lorem ipsum dolor sit amet 13,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-26,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 14,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-17,Europe,National,Immigration,,Lorem ipsum dolor sit amet 15,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-10,Europe,National,All,,Lorem ipsum dolor sit amet 16,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-16,Europe,Regional,Agriculture,500,Lorem ipsum dolor sit amet 17,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-12,Europe,Local,Hospitality,65,Lorem ipsum dolor sit amet 18,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-22,Europe,National,Healthcare,200,Lorem ipsum dolor sit amet 19,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-12,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 20,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-22,Europe,Local,Basic Necessities,,Lorem ipsum dolor sit amet 21,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-07,Europe,National,Healthcare,2800,Lorem ipsum dolor sit amet 22,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-06,Europe,National,Immigration,,Lorem ipsum dolor sit amet 23,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-07,North America,National,Agriculture,,Lorem ipsum dolor sit amet 24,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-14,North America,National,Healthcare,,Lorem ipsum dolor sit amet 25,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-15,North America,National,Agriculture,,Lorem ipsum dolor sit amet 26,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-21,North America,Regional,Healthcare,,Lorem ipsum dolor sit amet 27,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-11,North America,Regional,Healthcare,,Lorem ipsum dolor sit amet 28,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-23,North America,Regional,Technology,,Lorem ipsum dolor sit amet 29,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-03,North America,Regional,Healthcare,,Lorem ipsum dolor sit amet 30,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-04,Asia & Oceania,National,Healthcare,20000,Lorem ipsum dolor sit amet 31,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-07,Asia & Oceania,National,Healthcare,500,Lorem ipsum dolor sit amet 32,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-28,Latin America,Local,Healthcare,418,Lorem ipsum dolor sit amet 33,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-15,Latin America,National,Healthcare,,Lorem ipsum dolor sit amet 34,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-02,Latin America,Local,Healthcare,,Lorem ipsum dolor sit amet 35,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-13,Latin America,National,Healthcare,,Lorem ipsum dolor sit amet 36,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-02,Latin America,Regional,Healthcare,,Lorem ipsum dolor sit amet 37,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-29,Africa,Local,Basic Necessities,,Lorem ipsum dolor sit amet 38,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-27,Europe,National,Hospitality,"450,000",Lorem ipsum dolor sit amet 39,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-04,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 40,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-15,Europe,Local,Agriculture,,Lorem ipsum dolor sit amet 41,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-30,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 42,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-01,Europe,National,All,,Lorem ipsum dolor sit amet 43,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-31,Europe,International,Immigration,,Lorem ipsum dolor sit amet 44,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-28,Europe,National,Healthcare,,Lorem ipsum dolor sit amet 45,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-05,Europe,National,Agriculture,"150,000",Lorem ipsum dolor sit amet 46,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-26,North America,National,Healthcare,,Lorem ipsum dolor sit amet 47,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-22,North America,National,Healthcare,,Lorem ipsum dolor sit amet 48,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-15,North America,National,All,,Lorem ipsum dolor sit amet 49,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-09,North America,National,Healthcare,,Lorem ipsum dolor sit amet 50,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-15,North America,National,All,,Lorem ipsum dolor sit amet 51,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-15,North America,National,Immigration,"40,000",Lorem ipsum dolor sit amet 52,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-27,North America,National,Healthcare,,Lorem ipsum dolor sit amet 53,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-11,North America,Regional,Healthcare,,Lorem ipsum dolor sit amet 54,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-14,North America,Local,Basic Services,,Lorem ipsum dolor sit amet 55,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-10,North America,Regional,Healthcare,,Lorem ipsum dolor sit amet 56,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-01-09,North America,Regional,Economy,,Lorem ipsum dolor sit amet 57,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-03-01,Latin America,National,Healthcare,,Lorem ipsum dolor sit amet 58,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-04-09,Asia & Oceania,International,Scientists,,Lorem ipsum dolor sit amet 59,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-11,North America,,,,Lorem ipsum dolor sit amet 60,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-05,North America,,,,Lorem ipsum dolor sit amet 61,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet
+2020-02-18,North America,,,,Lorem ipsum dolor sit amet 62,Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet

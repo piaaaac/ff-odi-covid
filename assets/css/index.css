@@ -69,7 +69,7 @@ html body input:-internal-autofill-selected {
   src: url("../fonts/sabon/SabonMTStd-Semibold.otf") format("opentype"); }
 .font-serif-xl {
   font-family: "Sabon", serif;
-  font-size: 40px;
+  font-size: 27px;
   letter-spacing: 0;
   line-height: 1.3em;
   font-weight: 600;
@@ -77,7 +77,7 @@ html body input:-internal-autofill-selected {
   font-stretch: normal; }
   @media (min-width: 576px) {
     .font-serif-xl {
-      font-size: 40px; } }
+      font-size: 27px; } }
   @media (min-width: 768px) {
     .font-serif-xl {
       font-size: 40px; } }
@@ -292,12 +292,18 @@ a.btn {
   -ms-transition: opacity 400ms;
   -o-transition: opacity 400ms;
   transition: opacity 400ms; }
+  @media (max-width: 767.98px) {
+    #to-top {
+      right: 20px; } }
   #to-top.hide {
     pointer-events: none;
     opacity: 0; }
 
 section {
   padding: 30px; }
+  @media (max-width: 767.98px) {
+    section {
+      padding: 5px; } }
   section.footer {
     background-color: #147666;
     color: white; }
@@ -315,9 +321,12 @@ p.log {
   #fill-window #container {
     height: calc(100vh - 90px);
     width: 100%;
-    flex-grow: 2;
     position: relative;
-    background-color: #EAEBEB; }
+    background-color: #EAEBEB;
+    padding: 45px; }
+    @media (max-width: 767.98px) {
+      #fill-window #container {
+        padding: 20px; } }
   #fill-window #header {
     height: 90px;
     min-height: 90px;
@@ -329,10 +338,13 @@ p.log {
       left: 0;
       bottom: 0;
       right: 0;
-      padding: 0 40px;
+      padding: 0 45px;
       display: flex;
       justify-content: space-between;
       align-items: center; }
+      @media (max-width: 767.98px) {
+        #fill-window #header .wrapper-menu-home, #fill-window #header .wrapper-menu-full {
+          padding: 20px; } }
       #fill-window #header .wrapper-menu-home .logo, #fill-window #header .wrapper-menu-full .logo {
         cursor: pointer; }
       #fill-window #header .wrapper-menu-home a.item, #fill-window #header .wrapper-menu-full a.item {
@@ -350,20 +362,15 @@ p.log {
       opacity: 1;
       pointer-events: all; }
     #fill-window #header.north-america a[data-value="north-america"] {
-      color: #E75F52;
-      pointer-events: none; }
+      color: #E75F52; }
     #fill-window #header.latin-america a[data-value="latin-america"] {
-      color: #E75F52;
-      pointer-events: none; }
+      color: #E75F52; }
     #fill-window #header.europe a[data-value="europe"] {
-      color: #E75F52;
-      pointer-events: none; }
+      color: #E75F52; }
     #fill-window #header.africa a[data-value="africa"] {
-      color: #E75F52;
-      pointer-events: none; }
+      color: #E75F52; }
     #fill-window #header.asia-oceania a[data-value="asia-oceania"] {
-      color: #E75F52;
-      pointer-events: none; }
+      color: #E75F52; }
 
 #below.hide {
   display: none; }
@@ -381,7 +388,7 @@ svg.artboard {
     -ms-transition: opacity 400ms;
     -o-transition: opacity 400ms;
     transition: opacity 400ms; }
-    svg.artboard g.tree.hide {
+    svg.artboard g.tree.hide:not(.selected) {
       pointer-events: none;
       opacity: 0; }
     svg.artboard g.tree circle.story-count {

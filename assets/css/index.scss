@@ -9,6 +9,8 @@ $color-coral: #E75F52;
 $color-blue: #3EBFB9;
 $color-green: #147666;
 $header-height: 90px;
+$padding-l: 45px;
+$padding-s: 20px;
 
 // ------------------------------------------------------------------------
 // External files import
@@ -89,7 +91,8 @@ a.btn {
 #to-top {
   position: fixed;
   top: 30px;
-  right: 45px;
+  right: $padding-l;
+  @include media-breakpoint-down(sm) { right: $padding-s; }
   @include transition(opacity 400ms);
   &.hide {
     pointer-events: none;
@@ -98,7 +101,8 @@ a.btn {
 }
 
 section {
-  padding: 30px;
+  padding: $padding-l - 15px;
+  @include media-breakpoint-down(sm) { padding: $padding-s - 15px; }
 
   &.footer {
     background-color: $color-green;
@@ -124,9 +128,13 @@ p.log {
   #container {
     height: calc(100vh - #{$header-height});
     width: 100%;
-    flex-grow: 2;
     position: relative;
     background-color: $color-bg;
+    padding: $padding-l;
+    @include media-breakpoint-down(sm) { padding: $padding-s; }
+    #ui {
+
+    }
   }
 
   #header {
@@ -137,7 +145,8 @@ p.log {
     .wrapper-menu-home, .wrapper-menu-full {
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      padding: 0 40px;
+      padding: 0 $padding-l;
+      @include media-breakpoint-down(sm) { padding: $padding-s; }
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -157,15 +166,20 @@ p.log {
       .wrapper-menu-full { opacity: 1; pointer-events: all; }
     }
     &.north-america a[data-value="north-america"] { 
-      color: $color-coral; pointer-events: none; }
+      color: $color-coral; 
+    }
     &.latin-america a[data-value="latin-america"] { 
-      color: $color-coral; pointer-events: none; }
+      color: $color-coral; 
+    }
     &.europe a[data-value="europe"] { 
-      color: $color-coral; pointer-events: none; }
+      color: $color-coral; 
+    }
     &.africa a[data-value="africa"] { 
-      color: $color-coral; pointer-events: none; }
+      color: $color-coral; 
+    }
     &.asia-oceania a[data-value="asia-oceania"] { 
-      color: $color-coral; pointer-events: none; }
+      color: $color-coral; 
+    }
   }
 }
 
@@ -190,7 +204,7 @@ svg.artboard {
   g.tree {
     cursor: pointer;
     @include transition(opacity 400ms);
-    &.hide {
+    &.hide:not(.selected) {
       pointer-events: none;
       opacity: 0;
     }
@@ -212,3 +226,20 @@ svg.artboard {
 
 .color-white { color: white; }
 .color-green { color: $color-green; }
+
+
+// ------------------------------------------------------------------------
+// BOOTSTRAP BREAKPOINTS
+// ------------------------------------------------------------------------
+
+// xs ---                 Portrait phones
+// sm ---  576px and up   Small devices (landscape phones)
+// md ---  768px and up   Medium devices (tablets)
+// lg ---  992px and up   Large devices (desktops)
+// xl --- 1200px and up   Extra large devices (large desktops)
+
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+// @include media-breakpoint-up(sm) { ... }
+// @include media-breakpoint-only(md) { ... }
+// @include media-breakpoint-between(md, xl) { ... }
+// @include media-breakpoint-down(lg) { ... }

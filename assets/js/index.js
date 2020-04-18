@@ -6,6 +6,12 @@ To do
   - can't use to position, use svg.js instead 
     (ie/edge support issues https://css-tricks.com/transforms-on-svg-elements/)
 
+- mobile
+  - different tree positions
+  - home  - long svg
+    mid   - shorter svg, ui markup appears
+    story - no svg, ui markup appears
+
 
 SELECT A TREE
 - #header: change class (- home, + full)
@@ -24,7 +30,9 @@ var animms = 600;
 
 var state = {
   loadingData: true,
+  flatData: null,
   data: {},
+  dataCopy: {},
   logp: null,
   p5setupDone: false,
   p5Finished: false,
@@ -32,11 +40,13 @@ var state = {
   h: cnt.offsetHeight,
   treePositions: {},
   selectedArea: null,
+  firstDate: moment(),
+  lastDate: moment("2000-01-01"),
 };
 
 setupLogP();
 
-loadData("data/all-15-april.json", function (fullTreeData) {
+loadData("data/all-17-april-placehold.json", function (fullTreeData) {
   state.data = fullTreeData;
   console.log("state.data", state.data);
   state.loadingData = false;
@@ -272,7 +282,6 @@ function Tree (root, branch0) {
     // var circleDiameter = this.storyCount * len0/10;
     var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
 
-    console.log(this.id, circleDiameter);
     this.svgGroup
       .circle(circleDiameter)
       .cx(0).cy(0)
@@ -306,7 +315,7 @@ function Tree (root, branch0) {
         // "fill": "black",
         "anchor": "middle",
       });
-    gt.text(this.storyCount +" stories").x(0).y(80)
+    gt.text(this.storyCount + (this.storyCount == 1 ? " story" : " stories")).x(0).y(80)
       .addClass("font-small-stories")
       .font({ "anchor": "middle" });
 
@@ -328,23 +337,23 @@ function Tree (root, branch0) {
   // }
 
   this.moveRoot = function (x, y, animate) {
-    var ms = (animate === true) ? animms : 0;
+    var ms = (animate === true) ? animms : 1;
     this.svgGroup.animate(ms).move(x + this.rootPoint.x, y + this.rootPoint.y);
   }
 
   this.moveCenter = function (x, y, animate) {
-    var ms = (animate === true) ? animms : 0;
+    var ms = (animate === true) ? animms : 1;
     this.svgGroup.animate(ms).move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
   }
 
   this.show = function (/*animate*/) {
-    // var ms = (animate === true) ? animms : 0;
+    // var ms = (animate === true) ? animms : 1;
     // this.svgGroup.animate(ms).opacity(1);
     this.svgGroup.removeClass("hide");
   }
 
   this.hide = function (/*animate*/) {
-    // var ms = (animate === true) ? animms : 0;
+    // var ms = (animate === true) ? animms : 1;
     // this.svgGroup.animate(ms).opacity(0);
     this.svgGroup.addClass("hide");
   }
@@ -369,7 +378,7 @@ function Tree (root, branch0) {
   }
 
   this.scale = function (factor, animate) { // BROKEN
-    var ms = (animate === true) ? animms : 0;
+    var ms = (animate === true) ? animms : 1;
     this.svgGroup
       .animate(ms)
       .transform({
@@ -567,11 +576,13 @@ function repositionAllTrees (animate) {
 
 function selectArea (id) {
 
+  // deselect
+
   if (id === null) {
     if (state.selectedArea !== null) {
       var oldId = state.selectedArea;
       trees[oldId].moveInPosition(true);
-      setTimeout(function() { showTrees(/*true*/); }, animms);
+      setTimeout(function() { showTrees(); }, animms/2);
       state.selectedArea = null;
     }
     updateHeader();
@@ -579,24 +590,37 @@ function selectArea (id) {
   }
 
   if (state.selectedArea !== null) {
+
+    // swap selection
+
     var oldId = state.selectedArea;
     state.selectedArea = id;
-    trees[oldId].hide(true);
-    setTimeout(function() { trees[oldId].moveInPosition(); }, animms);
-    trees[state.selectedArea].moveLeft();
-    trees[state.selectedArea].show(true);
-  } else {
-    hideTrees(/*true*/);
-    state.selectedArea = id;
+    trees[oldId].hide();
+    trees[oldId].svgGroup.removeClass("selected"); // hack
     setTimeout(function() { 
-      trees[state.selectedArea].moveLeft(); 
-      trees[state.selectedArea].show(true);
+      trees[oldId].moveInPosition(); 
+      trees[state.selectedArea].moveLeft();
+    }, animms);
+    setTimeout(function() { 
+      trees[state.selectedArea].show();
+    }, animms*2);
+  
+  } else {
+    
+    // all > select one
+
+    state.selectedArea = id;
+    trees[state.selectedArea].moveLeft(true); 
+    hideTrees();
+    setTimeout(function() { 
+      trees[state.selectedArea].show();
     }, animms*2);
   }
 
   toggleBelow(false);
   updateHeader();
 }
+
 
 function updateHeader () {
   $("#header")
@@ -608,6 +632,42 @@ function updateHeader () {
   if (state.selectedArea){
     $("#header").addClass(state.selectedArea);
   }
+}
+
+
+function handleStoryClick (d) {
+
+  // --- prepare / parse
+
+  var area = d.id.split("---")[0];
+  var level = d.id.split("---")[1];
+  var sector = d.id.split("---")[2];
+  var slug = d.value;
+  var areaCopy = d.area;
+  var levelCopy = d.levelSimplified;
+  var sectorCopy = d.sector;
+  var textCopy = state.dataCopy[slug].text;
+  var titleCopy = d.title;
+  var date = moment(d.date);
+  console.log("--------------------");
+  console.log(d);
+  console.log(areaCopy);
+  console.log(levelCopy);
+  console.log(sectorCopy);
+  console.log(titleCopy);
+  console.log(textCopy);
+  console.log(date);
+
+  // --- tree / area
+
+  if (state.selectedArea === null || state.selectedArea !== area) {
+    selectArea(area);
+  }
+  
+  // --- timeline
+  
+  // --- story
+
 }
 
 // --- Listeners and events
@@ -628,15 +688,7 @@ function addListeners () {
 
   $("svg .branch-story").click(function(e){ 
     e.stopPropagation();
-    var area = this.dataset.id.split("---")[0];
-    var level = this.dataset.id.split("---")[1];
-    var sector = this.dataset.id.split("---")[2];
-    var id = this.dataset.id.split("---")[3];
-    console.log("--------------------");
-    console.log("area", area);
-    console.log("level", level);
-    console.log("sector", sector);
-    console.log("id", id);
+    handleStoryClick(this.dataset);
   });
 
   $("svg g.tree").click(function(e){ 
@@ -669,8 +721,15 @@ function addListeners () {
 
 
 function handleMenuClick (type, value) {
+
   if (type == "area") {
-    selectArea(value);
+
+    if (value === state.selectedArea) {
+      selectArea(null);
+    } else {
+      selectArea(value);
+    }
+
     if (value === null) {
       toggleBelow(true);
     }
@@ -703,6 +762,22 @@ function updateTopBtn (scroll) {
   }
 }
 
+// WIP
+// WIP
+// WIP
+// WIP
+// WIP
+// WIP
+// WIP
+// WIP
+function createTimeline (area) {
+  state.flatData.filter(function(d) {
+    return d.area.slug() == area;
+  }).map(function(d) {
+    return d.area.slug() == area;
+  });
+}
+
 
 function toggleBelow (show, callback) {
 
@@ -715,7 +790,9 @@ function toggleBelow (show, callback) {
 
   if (show === true) {
     $("#below").removeClass("hide");
-    callback();
+    if (callback) {
+      callback();
+    }
   } else if (show === false) {
     $("html, body").animate({ "scrollTop": 0 }, animms, function() {
       $("#below").addClass("hide");
@@ -748,6 +825,8 @@ function setupLogP () {
 function loadData (file, callback) {
   var middata = {};
   $.getJSON( file, function(jsonData) {
+
+    state.flatData = jsonData;
 
     // --- mid data structure
   
@@ -810,11 +889,26 @@ function loadData (file, callback) {
         for (var k = 0; k < sectors.length; k++) {
           var sector = sectors[k];
           var sectorChildrenArray = middata[area][level][sector].map(function (d, di) {
+            var storyTitle = d.title;
+            var storyText = d.text;
+            var storySlug = d.title.slug();
+            state.dataCopy[storySlug] = {
+              "title": storyTitle,
+              "text": storyText,
+            };
+            var date = moment(d.date);
+            if (date.isAfter(state.lastDate)) {
+              state.lastDate = date;
+            }
+            if (date.isBefore(state.firstDate)) {
+              state.firstDate = date;
+            }
+            delete d.text;
             var props = $.extend({}, d, {
               "id": area +"---"+ level +"---"+ sector +"---"+ di,
               "depth": 4,
               "dimension": "story",
-              "value": level +" story about "+ sector +" in "+ area +" - "+ di,
+              "value": storySlug,
               "class": "branch-story",
             });
             return {
