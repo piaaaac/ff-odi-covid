@@ -25,3 +25,19 @@ Development: Alex Piacentini
 - jQuery 3.4.1
 - momentjs
 - handlebars.js 4.7.6
+
+
+## Content updates
+
+The `content` folder stores all the versions of the content, each version in a subfolder.
+The folder of the current version is referenced at the top of `index.js` and contains:
+
+- `data.json`
+- `maps-areas` folder
+	- `north-america.svg`
+	- `latin-america.svg`
+	- `europe.svg`
+	- `africa.svg`
+	- `asia-oceania.svg`
+- `maps-stories` folder
+	`story-lorem-ipsum.svg` - One svg file for each story.

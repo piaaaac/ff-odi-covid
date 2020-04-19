@@ -25,7 +25,7 @@ SELECT A STORY
 
 ------------------------------------- */
 
-var releaseFolder = "data/release-folder";
+var releaseFolder = "content/200418-dev";
 
 var cnt = document.getElementById("container");
 var animms = 600;
@@ -813,15 +813,15 @@ function updateHeader () {
 }
 
 
-function handleStoryClick (slug) {
+// function handleStoryClick (slug) {
 
-  setStatePage("story", slug);
+//   setStatePage("story", slug);
 
-  // if (state.selectedTree === null || state.selectedTree !== area) {
-  //   selectTree(area);
-  // }
+//   // if (state.selectedTree === null || state.selectedTree !== area) {
+//   //   selectTree(area);
+//   // }
   
-}
+// }
 
 // --- Listeners and events
 
@@ -853,7 +853,9 @@ function addListeners () {
 
   $("svg .branch-story").click(function(e){ 
     e.stopPropagation();
-    handleStoryClick(this.dataset.value);
+    // handleStoryClick(this.dataset.value);
+    var slug = this.dataset.value;
+    setStatePage("story", slug);
   });
 
   $("svg g.tree").click(function(e){ 
