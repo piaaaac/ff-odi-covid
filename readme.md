@@ -34,10 +34,9 @@ The folder of the current version is referenced at the top of `index.js` and con
 
 - `data.json`
 - `maps-areas` folder
-	- `north-america.svg`
-	- `latin-america.svg`
-	- `europe.svg`
-	- `africa.svg`
-	- `asia-oceania.svg`
+	
+	One svg for each area (`north-america.svg`, `latin-america.svg`, `europe.svg`, `africa.svg`, `asia-oceania.svg`)
+
 - `maps-stories` folder
-	`story-lorem-ipsum.svg` - One svg file for each story.
+	
+	One svg file for each story (eg: `story-lorem-ipsum.svg`, `story-blah-blah.svg`, ...)
