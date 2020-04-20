@@ -66,7 +66,7 @@
 
   <div id="ui-left">
     <div class="top">
-      <a id="nav-back" role="button" class="font-small-bold">&larr; BACK</a>
+      <a id="nav-back" role="button" class="font-small-bold"></a>
     </div>
     <div class="bottom">Story {{n}} of {{total}}</div>
   </div>
@@ -156,7 +156,7 @@
       <div class="row">    
         {{#each stories}}
           <div class="col-6 story-preview">
-            {{this.titleCopy}}
+            <p class="">{{this.titleCopy}}</p>
             <p>
               <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
               READ STORY &rarr;</a>

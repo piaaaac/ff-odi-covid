@@ -26,6 +26,7 @@ SELECT A STORY
 ------------------------------------- */
 
 var releaseFolder = "content/200418-dev";
+// var releaseFolder = "content/200420-amy-test";
 
 var cnt = document.getElementById("container");
 var animms = 600;
@@ -324,13 +325,14 @@ function Tree (root, branch0) {
       "asia-oceania":   "Asia & Oceania",
     };
     var gt = this.svgGroup.group();
-    gt.text(areaNames[this.id]).x(0).y(50)
+    var y1 = len0 * 0.55 + 5;
+    gt.text(areaNames[this.id]).x(0).y(y1)
       .addClass("font-serif-m")
       .font({ 
         // "fill": "black",
         "anchor": "middle",
       });
-    gt.text(this.storyCount + (this.storyCount == 1 ? " story" : " stories")).x(0).y(80)
+    gt.text(this.storyCount + (this.storyCount == 1 ? " story" : " stories")).x(0).y(y1 + 30)
       .addClass("font-small-stories")
       .font({ "anchor": "middle" });
 
@@ -729,7 +731,20 @@ function setStatePage (type, id) {
 
   
   // --- manage timeline
+  if (type == "home") {
 
+    removeTimeline();
+
+  } else if (type == "area") {
+
+    createTimeline(id);
+
+  } else if (type == "story") {
+  
+    var story = state.storiesMap[id];
+    createTimeline(story.area);
+
+  }
 
 
 
@@ -932,7 +947,23 @@ function getAreaStories (area) {
 }
 
 function createTimeline (area) {
+  
+  var stories = getAreaStories(area);
   console.log("stories", stories);
+
+  var my = 40;
+  var tlg = svg.group().addClass("timeline");
+  tlg.line(state.w/2, my, state.w/2, state.h-my).addClass("timeline-skeleton");
+  setTimeout(function() {
+    tlg.addClass("show");
+  }, animms);
+
+}
+
+function removeTimeline () {
+  svg.find("g.timeline")
+    .removeClass("show")
+    .remove();
 }
 
 
@@ -988,7 +1019,7 @@ function loadData (file, callback) {
     for (var i = 0; i < jsonData.length; i++) {
       var d = jsonData[i];
       var area = d.area.slug();
-      var level = d["level-simplified"].slug();
+      var level = d.level.slug();
       var sector = d.sector.slug();
       if (!middata.hasOwnProperty(area)) {
         middata[area] = {};
@@ -1056,7 +1087,7 @@ function loadData (file, callback) {
               "slug":       storySlug,
               "date":       storyDate,
               "areaCopy":   d.area,
-              "levelCopy":  d["level-simplified"],
+              "levelCopy":  d.level,
               "sectorCopy": d.sector,
               "textCopy":   storyText,
               "titleCopy":  storyTitle,

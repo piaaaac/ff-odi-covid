@@ -222,6 +222,7 @@ p.log {
 
 #content {
   overflow: hidden;
+  background-color: $color-bg;
   @include media-breakpoint-down(md) { // --- Mobile version
     // @include transition (max-height 400ms);
     @at-root body.home &{
@@ -260,7 +261,15 @@ p.log {
   // padding: 0 40px;
   .top {
     padding: 40px;
-    pointer-events: all;
+    #nav-back {
+      pointer-events: all;
+      @at-root body.area &::after {
+        content: "← ALL AREAS";
+      }
+      @at-root body.story &::after {
+        content: "← AREA OVERVIEW";
+      }
+    }
   }
   .bottom {
     padding: 40px;
@@ -343,9 +352,19 @@ svg.artboard {
         }
       }
     }
-
   }
-
+  
+  g.timeline {
+    opacity: 0;
+    @include transition(opacity 400ms);
+    &.show {
+      opacity: 1;
+    }
+    line.timeline-skeleton {
+      stroke: black;
+      stroke-width: 0.5px;
+    }
+  }
 
 }
 

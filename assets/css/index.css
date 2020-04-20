@@ -413,6 +413,7 @@ p.log {
 
 #content {
   overflow: hidden;
+  background-color: #E6E7E7;
   padding: 0 40px; }
   @media (max-width: 991.98px) {
     body.home #content {
@@ -449,8 +450,13 @@ p.log {
   body.home #ui-left {
     opacity: 0; }
   #ui-left .top {
-    padding: 40px;
-    pointer-events: all; }
+    padding: 40px; }
+    #ui-left .top #nav-back {
+      pointer-events: all; }
+      body.area #ui-left .top #nav-back::after {
+        content: "← ALL AREAS"; }
+      body.story #ui-left .top #nav-back::after {
+        content: "← AREA OVERVIEW"; }
   #ui-left .bottom {
     padding: 40px;
     pointer-events: all;
@@ -523,6 +529,18 @@ svg.artboard {
         opacity: 1 !important; }
       svg.artboard g.tree .branch-g.branch-story:hover .selection-circle, svg.artboard g.tree .branch-g.branch-story.selected .selection-circle, svg.artboard g.tree .branch-g.branch-story.hovered .selection-circle {
         opacity: 1; }
+  svg.artboard g.timeline {
+    opacity: 0;
+    -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+    transition: opacity 400ms; }
+    svg.artboard g.timeline.show {
+      opacity: 1; }
+    svg.artboard g.timeline line.timeline-skeleton {
+      stroke: black;
+      stroke-width: 0.5px; }
 
 .color-white {
   color: white; }
