@@ -413,11 +413,12 @@ p.log {
 
 #content {
   overflow: hidden;
-  background-color: #E6E7E7;
   padding: 0 40px; }
   @media (max-width: 991.98px) {
-    body.home #content {
-      height: 0; } }
+    #content {
+      background-color: #E6E7E7; }
+      body.home #content {
+        height: 0; } }
   @media (min-width: 992px) {
     #content {
       position: fixed;
@@ -530,14 +531,18 @@ svg.artboard {
       svg.artboard g.tree .branch-g.branch-story:hover .selection-circle, svg.artboard g.tree .branch-g.branch-story.selected .selection-circle, svg.artboard g.tree .branch-g.branch-story.hovered .selection-circle {
         opacity: 1; }
   svg.artboard g.timeline {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 400ms;
     -moz-transition: opacity 400ms;
     -ms-transition: opacity 400ms;
     -o-transition: opacity 400ms;
     transition: opacity 400ms; }
-    svg.artboard g.timeline.show {
-      opacity: 1; }
+    svg.artboard g.timeline.hide {
+      opacity: 0;
+      pointer-events: none; }
+    svg.artboard g.timeline.hide-points .point {
+      opacity: 0;
+      pointer-events: none; }
     svg.artboard g.timeline line.timeline-skeleton {
       stroke: black;
       stroke-width: 0.5px; }

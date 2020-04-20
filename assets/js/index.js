@@ -31,6 +31,8 @@ var releaseFolder = "content/200418-dev";
 var cnt = document.getElementById("container");
 var animms = 600;
 var templates = {};
+var trees;
+var timeline;
 
 var state = {
   loadingData: true,
@@ -152,7 +154,7 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
 // P5
 // ----------------------------------------------
 
-var trees = {
+trees = {
 
 
   "europe": null,
@@ -531,6 +533,73 @@ function Branch (children, start, len, angle, props) {
   }
 }
 
+// ----------------------------------------------
+// Timeline Class
+// ----------------------------------------------
+
+// function removeTimeline () {
+//   svg.find("g.timeline")
+//     .removeClass("show")
+//     .remove();
+// }
+
+// function createTimeline (area) {
+  
+//   var stories = getAreaStories(area);
+//   console.log("stories", stories);
+
+//   var my = 40;
+//   var tlg = svg.group().addClass("timeline");
+//   tlg.line(state.w/2, my, state.w/2, state.h-my).addClass("timeline-skeleton");
+//   setTimeout(function() {
+//     tlg.addClass("show");
+//   }, animms);
+
+// }
+
+function Timeline (x1, y1, x2, y2) {
+
+  // construct
+
+  this.stories = [];
+  this.area = null;
+  this.startDate = null;
+  this.endDate = null;
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+
+  this.svgGroup = svg.group().addClass("timeline").addClass("hide").addClass("hide-points");
+  this.svgGroup.line(this.x1, this.y1, this.x2, this.y2).addClass("timeline-skeleton");
+
+  // methods
+
+  this.update = function (area, stories) {
+    this.area = area;
+    this.stories = stories;
+    var that = this;
+    this.stories.forEach(function(s) {
+      that.svgGroup
+        .circle(8).cx(that.x1).cy(that.y1)
+        .addClass("point");
+    });
+  }
+
+  this.show = function () {
+    this.svgGroup.removeClass("hide");
+  }
+  this.hide = function () {
+    this.svgGroup.addClass("hide");
+  }
+  this.showPoints = function () {
+    this.svgGroup.removeClass("hide-points");
+  }
+  this.hidePoints = function () {
+    this.svgGroup.addClass("hide-points");
+  }
+}
+
 
 // ----------------------------------------------
 // Listeners & functions
@@ -551,6 +620,9 @@ function initialize () {
       trees[k].show();
     });
   }, animms);
+
+  var my = 40;
+  timeline = new Timeline(state.w/2, my, state.w/2, state.h-my);
 }
 
 
@@ -731,19 +803,34 @@ function setStatePage (type, id) {
 
   
   // --- manage timeline
-  if (type == "home") {
-
-    removeTimeline();
-
-  } else if (type == "area") {
-
-    createTimeline(id);
-
-  } else if (type == "story") {
   
-    var story = state.storiesMap[id];
-    createTimeline(story.area);
+  if (!isMobile()) {
+  
+    if (type == "home") {
 
+      timeline.hide();
+
+    } else {
+
+      setTimeout(function() {
+        timeline.show();
+      }, animms);
+
+      var area;
+
+      if (type == "area") {
+        area = id;
+      } else if (type == "story") {
+        var story = state.storiesMap[id];
+        area = story.area;
+      }
+
+      if (area !== timeline.area) {
+        var stories = getAreaStories(area);
+        console.log("stories", stories);
+        timeline.update(area, stories);
+      }
+    }
   }
 
 
@@ -946,25 +1033,8 @@ function getAreaStories (area) {
   return stories;
 }
 
-function createTimeline (area) {
-  
-  var stories = getAreaStories(area);
-  console.log("stories", stories);
 
-  var my = 40;
-  var tlg = svg.group().addClass("timeline");
-  tlg.line(state.w/2, my, state.w/2, state.h-my).addClass("timeline-skeleton");
-  setTimeout(function() {
-    tlg.addClass("show");
-  }, animms);
 
-}
-
-function removeTimeline () {
-  svg.find("g.timeline")
-    .removeClass("show")
-    .remove();
-}
 
 
 // function toggleBelow (show, callback) {

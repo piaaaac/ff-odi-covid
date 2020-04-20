@@ -222,8 +222,8 @@ p.log {
 
 #content {
   overflow: hidden;
-  background-color: $color-bg;
   @include media-breakpoint-down(md) { // --- Mobile version
+    background-color: $color-bg;
     // @include transition (max-height 400ms);
     @at-root body.home &{
       height: 0;
@@ -355,10 +355,17 @@ svg.artboard {
   }
   
   g.timeline {
-    opacity: 0;
+    opacity: 1;
     @include transition(opacity 400ms);
-    &.show {
-      opacity: 1;
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.hide-points {
+      .point {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
     line.timeline-skeleton {
       stroke: black;
