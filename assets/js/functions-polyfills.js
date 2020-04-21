@@ -1,3 +1,25 @@
+
+// via p5 code
+// https://github.com/processing/p5.js/blob/master/src/math/calculation.js
+
+function apMap (n, start1, stop1, start2, stop2, withinBounds) {
+  const newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+  if (!withinBounds) {
+    return newval;
+  }
+  if (start2 < stop2) {
+    return constrain(newval, start2, stop2);
+  } else {
+    return constrain(newval, stop2, start2);
+  }
+}
+
+function apMonstrain (n, low, high) {
+  return Math.max(Math.min(n, high), low);
+}
+
+
+
 String.prototype.slug = function () {
   var slug = this.replace(/^\s+|\s+$/g, ''); // trim
   slug = slug.toLowerCase();

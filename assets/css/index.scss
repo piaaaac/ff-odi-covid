@@ -235,17 +235,68 @@ p.log {
     right: 0;
     top: $header-height;
     bottom: 0;
-    overflow: scroll;
+    pointer-events: none;
     @include transition(opacity 600ms);
     @at-root body.home &{
       opacity: 0;
-      pointer-events: none;
+      #content-wrapper {
+        pointer-events: none;
+      }
+    }
+    #content-wrapper {
+      position: absolute;
+      left: 40px; right: 40px; top: 0; bottom: 0;
+      pointer-events: all;
+      overflow: scroll;
     }
   }
 
   // background-color: rgba(255,0,0,0.1);
   padding: 0 40px;
+
+  .area-stats {
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      position: relative;
+      .circle{
+        border-radius: 300px;
+        background-color: rgba($color-blue, 0.25);
+      }
+      .number {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin-top: -9px;
+        text-align: center;
+        overflow: visible;
+      }
+    }
+  }
+
+  .story {
+    margin-top: 40px;
+    .story-data {
+      border-left: 1px solid rgba(0,0,0, 0.15);
+    }
+    .map-wrapper {
+      width: 90%;
+      padding-bottom: 66%;
+      background-color: rgba(255,0,0,0.3);
+      position: relative;
+      img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
 }
+
+
 
 #ui-left {
   pointer-events: none;
@@ -362,14 +413,37 @@ svg.artboard {
       pointer-events: none;
     }
     &.hide-points {
+      .points {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    .points {
+      @include transition(opacity 400ms);
       .point {
+        fill: black;
+        stroke: $color-bg;
+        stroke-width: 1px;
+        &:hover { cursor: pointer; }
+      }
+    }
+    .point-selection {
+      fill: none;
+      stroke: black;
+      stroke-width: 1px;
+    }
+    .point-selection, .point-date {
+      pointer-events: none;
+      @include transition(opacity 400ms);
+      &.hide {
         opacity: 0;
         pointer-events: none;
       }
     }
     line.timeline-skeleton {
       stroke: black;
-      stroke-width: 0.5px;
+      stroke-width: 1px;
+      opacity: 0.15;
     }
   }
 

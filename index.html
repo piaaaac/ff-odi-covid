@@ -62,7 +62,9 @@
 
   </div>
 
-  <div id="content"></div>
+  <div id="content">
+    <div id="content-wrapper"></div>
+  </div>
 
   <div id="ui-left">
     <div class="top">
@@ -156,6 +158,11 @@
       <div class="row">    
         {{#each stories}}
           <div class="col-6 story-preview">
+            <p class="">
+              <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
+                <img src="{{this.imgUrl}}" />
+              </a>
+            </p>
             <p class="">{{this.titleCopy}}</p>
             <p>
               <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
@@ -171,8 +178,12 @@
     <div class="container-fluid area-stats">
       <div class="row">
         {{#each sectors}}
-          <div class="col-3 stat">
-            {{this.sectorCopy}} ({{this.sector}}) >> {{this.count}}
+          <div class="col-3">
+            <div class="stat">
+              <div class="circle" style="width: {{this.count}}px; height:{{this.count}}px;"></div>
+              <p class="number">{{this.count}}</p>
+            </div>
+            <p>{{this.sectorCopy}} ({{this.sector}})</p>
           </div>
         {{/each}}
         <div class="col-12">
@@ -183,12 +194,31 @@
   </script>
   
   <script id="template-story" type="text/x-handlebars-template">
-    <div class="container-fluid area-stats">
+    <div class="container-fluid story">
       <div class="row">
-        <div class="col-12">
-          <p class="font-small-bold">{{dateCopy}}</p>
-          <p class="font-small-bold">{{levelCopy}}</p>
-          <p class="font-small-bold">{{sectorCopy}}</p>
+        <div class="col-6 position-relative">
+          <div class="map-wrapper">
+            <img src="{{imgUrl}}" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6 story-data">
+              <p class="font-small">Date</p>
+              <p class="font-small-bold">{{dateCopy}}</p>
+              <p class="font-small mt-3">Location</p>
+              <p class="font-small-bold">{{locationText}}</p> <!-- TO REFINE !!! -->
+            </div>
+            <div class="col-6">
+              <p class="font-small">Level</p>
+              <p class="font-small-bold">{{levelCopy}}</p>
+              <p class="font-small mt-3">Sector</p>
+              <p class="font-small-bold">{{sectorCopy}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 pt-5">
           <p class="font-body">{{textCopy}}</p>
         </div>
       </div>

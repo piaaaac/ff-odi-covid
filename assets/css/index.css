@@ -240,6 +240,28 @@ html body input:-internal-autofill-selected {
     .font-body-l {
       font-size: 27px; } }
 
+.font-small-light {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.3em;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  opacity: 0.3; }
+  @media (min-width: 576px) {
+    .font-small-light {
+      font-size: 14px; } }
+  @media (min-width: 768px) {
+    .font-small-light {
+      font-size: 14px; } }
+  @media (min-width: 992px) {
+    .font-small-light {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    .font-small-light {
+      font-size: 14px; } }
+
 * {
   color: black; }
 
@@ -426,15 +448,55 @@ p.log {
       right: 0;
       top: 90px;
       bottom: 0;
-      overflow: scroll;
+      pointer-events: none;
       -webkit-transition: opacity 600ms;
       -moz-transition: opacity 600ms;
       -ms-transition: opacity 600ms;
       -o-transition: opacity 600ms;
       transition: opacity 600ms; }
       body.home #content {
-        opacity: 0;
-        pointer-events: none; } }
+        opacity: 0; }
+        body.home #content #content-wrapper {
+          pointer-events: none; }
+      #content #content-wrapper {
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        top: 0;
+        bottom: 0;
+        pointer-events: all;
+        overflow: scroll; } }
+  #content .area-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    position: relative; }
+    #content .area-stats .stat .circle {
+      border-radius: 300px;
+      background-color: rgba(62, 191, 185, 0.25); }
+    #content .area-stats .stat .number {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      margin-top: -9px;
+      text-align: center;
+      overflow: visible; }
+  #content .story {
+    margin-top: 40px; }
+    #content .story .story-data {
+      border-left: 1px solid rgba(0, 0, 0, 0.15); }
+    #content .story .map-wrapper {
+      width: 90%;
+      padding-bottom: 66%;
+      background-color: rgba(255, 0, 0, 0.3);
+      position: relative; }
+      #content .story .map-wrapper img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100%; }
 
 #ui-left {
   pointer-events: none;
@@ -540,12 +602,39 @@ svg.artboard {
     svg.artboard g.timeline.hide {
       opacity: 0;
       pointer-events: none; }
-    svg.artboard g.timeline.hide-points .point {
+    svg.artboard g.timeline.hide-points .points {
       opacity: 0;
       pointer-events: none; }
+    svg.artboard g.timeline .points {
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
+      transition: opacity 400ms; }
+      svg.artboard g.timeline .points .point {
+        fill: black;
+        stroke: #E6E7E7;
+        stroke-width: 1px; }
+        svg.artboard g.timeline .points .point:hover {
+          cursor: pointer; }
+    svg.artboard g.timeline .point-selection {
+      fill: none;
+      stroke: black;
+      stroke-width: 1px; }
+    svg.artboard g.timeline .point-selection, svg.artboard g.timeline .point-date {
+      pointer-events: none;
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
+      transition: opacity 400ms; }
+      svg.artboard g.timeline .point-selection.hide, svg.artboard g.timeline .point-date.hide {
+        opacity: 0;
+        pointer-events: none; }
     svg.artboard g.timeline line.timeline-skeleton {
       stroke: black;
-      stroke-width: 0.5px; }
+      stroke-width: 1px;
+      opacity: 0.15; }
 
 .color-white {
   color: white; }

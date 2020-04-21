@@ -241,7 +241,7 @@ function registerTemplates () {
 }
 
 // ----------------------------------------------
-// Tree Class
+// Tree Class (uses p5)
 // ----------------------------------------------
 
 function Tree (root, branch0) {
@@ -417,7 +417,7 @@ function Tree (root, branch0) {
 }
 
 // ----------------------------------------------
-// Branch Class
+// Branch Class (uses p5)
 // ----------------------------------------------
 
 function Branch (children, start, len, angle, props) {
@@ -537,27 +537,7 @@ function Branch (children, start, len, angle, props) {
 // Timeline Class
 // ----------------------------------------------
 
-// function removeTimeline () {
-//   svg.find("g.timeline")
-//     .removeClass("show")
-//     .remove();
-// }
-
-// function createTimeline (area) {
-  
-//   var stories = getAreaStories(area);
-//   console.log("stories", stories);
-
-//   var my = 40;
-//   var tlg = svg.group().addClass("timeline");
-//   tlg.line(state.w/2, my, state.w/2, state.h-my).addClass("timeline-skeleton");
-//   setTimeout(function() {
-//     tlg.addClass("show");
-//   }, animms);
-
-// }
-
-function Timeline (x1, y1, x2, y2) {
+function Timeline (x, y1, y2) {
 
   // construct
 
@@ -565,38 +545,84 @@ function Timeline (x1, y1, x2, y2) {
   this.area = null;
   this.startDate = null;
   this.endDate = null;
-  this.x1 = x1;
+  this.x = x;
   this.y1 = y1;
-  this.x2 = x2;
   this.y2 = y2;
 
   this.svgGroup = svg.group().addClass("timeline").addClass("hide").addClass("hide-points");
-  this.svgGroup.line(this.x1, this.y1, this.x2, this.y2).addClass("timeline-skeleton");
+  this.svgGroup.line(this.x, this.y1, this.x, this.y2).addClass("timeline-skeleton");
+  this.selection = this.svgGroup.circle(15).cx(this.x).cy(0).addClass("point-selection");
+  this.date = this.svgGroup.text("")
+    .x(this.x + 15).y(this.y1)
+    .addClass("point-date").addClass("font-small-light")
+    .font({ "anchor": "left", "leading": "1.1em" });
 
   // methods
 
   this.update = function (area, stories) {
     this.area = area;
     this.stories = stories;
+    this.svgGroup.find(".points").remove();
+    var sg = this.svgGroup.group().addClass("points");
     var that = this;
+
+    // --- V1: Map on area
+    // var first = moment.min(this.stories.map(function(s){ return s.date; }));
+    // var last = moment.max(this.stories.map(function(s){ return s.date; }));
+    
+    // --- V2: Map across all areas
+    var first = state.firstDate;
+    var last = state.lastDate;
+    var storyClick = function (event) {
+      var slug = this.node.dataset.slug;
+      setStatePage ("story", slug);
+    }
+
     this.stories.forEach(function(s) {
-      that.svgGroup
-        .circle(8).cx(that.x1).cy(that.y1)
-        .addClass("point");
+      var y = apMap(s.date.unix(), first.unix(), last.unix(), that.y1, that.y2);
+      sg.circle(6).cx(that.x).cy(y)
+        .addClass("point")
+        .attr("data-slug", s.slug)
+        .on("click", storyClick);
     });
+  }
+
+  this.moveSelection = function (slug) {
+    var point = $(".timeline .point[data-slug='"+ slug +"']")[0].instance;
+    var date = state.storiesMap[slug].date;
+    var dateString = date.format("D MMM") +"\n"+ date.format("YYYY");
+    this.selection.front().animate(animms).cy(point.cy());
+    this.date.text(dateString).animate(animms).y(point.cy() - 15);
+  }
+
+  this.showSelection = function () {
+    this.selection.removeClass("hide");
+    this.date.removeClass("hide");
+  }
+
+  this.hideSelection = function () {
+    this.selection.addClass("hide");
+    this.date.addClass("hide");
   }
 
   this.show = function () {
     this.svgGroup.removeClass("hide");
+    // this.showSelection();
   }
+
   this.hide = function () {
     this.svgGroup.addClass("hide");
+    // this.hideSelection();
   }
+
   this.showPoints = function () {
     this.svgGroup.removeClass("hide-points");
+    this.showSelection();
   }
+
   this.hidePoints = function () {
     this.svgGroup.addClass("hide-points");
+    this.hideSelection();
   }
 }
 
@@ -622,7 +648,7 @@ function initialize () {
   }, animms);
 
   var my = 40;
-  timeline = new Timeline(state.w/2, my, state.w/2, state.h-my);
+  timeline = new Timeline(state.w/2, my, state.h-my);
 }
 
 
@@ -769,7 +795,7 @@ function setStatePage (type, id) {
 
   if (type == "home") {
 
-    $("#content").html("");
+    $("#content-wrapper").html("");
   
   } else if (type == "area") {
     
@@ -777,7 +803,11 @@ function setStatePage (type, id) {
     var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
     var countBy = _.countBy(stories, "sectorCopy");
     var sectors = Object.keys(countBy).map(function(sectorCopy) {
-      return { "sectorCopy": sectorCopy, "sector": sectorCopy.slug(), "count": countBy[sectorCopy] };
+      return { 
+        "sectorCopy": sectorCopy, 
+        "sector": sectorCopy.slug(), 
+        "count": countBy[sectorCopy] *10,
+      };
     });
     var context1 = { 
       "imgSrc": areaImgUrl,
@@ -788,15 +818,14 @@ function setStatePage (type, id) {
     };
     var htmlAreaStats = templates.areaStats(context1);
     var htmlStories = templates.storyPreviews(context2);
-    // $("#content").html("<h1 class='font-serif-l'>Area overview: "+ id +"</h1>");
-    $("#content").html(htmlAreaStats).append(htmlStories);
+    // $("#content-wrapper").html("<h1 class='font-serif-l'>Area overview: "+ id +"</h1>");
+    $("#content-wrapper").html(htmlAreaStats).append(htmlStories);
 
   } else if (type == "story") {
 
     var story = state.storiesMap[id];
-    // $("#content").html("<h1 class='font-serif-l'>Story: "+ story.titleCopy +"</h1>");
     var htmlStory = templates.story(story);
-    $("#content").html(htmlStory);
+    $("#content-wrapper").html(htmlStory);
 
   }
 
@@ -830,6 +859,15 @@ function setStatePage (type, id) {
         console.log("stories", stories);
         timeline.update(area, stories);
       }
+
+      if (type == "area") {
+        timeline.hidePoints();
+      } else if (type == "story") {
+        var story = state.storiesMap[id];
+        timeline.showPoints();
+        timeline.moveSelection(story.slug);
+      }
+
     }
   }
 
@@ -851,6 +889,42 @@ function setStatePage (type, id) {
     "depth":  depth,  // ---  0     1         2
   };
 
+}
+
+
+// these two could be written better
+
+function openNextStory () {
+  if (state.currentPage.type !== "story") {
+    throw "No open story";
+    return;
+  }
+  var slug = state.currentPage.id;
+  var story = state.storiesMap[slug];
+  var stories = getAreaStories(story.area);
+  var currentIndex = _.findIndex(stories, { "slug": slug });
+  var newIndex = currentIndex + 1;
+  if (newIndex >= stories.length) {
+    newIndex = 0;
+  }
+  var newSlug = stories[newIndex].slug;
+  setStatePage("story", newSlug);
+}
+function openPrevStory () {
+  if (state.currentPage.type !== "story") {
+    throw "No open story";
+    return;
+  }
+  var slug = state.currentPage.id;
+  var story = state.storiesMap[slug];
+  var stories = getAreaStories(story.area);
+  var currentIndex = _.findIndex(stories, { "slug": slug });
+  var newIndex = currentIndex - 1;
+  if (newIndex < 0) {
+    newIndex = stories.length - 1;
+  }
+  var newSlug = stories[newIndex].slug;
+  setStatePage("story", newSlug);
 }
 
 
@@ -914,16 +988,6 @@ function updateHeader () {
   }
 }
 
-
-// function handleStoryClick (slug) {
-
-//   setStatePage("story", slug);
-
-//   // if (state.selectedTree === null || state.selectedTree !== area) {
-//   //   selectTree(area);
-//   // }
-  
-// }
 
 // --- Listeners and events
 
@@ -1011,17 +1075,6 @@ function handleMenuClick (type, value) {
 
 // --- Utilities
 
-
-// WIP
-// WIP
-// WIP
-// WIP
-// WIP
-// WIP
-// WIP
-// WIP
-
-
 function getAreaStories (area) {
   var stories = Object.keys(state.storiesMap)
     .map(function(k) { 
@@ -1030,35 +1083,8 @@ function getAreaStories (area) {
     .filter(function(story) {
       return story.area == area;
     });
-  return stories;
+  return _.sortBy(stories, function(s) { return s.date.unix(); });
 }
-
-
-
-
-
-// function toggleBelow (show, callback) {
-
-//   if (!$("#below").hasClass("hide") === show) {
-//     if (callback) {
-//       callback();
-//     }
-//     return;
-//   }
-
-//   if (show === true) {
-//     $("#below").removeClass("hide");
-//     if (callback) {
-//       callback();
-//     }
-//   } else if (show === false) {
-//     $("html, body").animate({ "scrollTop": 0 }, animms, function() {
-//       $("#below").addClass("hide");
-//     });
-//   } else {
-//     throw "show parameter missing.";
-//   }
-// }
 
 
 function countChildren (item, sum) {
@@ -1162,6 +1188,11 @@ function loadData (file, callback) {
               "textCopy":   storyText,
               "titleCopy":  storyTitle,
               "dateCopy":   storyDate.format("D MMM YYYY"),
+
+              // "imgUrl":     releaseFolder +"/maps-stories/"+ id +".svg",
+              "imgUrl":     releaseFolder +"/maps-stories/tmp.svg",
+
+
             };
             state.storiesMap[storySlug] = story;
 

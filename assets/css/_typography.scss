@@ -73,6 +73,11 @@ $font-sans: "Karla", sans-serif;
   font-weight: 400;
 }
 
+.font-small-light {
+  @include font-small;
+  opacity: 0.3;
+}
+
 // h1 { 
 //   @include font-page-titles; 
 //   &.product-name {
