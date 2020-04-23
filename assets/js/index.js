@@ -25,12 +25,10 @@ SELECT A STORY
 
 ------------------------------------- */
 
-var releaseFolder = "content/200418-dev";
-// var releaseFolder = "content/200420-amy-test";
-
 var cnt = document.getElementById("container");
 var animms = 600;
 var templates = {};
+var releaseFolder;
 var trees;
 var timeline;
 
@@ -50,6 +48,9 @@ var state = {
   isMobile: isMobile(),
   currentPage: {},
 };
+
+// releaseFolder = "content/200418-dev";
+releaseFolder = "content/200421-alpha";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -107,20 +108,6 @@ var svgStyles = {
 var csize = 5;
 var csize2 = 12;
 
-/*
-function svgBranchStraight (x1, y1, x2, y2, props) {
-  var g = svg.group()
-    .addClass("branch-g")
-    .attr("id", props.id)
-    .data(props);
-  g.line(x1, y1, x2, y2)
-    .stroke({ color: '#f06', opacity: 0.6, width: 1 })
-    .addClass("branch-path");
-  g.line(x1, y1, x2, y2)
-    .stroke({ color: '#f06', opacity: 0, width: 8 });
-}
-*/
-
 function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
   var g = svg.group()
     .addClass("branch-g").addClass(props.class)
@@ -129,10 +116,10 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
   var additionalStyle = {
     "stroke-width": (props.depth < 3) ? 2 : (props.depth == 3) ? 0.7 : 0.5,
     "stroke": (props.depth <= 3) ? "#000" : "#E75F52",
-    "stroke-dasharray": (props.dimension != "level") ? "" 
-      : (props.value == "local") ? "7 5"
-      : (props.value == "individual") ? "0 5"
-      : "",
+    // "stroke-dasharray": (props.dimension != "level") ? "" 
+    //   : (props.value == "local") ? "7 5"
+    //   : (props.value == "individual") ? "0 5"
+    //   : "",
   };
   var pathString = "M"+mx+" "+my+" C"+x1+" "+y1+" "+x2+" "+y2+" "+x+" "+y;
   g.path(pathString)
@@ -147,6 +134,97 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
     g.circle(csize2).attr(svgStyles["friut-selected"]).addClass("selection-circle").attr({ cx: x, cy: y });
   }
   return g;
+}
+
+/*
+storyTitle("Wallonia translates COVID-19 information for migrants");
+storyTitle("Belgium allows asylum seekers to work");
+storyTitle("Germany strives to enlist migrant medics");
+storyTitle("German region calls for foreign doctors");
+storyTitle("France allows refugees with non-EU medical certifications to practice");
+storyTitle("French region recruits refugees as seasonal workers");
+storyTitle("Ireland calls for retired doctors living abroad to return ");
+storyTitle("Ireland offers financial and healthcare support for migrants");
+storyTitle("Village near Rome supported by migrant cooperative ");
+storyTitle("Lithuania suspends deportations ");
+storyTitle("Asylum seekers in Dutch village disinfect grocery carts to protect population ");
+storyTitle("Norway sends healthcare staff to Italy");
+*/
+
+function storyTitle (title) {
+  
+  var maxW = 300;
+
+  var lines = [];
+  var chars = title.split("");
+  
+  while (chars.length > 0) {
+    var lastSpaceIndex = 0;
+    for (var i = 0; i < chars.length; i++) {
+      if (chars[i] == " ") {
+        lastSpaceIndex = i;
+      }
+      if (i >= chars.length-1) {
+        lines.push(chars.splice(0).join(""));
+      }
+      if (i >= maxCharsPerLine) {
+        lines.push(chars.splice(0, lastSpaceIndex).join(""));
+        chars = chars.join("").trim().split("");
+      }
+    }
+  }
+  console.log(lines);
+
+
+  // var maxCharsPerLine = 30;
+  // var lines = [];
+  // var chars = title.split("");
+  
+  // while (chars.length > 0) {
+  //   var lastSpaceIndex = 0;
+  //   for (var i = 0; i < chars.length; i++) {
+  //     if (chars[i] == " ") {
+  //       lastSpaceIndex = i;
+  //     }
+  //     if (i >= chars.length-1) {
+  //       lines.push(chars.splice(0).join(""));
+  //     }
+  //     if (i >= maxCharsPerLine) {
+  //       lines.push(chars.splice(0, lastSpaceIndex).join(""));
+  //       chars = chars.join("").trim().split("");
+  //     }
+  //   }
+  // }
+  // console.log(lines);
+
+  // var t = svg.text().addClass("story-title");
+
+}
+
+
+function tooltipOff () {
+  $(".tooltip").remove();
+}
+function tooltip (x, y, text) {
+  var m = 5;
+  var g = svg.group().addClass("tooltip");
+  var t = g.text(text)
+    .x(x).y(y)
+    .font({ "anchor": "middle", "fill": "white" })
+    .addClass("font-small");
+  var tbb = t.bbox();
+  g.rect(tbb.w + m*2 + 6, tbb.h + m*2)
+    .attr({ "fill": "black" })
+    .cx(x).y(y + 3 - m)
+    .radius(5)
+    .back();
+  var gbb = g.bbox();
+  if (gbb.x < 10) {
+    g.x(10);
+  }
+  if (gbb.x + gbb.w + 10 > state.w) {
+    g.x(state.w - gbb.w - 10);
+  }
 }
 
 
@@ -233,6 +311,7 @@ function registerTemplates () {
   templates.storyPreviews = Handlebars.compile($("#template-story-previews").html());
   templates.areaStats     = Handlebars.compile($("#template-area-stats").html());
   templates.story         = Handlebars.compile($("#template-story").html());
+  templates.storyNav      = Handlebars.compile($("#template-story-nav").html());
 
   // use
   // var html1 = templates.storyPreviews({ title: "Story A" });
@@ -326,10 +405,11 @@ function Tree (root, branch0) {
       "africa":         "Africa",
       "asia-oceania":   "Asia & Oceania",
     };
-    var gt = this.svgGroup.group();
+    var gt = this.svgGroup.group().addClass("tree-label");
     var y1 = len0 * 0.55 + 5;
     gt.text(areaNames[this.id]).x(0).y(y1)
       .addClass("font-serif-m")
+      .addClass("area-name")
       .font({ 
         // "fill": "black",
         "anchor": "middle",
@@ -388,8 +468,10 @@ function Tree (root, branch0) {
       this.moveRoot(x, y, animate);
       this.svgGroup.addClass("selected");      
     } else {
-      this.moveCenter(state.w*0.25, state.h * 0.45, animate);
+      this.moveCenter(state.w*0.25, state.h * 0.42, animate);
       this.svgGroup.addClass("selected");
+      this.svgGroup.findOne(".tree-label")
+        .animate(animms).transform({ "translateY": len0*0.6 });
     }
   }
 
@@ -397,6 +479,8 @@ function Tree (root, branch0) {
     var pos = state.treePositions[this.id];
     this.moveRoot(pos.x, pos.y, animate);
     this.svgGroup.removeClass("selected");
+    this.svgGroup.findOne(".tree-label")
+      .animate(animms).transform({ "translateY": 0 });
   }
 
   this.selectStory = function (id) {
@@ -553,9 +637,9 @@ function Timeline (x, y1, y2) {
   this.svgGroup.line(this.x, this.y1, this.x, this.y2).addClass("timeline-skeleton");
   this.selection = this.svgGroup.circle(15).cx(this.x).cy(0).addClass("point-selection");
   this.date = this.svgGroup.text("")
-    .x(this.x + 15).y(this.y1)
-    .addClass("point-date").addClass("font-small-light")
-    .font({ "anchor": "left", "leading": "1.1em" });
+    .addClass("point-date").addClass("font-small")
+    .font({ "anchor": "end", "leading": "1.1em" })
+    .x(this.x - 15).y(this.y1);
 
   // methods
 
@@ -564,6 +648,7 @@ function Timeline (x, y1, y2) {
     this.stories = stories;
     this.svgGroup.find(".points").remove();
     var sg = this.svgGroup.group().addClass("points");
+    sg.line(this.x, this.y1, this.x, this.y2).addClass("timeline-skeleton-sensi");
     var that = this;
 
     // --- V1: Map on area
@@ -580,17 +665,32 @@ function Timeline (x, y1, y2) {
 
     this.stories.forEach(function(s) {
       var y = apMap(s.date.unix(), first.unix(), last.unix(), that.y1, that.y2);
-      sg.circle(6).cx(that.x).cy(y)
-        .addClass("point")
+
+      // sg.circle(6).cx(that.x).cy(y)
+      //   .addClass("point")
+      //   .attr("data-slug", s.slug)
+      //   .on("click", storyClick);
+
+      var sgg = sg.group()
         .attr("data-slug", s.slug)
+        .addClass("point")
         .on("click", storyClick);
+      sgg.rect(20, 10).cx(that.x).cy(y)
+        .attr({ "fill": "rgba(0,0,0,0)", "stroke": "none" });
+      sgg.circle(6).cx(that.x).cy(y)
+        .addClass("point");
     });
   }
 
   this.moveSelection = function (slug) {
-    var point = $(".timeline .point[data-slug='"+ slug +"']")[0].instance;
+    var point = $(".timeline g.point[data-slug='"+ slug +"']")[0].instance;
     var date = state.storiesMap[slug].date;
     var dateString = date.format("D MMM") +"\n"+ date.format("YYYY");
+
+    point.front();
+    $(".timeline g.point").removeClass("selected");
+    point.addClass("selected");
+
     this.selection.front().animate(animms).cy(point.cy());
     this.date.text(dateString).animate(animms).y(point.cy() - 15);
   }
@@ -603,6 +703,7 @@ function Timeline (x, y1, y2) {
   this.hideSelection = function () {
     this.selection.addClass("hide");
     this.date.addClass("hide");
+    $(".timeline g.point").removeClass("selected");
   }
 
   this.show = function () {
@@ -803,10 +904,13 @@ function setStatePage (type, id) {
     var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
     var countBy = _.countBy(stories, "sectorCopy");
     var sectors = Object.keys(countBy).map(function(sectorCopy) {
+      // var circleDiameter = countBy[sectorCopy] *10;
+      var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
       return { 
         "sectorCopy": sectorCopy, 
         "sector": sectorCopy.slug(), 
-        "count": countBy[sectorCopy] *10,
+        "count": countBy[sectorCopy],
+        "pixels": circleDiameter,
       };
     });
     var context1 = { 
@@ -818,16 +922,51 @@ function setStatePage (type, id) {
     };
     var htmlAreaStats = templates.areaStats(context1);
     var htmlStories = templates.storyPreviews(context2);
-    // $("#content-wrapper").html("<h1 class='font-serif-l'>Area overview: "+ id +"</h1>");
+    
     $("#content-wrapper").html(htmlAreaStats).append(htmlStories);
-
+    
   } else if (type == "story") {
 
     var story = state.storiesMap[id];
     var htmlStory = templates.story(story);
     $("#content-wrapper").html(htmlStory);
+    
+    $("#story-title-lg").html(story.titleCopy);
+    var h = $("#story-title-lg").height();
+    $("#story-title-lg").css({ "margin-top": -h/2 });
 
   }
+
+
+
+  // --- manage events
+
+  // sticky header
+
+  if (type == "home" || type == "story") {
+
+    stickyStop(window);
+    stickyStop($("#content-wrapper")[0]);
+
+  } else if (type == "area") {
+
+    if (isMobile()) {
+      sticky($("#story-previews-header"), window, function(placeholder, win) {
+        // return true if it should stick
+        var shouldStick = ($(win).scrollTop() - $(placeholder).position().top > 0);
+        return shouldStick;
+      }/*, 90*/);
+    } else {
+      sticky($("#story-previews-header"), $("#content-wrapper")[0], function(placeholder, contWrapper) {
+        // return true if it should stick
+        var shouldStick = ($(placeholder).offset().top - $("#header").height() < $(contWrapper).position().top);
+        return shouldStick;
+      }, $("#header").height());
+    }
+
+  }
+
+
 
 
   
@@ -861,7 +1000,9 @@ function setStatePage (type, id) {
       }
 
       if (type == "area") {
-        timeline.hidePoints();
+        // timeline.hidePoints();
+        timeline.showPoints();
+        timeline.hideSelection();
       } else if (type == "story") {
         var story = state.storiesMap[id];
         timeline.showPoints();
@@ -873,13 +1014,29 @@ function setStatePage (type, id) {
 
 
 
-  // --- manage left ui
+  // --- manage story nav
 
-  /***
-  if story
-    show title
-    show nav
-  */
+  if (type == "story") {
+
+    var story = state.storiesMap[id];
+    var areaStories = getAreaStories(story.area);
+    var i = _.findIndex(areaStories, { "slug": story.slug });
+    // var tags = story.tags.charAt(0).toUpperCase() + story.tags.slice(1);
+
+    var context = {
+      "n": i + 1,
+      "total": areaStories.length,
+      // "tags": tags,
+      "areaCopy": story.areaCopy,
+    }
+    var htmlStoryNav = templates.storyNav(context);
+    
+    if (!isMobile()) {
+      $("#ui-left .bottom").html(htmlStoryNav);
+    }
+  
+  }
+  
 
   // --- update state
 
@@ -889,6 +1046,116 @@ function setStatePage (type, id) {
     "depth":  depth,  // ---  0     1         2
   };
 
+}
+
+
+function filterStoriesBySector(sector) {
+
+  // // --- V1: redraw all markup
+
+  // var stories = getAreaStories(state.selectedTree);
+  // var newStories = stories.filter(function (s) {
+  //   return s.sector == sector;
+  // });
+  // console.log(newStories)
+
+  // // remove stories
+  
+  // $("#content .story-previews").remove();
+
+  // // show new stories
+
+  // var context = { "stories": newStories };
+  // var htmlStories = templates.storyPreviews(context);
+  // $("#content-wrapper").append(htmlStories);
+
+
+  
+
+  // --- V2: show/hide based on data-attribute
+
+  var areaStories = getAreaStories(state.selectedTree);
+
+  var scrollingEl = isMobile() ? window : $("#content-wrapper")[0];
+
+  var currentlySelectedEl = $("#content .area-stats .stat-wrapper.selected")[0];
+  var currentlySelected = currentlySelectedEl ? currentlySelectedEl.dataset.sector : null;
+
+  if (sector !== null && sector !== currentlySelected) {
+
+    // hide all + show
+    $("#content .story-previews .story-preview").hide();
+    $("#content .story-previews .story-preview[data-sector='"+ sector +"']").show();
+    
+    // update buttons
+    $("#content .area-stats .stat-wrapper")
+      .removeClass("selected").addClass("deselected");
+    $("#content .area-stats .stat-wrapper[data-sector='"+ sector +"']")
+      .removeClass("deselected").addClass("selected");
+  
+    // update header
+    var c = _.countBy(areaStories, "sector");
+    $("#content .story-previews .story-count").html(c[sector]);
+  
+    // UI reacts
+    $(".area-stats .area-map").slideUp(400);
+    // scrollingEl.animate({ "scrollTop": 0 }, animms);
+  
+  } else {
+
+    // show all
+    $("#content .story-previews .story-preview").show();
+    
+    // update buttons
+    $("#content .area-stats .stat-wrapper")
+      .removeClass("selected").removeClass("deselected");
+
+    // update header
+    $("#content .story-previews .story-count").html(areaStories.length);
+  
+    // UI reacts
+    $(".area-stats .area-map").slideDown(400);
+    console.log(scrollingEl)
+    $(scrollingEl).animate({ "scrollTop": 0 }, animms );
+  }
+
+
+}
+
+
+
+// sticky header
+
+function stickyStop (scrollingEl) {
+  $(scrollingEl).off("scroll");
+}
+function sticky (stickEl, scrollingEl, shouldStick, stickTopValue) {
+  var top = stickTopValue || 0;
+  var from = $("<a id='stiky-placeholder'></a>");
+  from.insertBefore($(stickEl));
+  $(scrollingEl).scroll(function() {
+    var stick = shouldStick($("#stiky-placeholder")[0], scrollingEl);
+    if (stick) {
+      if (!$(stickEl).hasClass("stick")) {
+        $("#stiky-placeholder").addClass("stick");
+        $(stickEl).addClass("stick");
+        $(stickEl).css({ 
+          "position": "fixed", 
+          "top": top,
+          // "width": "100%",
+        });
+      }
+    } else {
+      if ($(stickEl).hasClass("stick")) {
+        $("#stiky-placeholder").removeClass("stick");
+        $(stickEl).removeClass("stick");
+        $(stickEl).css({ 
+          "position": "relative", 
+          "top": "0", 
+        });
+      }
+    }
+  });
 }
 
 
@@ -1003,6 +1270,8 @@ function addListeners () {
       $(".branch-g#"+ area +"---"+ level +"---"+ sector).addClass("hovered");
       $(this).addClass("hovered");
     }
+    var c = this.instance.findOne("circle");
+    tooltip (c.cx(), c.cy() - 40, this.dataset.title);
   });
 
   $("svg g.tree .branch-g.branch-story").mouseout(function(e){ 
@@ -1015,6 +1284,7 @@ function addListeners () {
       $(".branch-g#"+ area +"---"+ level +"---"+ sector).removeClass("hovered");
       $(this).removeClass("hovered");
     }
+    tooltipOff();
   });
 
   $("svg .branch-story").click(function(e){ 
@@ -1035,7 +1305,9 @@ function addListeners () {
   });
 
   $("#header .logo").click(function(e) {
-    setStatePage("home", null);
+    // setStatePage("home", null);
+    // window.location.reload();
+    window.location = window.location.href.split("?")[0];
   });
 
   $("#to-top").click(function() {
@@ -1049,6 +1321,43 @@ function addListeners () {
       setStatePage("home", null);
     }
   });
+
+  $(window).resize(function() {
+    if (cnt.offsetWidth != state.w){
+      svg.find("*").remove();
+      $("#content *").remove();
+      $("#story-title-lg").html("");
+      svg.text("Window width has changed, reloading.")
+        .addClass("font-serif-m").addClass("cursor-pointer")
+        .x(cnt.offsetWidth / 2).y(cnt.offsetHeight / 2)
+        .font({ "anchor": "middle" })
+        .click(function() {
+          window.location.reload();
+        });
+      // setTimeout(function() { window.location.reload(); }, 500);
+    }
+  });
+
+  $(document).keydown(function(e) {
+    switch(e.which) {
+      case 37: // left
+      case 38: // up
+      if (state.currentPage.type == "story") {
+        openPrevStory();
+        e.preventDefault();
+      }
+      break;
+      case 39: // right
+      case 40: // down
+      if (state.currentPage.type == "story") {
+        openNextStory();
+        e.preventDefault();
+      }
+      break;
+      default: return; // exit this handler for other keys
+    }
+  });
+
 }
 
 
@@ -1108,12 +1417,14 @@ function loadData (file, callback) {
   var middata = {};
   $.getJSON( file, function(jsonData) {
 
-    state.flatData = jsonData;
+    // state.flatData = jsonData;
 
     // --- mid data structure
-  
-    for (var i = 0; i < jsonData.length; i++) {
-      var d = jsonData[i];
+    
+    var sortedJsonData = _.sortBy(jsonData, function(d) { return moment(d.date).unix(); });
+
+    for (var i = 0; i < sortedJsonData.length; i++) {
+      var d = sortedJsonData[i];
       var area = d.area.slug();
       var level = d.level.slug();
       var sector = d.sector.slug();
@@ -1171,27 +1482,45 @@ function loadData (file, callback) {
         for (var k = 0; k < sectors.length; k++) {
           var sector = sectors[k];
           var sectorChildrenArray = middata[area][level][sector].map(function (d, di) {
-            var storyTitle = d.title;
-            var storyText = d.text;
             var storySlug = d.title.slug();
             var storyDate = moment(d.date);
 
+            var stats = d["stats"].trim();
+            var percentage = /%$/.test(stats); // ends with %
+
             var story = {
-              "area":       area,
-              "level":      level,
-              "sector":     sector,
-              "slug":       storySlug,
-              "date":       storyDate,
-              "areaCopy":   d.area,
-              "levelCopy":  d.level,
-              "sectorCopy": d.sector,
-              "textCopy":   storyText,
-              "titleCopy":  storyTitle,
-              "dateCopy":   storyDate.format("D MMM YYYY"),
+              "id":           d["id"],
+              "areaCopy":     d["area"],
+              "levelCopy":    d["level"],
+              "sectorCopy":   d["sector"],
+              "locationText": d["location-text"],
+              "quoteText":    d["quote-text"],
+              "quoteAuthor":  d["quote-author"],
+              "stats":        d["stats"],
+              "statsComment": d["stats-comment"],
+              "source":       d["source"],
+              "url":          d["url"],
+              "category":     d["category"],
+              "tags":         d["tags"],
+              "titleCopy":    d["title"],
+              "textCopy":     d["text"],
 
-              // "imgUrl":     releaseFolder +"/maps-stories/"+ id +".svg",
-              "imgUrl":     releaseFolder +"/maps-stories/tmp.svg",
+              "percentage":   percentage,
+              "date":         storyDate,
+              "area":         area,
+              "level":        level,
+              "sector":       sector,
+              "slug":         storySlug,
+              "dateCopy":     storyDate.format("D MMM YYYY"),
 
+              
+              "imgUrl":     releaseFolder +"/maps-stories/"+ d.id +".svg",
+              // "imgUrl":     releaseFolder +"/maps-stories/"+ [
+              //   "1.svg",
+              //   "maps-02.svg", "maps-03.svg", "maps-04.svg", "maps-05.svg", 
+              //   "maps-06.svg", "maps-07.svg", "maps-08.svg", "maps-09.svg", 
+              //   "maps-10.svg", "maps-11.svg", "maps-12.svg"
+              // ][Math.floor(Math.random() * 12)],
 
             };
             state.storiesMap[storySlug] = story;

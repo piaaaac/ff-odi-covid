@@ -45,12 +45,12 @@ $font-sans: "Karla", sans-serif;
 }
 
 // --------------------------------------------------------- xs --- sm --- md --- lg --- xl ---- lsp -- lh ---- w --- style
-@mixin font-serif-xl    { @include font-style($font-serif,   27px,  27px,  40px,  40px,  40px,   0,     1.3em,  600,  normal); }
-@mixin font-serif-l     { @include font-style($font-serif,   27px,  27px,  27px,  27px,  27px,   0,     1.3em,  600,  normal); }
-@mixin font-serif-m     { @include font-style($font-serif,   20px,  20px,  21px,  21px,  21px,   0,     1.3em,  600,  normal); }
-@mixin font-body        { @include font-style($font-serif,   21px,  21px,  21px,  21px,  21px,   0,     1.3em,  400,  normal); }
-@mixin font-small       { @include font-style($font-sans,    14px,  14px,  14px,  14px,  14px,   0,     1.3em,  400,  normal); }
-@mixin font-small-bold  { @include font-style($font-sans,    14px,  14px,  14px,  14px,  14px,   0,     1.3em,  700,  normal); }
+@mixin font-serif-xl    { @include font-style($font-serif,   30px,  30px,  40px,  40px,  40px,   0,     1.3em,  600,  normal); }
+@mixin font-serif-l     { @include font-style($font-serif,   21px,  21px,  27px,  27px,  27px,   0,     1.3em,  600,  normal); }
+@mixin font-serif-m     { @include font-style($font-serif,   18px,  18px,  18px,  18px,  18px,   0,     1.2em,  600,  normal); }
+@mixin font-body        { @include font-style($font-serif,   18px,  18px,  18px,  18px,  18px,   0,     1.2em,  400,  normal); }
+@mixin font-small       { @include font-style($font-sans,    13px,  13px,  13px,  13px,  13px,   0,     1.3em,  400,  normal); }
+@mixin font-small-bold  { @include font-style($font-sans,    13px,  13px,  13px,  13px,  13px,   0,     1.3em,  700,  normal); }
 
 .font-serif-xl    { @include font-serif-xl; }
 .font-serif-l     { @include font-serif-l; }

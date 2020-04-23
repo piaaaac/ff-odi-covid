@@ -2,7 +2,7 @@
   <title>Key workers</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Demo project">
+  <meta name="description" content="Stories of migrants contributing to the COVID-19 response and saving lives across the globe">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" crossorigin="anonymous">
@@ -20,17 +20,19 @@
 </head>
 <body class="home">
 
+  <div id="top"></div>
+
   <div id="fill-window">
     
     <div id="header" class="full">
       <div class="wrapper-menu-home d-flex align-items-center justify-content-between">
         <div class="logo d-flex align-items-center justify-content-start">
           <h1 class="font-serif-xl">Key workers</h1>
-          <img class="logo-landing ml-3 pl-1" src="assets/images/logo-subtitle.svg" alt="Stories of migrants contributing to the COVID-19 response and saving lives across the globe" />
+          <img class="logo-landing d-none d-sm-inline-block pl-1" src="assets/images/logo-subtitle.svg" alt="Stories of migrants contributing to the COVID-19 response and saving lives across the globe" />
         </div>
         <div class="right">
           <a role="button" class="item font-small-bold" data-type="anchor" data-value="about">
-            ABOUT<span class="d-none d-sm-inline d-lg-none d-xl-inline"> THE PROJECT</span>
+            ABOUT
           </a>
         </div>
       </div>
@@ -52,13 +54,16 @@
         </div>
         <div class="right">
           <a role="button" class="item font-small-bold" data-type="anchor" data-value="about">
-            ABOUT<span class="d-none d-sm-inline d-lg-none d-xl-inline"> THE PROJECT</span>
+            ABOUT
           </a>
         </div>
       </div>
     </div>
   
-    <div id="container"></div>
+    <div id="container">
+      <p class="help-text font-small-light text-center">Click on a tree to choose an area, on a dot to open a story.</p>
+      <p id="story-title-lg" class="font-serif-m">Lorem ipsum</p>
+    </div>
 
   </div>
 
@@ -70,28 +75,37 @@
     <div class="top">
       <a id="nav-back" role="button" class="font-small-bold"></a>
     </div>
-    <div class="bottom">Story {{n}} of {{total}}</div>
+    <div class="bottom">
+      <!--
+      <div class="d-flex justify-content-between align-items-center">
+        <a onclick="openPrevStory();">PREV</a>
+        <div>Story {{n}} of {{total}}</div>
+        <a onclick="openNextStory();">NEXT</a>
+      </div>
+      -->
+    </div>
   </div>
 
   <section id="about">
 
     <a id="to-top" class="font-small-bold mt-5">&uarr; TO TOP</a>
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid max mt-5">
 
       <div class="row">
 
-        <div class="col-12 col-xl-9 mb-5 mt-4">
-          <h2 class="font-serif-xl mb-4">About the project</h2>
-          <p class="font-body-l pr-5 mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed turpis sed ipsum vehicula bibendum imperdiet in orci. In vel vestibulum nisi. Donec sagittis nunc id erat aliquam blandit. Ut in sapien magna. Mauris lacus ex, pretium nec odio sit amet, gravida faucibus nisi. Fusce vel nisi scelerisque, gravida purus.
+        <div class="col-12 mb-5 mt-4">
+          <h2 class="font-serif-xl mb-4">About</h2>
+          <p class="font-body-l pr-md-5 mb-5">
+            Refugees and other migrants are part of the global workforce of essential workers responding to the COVID-19 pandemic: every day they save lives and contribute to our economies and societies. Yet their contributions can be hidden, their skills undervalued and their rights denied. These examples of reforms, new initiatives and campaigns to recognise and support migrant essential workers in the COVID-19 response demonstrate that change is possible. It is now on all of us to ensure it will be lasting.
           </p>
         </div>
 
       </div>
       <div class="row mb-3">
 
-        <div class="col-md-6 col-lg-4 mb-5">
+        <!-- <div class="col-md-6 col-lg-4 mb-5"> -->
+        <div class="col-md-6 mb-5">
           <p class="font-small-bold pr-2 mb-3">TRACKER SPREADSHEET</p>
           <p class="font-small pr-2" style="max-width: 400px;">
             We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use&nbsp;it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>.
@@ -101,12 +115,14 @@
               SPREADSHEET</a>
           </p>
         </div>
-        <div class="col-md-6 col-lg-4 mb-5">
-          <p class="font-small-bold pr-2 mb-3">ABOUT ODI</p>
+        <!-- <div class="col-md-6 col-lg-4 mb-5"> -->
+        <div class="col-md-6 mb-5">
+          <p class="font-small-bold pr-2 mb-3">HUMAN MOBILITY INITIATIVE</p>
           <p class="font-small pr-2" style="max-width: 400px;">
-            Fusce vel nisi scelerisque, gravida purus at, hendrerit purus. Nulla efficitur lorem sit amet scelerisque sagittis. Vestibulum sit amet pellentesque nibh. Nulla id mollis est. In non vestibulum dui, at malesuada quam.
+            Hosted by the Overseas Development Institute (ODI), in collaboration with the London School of Economics Institute of Global Affairs (LSE IGA) and the Center for Global Development (CGD), the Human Mobility Initiative is a platform for innovation and joint action to 'do migration differently.'
           </p>
         </div>
+        <!--  
         <div class="col-md-6 col-lg-4 mb-5">
           <p class="font-small-bold pr-2 mb-3">COLOPHON</p>
           <p class="font-small pr-2" style="max-width: 400px;">
@@ -116,6 +132,7 @@
             <br />Nulla id mollis est non vestibulum dui, at malesuada quam.
           </p>
         </div>
+        -->
       
       </div>
     </div>
@@ -125,7 +142,7 @@
   <section id="footer">
     <div class="container-fluid py-5">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-6 mb-5 mb-md-0">
           <div class="row">
             <div class="col">
               <a class="" href="https://odi.org" target="_blank">
@@ -134,15 +151,13 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="row">
+        <div class="col-md-6">
+          <div class="row align-items-center">
             <div class="col">
-              <a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
-                ODI HOMEPAGE</a>
-              <a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
-                OTHER PROJECTS</a>
-              <a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
-                PRIVACY POLICY</a>
+              <p><a class="font-small-bold d-inline-block mr-3" href="https://www.odi.org/projects/2917-human-mobility-initiative" target="_blank">
+                Human Mobility Initiative</a></p>
+              <p><a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
+                Overseas Development Initiative</a></p>
             </div>
           </div>
         </div>
@@ -152,42 +167,60 @@
 
   <!-- Templates start -->
   <!-- https://www.youtube.com/watch?v=3zVYH16yogQ -->
-
-  <script id="template-story-previews" type="text/x-handlebars-template">
-    <div class="container-fluid story-previews">
-      <div class="row">    
-        {{#each stories}}
-          <div class="col-6 story-preview">
-            <p class="">
-              <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
-                <img src="{{this.imgUrl}}" />
-              </a>
-            </p>
-            <p class="">{{this.titleCopy}}</p>
-            <p>
-              <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
-              READ STORY &rarr;</a>
-            </p>
+  
+  <script id="template-area-stats" type="text/x-handlebars-template">
+    <div class="container-fluid full-w area-stats mt-lg-4 pt-lg-2">
+      <div class="row">
+        <div class="col-12 text-center font-small-light mb-5">
+          Click on a sector to filter the stories
+        </div>
+        {{#each sectors}}
+          <div class="col-3 col-lg-4 col-xl-3">
+            <div class="stat-wrapper" onclick="filterStoriesBySector('{{this.sector}}');" data-sector="{{this.sector}}">
+              <div class="stat">
+                <div class="circle" style="width: {{this.pixels}}px; min-width: {{this.pixels}}px; height:{{this.pixels}}px;" {{!-- onclick="filterStoriesBySector('{{this.sector}}');" data-sector="{{this.sector}}" --}}></div>
+                <p class="number font-serif-m">{{this.count}}</p>
+              </div>
+              <p class="copy font-serif-m cursor-pointer" 
+                onclick="filterStoriesBySector('{{this.sector}}');">
+                {{this.sectorCopy}}</p>
+            </div>
           </div>
         {{/each}}
+        <div class="col-12 area-map text-center mt-5">
+          <img src="{{imgSrc}}" />
+        </div>
       </div>
     </div>
   </script>
   
-  <script id="template-area-stats" type="text/x-handlebars-template">
-    <div class="container-fluid area-stats">
-      <div class="row">
-        {{#each sectors}}
-          <div class="col-3">
-            <div class="stat">
-              <div class="circle" style="width: {{this.count}}px; height:{{this.count}}px;"></div>
-              <p class="number">{{this.count}}</p>
+  <script id="template-story-previews" type="text/x-handlebars-template">
+    
+    <div class="story-previews my-5">
+
+      <div id="story-previews-header" class="d-flex justify-content-between align-items-end">
+        <p class="font-small"><span class="story-count">{{stories.length}}</span> stories</p>
+        <p><a class="font-small-bold" onclick="filterStoriesBySector(null);">NAVIGATE UP / RESET</a></p>
+      </div>
+      
+      <div class="container-fluid full-w pt-5">
+        <div class="row">    
+          {{#each stories}}
+            <div class="col-6 col-sm-4 col-lg-6 col-xl-4 story-preview cursor-pointer my-4" 
+              onclick="setStatePage('story', '{{slug}}');"
+              data-sector="{{this.sector}}">
+              <p class="{{!-- b-bottom --}} mb-4"></p>
+              <div class="map-wrapper-outer mb-4">
+                <div class="map-wrapper cursor-pointer">
+                  <img src="{{this.imgUrl}}" />
+                </div>
+              </div>
+              <p class="mb-2">
+                <a class="font-small color-coral" onclick="setStatePage('story', '{{slug}}');">
+                  READ STORY &rarr;</a></p>
+              <p class="font-serif-m">{{this.titleCopy}}</p>
             </div>
-            <p>{{this.sectorCopy}} ({{this.sector}})</p>
-          </div>
-        {{/each}}
-        <div class="col-12">
-          <img src="{{imgSrc}}" />
+          {{/each}}
         </div>
       </div>
     </div>
@@ -209,7 +242,7 @@
               <p class="font-small mt-3">Location</p>
               <p class="font-small-bold">{{locationText}}</p> <!-- TO REFINE !!! -->
             </div>
-            <div class="col-6">
+            <div class="col-6 story-data">
               <p class="font-small">Level</p>
               <p class="font-small-bold">{{levelCopy}}</p>
               <p class="font-small mt-3">Sector</p>
@@ -218,13 +251,52 @@
           </div>
         </div>
 
-        <div class="col-12 pt-5">
+        <div class="col-12 story-body pt-5">
           <p class="font-body">{{textCopy}}</p>
+
+          {{#if stats}}
+            {{#if percentage}}
+            <p class="font-serif-m mb-1">{{stats}}</p>
+            <div class="bar mb-2"><div style="width: {{stats}};"></div></div>
+            <p class="font-small">{{statsComment}}</p>
+            {{else}}
+            <p class="font-serif-m mb-1">{{stats}}</p>
+            <p class="font-small">{{statsComment}}</p>
+            {{/if}}
+          {{/if}}
+
+          {{#if quoteText}}
+          <p class="font-serif-m text-itlaic mb-1">{{quoteText}}</p>
+          <p class="font-small">{{quoteAuthor}}</p>
+          {{/if}}
+
+          <p class="text-center pt-4 mb-3">
+            <a href="{{url}}" class="btn white" target="_blank">Read more</a>
+          </p>
+
+          {{#if source}}
+          <p class="source font-small-light text-center">{{source}}</p>
+          {{/if}}
         </div>
       </div>
     </div>
   </script>
   
+  <script id="template-story-nav" type="text/x-handlebars-template">
+    <div class="container-fluid story-nav">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+          <a class="btn arrow white" onclick="openPrevStory();">&larr;</a>
+          <div>
+            <p class="font-serif-m text-center">{{areaCopy}}</p>
+            <p class="font-small color-coral text-center">STORY {{n}} OF {{total}}</p>
+          </div>
+          <a class="btn arrow white" onclick="openNextStory();">&rarr;</a>
+        </div>
+      </div>
+    </div>
+  </script>
+
   <!-- Templates end -->
 
   <script src="assets/js/index.js"></script>

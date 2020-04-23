@@ -41,6 +41,14 @@ $padding-s: 20px;
 // General tags & classes
 // ------------------------------------------------------------------------
 
+@keyframes blink {  
+  50% { opacity: 0.15; }
+}
+@mixin blink(){
+  animation: blink 3s linear infinite;
+}
+
+
 * {
   color: black;
 }
@@ -60,14 +68,34 @@ a {
 a.btn {
   display: inline-flex;
   align-items: center;
-  height: 40px;
-  padding: 0 30px;
+  height: 35px;
+  padding: 0 45px;
   border-radius: 20px;
+  text-transform: uppercase;
+  position: relative;
   @include font-small-bold;
+  @include transition(background-color 200ms, padding 200ms);
 
+  // &:not(.no-arrow)::after {
+  //   content: "→";
+  //   padding-left: 4px;
+  // }
+  &:hover {
+    padding: 0 52px 0 38px;
+    &:not(.no-arrow)::after {
+      opacity: 1;
+      right: 29px;
+    }
+  }
   &:not(.no-arrow)::after {
-    content: "→";
-    padding-left: 10px;
+    content: "↗";
+    padding-left: 9px;
+    position: absolute;
+    top: 9px;
+    right: 22px;
+    font-size: 11px;
+    opacity: 0;
+    @include transition(opacity 200ms, right 200ms);
   }
   &.coral {
     color: white;
@@ -80,8 +108,8 @@ a.btn {
     color: $color-coral;
     background-color: white;
     &:hover {
-      background-color: #f8f8f8;
-      color: $color-coral;
+      // background-color: #f8f8f8;
+      // color: $color-coral;
     }
   }
   &.green {
@@ -91,7 +119,52 @@ a.btn {
       background-color: darken($color-green, 5%);
     }
   }
+
+  &.arrow, &.arrow:hover {
+    padding: 0;
+    padding-left: 12px;
+    width: 35px;
+    // display: inline-block;
+    &::after {
+      display: none;
+    }
+  }
 }
+
+// ----------------------
+// Grid / Layout
+// ----------------------
+
+.responsive-padding {
+  padding-left: $padding-s;
+  padding-right: $padding-s;
+  @include media-breakpoint-up(sm) {
+    padding-left: $padding-l;
+    padding-right: $padding-l;
+  }
+}
+.responsive-margin {
+  margin-left: $padding-s;
+  margin-right: $padding-s;
+  @include media-breakpoint-up(sm) {
+    margin-left: $padding-l;
+    margin-right: $padding-l;
+  }
+}
+
+.container-fluid.max {
+  max-width: 1000px;
+}
+
+.container-fluid.full-w {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// ----------------------
+// Elements
+// ----------------------
+
 
 #header a.item {
   &, span {
@@ -127,6 +200,11 @@ p.log {
   display: none;
 }
 
+#top {
+  position: fixed;
+  top: 0;
+}
+
 #fill-window {
   position: relative;
   overflow: hidden;
@@ -150,6 +228,32 @@ p.log {
     width: 100%;
     position: relative;
     background-color: $color-bg;
+    .help-text {
+      position: absolute;
+      bottom: 20px;
+      left: 0; right: 0;
+      pointer-events: none;
+      z-index: 2;
+      display: none;
+      @at-root body.home &{
+        display: block;
+      }
+    }
+    #story-title-lg {
+      display: none;
+      pointer-events: none;
+      position: absolute;
+      width: 50%;
+      padding-left: 10%;
+      padding-right: 10%;
+      text-align: center;
+      top: 66%;
+      @include media-breakpoint-up(lg) { // --- Desktop version
+        @at-root body.story &{
+          display: block;
+        }
+      }
+    }
   }
 
   #header {
@@ -164,6 +268,14 @@ p.log {
       @include media-breakpoint-down(sm) { padding: $padding-s; }
       .logo {
         cursor: pointer;
+        &, h1 {
+          white-space: nowrap;
+        }
+        img {
+          max-width: 50vw;
+          max-height: 32px;
+          margin-left: 1.6vw;
+        }
       }
       a.item {
         margin-left: 20px;
@@ -175,31 +287,31 @@ p.log {
       justify-content: space-between;
       align-items: center;
       .logo {
-        @include media-breakpoint-up(xl) { width: 10%; overflow: visible; }
-        white-space: nowrap;
-
+        @include media-breakpoint-up(xl) { width: 33%; overflow: visible; }
       }
       .center { // lg up
         flex-grow: 1;
         white-space: nowrap;
         text-align: right;
-        @include media-breakpoint-up(xl) { text-align: center; }
+        @include media-breakpoint-up(xl) { width: 33%; text-align: center; overflow: visible; }
 
       }
       .right {
-        @include media-breakpoint-up(xl) { width: 10%; overflow: visible; }
+        @include media-breakpoint-up(xl) { width: 33%; overflow: visible; }
         text-align: right;
         white-space: nowrap;
       }
     }
 
-    @at-root body.home {
-      .wrapper-menu-home { opacity: 1; pointer-events: all; }
-      .wrapper-menu-full { opacity: 0; pointer-events: none; }
-    }
-    @at-root body.area, body.story {
-      .wrapper-menu-home { opacity: 0; pointer-events: none; }
-      .wrapper-menu-full { opacity: 1; pointer-events: all; }
+    @include media-breakpoint-up(lg) { // --- Desktop version
+      @at-root body.home {
+        .wrapper-menu-home { opacity: 1; pointer-events: all; }
+        .wrapper-menu-full { opacity: 0; pointer-events: none; }
+      }
+      @at-root body.area, body.story {
+        .wrapper-menu-home { opacity: 0; pointer-events: none; }
+        .wrapper-menu-full { opacity: 1; pointer-events: all; }
+      }
     }
 
     &.north-america a[data-value="north-america"] { 
@@ -228,6 +340,9 @@ p.log {
     @at-root body.home &{
       height: 0;
     }
+    #content-wrapper {
+      padding: 0 45px;
+    }
   }
   @include media-breakpoint-up(lg) { // --- Desktop version
     position: fixed;
@@ -245,34 +360,130 @@ p.log {
     }
     #content-wrapper {
       position: absolute;
-      left: 40px; right: 40px; top: 0; bottom: 0;
+      left: 15px; right: 0px; top: 0; bottom: 0;
+      padding: 0 45px 0 30px;      
       pointer-events: all;
-      overflow: scroll;
+      overflow-y: scroll;
     }
   }
 
+  #stiky-placeholder {
+    display: block;
+    &.stick {
+      height: 59px;
+    }
+  }
+  #story-previews-header {
+    z-index: 2;
+    background-color: $color-bg;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0, 0.15);
+    position: relative;
+    height: 59px;
+    &.stick {
+      left: calc(50% + 45px);
+      width: calc(50% - 90px);
+      @include media-breakpoint-down(md) { // --- Mobile version
+        left: 0;
+        width: 100%;
+        margin-left: $padding-l;
+        margin-right: $padding-l;
+      }
+      @include media-breakpoint-down(sm) {
+        margin-left: $padding-s;
+        margin-right: $padding-s;
+      }
+    }
+  }
+
+  .story-previews {
+    .story-preview {
+
+      .map-wrapper-outer {
+        max-width: 50%;
+        position: relative;
+        .map-wrapper {
+          width: 100%;
+          padding-bottom: 66%;
+          // background-color: rgba(255,0,0,0.3); // DEBUG
+          position: relative;
+          img {
+            position: absolute;
+            top: 0; left: 0;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+      // img {
+      //   width: 100%;
+      //   max-width: 100%;
+      // }
+    }
+  }
+
+
   // background-color: rgba(255,0,0,0.1);
-  padding: 0 40px;
+  // padding: 0 40px;
 
   .area-stats {
-    .stat {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100px;
-      position: relative;
-      .circle{
-        border-radius: 300px;
-        background-color: rgba($color-blue, 0.25);
+    .stat-wrapper {
+      // background-color: rgba(255,0,0,0.2);
+      cursor: pointer;
+      @include transition(opacity 400ms);
+      &.deselected {
+        opacity: 0.5;
       }
-      .number {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        margin-top: -9px;
+      &.selected, &:hover {
+        opacity: 1;
+        .stat .circle {
+          opacity: 1;
+        }
+      }
+      .stat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        position: relative;
+        z-index: 1;
+        pointer-events: none;
+        // &:hover .circle {
+        //   background-color: rgba($color-blue, 0.5);
+        // }
+        .circle {
+          border-radius: 300px;
+          background-color: $color-blue;
+          cursor: pointer;
+          pointer-events: all;
+          opacity: 0.25;
+          @include transition(opacity 400ms);
+          // &.selected, &:hover {
+          //   background-color: rgba($color-blue, 0.5);
+          // }
+        }
+        .number {
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          margin-top: -9px;
+          text-align: center;
+          overflow: visible;
+          pointer-events: none;
+        }
+      }
+      .copy {
+        position: relative;
         text-align: center;
-        overflow: visible;
+        z-index: 2;
       }
+    }
+    .area-map img {
+      width: 50vh;
+      max-width: 50vh;
+      height: auto;
+      max-height: 50vh;
     }
   }
 
@@ -280,17 +491,39 @@ p.log {
     margin-top: 40px;
     .story-data {
       border-left: 1px solid rgba(0,0,0, 0.15);
+      left: -5px;
+      padding-left: 10px;
+      padding-right: 5px;
     }
     .map-wrapper {
       width: 90%;
       padding-bottom: 66%;
-      background-color: rgba(255,0,0,0.3);
+      // background-color: rgba(255,0,0,0.3); // DEBUG
       position: relative;
       img {
         position: absolute;
         top: 0; left: 0;
-        width: 100%;
+        max-width: 100%;
         max-height: 100%;
+      }
+    }
+    .story-body {
+      p {
+        margin-bottom: 22px;
+      }
+      .bar {
+        width: 100%;
+        height: 10px;
+        background-color: white;
+        position: relative;
+        & > div {
+          background-color: $color-green;
+          position: absolute;
+          top: 0; left: 0; bottom: 0;
+        }
+      }
+      .source {
+        padding: 0 calc(50% - 110px);
       }
     }
   }
@@ -305,30 +538,44 @@ p.log {
     opacity: 0;
   }
   position: fixed;
+  @include media-breakpoint-down(md) { // --- Mobile version
+    position: absolute;
+  }
   left: 0;
   right: 50%;
   top: $header-height;
   bottom: 0;
   // padding: 0 40px;
   .top {
-    padding: 40px;
+    padding: 30px 45px;
     #nav-back {
       pointer-events: all;
       @at-root body.area &::after {
-        content: "← ALL AREAS";
+        content: "← ALL GEOGRAPHIES";
       }
       @at-root body.story &::after {
-        content: "← AREA OVERVIEW";
+        content: "← GEOGRAPHY OVERVIEW";
       }
     }
   }
   .bottom {
-    padding: 40px;
-    pointer-events: all;
+    padding: 45px;
+    pointer-events: none;
     position: absolute;
     bottom: 0; left: 0;
     width: 100%;
-    // background-color: rgba(255,0,0,0.2);
+    div {
+      pointer-events: all;
+    }
+    @at-root body.area &{
+      opacity: 0;
+      div {
+        pointer-events: all;
+      }
+    }
+    @include media-breakpoint-down(md) { // --- Mobile version
+      display: none;
+    }
   }
 }
 
@@ -355,7 +602,6 @@ p.log {
       max-height: 0;
     }
   }
-
   background-color: $color-green;
   color: white;
   a, p {
@@ -364,7 +610,6 @@ p.log {
   p {
     margin-bottom: 0.5em;
   }
-
 }
 
 
@@ -388,6 +633,16 @@ svg.artboard {
     }
     &:not(.selected):hover circle.story-count {
       opacity: 0.5;
+    }
+    &:hover text.area-name {
+      text-decoration: underline;
+    }
+
+    g.tree-label {
+      @include transition(opacity 400ms);
+      @at-root body.story & {
+        opacity: 0;
+      }
     }
 
     .branch-g {
@@ -420,17 +675,20 @@ svg.artboard {
     }
     .points {
       @include transition(opacity 400ms);
-      .point {
-        fill: black;
+      circle.point {
+        @include transition(fill 200ms);
+        fill: #bbb;
         stroke: $color-bg;
         stroke-width: 1px;
-        &:hover { cursor: pointer; }
       }
-    }
-    .point-selection {
-      fill: none;
-      stroke: black;
-      stroke-width: 1px;
+      g.point {
+        cursor: pointer;
+        &.selected, &:hover { 
+          circle.point {
+            fill: black;
+          }
+        }
+      }
     }
     .point-selection, .point-date {
       pointer-events: none;
@@ -440,10 +698,22 @@ svg.artboard {
         pointer-events: none;
       }
     }
+    .point-date {
+      font-size: 12px !important;
+    }
+    .point-selection {
+      fill: none;
+      stroke: black;
+      stroke-width: 1px;
+    }
     line.timeline-skeleton {
       stroke: black;
       stroke-width: 1px;
       opacity: 0.15;
+    }
+    line.timeline-skeleton-sensi {
+      stroke: rgba(0,0,0,0);
+      stroke-width: 28px;
     }
   }
 
@@ -457,8 +727,9 @@ svg.artboard {
 .color-white { color: white; }
 .color-coral { color: $color-coral; }
 .color-green { color: $color-green; }
-
-
+.cursor-pointer { cursor: pointer; }
+.b-bottom { border-bottom: 1px solid rgba(0,0,0, 0.15); }
+.text-itlaic { font-style: italic; }
 
 // ------------------------------------------------------------------------
 // BOOTSTRAP BREAKPOINTS
