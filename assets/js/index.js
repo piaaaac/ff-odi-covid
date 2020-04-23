@@ -27,7 +27,7 @@ SELECT A STORY
 
 var cnt = document.getElementById("container");
 var animms = 600;
-var animmsSelectTree = 1200;
+var animmsSelectTree = 900;
 var templates = {};
 var releaseFolder;
 var trees;
@@ -46,7 +46,7 @@ var state = {
   selectedTree: null,
   firstDate: moment(),
   lastDate: moment("2000-01-01"),
-  isMobile: isMobile(),
+  // isMobile: isMobile(),
   currentPage: {},
 };
 
@@ -264,9 +264,10 @@ trees = {
 var lenW = state.w * 0.05;
 var lenH = state.h * 0.14;
 var len0 = Math.min(lenW, lenH);
-if (state.isMobile) {
+if (isMobile()) {
   len0 = state.w * 0.06;
 }
+console.log("len0", len0);
 
 function setup() {
   var cvs = createCanvas(100, 100);
@@ -453,9 +454,16 @@ function Tree (root, branch0) {
 
   this.moveLeft = function (animate) {
     if (isMobile()) {
+
+      // var x = state.w / 2;
+      // var y = state.treePositions[Object.keys(state.treePositions)[0]].y;
+      // this.moveRoot(x, y, animate);
+
       var x = state.w / 2;
-      var y = state.treePositions[Object.keys(state.treePositions)[0]].y;
-      this.moveRoot(x, y, animate);
+      // var y = ($("#fill-window").height() - 90) / 2;
+      var y = ($(window).height() * 0.6 - 90) / 2; // --- $mobile-h-d1 in index.scss
+      this.moveCenter(x, y, animate);
+
       this.svgGroup.addClass("selected");      
     } else {
       this.moveCenter(state.w*0.25, state.h * 0.42, animate);
@@ -492,6 +500,7 @@ function Tree (root, branch0) {
 
     this.legendGroup = this.svgGroup.group().back();
 
+    this.svgGroup.addClass(".legended");
 
     // Draw line from cherry
     if (!isMobile()) {
@@ -549,6 +558,8 @@ function Tree (root, branch0) {
     // remove svg elements
     this.legendGroup.remove();
 
+    this.svgGroup.removeClass(".legended");
+
     // texts
     if (!isMobile()) {
       this.svgGroup.findOne("g.tree-label .area-name")
@@ -566,21 +577,37 @@ function Tree (root, branch0) {
 
 
   // NEED TO IMPLEMENT?
-  this.selectStory = function (id) {
-  }
+  // this.selectStory = function (id) {
+  // }
 
   // BROKEN
   // BROKEN TRY FIX ?
   // BROKEN
-  this.scale = function (factor, animate) { 
-    var ms = (animate === true) ? animms : 1;
+  this.resetScale = function () { 
+    var rp = this.svgGroup.findOne(".root-point");
+    var x = rp.cx;
+    var y = rp.cy;
     this.svgGroup
-      .animate(ms)
-      .transform({
-        translateX: -this.rootPoint.x,
-        translateY: -this.rootPoint.y,
-        scale: factor 
-      });
+      .animate(animms)
+      .transform({ 
+        // "translateX": 0, 
+        // "translateY": 0, 
+        "scale": 1 })
+      // .move(x, y);
+    // this.moveRoot(x,y,true)
+  }
+  this.scale = function (factor) { 
+    var rp = this.svgGroup.findOne(".root-point");
+    var x = rp.cx;
+    var y = rp.cy;
+    this.svgGroup
+      .animate(animms)
+      .transform({ 
+        // "translateX": -this.rootPoint.x, 
+        // "translateY": -this.rootPoint.y, 
+        "scale": factor })
+      // .move(x, y);
+    // this.moveRoot(x,y,true)
   }
 
 
@@ -888,7 +915,7 @@ function initialize () {
 
 
 function updateTreesPos () {
-  if (state.isMobile) {
+  if (isMobile()) {
     var x1 = state.w * 0.3;
     var x2 = state.w * 0.7;
     var mt = 40;
@@ -997,6 +1024,17 @@ function setStatePage (type, id) {
 
   // --- manage svg trees
 
+  /* -------------------------------------------------- */
+  if (isMobile()) {
+    if (type == "area") {
+      var cntH = 150 /*mt*/ + 70 /*mb*/ + len0*5.5 /*tree*/;
+      $("#fill-window").height(cntH);
+    } else if (type == "home" || type == "story") {
+      $("#fill-window").attr('style', '');
+    }
+  }
+  /* -------------------------------------------------- */
+
   if (type == "home" && state.selectedTree !== null) {
     
     deselectAllBranches();
@@ -1042,6 +1080,8 @@ function setStatePage (type, id) {
   
   } else {
 
+    $("#content-wrapper, #story-title-lg").addClass("loading");
+
     setTimeout(function() {
 
       if (type == "area") {
@@ -1050,8 +1090,10 @@ function setStatePage (type, id) {
         var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
         var countBy = _.countBy(stories, "sectorCopy");
         var sectors = Object.keys(countBy).map(function(sectorCopy) {
-          // var circleDiameter = countBy[sectorCopy] *10;
-          var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
+          // var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
+          var maxPx = 30;
+          var factor = Math.min($("#container").width() * 0.04, maxPx);
+          var circleDiameter = Math.sqrt(countBy[sectorCopy]) * factor;
           return { 
             "sectorCopy": sectorCopy, 
             "sector": sectorCopy.slug(), 
@@ -1081,6 +1123,30 @@ function setStatePage (type, id) {
         var h = $("#story-title-lg").height();
         $("#story-title-lg").css({ "margin-top": -h/2 });
 
+
+    
+        // --- manage story nav
+
+        var story = state.storiesMap[id];
+        var areaStories = getAreaStories(story.area);
+        var i = _.findIndex(areaStories, { "slug": story.slug });
+        // var tags = story.tags.charAt(0).toUpperCase() + story.tags.slice(1);
+
+        var context = {
+          "n": i + 1,
+          "total": areaStories.length,
+          // "tags": tags,
+          "story": story,
+        }
+        var htmlStoryNav = templates.storyNav(context);
+        
+        if (isMobile()) {
+          $("#content-wrapper").prepend(htmlStoryNav);
+        } else {
+          $("#ui-left .bottom").html(htmlStoryNav);
+        }
+
+
       }
 
       // --- manage sticky header I
@@ -1102,6 +1168,8 @@ function setStatePage (type, id) {
         }
 
       }
+
+      $("#content-wrapper, #story-title-lg").removeClass("loading");
 
     }, animmsSelectTree);
   }
@@ -1182,28 +1250,30 @@ function setStatePage (type, id) {
 
 
 
-  // --- manage story nav
+  // --- manage story nav -------- MOVED UP
 
-  if (type == "story") {
+  // if (type == "story") {
 
-    var story = state.storiesMap[id];
-    var areaStories = getAreaStories(story.area);
-    var i = _.findIndex(areaStories, { "slug": story.slug });
-    // var tags = story.tags.charAt(0).toUpperCase() + story.tags.slice(1);
+  //   var story = state.storiesMap[id];
+  //   var areaStories = getAreaStories(story.area);
+  //   var i = _.findIndex(areaStories, { "slug": story.slug });
+  //   // var tags = story.tags.charAt(0).toUpperCase() + story.tags.slice(1);
 
-    var context = {
-      "n": i + 1,
-      "total": areaStories.length,
-      // "tags": tags,
-      "areaCopy": story.areaCopy,
-    }
-    var htmlStoryNav = templates.storyNav(context);
+  //   var context = {
+  //     "n": i + 1,
+  //     "total": areaStories.length,
+  //     // "tags": tags,
+  //     "areaCopy": story.areaCopy,
+  //   }
+  //   var htmlStoryNav = templates.storyNav(context);
     
-    if (!isMobile()) {
-      $("#ui-left .bottom").html(htmlStoryNav);
-    }
+  //   if (isMobile()) {
+  //     $("#content-wrapper").prepend(htmlStoryNav);
+  //   } else {
+  //     $("#ui-left .bottom").html(htmlStoryNav);
+  //   }
   
-  }
+  // }
   
 
   // --- update state
@@ -1219,28 +1289,7 @@ function setStatePage (type, id) {
 
 function filterStoriesBySector(sector) {
 
-  // // --- V1: redraw all markup
-
-  // var stories = getAreaStories(state.selectedTree);
-  // var newStories = stories.filter(function (s) {
-  //   return s.sector == sector;
-  // });
-  // console.log(newStories)
-
-  // // remove stories
-  
-  // $("#content .story-previews").remove();
-
-  // // show new stories
-
-  // var context = { "stories": newStories };
-  // var htmlStories = templates.storyPreviews(context);
-  // $("#content-wrapper").append(htmlStories);
-
-
-  
-
-  // --- V2: show/hide based on data-attribute
+  // show/hide based on data-attribute
 
   var areaStories = getAreaStories(state.selectedTree);
 
@@ -1666,7 +1715,7 @@ function loadData (file, callback) {
             var storyDate = moment(d.date);
 
             var stats = d["stats"].trim();
-            var percentage = /%$/.test(stats); // ends with %
+            var percentage = /[0-9.]%$/.test(stats); // ends with %
 
             var story = {
               "id":           d["id"],
@@ -1694,8 +1743,9 @@ function loadData (file, callback) {
               "dateCopy":     storyDate.format("D MMM YYYY"),
 
               
-              "imgUrl":     releaseFolder +"/maps-stories/"+ d.id +".svg",
-              // "imgUrl":     releaseFolder +"/maps-stories/"+ [
+              "mapUrl":       releaseFolder +"/maps-stories/"+ d.id +".svg",
+              "statUrl":      releaseFolder +"/graphs-stories/"+ d.id +".svg",
+              // "mapUrl":     releaseFolder +"/maps-stories/"+ [
               //   "1.svg",
               //   "maps-02.svg", "maps-03.svg", "maps-04.svg", "maps-05.svg", 
               //   "maps-06.svg", "maps-07.svg", "maps-08.svg", "maps-09.svg", 

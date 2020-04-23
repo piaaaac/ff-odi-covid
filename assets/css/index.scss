@@ -138,7 +138,7 @@ a.btn {
 // Grid / Layout
 // ----------------------
 
-.responsive-padding {
+@mixin responsive-padding {
   padding-left: $padding-s;
   padding-right: $padding-s;
   @include media-breakpoint-up(sm) {
@@ -146,13 +146,21 @@ a.btn {
     padding-right: $padding-l;
   }
 }
-.responsive-margin {
+
+@mixin responsive-margin {
   margin-left: $padding-s;
   margin-right: $padding-s;
   @include media-breakpoint-up(sm) {
     margin-left: $padding-l;
     margin-right: $padding-l;
   }
+}
+
+.responsive-padding {
+  @include responsive-padding;
+}
+.responsive-margin {
+  @include responsive-margin;
 }
 
 .container-fluid.max {
@@ -260,6 +268,11 @@ p.log {
       padding-right: 10%;
       text-align: center;
       top: 66%;
+      z-index: 2;
+      @include transition(opacity 200ms);
+      &.loading {
+        opacity: 0;
+      }
       @include media-breakpoint-up(lg) { // --- Desktop version
         @at-root body.story &{
           display: block;
@@ -312,6 +325,8 @@ p.log {
         @include media-breakpoint-up(xl) { width: 33%; overflow: visible; }
         text-align: right;
         white-space: nowrap;
+        pointer-events: none;
+        a { pointer-events: all; }
       }
     }
 
@@ -345,6 +360,14 @@ p.log {
 }
 
 #content {
+  #content-wrapper {
+
+    @include responsive-padding;
+    @include transition(opacity 200ms);
+    &.loading {
+      opacity: 0.2;
+    }
+  }
   overflow: hidden;
   @include media-breakpoint-down(md) { // --- Mobile version
     background-color: $color-bg;
@@ -353,7 +376,7 @@ p.log {
       height: 0;
     }
     #content-wrapper {
-      padding: 0 45px;
+      // padding: 0 45px;
     }
   }
   @include media-breakpoint-up(lg) { // --- Desktop version
@@ -499,6 +522,8 @@ p.log {
     }
   }
 
+  // main story content
+
   .story {
     margin-top: 40px;
     .story-data {
@@ -534,9 +559,16 @@ p.log {
           top: 0; left: 0; bottom: 0;
         }
       }
+      .stat {
+        width: 100%;
+      }
       .source {
         padding: 0 calc(50% - 110px);
       }
+    }
+    @include media-breakpoint-down(md) { // --- Mobile version
+      margin-top: 100px;
+      margin-bottom: 80px;
     }
   }
 }
@@ -604,7 +636,7 @@ p.log {
   }
 
   .about-legend {
-    img { max-width: 90px; }
+    img { max-width: 75px; }
   }
 }
 
@@ -666,6 +698,9 @@ svg.artboard {
 
   g.tree {
     cursor: pointer;
+    // @at-root body.legend &:not(.legended) {
+    //   pointer-events: none;
+    // }
     @include transition(opacity 400ms);
     &.hide:not(.selected) {
       pointer-events: none;
@@ -712,6 +747,9 @@ svg.artboard {
         opacity: 1 !important;
       }
       &.branch-story {
+        @at-root body.legend & {
+          pointer-events: none;
+        }
         &:hover, &.selected, &.hovered {
           .selection-circle {
             opacity: 1;
@@ -726,6 +764,7 @@ svg.artboard {
     }
     &.hidden {
       opacity: 0.25;
+      pointer-events: none;
       .tree-label {
         opacity: 0;
       }
@@ -801,6 +840,7 @@ svg.artboard {
 .color-coral { color: $color-coral; }
 .color-green { color: $color-green; }
 .cursor-pointer { cursor: pointer; }
+.b-top { border-top: 1px solid rgba(0,0,0, 0.15); }
 .b-bottom { border-bottom: 1px solid rgba(0,0,0, 0.15); }
 .text-itlaic { font-style: italic; }
 
