@@ -10,8 +10,8 @@ $color-coral: #E75F52;
 $color-blue: #3EBFB9;
 
 $color-green: #147666;
-$color-green: lighten($color-blue, 3%);
-$color-green: darken($color-blue, 5%);
+// $color-green: lighten($color-blue, 3%);
+// $color-green: darken($color-blue, 5%);
 
 $header-height: 90px;
 
@@ -232,19 +232,24 @@ p.log {
     position: relative;
     background-color: $color-bg;
     .legend-cta {
+      z-index: 2;
+      opacity: 0;
       position: absolute;
       top: 0;
-      left: calc(50vw - 180px); right: calc(50vw - 180px);
-      z-index: 2;
-      // display: none;
       pointer-events: none;
-      opacity: 0;
       @include transition(opacity 600ms);
       @at-root body.home.legend &{
-        // display: block;
         pointer-events: all;
         opacity: 1;
       }
+
+      // @include media-breakpoint-down(md) { // --- Mobile version
+      // left: 0; right: 0;
+
+      // @include media-breakpoint-up(lg) { // --- Desktop version
+        left: calc(50vw - 160px); right: calc(50vw - 160px);
+      // }
+
     }
     #story-title-lg {
       display: none;
@@ -524,7 +529,7 @@ p.log {
         background-color: white;
         position: relative;
         & > div {
-          background-color: $color-green;
+          background-color: $color-blue;
           position: absolute;
           top: 0; left: 0; bottom: 0;
         }
@@ -588,13 +593,18 @@ p.log {
 
 #about {
   position: relative;
+  
   overflow: hidden;
   @include transition (max-height 400ms);
   @at-root body.home &{
-    max-height: 1000px;
+    max-height: 10000px;
   }
   @at-root body.area &, body.story &{
     max-height: 0;
+  }
+
+  .about-legend {
+    img { max-width: 90px; }
   }
 }
 
@@ -616,6 +626,32 @@ p.log {
   }
   p {
     margin-bottom: 0.5em;
+  }
+
+  .copy {
+    color: white;
+    a:hover {
+      text-decoration: underline;
+    }
+    &.alpha {
+      opacity: 0.5;
+    }
+  }
+}
+
+#reloading {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  @include transition(opacity 400ms);
+  @at-root body.will-reload & {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba($color-bg, 0.95);
+    opacity: 1;
   }
 }
 

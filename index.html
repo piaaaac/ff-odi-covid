@@ -62,7 +62,7 @@
   
     <div id="container">
       <div class="legend-cta text-center">
-        <p><a onclick="trees.europe.removeLegend();" class="btn coral arrow-right">START</a></p>
+        <p><a onclick="removeLegend();" class="btn coral arrow-right">START</a></p>
         <p class="text-center font-body mt-4">
           Examples of reforms, new initiatives and campaigns to recognise and better support migrant key workers in the COVID-19 response
         </p>
@@ -93,24 +93,49 @@
 
   <section id="about">
 
-    <a id="to-top" class="font-small-bold mt-5">&uarr; TO TOP</a>
-
     <div class="container-fluid mt-5">
-
       <div class="row">
 
-        <div class="col-12 mb-5 mt-4">
+        <div class="col-md-12 col-lg-6 mb-5 mt-4">
           <h2 class="font-serif-xl mb-4">About</h2>
-          <p class="font-body-l pr-md-5 mb-5">
+          <p class="font-body-l pr-md-5">
             Refugees and other migrants are part of the global workforce of essential workers responding to the COVID-19 pandemic: every day they save lives and contribute to our economies and societies. Yet their contributions can be hidden, their skills undervalued and their rights denied. These examples of reforms, new initiatives and campaigns to recognise and better support migrant essential workers in the COVID-19 response demonstrate that change is possible. It is now on all of us to ensure it will be lasting.
           </p>
+
+          <div class="d-none d-lg-block my-5">
+            <p class="font-serif-l pr-2 mb-3"><strong>Tracker</strong></p>
+            <p class="font-body pr-2" style="max-width: 400px;">
+              We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use&nbsp;it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>.
+            </p>
+            <p class="mt-4">
+              <a class="btn green mr-3 mb-3" href="https://docs.google.com/spreadsheets/d/1yrhvW80BzVU7-3bsTY7l8PDSYB9Q4XztHHLQ8Oy69NY/edit?ts=5e9572e8#gid=0" target="_blank">
+                TRACKER</a>
+            </p>
+          </div>
         </div>
 
-      </div>
-      <div class="row mb-3">
+        <div class="col-lg-6 about-legend mb-5 mt-lg-5 py-lg-4">
+          <div class="d-sm-flex justify-content-start align-items-center mt-4">
+            <img class="mr-5 my-3 my-lg-0" src="assets/images/about/legend1.svg" />
+            <p class="font-body pr-2 mb-0" style="max-width: 400px;">
+              Legend  dolor sit amet, consectetur adipiscing elit. Mauris sed turpis sed ipsum vehicula bibendum imperdiet in orci. Ut in sapien magna.
+            </p>
+          </div>
+          <div class="d-sm-flex justify-content-start align-items-center mt-4">
+            <img class="mr-5 my-3 my-lg-0" src="assets/images/about/legend2.svg" />
+            <p class="font-body pr-2 mb-0" style="max-width: 400px;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed turpis sed ipsum vehicula bibendum imperdiet in orci. Ut in sapien magna. Mauris lacus ex, pretium nec odio sit amet, gravida faucibus nisi.
+            </p>
+          </div>
+          <div class="d-sm-flex justify-content-start align-items-center mt-4">
+            <img class="mr-5 my-3 my-lg-0" src="assets/images/about/legend3.svg" />
+            <p class="font-body pr-2 mb-0" style="max-width: 400px;">
+              Ut in sapien magna. Mauris lacus ex, pretium nec odio sit amet, gravida faucibus nisi.
+            </p>
+          </div>
+        </div>
 
-        <!-- <div class="col-md-6 col-lg-4 mb-5"> -->
-        <div class="col-md-6 mb-5">
+        <div class="col-12 d-lg-none py-5 mb-5">
           <p class="font-serif-l pr-2 mb-3"><strong>Tracker</strong></p>
           <p class="font-body pr-2" style="max-width: 400px;">
             We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use&nbsp;it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>.
@@ -120,17 +145,11 @@
               TRACKER</a>
           </p>
         </div>
-        <!--
-        <div class="col-md-6 mb-5">
-          <p class="font-small-bold pr-2 mb-3">HUMAN MOBILITY INITIATIVE</p>
-          <p class="font-small pr-2" style="max-width: 400px;">
-            Hosted by the Overseas Development Institute (ODI), in collaboration with the London School of Economics Institute of Global Affairs (LSE IGA) and the Center for Global Development (CGD), the Human Mobility Initiative is a platform for innovation and joint action to 'do migration differently.'
-          </p>
-        </div>
-        -->
-      
+
       </div>
     </div>
+
+    <a id="to-top" class="font-small-bold mt-5">&uarr; TO TOP</a>
 
   </section>
 
@@ -142,6 +161,8 @@
             <div class="col">
               <a class="" href="https://odi.org" target="_blank">
                 <img src="assets/images/ODI-logo-white.svg" />
+                <p><a class="font-small-bold d-inline-block mt-4" href="https://odi.org" target="_blank">
+                  Overseas Development Initiative</a></p>
               </a>
             </div>
           </div>
@@ -149,16 +170,35 @@
         <div class="col-md-6">
           <div class="row align-items-center">
             <div class="col">
-              <p><a class="font-small-bold d-inline-block mr-3" href="https://www.odi.org/projects/2917-human-mobility-initiative" target="_blank">
-                Human Mobility Initiative</a></p>
-              <p><a class="font-small-bold d-inline-block mr-3" href="https://odi.org" target="_blank">
-                Overseas Development Initiative</a></p>
+              <p class="copy font-small">
+                Tracker: ODI
+              </p>
+              <p class="copy font-small">
+                Website:
+                <a class="" href="https://twitter.com/fedfragapane" target="_blank">
+                  Federica&nbsp;Fragapane
+                </a>,
+                <a class="" href="https://alexpiacentini.com" target="_blank">
+                  Alex&nbsp;Piacentini
+                </a>
+              </p>
+              <p class="copy alpha font-small">
+                Released under 
+                <a class="" href="https://opensource.org/licenses/MIT" target="_blank">
+                  MIT License
+                </a>.
+                <a class="" href="privacy.html" target="_blank">
+                  Privacy policy
+                </a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div id="reloading"><p class="font-serif-m">Window width has changed, updating the page.</p></div>
 
   <!-- Templates start -->
   <!-- https://www.youtube.com/watch?v=3zVYH16yogQ -->

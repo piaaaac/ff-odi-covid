@@ -27,6 +27,7 @@ SELECT A STORY
 
 var cnt = document.getElementById("container");
 var animms = 600;
+var animmsSelectTree = 1200;
 var templates = {};
 var releaseFolder;
 var trees;
@@ -475,84 +476,91 @@ function Tree (root, branch0) {
 
   this.showLegend = function () {
 
-    var dataCircle = this.svgGroup.findOne("circle.story-count");
+    // var dataCircle = this.svgGroup.findOne("circle.story-count");
 
-    // state and ui
-    state.currentPage = { 
-      "type": "legend",
-      "id": null,
-      "depth": 0,
-    };
+    // // state and ui
+    // state.currentPage = { 
+    //   "type": "legend",
+    //   "id": null,
+    //   "depth": 0,
+    // };
 
-    setTimeout(function() {
-      $("body").addClass("legend");
-      $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 80 });
-    }, animms);
-    
+    // setTimeout(function() {
+    //   $("body").addClass("legend");
+    //   $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 80 });
+    // }, animms);
+
     this.legendGroup = this.svgGroup.group().back();
-    var cherryText = "Click to explore stories. Each tree shows a geography.\nBranches show sectors \nand levels.";
+
 
     // Draw line from cherry
-    var cherries = this.svgGroup.find("circle.selection-circle");
-    var cherryR = _.maxBy(cherries, function(c) { return c.bbox().x });
-    var cherryBB = cherryR.bbox();
-    var x1 = cherryBB.x + cherryBB.w + 3;
-    var y = cherryBB.y + cherryBB.h/2;
-    var len = 35;
-    this.legendGroup.line(x1, y, x1 + len, y)
-      .attr({ "stroke": "rgba(0,0,0,0.15)" });
-    this.legendGroup.text(function(add) {
-      add.tspan("Click to explore stories.").addClass("font-small-bold").newLine();
-      add.tspan("Each tree shows a geography.").newLine();
-      add.tspan("Branches show sectors").newLine();
-      add.tspan("and levels.").newLine();
-    }).font({ "anchor": "start" })
-      .addClass("font-small")
-      .x(x1 + len + 8).y(y - 8);
+    if (!isMobile()) {
+      var cherryText = "Click to explore stories. Each tree shows a geography.\nBranches show sectors \nand levels.";
+      var cherries = this.svgGroup.find("circle.selection-circle");
+      var cherryR = _.maxBy(cherries, function(c) { return c.bbox().x });
+      var cherryBB = cherryR.bbox();
+      var x1 = cherryBB.x + cherryBB.w + 3;
+      var y = cherryBB.y + cherryBB.h/2;
+      var len = 35;
+      this.legendGroup.line(x1, y, x1 + len, y)
+        .attr({ "stroke": "rgba(0,0,0,0.15)" });
+      this.legendGroup.text(function(add) {
+        add.tspan("Click to explore stories.").addClass("font-small-bold").newLine();
+        add.tspan("Each tree shows a geography.").newLine();
+        add.tspan("Branches show sectors").newLine();
+        add.tspan("and levels.").newLine();
+      }).font({ "anchor": "start" })
+        .addClass("font-small")
+        .x(x1 + len + 8).y(y - 8);
+    }
 
 
     // Draw circle outline
+    var dataCircle = this.svgGroup.findOne("circle.story-count");
     var clone = dataCircle.clone();
     clone.attr({ 
       "fill": "none",
       "stroke": dataCircle.fill(),
       "stroke-width": 8,
       "opacity": 0,
-    })
-      .removeClass("story-count").addClass("circle-blink")
+    }).removeClass("story-count").addClass("circle-blink")
       .addTo(this.legendGroup);
       clone.radius(dataCircle.bbox().w/2 + 13).opacity(0.2);
 
     // texts
-    this.svgGroup.findOne("g.tree-label .area-name")
-      .text("Geography")
-    this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(0);
-    this.svgGroup.findOne(".tree-label")
-      .dy( -(len0 * 0.55 + 5) + 20 );
+    if (!isMobile()) {
+      this.svgGroup.findOne("g.tree-label .area-name")
+        .text("Geography")
+      this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(0);
+      this.svgGroup.findOne(".tree-label")
+        .dy( -(len0 * 0.55 + 5) + 20 );
+    }
 
-    // hide other trees
-    svg.find("g.tree:not(#"+ this.id +")").addClass("hidden");
+    // // hide other trees
+    // svg.find("g.tree:not(#"+ this.id +")").addClass("hidden");
   }
 
   this.removeLegend = function () {
 
     // state and ui
-    state.currentPage.type = null;
-    $("body").removeClass("legend");
+    // state.currentPage.type = null;
+    // $("body").removeClass("legend");
 
     // remove svg elements
     this.legendGroup.remove();
 
     // texts
-    this.svgGroup.findOne("g.tree-label .area-name")
-      .text(this.areaCopy)
-    this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(1);
-    this.svgGroup.findOne(".tree-label")
-      // .animate(animms)
-      .dy( - 20 + (len0 * 0.55 + 5) );
+    if (!isMobile()) {
+      this.svgGroup.findOne("g.tree-label .area-name")
+        .text(this.areaCopy)
+      this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(1);
+      this.svgGroup.findOne(".tree-label")
+        // .animate(animms)
+        .dy( - 20 + (len0 * 0.55 + 5) );
+    }
 
-    // hide other trees
-    svg.find("g.tree:not(#"+ this.id +")").removeClass("hidden");
+    // show all trees
+    // svg.find("g.tree:not(#"+ this.id +")").removeClass("hidden");
 
   }
 
@@ -577,6 +585,52 @@ function Tree (root, branch0) {
 
 
 }
+
+function showLegend () {
+
+  // state and ui
+  state.currentPage = { 
+    "type": "legend",
+    "id": null,
+    "depth": 0,
+  };
+
+  var dataCircle = trees.europe.svgGroup.findOne("circle.story-count");
+  setTimeout(function() {
+    $("body").addClass("legend");
+    $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 80 });
+  }, animms);
+
+  if (isMobile()) {
+    trees["north-america"].showLegend();
+    trees.europe.showLegend();
+    $("g.tree:not(#europe, #north-america)").addClass("hidden");
+  } else {
+    trees.europe.showLegend();
+    // hide other trees
+    $("g.tree:not(#europe)").addClass("hidden");
+  }
+
+}
+
+function removeLegend () {
+
+  // state and ui
+  state.currentPage.type = null;
+  $("body").removeClass("legend");
+
+  if (isMobile()) {
+    trees["north-america"].removeLegend();
+    trees.europe.removeLegend();
+  } else {
+    trees.europe.removeLegend();
+  }
+
+  // show all trees
+  $("g.tree").removeClass("hidden");
+
+}
+
 
 // ----------------------------------------------
 // Branch Class (uses p5)
@@ -816,7 +870,7 @@ function initialize () {
 
   state.treePositions = updateTreesPos();
 
-  trees.europe.showLegend();
+  showLegend();
 
   Object.keys(trees).forEach(function (k) {
     // trees[k].hide();
@@ -908,7 +962,7 @@ function setStatePage (type, id) {
   // --- manage state
 
   if (state.currentPage.type == "legend") {
-    trees.europe.removeLegend();
+    removeLegend();
     setTimeout(function() {
       setStatePage (type, id);
     }, 1000);
@@ -986,64 +1040,90 @@ function setStatePage (type, id) {
 
     $("#content-wrapper").html("");
   
-  } else if (type == "area") {
-    
-    var stories = getAreaStories(state.selectedTree);
-    var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
-    var countBy = _.countBy(stories, "sectorCopy");
-    var sectors = Object.keys(countBy).map(function(sectorCopy) {
-      // var circleDiameter = countBy[sectorCopy] *10;
-      var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
-      return { 
-        "sectorCopy": sectorCopy, 
-        "sector": sectorCopy.slug(), 
-        "count": countBy[sectorCopy],
-        "pixels": circleDiameter,
-      };
-    });
-    var context1 = { 
-      "imgSrc": areaImgUrl,
-      "sectors": sectors,
-    };
-    var context2 = { 
-      "stories": stories 
-    };
-    var htmlAreaStats = templates.areaStats(context1);
-    var htmlStories = templates.storyPreviews(context2);
-    
-    $("#content-wrapper").html(htmlAreaStats).append(htmlStories);
-    
-  } else if (type == "story") {
+  } else {
 
-    var story = state.storiesMap[id];
-    var htmlStory = templates.story(story);
-    $("#content-wrapper").html(htmlStory);
-    
-    $("#story-title-lg").html(story.titleCopy);
-    var h = $("#story-title-lg").height();
-    $("#story-title-lg").css({ "margin-top": -h/2 });
+    setTimeout(function() {
 
+      if (type == "area") {
+        
+        var stories = getAreaStories(state.selectedTree);
+        var areaImgUrl = releaseFolder +"/maps-areas/"+ id +".svg";
+        var countBy = _.countBy(stories, "sectorCopy");
+        var sectors = Object.keys(countBy).map(function(sectorCopy) {
+          // var circleDiameter = countBy[sectorCopy] *10;
+          var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
+          return { 
+            "sectorCopy": sectorCopy, 
+            "sector": sectorCopy.slug(), 
+            "count": countBy[sectorCopy],
+            "pixels": circleDiameter,
+          };
+        });
+        var context1 = { 
+          "imgSrc": areaImgUrl,
+          "sectors": sectors,
+        };
+        var context2 = { 
+          "stories": stories 
+        };
+        var htmlAreaStats = templates.areaStats(context1);
+        var htmlStories = templates.storyPreviews(context2);
+        
+        $("#content-wrapper").html(htmlAreaStats).append(htmlStories);
+        
+      } else if (type == "story") {
+
+        var story = state.storiesMap[id];
+        var htmlStory = templates.story(story);
+        $("#content-wrapper").html(htmlStory);
+        
+        $("#story-title-lg").html(story.titleCopy);
+        var h = $("#story-title-lg").height();
+        $("#story-title-lg").css({ "margin-top": -h/2 });
+
+      }
+
+      // --- manage sticky header I
+
+      if (type == "area") {
+
+        if (isMobile()) {
+          sticky($("#story-previews-header"), window, function(placeholder, win) {
+            // return true if it should stick
+            var shouldStick = ($(win).scrollTop() - $(placeholder).position().top > 0);
+            return shouldStick;
+          }/*, 90*/);
+        } else {
+          sticky($("#story-previews-header"), $("#content-wrapper")[0], function(placeholder, contWrapper) {
+            // return true if it should stick
+            var shouldStick = ($(placeholder).offset().top - $("#header").height() < $(contWrapper).position().top);
+            return shouldStick;
+          }, $("#header").height());
+        }
+
+      }
+
+    }, animmsSelectTree);
   }
 
 
 
-  // --- manage events
 
-  // sticky header
+  // --- manage sticky header II
 
   if (type == "home" || type == "story") {
 
     stickyStop(window);
     stickyStop($("#content-wrapper")[0]);
 
-  } else if (type == "area") {
+  } /*else if (type == "area") {
 
     if (isMobile()) {
       sticky($("#story-previews-header"), window, function(placeholder, win) {
         // return true if it should stick
         var shouldStick = ($(win).scrollTop() - $(placeholder).position().top > 0);
         return shouldStick;
-      }/*, 90*/);
+      });
     } else {
       sticky($("#story-previews-header"), $("#content-wrapper")[0], function(placeholder, contWrapper) {
         // return true if it should stick
@@ -1052,7 +1132,7 @@ function setStatePage (type, id) {
       }, $("#header").height());
     }
 
-  }
+  }*/
 
 
 
@@ -1070,7 +1150,7 @@ function setStatePage (type, id) {
 
       setTimeout(function() {
         timeline.show();
-      }, animms);
+      }, animmsSelectTree);
 
       var area;
 
@@ -1383,6 +1463,10 @@ function addListeners () {
   });
 
   $("svg g.tree").click(function(e){ 
+    if (state.currentPage.type == "legend") {
+      removeLegend();
+      return;
+    }
     setStatePage("area", this.id);
   });
 
@@ -1411,19 +1495,27 @@ function addListeners () {
   });
 
   $(window).resize(function() {
+    // if (cnt.offsetWidth != state.w){
+    //   svg.find("*").remove();
+    //   $("#content *").remove();
+    //   $("#story-title-lg").html("");
+    //   svg.text("Window width has changed, reloading.")
+    //     .addClass("font-serif-m").addClass("cursor-pointer")
+    //     .x(cnt.offsetWidth / 2).y(cnt.offsetHeight / 2)
+    //     .font({ "anchor": "middle" })
+    //     .click(function() {
+    //       window.location.reload();
+    //     });
+    //   // setTimeout(function() { window.location.reload(); }, 500);
+    // }
+
     if (cnt.offsetWidth != state.w){
-      svg.find("*").remove();
-      $("#content *").remove();
-      $("#story-title-lg").html("");
-      svg.text("Window width has changed, reloading.")
-        .addClass("font-serif-m").addClass("cursor-pointer")
-        .x(cnt.offsetWidth / 2).y(cnt.offsetHeight / 2)
-        .font({ "anchor": "middle" })
-        .click(function() {
-          window.location.reload();
-        });
-      // setTimeout(function() { window.location.reload(); }, 500);
+      $("#container *").remove();
+      $("body").addClass("will-reload");
+      setTimeout(function() { window.location.reload(); }, 700);
     }
+
+
   });
 
   $(document).keydown(function(e) {

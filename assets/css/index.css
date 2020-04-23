@@ -353,9 +353,9 @@ a.btn {
     background-color: white; }
   a.btn.green {
     color: white;
-    background-color: #38aca6; }
+    background-color: #147666; }
     a.btn.green:hover {
-      background-color: #329894; }
+      background-color: #106053; }
   a.btn.nav-arrow, a.btn.nav-arrow:hover {
     padding: 0;
     padding-left: 12px;
@@ -440,18 +440,18 @@ p.log {
     position: relative;
     background-color: #E6E7E7; }
     #fill-window #container .legend-cta {
+      z-index: 2;
+      opacity: 0;
       position: absolute;
       top: 0;
-      left: calc(50vw - 180px);
-      right: calc(50vw - 180px);
-      z-index: 2;
       pointer-events: none;
-      opacity: 0;
       -webkit-transition: opacity 600ms;
       -moz-transition: opacity 600ms;
       -ms-transition: opacity 600ms;
       -o-transition: opacity 600ms;
-      transition: opacity 600ms; }
+      transition: opacity 600ms;
+      left: calc(50vw - 160px);
+      right: calc(50vw - 160px); }
       body.home.legend #fill-window #container .legend-cta {
         pointer-events: all;
         opacity: 1; }
@@ -687,7 +687,7 @@ p.log {
       background-color: white;
       position: relative; }
       #content .story .story-body .bar > div {
-        background-color: #38aca6;
+        background-color: #3EBFB9;
         position: absolute;
         top: 0;
         left: 0;
@@ -746,9 +746,11 @@ p.log {
   -o-transition: max-height 400ms;
   transition: max-height 400ms; }
   body.home #about {
-    max-height: 1000px; }
+    max-height: 10000px; }
   body.area #about, body.story #about {
     max-height: 0; }
+  #about .about-legend img {
+    max-width: 90px; }
 
 #footer {
   overflow: hidden;
@@ -757,7 +759,7 @@ p.log {
   -ms-transition: max-height 400ms;
   -o-transition: max-height 400ms;
   transition: max-height 400ms;
-  background-color: #38aca6;
+  background-color: #147666;
   color: white; }
   body.home #footer {
     max-height: 500px; }
@@ -768,6 +770,33 @@ p.log {
     color: white; }
   #footer p {
     margin-bottom: 0.5em; }
+  #footer .copy {
+    color: white; }
+    #footer .copy a:hover {
+      text-decoration: underline; }
+    #footer .copy.alpha {
+      opacity: 0.5; }
+
+#reloading {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  -webkit-transition: opacity 400ms;
+  -moz-transition: opacity 400ms;
+  -ms-transition: opacity 400ms;
+  -o-transition: opacity 400ms;
+  transition: opacity 400ms; }
+  body.will-reload #reloading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(230, 231, 231, 0.95);
+    opacity: 1; }
 
 svg.artboard {
   position: absolute;
@@ -886,7 +915,7 @@ svg.artboard {
   color: #E75F52; }
 
 .color-green {
-  color: #38aca6; }
+  color: #147666; }
 
 .cursor-pointer {
   cursor: pointer; }
