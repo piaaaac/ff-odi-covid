@@ -58,6 +58,14 @@ loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.loadingData = false;
 });
 
+var areaNames = {
+  "north-america":  "North America",
+  "latin-america":  "Latin America",
+  "europe":         "Europe",
+  "africa":         "Africa",
+  "asia-oceania":   "Asia & Oceania",
+};
+
 
 // ----------------------------------------------
 // jQuery start
@@ -83,7 +91,7 @@ var svgStyles = {
   },
   "friut": {
     "fill": "#E75F52",
-    "stroke": "#EAEBEB",
+    "stroke": "#E6E7E7",
     "stroke-width": 1,
   },
   "friut-selected": {
@@ -328,6 +336,7 @@ function Tree (root, branch0) {
   // construct
 
   this.id = branch0.props.id;
+  this.areaCopy = areaNames[this.id];
   this.root = root;
   this.branches = [];
   this.storyCount = countChildren(branch0, 0);
@@ -335,6 +344,7 @@ function Tree (root, branch0) {
   this.svgGroup = svg.group()
     .addClass("tree").addClass("hide")
     .attr({ "id": branch0.props.id });
+  this.legendGroup = null;
  
   // methods essential to construct
 
@@ -370,13 +380,13 @@ function Tree (root, branch0) {
     
     // --- draw bg, root point, data circle and Area name
 
-    this.svgGroup
-      .rect(this.svgGroup.bbox().w, this.svgGroup.bbox().h)
-      .move(this.svgGroup.bbox().x, this.svgGroup.bbox().y)
-      .back()
-      .attr({ "fill": "red", "opacity": 0 });
+    // --- Sensible area rect
+    // this.svgGroup
+    //   .rect(this.svgGroup.bbox().w, this.svgGroup.bbox().h)
+    //   .move(this.svgGroup.bbox().x, this.svgGroup.bbox().y)
+    //   .back()
+    //   .attr({ "fill": "red", "opacity": 0 });
 
-    // var circleDiameter = this.storyCount * len0/10;
     var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
 
     this.svgGroup
@@ -386,34 +396,17 @@ function Tree (root, branch0) {
       .back()
       .attr({ "fill": "#3EBFB9", opacity: 0.25 });
 
-    // Math.sqrt()
-
-    // this.svgGroup
-    //   .line(0,0, ).cx(0).cy(0)
-    //   .addClass("root-point")
-    //   .attr({ "fill": "black" });
-
     this.svgGroup
       .circle(4).cx(0).cy(0)
       .addClass("root-point")
       .attr({ "fill": "black" });
 
-    var areaNames = {
-      "north-america":  "North America",
-      "latin-america":  "Latin America",
-      "europe":         "Europe",
-      "africa":         "Africa",
-      "asia-oceania":   "Asia & Oceania",
-    };
     var gt = this.svgGroup.group().addClass("tree-label");
     var y1 = len0 * 0.55 + 5;
-    gt.text(areaNames[this.id]).x(0).y(y1)
+    gt.text(this.areaCopy).x(0).y(y1)
       .addClass("font-serif-m")
       .addClass("area-name")
-      .font({ 
-        // "fill": "black",
-        "anchor": "middle",
-      });
+      .font({ "anchor": "middle" });
     gt.text(this.storyCount + (this.storyCount == 1 ? " story" : " stories")).x(0).y(y1 + 30)
       .addClass("font-small-stories")
       .font({ "anchor": "middle" });
@@ -445,15 +438,11 @@ function Tree (root, branch0) {
     this.svgGroup.animate(ms).move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
   }
 
-  this.show = function (/*animate*/) {
-    // var ms = (animate === true) ? animms : 1;
-    // this.svgGroup.animate(ms).opacity(1);
+  this.show = function () {
     this.svgGroup.removeClass("hide");
   }
 
-  this.hide = function (/*animate*/) {
-    // var ms = (animate === true) ? animms : 1;
-    // this.svgGroup.animate(ms).opacity(0);
+  this.hide = function () {
     this.svgGroup.addClass("hide");
   }
 
@@ -483,11 +472,99 @@ function Tree (root, branch0) {
       .animate(animms).transform({ "translateY": 0 });
   }
 
-  this.selectStory = function (id) {
+
+  this.showLegend = function () {
+
+    var dataCircle = this.svgGroup.findOne("circle.story-count");
+
+    // state and ui
+    state.currentPage = { 
+      "type": "legend",
+      "id": null,
+      "depth": 0,
+    };
+
+    setTimeout(function() {
+      $("body").addClass("legend");
+      $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 80 });
+    }, animms);
+    
+    this.legendGroup = this.svgGroup.group().back();
+    var cherryText = "Click to explore stories. Each tree shows a geography.\nBranches show sectors \nand levels.";
+
+    // Draw line from cherry
+    var cherries = this.svgGroup.find("circle.selection-circle");
+    var cherryR = _.maxBy(cherries, function(c) { return c.bbox().x });
+    var cherryBB = cherryR.bbox();
+    var x1 = cherryBB.x + cherryBB.w + 3;
+    var y = cherryBB.y + cherryBB.h/2;
+    var len = 35;
+    this.legendGroup.line(x1, y, x1 + len, y)
+      .attr({ "stroke": "rgba(0,0,0,0.15)" });
+    this.legendGroup.text(function(add) {
+      add.tspan("Click to explore stories.").addClass("font-small-bold").newLine();
+      add.tspan("Each tree shows a geography.").newLine();
+      add.tspan("Branches show sectors").newLine();
+      add.tspan("and levels.").newLine();
+    }).font({ "anchor": "start" })
+      .addClass("font-small")
+      .x(x1 + len + 8).y(y - 8);
+
+
+    // Draw circle outline
+    var clone = dataCircle.clone();
+    clone.attr({ 
+      "fill": "none",
+      "stroke": dataCircle.fill(),
+      "stroke-width": 8,
+      "opacity": 0,
+    })
+      .removeClass("story-count").addClass("circle-blink")
+      .addTo(this.legendGroup);
+      clone.radius(dataCircle.bbox().w/2 + 13).opacity(0.2);
+
+    // texts
+    this.svgGroup.findOne("g.tree-label .area-name")
+      .text("Geography")
+    this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(0);
+    this.svgGroup.findOne(".tree-label")
+      .dy( -(len0 * 0.55 + 5) + 20 );
+
+    // hide other trees
+    svg.find("g.tree:not(#"+ this.id +")").addClass("hidden");
+  }
+
+  this.removeLegend = function () {
+
+    // state and ui
+    state.currentPage.type = null;
+    $("body").removeClass("legend");
+
+    // remove svg elements
+    this.legendGroup.remove();
+
+    // texts
+    this.svgGroup.findOne("g.tree-label .area-name")
+      .text(this.areaCopy)
+    this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(1);
+    this.svgGroup.findOne(".tree-label")
+      // .animate(animms)
+      .dy( - 20 + (len0 * 0.55 + 5) );
+
+    // hide other trees
+    svg.find("g.tree:not(#"+ this.id +")").removeClass("hidden");
 
   }
 
-  this.scale = function (factor, animate) { // BROKEN
+
+  // NEED TO IMPLEMENT?
+  this.selectStory = function (id) {
+  }
+
+  // BROKEN
+  // BROKEN TRY FIX ?
+  // BROKEN
+  this.scale = function (factor, animate) { 
     var ms = (animate === true) ? animms : 1;
     this.svgGroup
       .animate(ms)
@@ -496,8 +573,9 @@ function Tree (root, branch0) {
         translateY: -this.rootPoint.y,
         scale: factor 
       });
-
   }
+
+
 }
 
 // ----------------------------------------------
@@ -738,6 +816,8 @@ function initialize () {
 
   state.treePositions = updateTreesPos();
 
+  trees.europe.showLegend();
+
   Object.keys(trees).forEach(function (k) {
     // trees[k].hide();
     trees[k].moveInPosition();
@@ -826,6 +906,14 @@ function deselectAllBranches () {
 function setStatePage (type, id) {
   
   // --- manage state
+
+  if (state.currentPage.type == "legend") {
+    trees.europe.removeLegend();
+    setTimeout(function() {
+      setStatePage (type, id);
+    }, 1000);
+    return;
+  }
 
   var oldPage = {
     "type":   state.currentPage.type,

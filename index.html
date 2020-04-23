@@ -61,8 +61,13 @@
     </div>
   
     <div id="container">
-      <p class="help-text font-small-light text-center">Click on a tree to choose an area, on a dot to open a story.</p>
-      <p id="story-title-lg" class="font-serif-m">Lorem ipsum</p>
+      <div class="legend-cta text-center">
+        <p><a onclick="trees.europe.removeLegend();" class="btn coral arrow-right">START</a></p>
+        <p class="text-center font-body mt-4">
+          Examples of reforms, new initiatives and campaigns to recognise and better support migrant key workers in the COVID-19 response
+        </p>
+      </div>
+      <p id="story-title-lg" class="font-serif-m"></p>
     </div>
 
   </div>
@@ -90,14 +95,14 @@
 
     <a id="to-top" class="font-small-bold mt-5">&uarr; TO TOP</a>
 
-    <div class="container-fluid max mt-5">
+    <div class="container-fluid mt-5">
 
       <div class="row">
 
         <div class="col-12 mb-5 mt-4">
           <h2 class="font-serif-xl mb-4">About</h2>
           <p class="font-body-l pr-md-5 mb-5">
-            Refugees and other migrants are part of the global workforce of essential workers responding to the COVID-19 pandemic: every day they save lives and contribute to our economies and societies. Yet their contributions can be hidden, their skills undervalued and their rights denied. These examples of reforms, new initiatives and campaigns to recognise and support migrant essential workers in the COVID-19 response demonstrate that change is possible. It is now on all of us to ensure it will be lasting.
+            Refugees and other migrants are part of the global workforce of essential workers responding to the COVID-19 pandemic: every day they save lives and contribute to our economies and societies. Yet their contributions can be hidden, their skills undervalued and their rights denied. These examples of reforms, new initiatives and campaigns to recognise and better support migrant essential workers in the COVID-19 response demonstrate that change is possible. It is now on all of us to ensure it will be lasting.
           </p>
         </div>
 
@@ -106,30 +111,20 @@
 
         <!-- <div class="col-md-6 col-lg-4 mb-5"> -->
         <div class="col-md-6 mb-5">
-          <p class="font-small-bold pr-2 mb-3">TRACKER SPREADSHEET</p>
-          <p class="font-small pr-2" style="max-width: 400px;">
+          <p class="font-serif-l pr-2 mb-3"><strong>Tracker</strong></p>
+          <p class="font-body pr-2" style="max-width: 400px;">
             We are collecting data and stories from across the world on migrants contributing to COVDI19 response, in healthcare and beyond. The updated dataset is publicly availablehe. Use&nbsp;it and <a class="color-green" href="mailto: email.for.suggestions@odi.org" target="_blank">send us suggestions</a>.
           </p>
           <p class="mt-4">
             <a class="btn green mr-3 mb-3" href="https://docs.google.com/spreadsheets/d/1yrhvW80BzVU7-3bsTY7l8PDSYB9Q4XztHHLQ8Oy69NY/edit?ts=5e9572e8#gid=0" target="_blank">
-              SPREADSHEET</a>
+              TRACKER</a>
           </p>
         </div>
-        <!-- <div class="col-md-6 col-lg-4 mb-5"> -->
+        <!--
         <div class="col-md-6 mb-5">
           <p class="font-small-bold pr-2 mb-3">HUMAN MOBILITY INITIATIVE</p>
           <p class="font-small pr-2" style="max-width: 400px;">
             Hosted by the Overseas Development Institute (ODI), in collaboration with the London School of Economics Institute of Global Affairs (LSE IGA) and the Center for Global Development (CGD), the Human Mobility Initiative is a platform for innovation and joint action to 'do migration differently.'
-          </p>
-        </div>
-        <!--  
-        <div class="col-md-6 col-lg-4 mb-5">
-          <p class="font-small-bold pr-2 mb-3">COLOPHON</p>
-          <p class="font-small pr-2" style="max-width: 400px;">
-            Fusce vel nisi scelerisque, gravida purus at.
-            <br />Nulla efficitur lorem sit amet scelerisque sagittis.
-            <br />Vestibulum sit amet pellentesque nibh. 
-            <br />Nulla id mollis est non vestibulum dui, at malesuada quam.
           </p>
         </div>
         -->
@@ -286,12 +281,12 @@
     <div class="container-fluid story-nav">
       <div class="row">
         <div class="col-12 d-flex justify-content-between align-items-center">
-          <a class="btn arrow white" onclick="openPrevStory();">&larr;</a>
+          <a class="btn nav-arrow white" onclick="openPrevStory();">&larr;</a>
           <div>
             <p class="font-serif-m text-center">{{areaCopy}}</p>
             <p class="font-small color-coral text-center">STORY {{n}} OF {{total}}</p>
           </div>
-          <a class="btn arrow white" onclick="openNextStory();">&rarr;</a>
+          <a class="btn nav-arrow white" onclick="openNextStory();">&rarr;</a>
         </div>
       </div>
     </div>

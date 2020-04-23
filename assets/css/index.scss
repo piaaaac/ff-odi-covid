@@ -42,12 +42,12 @@ $padding-s: 20px;
 // ------------------------------------------------------------------------
 
 @keyframes blink {  
-  50% { opacity: 0.15; }
+  33% { opacity: 0.15; }
+  66% { opacity: 0.7; }
 }
-@mixin blink(){
-  animation: blink 3s linear infinite;
-}
-
+// @mixin blink(){
+//   animation: blink 3s linear infinite;
+// }
 
 * {
   color: black;
@@ -80,9 +80,9 @@ a.btn {
   //   content: "→";
   //   padding-left: 4px;
   // }
-  &:hover {
+  &:not(.no-arrow):hover {
     padding: 0 52px 0 38px;
-    &:not(.no-arrow)::after {
+    &::after {
       opacity: 1;
       right: 29px;
     }
@@ -96,6 +96,9 @@ a.btn {
     font-size: 11px;
     opacity: 0;
     @include transition(opacity 200ms, right 200ms);
+  }
+  &.arrow-right::after {
+    content: "→";
   }
   &.coral {
     color: white;
@@ -120,7 +123,7 @@ a.btn {
     }
   }
 
-  &.arrow, &.arrow:hover {
+  &.nav-arrow, &.nav-arrow:hover {
     padding: 0;
     padding-left: 12px;
     width: 35px;
@@ -228,15 +231,19 @@ p.log {
     width: 100%;
     position: relative;
     background-color: $color-bg;
-    .help-text {
+    .legend-cta {
       position: absolute;
-      bottom: 20px;
-      left: 0; right: 0;
-      pointer-events: none;
+      top: 0;
+      left: calc(50vw - 180px); right: calc(50vw - 180px);
       z-index: 2;
-      display: none;
-      @at-root body.home &{
-        display: block;
+      // display: none;
+      pointer-events: none;
+      opacity: 0;
+      @include transition(opacity 600ms);
+      @at-root body.home.legend &{
+        // display: block;
+        pointer-events: all;
+        opacity: 1;
       }
     }
     #story-title-lg {
@@ -628,15 +635,33 @@ svg.artboard {
       pointer-events: none;
       opacity: 0;
     }
+    .branch-g:not(.branch-story) {
+      pointer-events: none;
+    }
+
+
+    // circle.story-count {
+    //   @include transition(opacity 400ms);
+    // }
+    // &:hover circle.story-count {
+    //   opacity: 0.5;
+    // }
+    // &:not(.selected):hover text.area-name {
+    //   text-decoration: underline;
+    // }
+
     circle.story-count {
       @include transition(opacity 400ms);
+      &:hover {
+        opacity: 0.5;
+      }
     }
-    &:not(.selected):hover circle.story-count {
-      opacity: 0.5;
-    }
-    &:hover text.area-name {
+    text.area-name:hover {
       text-decoration: underline;
     }
+
+
+
 
     g.tree-label {
       @include transition(opacity 400ms);
@@ -658,6 +683,18 @@ svg.artboard {
         }
       }
     }
+    
+    // Legend
+    .circle-blink {
+      @include animation('blink 2s linear infinite');
+    }
+    &.hidden {
+      opacity: 0.25;
+      .tree-label {
+        opacity: 0;
+      }
+    }
+
   }
   
   g.timeline {
