@@ -296,10 +296,10 @@ p.log {
         &, h1 {
           white-space: nowrap;
         }
-        img {
-          max-width: 50vw;
-          max-height: 32px;
-          margin-left: 1.6vw;
+        .subtitle {
+          // max-width: 50vw;
+          // max-height: 32px;
+          // margin-left: 1.6vw;
         }
       }
       a.item {
@@ -330,12 +330,14 @@ p.log {
       }
     }
 
+    .wrapper-menu-home { opacity: 1; pointer-events: all; }
+    .wrapper-menu-full { opacity: 0; pointer-events: none; }
     @include media-breakpoint-up(lg) { // --- Desktop version
-      @at-root body.home {
+      @at-root body.home & {
         .wrapper-menu-home { opacity: 1; pointer-events: all; }
         .wrapper-menu-full { opacity: 0; pointer-events: none; }
       }
-      @at-root body.area, body.story {
+      @at-root body.area &, body.story & {
         .wrapper-menu-home { opacity: 0; pointer-events: none; }
         .wrapper-menu-full { opacity: 1; pointer-events: all; }
       }
@@ -567,7 +569,7 @@ p.log {
       }
     }
     @include media-breakpoint-down(md) { // --- Mobile version
-      margin-top: 100px;
+      margin-top: 60px;
       margin-bottom: 80px;
     }
   }
@@ -587,6 +589,9 @@ p.log {
   }
   left: 0;
   right: 50%;
+  @include media-breakpoint-down(md) { // --- Mobile version
+    right: 0;
+  }
   top: $header-height;
   bottom: 0;
   // padding: 0 40px;
@@ -594,6 +599,11 @@ p.log {
     padding: 30px 45px;
     #nav-back {
       pointer-events: all;
+      @at-root body.story & {
+        @include media-breakpoint-down(md) { // --- Mobile version
+          display: none;
+        }
+      }
       @at-root body.area &::after {
         content: "← ALL GEOGRAPHIES";
       }
@@ -683,6 +693,36 @@ p.log {
     position: fixed;
     top: 0; right: 0; bottom: 0; left: 0;
     background-color: rgba($color-bg, 0.95);
+    opacity: 1;
+  }
+}
+
+
+// ------------------------------------------------------------------------
+// Cookies
+// ------------------------------------------------------------------------
+
+#cookies {
+  background-color: #BDDDDC;
+  position: fixed;
+  width: 300px;
+  bottom: 20px; left: 20px;
+  border-radius: 10px;
+  padding: 18px 22px;
+  opacity: 0;
+  pointer-events: none;
+  @at-root body.banner & {
+    opacity: 1;
+    pointer-events: all;    
+  }
+  .s {
+    font-size: 12px;
+    opacity: 0.5; 
+    a {
+      text-decoration: underline;
+    }
+  }
+  .font-small-bold {
     opacity: 1;
   }
 }

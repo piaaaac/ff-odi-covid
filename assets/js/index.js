@@ -25,6 +25,8 @@ SELECT A STORY
 
 ------------------------------------- */
 
+checkBanner();
+
 var cnt = document.getElementById("container");
 var animms = 600;
 var animmsSelectTree = 900;
@@ -1103,6 +1105,7 @@ function setStatePage (type, id) {
         });
         var context1 = { 
           "imgSrc": areaImgUrl,
+          "areaCopy": areaNames[id],
           "sectors": sectors,
         };
         var context2 = { 
@@ -1624,6 +1627,19 @@ function getAreaStories (area) {
   return _.sortBy(stories, function(s) { return s.date.unix(); });
 }
 
+
+function checkBanner () {
+  storage = window.localStorage;
+  var y = storage.getItem('policy-accepted');
+  if (y == "yes") {
+    closeBanner();
+  }
+}
+function closeBanner () {
+  $("body").removeClass("banner");
+  storage = window.localStorage;
+  storage.setItem('policy-accepted', 'yes');
+}
 
 function countChildren (item, sum) {
   currentSum = sum ? sum : 0;
