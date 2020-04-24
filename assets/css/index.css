@@ -497,6 +497,8 @@ p.log {
       text-align: center;
       top: 66%;
       z-index: 2;
+      /* >>>> */
+      margin-top: 4vh;
       -webkit-transition: opacity 200ms;
       transition: opacity 200ms; }
       #fill-window #container #story-title-lg.loading {

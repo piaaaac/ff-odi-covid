@@ -391,7 +391,8 @@ function Tree (root, branch0) {
     //   .back()
     //   .attr({ "fill": "red", "opacity": 0 });
 
-    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
+    // var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
+    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.5;
 
     this.svgGroup
       .circle(circleDiameter)
@@ -406,7 +407,7 @@ function Tree (root, branch0) {
       .attr({ "fill": "black" });
 
     var gt = this.svgGroup.group().addClass("tree-label");
-    var y1 = len0 * 0.55 + 5;
+    var y1 = len0 * 0.55 + 15;
     gt.text(this.areaCopy).x(0).y(y1)
       .addClass("font-serif-m")
       .addClass("area-name")
@@ -506,7 +507,6 @@ function Tree (root, branch0) {
 
     // Draw line from cherry
     if (!isMobile()) {
-      var cherryText = "Click to explore stories. Each tree shows a geography.\nBranches show sectors \nand levels.";
       var cherries = this.svgGroup.find("circle.selection-circle");
       var cherryR = _.maxBy(cherries, function(c) { return c.bbox().x });
       var cherryBB = cherryR.bbox();
@@ -541,7 +541,7 @@ function Tree (root, branch0) {
     // texts
     if (!isMobile()) {
       this.svgGroup.findOne("g.tree-label .area-name")
-        .text("Geography")
+        .text("")
       this.svgGroup.findOne("g.tree-label .font-small-stories").opacity(0);
       this.svgGroup.findOne(".tree-label")
         .dy( -(len0 * 0.55 + 5) + 20 );
@@ -627,7 +627,7 @@ function showLegend () {
   var dataCircle = trees.europe.svgGroup.findOne("circle.story-count");
   setTimeout(function() {
     $("body").addClass("legend");
-    $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 80 });
+    $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 50 });
   }, animms);
 
   if (isMobile()) {

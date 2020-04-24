@@ -269,6 +269,9 @@ p.log {
       text-align: center;
       top: 66%;
       z-index: 2;
+
+      /* >>>> */ margin-top: 4vh;
+
       @include transition(opacity 200ms);
       &.loading {
         opacity: 0;
