@@ -739,6 +739,10 @@ svg.artboard {
   position: absolute;
   left: 0; top: 0;
 
+  &.hide-first * {
+    opacity: 0;
+  }
+
   g.tree {
     cursor: pointer;
     // @at-root body.legend &:not(.legended) {
@@ -785,6 +789,10 @@ svg.artboard {
     }
 
     .branch-g {
+      // opacity: 0;
+      // &.reveal {
+      //   opacity: 1;
+      // }
       @include transition(opacity 400ms);
       &.selected, &.hovered {
         opacity: 1 !important;
@@ -805,8 +813,11 @@ svg.artboard {
     .circle-blink {
       @include animation('blink 2s linear infinite');
     }
-    &.hidden {
+    &.faded {
       opacity: 0.25;
+      @include media-breakpoint-down(md) { // --- Mobile version
+        opacity: 0.1;
+      }
       pointer-events: none;
       .tree-label {
         opacity: 0;

@@ -60,8 +60,8 @@ html body input:-internal-autofill-selected {
 @font-face {
   font-family: Sabon;
   font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/sabon/SabonMTStd-Italic.otf") format("opentype"); }
+  font-weight: 600;
+  src: url("../fonts/sabon/SabonLTStd-BoldItalic.otf") format("opentype"); }
 @font-face {
   font-family: Sabon;
   font-style: normal;
@@ -887,6 +887,8 @@ svg.artboard {
   position: absolute;
   left: 0;
   top: 0; }
+  svg.artboard.hide-first * {
+    opacity: 0; }
   svg.artboard g.tree {
     cursor: pointer;
     -webkit-transition: opacity 400ms;
@@ -920,10 +922,13 @@ svg.artboard {
     svg.artboard g.tree .circle-blink {
       -webkit-animation: blink 2s linear infinite;
       animation: blink 2s linear infinite; }
-    svg.artboard g.tree.hidden {
+    svg.artboard g.tree.faded {
       opacity: 0.25;
       pointer-events: none; }
-      svg.artboard g.tree.hidden .tree-label {
+      @media (max-width: 991.98px) {
+        svg.artboard g.tree.faded {
+          opacity: 0.1; } }
+      svg.artboard g.tree.faded .tree-label {
         opacity: 0; }
   svg.artboard g.timeline {
     opacity: 1;

@@ -83,7 +83,7 @@ var areaNames = {
 
 var svg = SVG().addTo('#container')
   .size(state.w, state.h)
-  .addClass("artboard");
+  .addClass("artboard").addClass("hide-first");
 
 var svgStyles = {
   "normal": {
@@ -506,7 +506,7 @@ function Tree (root, branch0) {
 
     this.legendGroup = this.svgGroup.group().back();
 
-    this.svgGroup.addClass(".legended");
+    this.svgGroup.addClass("legended");
 
     // Draw line from cherry
     if (!isMobile()) {
@@ -615,8 +615,61 @@ function Tree (root, branch0) {
     // this.moveRoot(x,y,true)
   }
 
+  this.grow = function () { 
+
+    // hide all
+    var selected = this.svgGroup.hasClass("selected");
+    this.svgGroup.removeClass("selected");
+    var all = this.svgGroup.find(".branch-g")
+      .opacity(0).attr({ "opacity": 0 });
+// this.show();
+if(!this.isVisible()) {this.show();}
+    var treeSvg = this.svgGroup;
+    var done = 0;
+    var that = this;
+
+    var grown = function () {
+      if (selected) {
+        that.svgGroup.addClass("selected");
+      }
+    }
+
+    var traverse = function (id, depth) {
+      var b = treeSvg.find(".branch-g#"+ id);
+      var nextDepth = depth + 1;
+      // if (nextDepth > 5) { return; }
+      var sub = treeSvg.find(".branch-g[id^='"+ id +"'][data-depth='"+ nextDepth +"']");
+      var ids = sub.map(function(b) { return b.attr("id"); });
+
+      setTimeout(function() {
+        // b.addClass("reveal");
+        b.animate(400).opacity(1);
+        if (depth == 4) {
+          done++;
+        }
+        if (done >= that.storyCount) {
+          grown();
+        }
+      }, Math.random()*40*depth + 90);
+      ids.forEach(function(nextId) {
+        setTimeout(function() {
+          traverse(nextId, nextDepth);
+        }, Math.random()*80*depth + 90);
+      });
+    }
+
+    traverse(this.id, 0);
+
+  }
 
 }
+
+function growTrees () {
+  Object.keys(trees).forEach(function(k) {
+    trees[k].grow();
+  });
+}
+
 
 function showLegend () {
 
@@ -629,18 +682,19 @@ function showLegend () {
 
   var dataCircle = trees.europe.svgGroup.findOne("circle.story-count");
   setTimeout(function() {
+    var y = dataCircle.bbox().y2 + 50;
     $("body").addClass("legend");
-    $(".legend-cta").css({ "top": dataCircle.bbox().y2 + 50 });
+    $(".legend-cta").css({ "top": y + (isMobile() ? 100 : 0) });
   }, animms);
 
   if (isMobile()) {
     trees["north-america"].showLegend();
     trees.europe.showLegend();
-    $("g.tree:not(#europe, #north-america)").addClass("hidden");
+    $("g.tree:not(#europe, #north-america)").addClass("faded");
   } else {
     trees.europe.showLegend();
     // hide other trees
-    $("g.tree:not(#europe)").addClass("hidden");
+    $("g.tree:not(#europe)").addClass("faded");
   }
 
 }
@@ -659,7 +713,7 @@ function removeLegend () {
   }
 
   // show all trees
-  $("g.tree").removeClass("hidden");
+  $("g.tree").removeClass("faded");
 
 }
 
@@ -903,14 +957,21 @@ function initialize () {
   state.treePositions = updateTreesPos();
 
   showLegend();
-
+  // hideTrees();
   Object.keys(trees).forEach(function (k) {
     // trees[k].hide();
     trees[k].moveInPosition();
   });
+  // setTimeout(function() {
+  //   showTrees();
+  //   growTrees();
+  // }, animms);
+
   setTimeout(function() {
     Object.keys(trees).forEach(function (k) {
-      trees[k].show();
+      // trees[k].show();
+      svg.removeClass("hide-first");
+      trees[k].grow();
     });
   }, animms);
 
@@ -981,7 +1042,7 @@ function repositionAllTrees (animate) {
 
 
 function deselectAllBranches () {
-  $(".branch-g").removeClass("selected").css("opacity", 1);
+  $(".branch-g").removeClass("selected").attr("opacity", 1);
 }
 
 
@@ -1065,8 +1126,8 @@ function setStatePage (type, id) {
 
     // --- branch and cherry
 
-    $("g.tree#"+ story.area +" .branch-g").removeClass("selected").css("opacity", 0.1);
-    $("g.tree#"+ story.area +" .branch-g.branch-story").css("opacity", 0.2);
+    $("g.tree#"+ story.area +" .branch-g").removeClass("selected").attr("opacity", 0.1);
+    $("g.tree#"+ story.area +" .branch-g.branch-story").attr("opacity", 0.2);
 
     $(".branch-g#"+ story.area).addClass("selected");
     $(".branch-g#"+ story.area +"---"+ story.level).addClass("selected");
@@ -1441,13 +1502,22 @@ function selectTree (id) {
     state.selectedTree = id;
     trees[oldId].hide();
     trees[oldId].svgGroup.removeClass("selected"); // hack
+    trees[state.selectedTree].svgGroup.find(".branch-g")
+      .opacity(0).attr({ "opacity": 0 });
     setTimeout(function() { 
       trees[oldId].moveInPosition(); 
       trees[state.selectedTree].moveLeft();
     }, animms);
+
+
+    // trees[state.selectedTree].grow();
+
     setTimeout(function() { 
-      trees[state.selectedTree].show();
-    }, animms*2);
+      // trees[state.selectedTree].show();
+
+      trees[state.selectedTree].grow();
+
+    }, animms+1);
   
   } else {
     
