@@ -264,7 +264,10 @@ trees = {
 // PARAMS
 // var len0 = 70;
 var lenW = state.w * 0.05;
-var lenH = state.h * 0.14;
+
+// var lenH = state.h * 0.14; <<< v.1.1.2
+
+var lenH = state.h * 0.11;
 var len0 = Math.min(lenW, lenH);
 if (isMobile()) {
   len0 = state.w * 0.06;
