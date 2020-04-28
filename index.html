@@ -103,15 +103,7 @@
     <div class="top">
       <a id="nav-back" role="button" class="font-small-bold"></a>
     </div>
-    <!--
-    <div class="bottom">
-      <div class="d-flex justify-content-between align-items-center">
-        <a onclick="openPrevStory();">PREV</a>
-        <div>Story {{n}} of {{total}}</div>
-        <a onclick="openNextStory();">NEXT</a>
-      </div>
-    </div>
-    -->
+    <div class="bottom"></div>
   </div>
 
   <section id="about">
@@ -185,20 +177,16 @@
               <p class="copy font-small">
                 Website:
                 <a href="https://twitter.com/fedfragapane" target="_blank">
-                  Federica&nbsp;Fragapane
-                </a>,
+                  Federica&nbsp;Fragapane</a>,
                 <a href="https://alexpiacentini.com" target="_blank">
-                  Alex&nbsp;Piacentini
-                </a>
+                  Alex&nbsp;Piacentini</a>
               </p>
               <p class="copy alpha font-small">
                 Released under 
                 <a href="https://opensource.org/licenses/MIT" target="_blank">
-                  MIT License
-                </a>.
+                  MIT License</a>.
                 <a href="https://www.odi.org/about/privacy-policy" target="_blank">
-                  Privacy policy
-                </a>
+                  Privacy policy</a>
               </p>
             </div>
           </div>
@@ -222,23 +210,21 @@
       <div class="row justify-content-center">
         <div class="col-12 area-map text-center mt-lg-5">
           <img src="{{imgSrc}}" alt="Overview map for {{areaCopy}}" />
-        </div>
-        <div class="col-12 text-center font-small-light mb-5">
-          Click on a sector to filter the stories
+          <p class="text-center font-small-light mt-4 mb-3">
+            Click on a sector to filter the stories
+          </p>
         </div>
         {{#each sectors}}
           
           {{!-- <div class="col-3 col-lg-4 col-xl-3"> --}}
           <div class="col-3">
           
-            <div class="stat-wrapper" onclick="filterStoriesBySector('{{this.sector}}');" data-sector="{{this.sector}}">
+            <div class="stat-wrapper" onclick="filterStoriesBySector('{{this.sector}}', '{{this.sectorCopy}}');" data-sector="{{this.sector}}">
               <div class="stat">
-                <div class="circle" style="width: {{this.pixels}}px; min-width: {{this.pixels}}px; height:{{this.pixels}}px;" {{!-- onclick="filterStoriesBySector('{{this.sector}}');" data-sector="{{this.sector}}" --}}></div>
+                <div class="circle" style="width: {{this.pixels}}px; min-width: {{this.pixels}}px; height:{{this.pixels}}px;"></div>
                 <p class="number font-serif-m">{{this.count}}</p>
               </div>
-              <p class="copy font-small-bold cursor-pointer" 
-                {{!-- onclick="filterStoriesBySector('{{this.sector}}');" --}}>
-                {{this.sectorCopy}}</p>
+              <p class="copy font-small-bold cursor-pointer">{{this.sectorCopy}}</p>
             </div>
           </div>
         {{/each}}
@@ -251,8 +237,8 @@
     <div class="story-previews my-5">
 
       <div id="story-previews-header" class="d-flex justify-content-between align-items-end">
-        <p class="font-small"><span class="story-count">{{stories.length}}</span> stories</p>
-        <p><a class="font-small-bold" onclick="filterStoriesBySector(null);">RESET FILTERS</a></p>
+        <p class="font-small"><span class="story-count">{{stories.length}} stories</span></p>
+        <p><a class="font-small-bold reset-filters" onclick="filterStoriesBySector(null);">RESET FILTERS</a></p>
       </div>
       
       <div class="container-fluid full-w pt-5">
@@ -282,7 +268,7 @@
     <div class="container-fluid story">
       <div class="row">
         <div class="col-12 d-lg-none">
-          <p class="font-serif-l mb-5">{{titleCopy}}</p>
+          <p class="font-serif-l text-center mb-5 py-3">{{titleCopy}}</p>
         </div>
         <div class="col-6 position-relative">
           <div class="map-wrapper">

@@ -323,6 +323,9 @@ h2.font-serif-subtitle {
     opacity: 0.15; }
   66% {
     opacity: 0.7; } }
+body {
+  background-color: #E6E7E7; }
+
 * {
   color: black; }
 
@@ -495,7 +498,7 @@ p.log {
       padding-left: 10%;
       padding-right: 10%;
       text-align: center;
-      top: 66%;
+      top: 70%;
       z-index: 2;
       /* >>>> */
       margin-top: 4vh;
@@ -510,6 +513,7 @@ p.log {
     height: 90px;
     min-height: 90px;
     width: 100%;
+    background-color: white;
     position: relative; }
     #fill-window #header .wrapper-menu-home, #fill-window #header .wrapper-menu-full {
       position: absolute;
@@ -609,7 +613,9 @@ p.log {
     #content {
       background-color: #E6E7E7; }
       body.home #content {
-        height: 0; } }
+        height: 0; }
+      body.area #content, body.story #content {
+        min-height: 38vh; } }
   @media (min-width: 992px) {
     #content {
       position: fixed;
@@ -651,13 +657,17 @@ p.log {
       @media (max-width: 991.98px) {
         #content #story-previews-header.stick {
           left: 0;
-          width: 100%;
+          width: calc(100% - 90px);
           margin-left: 45px;
           margin-right: 45px; } }
       @media (max-width: 767.98px) {
         #content #story-previews-header.stick {
+          left: 0;
+          width: calc(100% - 40px);
           margin-left: 20px;
           margin-right: 20px; } }
+  #content .story-previews .reset-filters {
+    display: none; }
   #content .story-previews .story-preview .map-wrapper-outer {
     max-width: 50%;
     position: relative; }
@@ -720,8 +730,12 @@ p.log {
     max-width: 50vh;
     height: auto;
     max-height: 50vh; }
+  #content .story-nav {
+    padding: 0; }
   #content .story {
-    margin-top: 40px; }
+    margin-top: 40px;
+    padding-left: 0;
+    padding-right: 0; }
     #content .story .story-data {
       border-left: 1px solid rgba(0, 0, 0, 0.15);
       left: -5px;
@@ -778,6 +792,9 @@ p.log {
       right: 0; } }
   #ui-left .top {
     padding: 30px 45px; }
+    @media (max-width: 767.98px) {
+      #ui-left .top {
+        padding: 20px 20px; } }
     #ui-left .top #nav-back {
       pointer-events: all; }
       @media (max-width: 991.98px) {
@@ -806,6 +823,7 @@ p.log {
 
 #about {
   position: relative;
+  background-color: white;
   overflow: hidden;
   -webkit-transition: max-height 400ms;
   transition: max-height 400ms; }
@@ -898,6 +916,20 @@ svg.artboard {
       opacity: 0; }
     svg.artboard g.tree .branch-g:not(.branch-story) {
       pointer-events: none; }
+    svg.artboard g.tree path.branch-path {
+      stroke: black;
+      stroke-linecap: round;
+      fill: none; }
+      svg.artboard g.tree path.branch-path.branch-area, svg.artboard g.tree path.branch-path.branch-level {
+        stroke-width: 1.5; }
+        @media (max-width: 991.98px) {
+          svg.artboard g.tree path.branch-path.branch-area, svg.artboard g.tree path.branch-path.branch-level {
+            stroke-width: 1.2; } }
+      svg.artboard g.tree path.branch-path.branch-sector {
+        stroke-width: 0.7; }
+      svg.artboard g.tree path.branch-path.branch-story {
+        stroke-width: 0.5;
+        stroke: #E75F52; }
     svg.artboard g.tree circle.story-count {
       -webkit-transition: opacity 400ms;
       transition: opacity 400ms; }

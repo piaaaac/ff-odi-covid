@@ -86,12 +86,12 @@ var svg = SVG().addTo('#container')
   .addClass("artboard").addClass("hide-first");
 
 var svgStyles = {
-  "normal": {
-    "stroke": "#f06",
-    "stroke-width": 1,
-    "fill": "none",
-    "stroke-linecap": "round"
-  },
+  // "normal": {
+  //   "stroke": "#f06",
+  //   "stroke-width": 1,
+  //   "fill": "none",
+  //   "stroke-linecap": "round"
+  // },
   "friut": {
     "fill": "#E75F52",
     "stroke": "#E6E7E7",
@@ -125,16 +125,18 @@ function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
     .attr("id", props.id)
     .data(props);
   var additionalStyle = {
-    "stroke-width": (props.depth < 3) ? 2 : (props.depth == 3) ? 0.7 : 0.5,
-    "stroke": (props.depth <= 3) ? "#000" : "#E75F52",
     // "stroke-dasharray": (props.dimension != "level") ? "" 
     //   : (props.value == "local") ? "7 5"
     //   : (props.value == "individual") ? "0 5"
     //   : "",
+
+    // "stroke-width": (props.depth < 3) ? 2 : (props.depth == 3) ? 0.7 : 0.5,
+    // "stroke": (props.depth <= 3) ? "#000" : "#E75F52",
+
   };
   var pathString = "M"+mx+" "+my+" C"+x1+" "+y1+" "+x2+" "+y2+" "+x+" "+y;
   g.path(pathString)
-    .attr(svgStyles.normal)
+    // .attr(svgStyles.normal)
     .attr(additionalStyle)
     .addClass(props.class)
     .addClass("branch-path");
@@ -288,7 +290,7 @@ function setup2 () {
     var data = _.find(state.data.children, function (e) { return e.props.id == key; });
     var totalTreeStories = countChildren(data);
     data.props.totalTreeStories = totalTreeStories;
-    var b = new Branch (data.children, null, len0*0.5, randomAngle(PI/30), data.props);
+    var b = new Branch (data.children, null, len0*0.5, randomAngle(PI/50), data.props);
     var t = new Tree (createVector(0,0), b);
     trees[key] = t;
   });
@@ -352,6 +354,8 @@ function Tree (root, branch0) {
     .addClass("tree").addClass("hide")
     .attr({ "id": branch0.props.id });
   this.legendGroup = null;
+  this.isInPosition = false;
+  this.isLeft = false;
  
   // methods essential to construct
 
@@ -436,14 +440,18 @@ function Tree (root, branch0) {
   //   console.log(origin);
   // }
 
-  this.moveRoot = function (x, y, animate) {
+  this.moveRoot = function (x, y, animate, callback) {
     var ms = (animate === true) ? animms : 1;
-    this.svgGroup.animate(ms).move(x + this.rootPoint.x, y + this.rootPoint.y);
+    this.svgGroup.animate(ms)
+      .move(x + this.rootPoint.x, y + this.rootPoint.y)
+      .after(function(){ if(callback) { callback(); }});
   }
 
-  this.moveCenter = function (x, y, animate) {
+  this.moveCenter = function (x, y, animate, callback) {
     var ms = (animate === true) ? animms : 1;
-    this.svgGroup.animate(ms).move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2);
+    this.svgGroup.animate(ms)
+      .move(x - this.svgGroup.bbox().w/2, y - this.svgGroup.bbox().h/2)
+      .after(function(){ if(callback) { callback(); }});
   }
 
   this.show = function () {
@@ -458,30 +466,44 @@ function Tree (root, branch0) {
     return !this.svgGroup.hasClass("hide");
   }
 
-  this.moveLeft = function (animate) {
+  this.moveLeft = function (animate, callback) {
     if (isMobile()) {
-
-      // var x = state.w / 2;
-      // var y = state.treePositions[Object.keys(state.treePositions)[0]].y;
-      // this.moveRoot(x, y, animate);
-
       var x = state.w / 2;
-      // var y = ($("#fill-window").height() - 90) / 2;
-      var y = ($(window).height() * 0.6 - 90) / 2; // --- $mobile-h-d1 in index.scss
-      this.moveCenter(x, y, animate);
+      // var y = ($(window).height() * 0.6 - 90) / 2; // --- $mobile-h-d1 in index.scss
+      var y = ($(window).height() * 0.65 - 90) / 2;
+
+      this.moveCenter(x, y, animate, function() {
+        this.isInPosition = false;
+        this.isLeft = true;
+        if(callback) {
+          callback();
+        }
+      });
 
       this.svgGroup.addClass("selected");      
     } else {
-      this.moveCenter(state.w*0.25, state.h * 0.42, animate);
+      this.moveCenter(state.w*0.25, state.h * 0.42, animate, function() {
+        this.isInPosition = false;
+        this.isLeft = true;
+        if(callback) {
+          callback();
+        }
+      });
       this.svgGroup.addClass("selected");
       this.svgGroup.findOne(".tree-label")
         .animate(animms).transform({ "translateY": len0*0.6 });
     }
   }
 
-  this.moveInPosition = function (animate) {
+  this.moveInPosition = function (animate, callback) {
     var pos = state.treePositions[this.id];
-    this.moveRoot(pos.x, pos.y, animate);
+    this.moveRoot(pos.x, pos.y, animate, function() {
+      this.isInPosition = true;
+      this.isLeft = false;
+      if(callback) {
+        callback();
+      }
+    });
     this.svgGroup.removeClass("selected");
     this.svgGroup.findOne(".tree-label")
       .animate(animms).transform({ "translateY": 0 });
@@ -615,59 +637,168 @@ function Tree (root, branch0) {
     // this.moveRoot(x,y,true)
   }
 
-  this.grow = function () { 
+  this.grow = function (callback) { 
 
     // hide all
     var selected = this.svgGroup.hasClass("selected");
     this.svgGroup.removeClass("selected");
     var all = this.svgGroup.find(".branch-g")
       .opacity(0).attr({ "opacity": 0 });
-// this.show();
-if(!this.isVisible()) {this.show();}
+    if(!this.isVisible()) {this.show();}
     var treeSvg = this.svgGroup;
     var done = 0;
     var that = this;
 
     var grown = function () {
+      console.log(that.id +" has grown")
       if (selected) {
         that.svgGroup.addClass("selected");
       }
+      if (callback) {
+        callback();
+      }
     }
 
-    var traverse = function (id, depth) {
+    var animations = [];
+    var maxDelay = 0;
+    
+
+    // try saving info for all animations first,
+    // then play them all using delays
+
+    var traverse = function (id, depth, delay) {
+    
+      // prep
       var b = treeSvg.find(".branch-g#"+ id);
       var nextDepth = depth + 1;
-      // if (nextDepth > 5) { return; }
       var sub = treeSvg.find(".branch-g[id^='"+ id +"'][data-depth='"+ nextDepth +"']");
       var ids = sub.map(function(b) { return b.attr("id"); });
+      var path = b.find(".branch-path");
+      var arr = path.array();
+      var anchor = { "x": arr[0][0][0][1], "y": arr[0][0][0][2] };
+      
+      // var duration = Math.random() * 40*depth + 30*depth;
+      // var duration = 1000;
+      var duration = Math.random() * 300*depth + 200;
 
-      setTimeout(function() {
-        // b.addClass("reveal");
-        b.animate(400).opacity(1);
-        if (depth == 4) {
-          done++;
-        }
-        if (done >= that.storyCount) {
-          grown();
-        }
-      }, Math.random()*40*depth + 90);
+      var nextDelay = delay + duration;
+
+      b.opacity(0);
+
+      animations.push({
+        "branchId": id,
+        "anchorX": anchor.x,
+        "anchorY": anchor.y,
+        "duration": duration,
+        "delay": delay,
+      });
+
+      maxDelay = Math.max(maxDelay, nextDelay);
+
       ids.forEach(function(nextId) {
-        setTimeout(function() {
-          traverse(nextId, nextDepth);
-        }, Math.random()*80*depth + 90);
+        traverse(nextId, nextDepth, nextDelay);
       });
     }
 
-    traverse(this.id, 0);
+    traverse(this.id, 1, 0);
 
+    console.log("animations", animations);
+    // throw "see animations array";
+
+    // animate
+    animations.forEach(function(a) {
+      var b = treeSvg.find(".branch-g#"+ a.branchId);
+      var b1 = b.clone(); 
+      b1.addTo(that.svgGroup)
+        .opacity(0)
+        .animate(0).scale(0.01, 0.01, a.anchorX, a.anchorY)
+        .opacity(1)
+        .animate(a.duration, a.delay).scale(100, 100, a.anchorX, a.anchorY)
+        .after(function() {
+          b.opacity(1);
+          setTimeout(function() { 
+            b1.animate().opacity(0).after(function() { b1.remove(); });
+          }, 100);
+        });
+    });
+    
+    if (callback) {
+      setTimeout(callback, maxDelay);
+    }
   }
 
-}
+  /* V1 bkp
+  this.grow = function (callback) { 
 
-function growTrees () {
-  Object.keys(trees).forEach(function(k) {
-    trees[k].grow();
-  });
+    // hide all
+    var selected = this.svgGroup.hasClass("selected");
+    this.svgGroup.removeClass("selected");
+    var all = this.svgGroup.find(".branch-g")
+      .opacity(0).attr({ "opacity": 0 });
+    if(!this.isVisible()) {this.show();}
+    var treeSvg = this.svgGroup;
+    var done = 0;
+    var that = this;
+
+    var grown = function () {
+      console.log(that.id +" has grown")
+      if (selected) {
+        that.svgGroup.addClass("selected");
+      }
+      if (callback) {
+        callback();
+      }
+    }
+
+
+    // try saving info for all animations first,
+    // then play them all using delays
+
+    var traverse = function (id, depth) {
+      var b = treeSvg.find(".branch-g#"+ id);
+      var b1 = b.clone();
+      var nextDepth = depth + 1;
+      var sub = treeSvg.find(".branch-g[id^='"+ id +"'][data-depth='"+ nextDepth +"']");
+      var ids = sub.map(function(b) { return b.attr("id"); });
+
+      // var duration = Math.random() * 40*depth*0 + 30*depth;
+      var duration = 300;
+
+      // --- mess with scale
+      var path = b.find(".branch-path");
+      var arr = path.array();
+      var anchor = { "x": arr[0][0][0][1], "y": arr[0][0][0][2] };
+
+      b.opacity(0);
+      // b.hide();
+      // b.remove();
+      b1.addTo(that.svgGroup)
+        .opacity(0)
+        .animate(0).scale(0.01, 0.01, anchor.x, anchor.y)
+        .opacity(1)
+        .animate(duration).scale(100, 100, anchor.x, anchor.y)
+        .after(function() {
+          b.opacity(1);
+          setTimeout(function() { 
+            b1.animate().opacity(0).after(function() { b1.remove(); });
+          }, 100);
+          // b.show();
+          // b1.replace(b0);
+          if (depth == 4) { done++; }
+          if (done >= that.storyCount) { grown(); } 
+          else {
+            ids.forEach(function(nextId) {
+              traverse(nextId, nextDepth);
+            });
+          }
+        });
+    }
+
+    traverse(this.id, 1);
+
+  }
+  */
+
 }
 
 
@@ -962,18 +1093,37 @@ function initialize () {
     // trees[k].hide();
     trees[k].moveInPosition();
   });
-  // setTimeout(function() {
-  //   showTrees();
-  //   growTrees();
-  // }, animms);
 
   setTimeout(function() {
-    Object.keys(trees).forEach(function (k) {
-      // trees[k].show();
+    if (isMobile()) {
+      Object.keys(trees).forEach(function (k) {
+        svg.removeClass("hide-first");
+        trees[k].show();
+      });
+    } else {
       svg.removeClass("hide-first");
-      trees[k].grow();
-    });
+      trees["europe"].grow(function() {
+        setTimeout(function() {
+          trees["north-america"].show();
+          trees["latin-america"].show();
+          trees["asia-oceania"].show();
+          trees["africa"].show();
+        });
+      });
+    }
   }, animms);
+
+
+
+  //   Object.keys(trees).forEach(function (k) {
+  //     if (isMobile() && k == "europe") {
+  //       svg.removeClass("hide-first");
+  //       trees[k].grow(600);
+  //     } else {
+  //       trees[k].show();
+  //     }
+  //   });
+  // }, animms);
 
   var my = 40;
   timeline = new Timeline(state.w/2, my, state.h-my);
@@ -1157,7 +1307,7 @@ function setStatePage (type, id) {
         var countBy = _.countBy(stories, "sectorCopy");
         var sectors = Object.keys(countBy).map(function(sectorCopy) {
           // var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
-          var maxPx = 30;
+          var maxPx = 28;
           var factor = Math.min($("#container").width() * 0.04, maxPx);
           var circleDiameter = Math.sqrt(countBy[sectorCopy]) * factor;
           return { 
@@ -1173,7 +1323,7 @@ function setStatePage (type, id) {
           "sectors": sectors,
         };
         var context2 = { 
-          "stories": stories 
+          "stories": stories
         };
         var htmlAreaStats = templates.areaStats(context1);
         var htmlStories = templates.storyPreviews(context2);
@@ -1354,7 +1504,7 @@ function setStatePage (type, id) {
 }
 
 
-function filterStoriesBySector(sector) {
+function filterStoriesBySector(sector, sectorCopy) {
 
   // show/hide based on data-attribute
 
@@ -1379,11 +1529,12 @@ function filterStoriesBySector(sector) {
   
     // update header
     var c = _.countBy(areaStories, "sector");
-    $("#content .story-previews .story-count").html(c[sector]);
+    $("#content .story-previews .story-count").html(c[sector] +" stories on "+ sectorCopy);
+    $(".reset-filters").show();
   
     // UI reacts
     $(".area-stats .area-map").slideUp(400);
-    // scrollingEl.animate({ "scrollTop": 0 }, animms);
+    $(scrollingEl).animate({ "scrollTop": 0 }, animms);
   
   } else {
 
@@ -1395,7 +1546,8 @@ function filterStoriesBySector(sector) {
       .removeClass("selected").removeClass("deselected");
 
     // update header
-    $("#content .story-previews .story-count").html(areaStories.length);
+    $("#content .story-previews .story-count").html(areaStories.length +" stories");
+    $(".reset-filters").hide();
   
     // UI reacts
     $(".area-stats .area-map").slideDown(400);
@@ -1506,18 +1658,20 @@ function selectTree (id) {
       .opacity(0).attr({ "opacity": 0 });
     setTimeout(function() { 
       trees[oldId].moveInPosition(); 
-      trees[state.selectedTree].moveLeft();
+      trees[state.selectedTree].moveLeft(false, function() {
+        trees[state.selectedTree].grow();
+      });
     }, animms);
 
+    // setTimeout(function() { 
+    //   trees[state.selectedTree].grow();
+    // }, animms+1);
 
-    // trees[state.selectedTree].grow();
-
-    setTimeout(function() { 
-      // trees[state.selectedTree].show();
-
-      trees[state.selectedTree].grow();
-
-    }, animms+1);
+    // while (trees[state.selectedTree].) {
+    //   setTimeout(function() { 
+    //     trees[state.selectedTree].grow();
+    //   }, 100);
+    // }
   
   } else {
     

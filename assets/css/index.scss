@@ -45,9 +45,10 @@ $padding-s: 20px;
   33% { opacity: 0.15; }
   66% { opacity: 0.7; }
 }
-// @mixin blink(){
-//   animation: blink 3s linear infinite;
-// }
+
+body {
+  background-color: $color-bg;
+}
 
 * {
   color: black;
@@ -267,7 +268,7 @@ p.log {
       padding-left: 10%;
       padding-right: 10%;
       text-align: center;
-      top: 66%;
+      top: 70%;
       z-index: 2;
 
       /* >>>> */ margin-top: 4vh;
@@ -288,6 +289,7 @@ p.log {
     height: $header-height;
     min-height: $header-height;
     width: 100%;
+    background-color: white;
     position: relative;
     .wrapper-menu-home, .wrapper-menu-full {
       position: absolute;
@@ -377,11 +379,12 @@ p.log {
   @include media-breakpoint-down(md) { // --- Mobile version
     background-color: $color-bg;
     // @include transition (max-height 400ms);
-    @at-root body.home &{
+    @at-root body.home & {
       height: 0;
     }
-    #content-wrapper {
-      // padding: 0 45px;
+    @at-root body.area &, body.story & {
+    // #content-wrapper {
+      min-height: 38vh;
     }
   }
   @include media-breakpoint-up(lg) { // --- Desktop version
@@ -424,13 +427,15 @@ p.log {
     &.stick {
       left: calc(50% + 45px);
       width: calc(50% - 90px);
-      @include media-breakpoint-down(md) { // --- Mobile version
+      @include media-breakpoint-down(md) { // --- Mobile version split
         left: 0;
-        width: 100%;
+        width: calc(100% - 90px);
         margin-left: $padding-l;
         margin-right: $padding-l;
       }
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(sm) { // --- Mobile version split
+        left: 0;
+        width: calc(100% - 40px);
         margin-left: $padding-s;
         margin-right: $padding-s;
       }
@@ -438,6 +443,10 @@ p.log {
   }
 
   .story-previews {
+
+    .reset-filters {
+      display: none;
+    }
     .story-preview {
 
       .map-wrapper-outer {
@@ -529,8 +538,14 @@ p.log {
 
   // main story content
 
+  .story-nav {
+    padding: 0;
+  }
+
   .story {
     margin-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
     .story-data {
       border-left: 1px solid rgba(0,0,0, 0.15);
       left: -5px;
@@ -600,6 +615,9 @@ p.log {
   // padding: 0 40px;
   .top {
     padding: 30px 45px;
+    @include media-breakpoint-down(sm) {
+      padding: 20px 20px;
+    }
     #nav-back {
       pointer-events: all;
       @at-root body.story & {
@@ -638,7 +656,7 @@ p.log {
 
 #about {
   position: relative;
-  
+  background-color: white;  
   overflow: hidden;
   @include transition (max-height 400ms);
   @at-root body.home &{
@@ -755,6 +773,28 @@ svg.artboard {
     }
     .branch-g:not(.branch-story) {
       pointer-events: none;
+    }
+
+    // --- branches lines style
+
+    path.branch-path {
+      stroke: black;
+      stroke-linecap: round;
+      fill: none;
+      &.branch-area,
+      &.branch-level {
+        stroke-width: 1.5;
+        @include media-breakpoint-down(md) { // --- Mobile version
+          stroke-width: 1.2;
+        }
+      }
+      &.branch-sector {
+        stroke-width: 0.7;
+      }
+      &.branch-story {
+        stroke-width: 0.5;
+        stroke: $color-coral;
+      }
     }
 
 
