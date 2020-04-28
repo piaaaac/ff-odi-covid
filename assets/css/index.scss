@@ -227,9 +227,9 @@ p.log {
     @at-root body.home & {
       height: calc(#{$mobile-h-d0} + #{$labels-h} * 3);
     }
-    @at-root body.area & {
-      height: calc(#{$mobile-h-d1} + #{$labels-h});
-    }
+    // @at-root body.area & {
+    //   height: calc(#{$mobile-h-d1} + #{$labels-h}); // done via JS in setStatePage()
+    // }
     @at-root body.story & {
       height: $header-height;
     }
@@ -530,7 +530,8 @@ p.log {
     }
     .area-map img {
       width: 50vh;
-      max-width: 50vh;
+      // max-width: 50vh;
+      max-width: 100%;
       height: auto;
       max-height: 50vh;
     }

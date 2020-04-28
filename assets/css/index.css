@@ -468,8 +468,6 @@ p.log {
   @media (max-width: 991.98px) {
     body.home #fill-window {
       height: calc(113vw + 120px * 3); }
-    body.area #fill-window {
-      height: calc(60vw + 120px); }
     body.story #fill-window {
       height: 90px; } }
   #fill-window #container {
@@ -727,7 +725,7 @@ p.log {
       z-index: 2; }
   #content .area-stats .area-map img {
     width: 50vh;
-    max-width: 50vh;
+    max-width: 100%;
     height: auto;
     max-height: 50vh; }
   #content .story-nav {

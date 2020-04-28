@@ -44,6 +44,7 @@ var state = {
   p5Finished: false,
   w: cnt.offsetWidth,
   h: cnt.offsetHeight,
+  hTemp: null,
   treePositions: {},
   selectedTree: null,
   firstDate: moment(),
@@ -469,8 +470,11 @@ function Tree (root, branch0) {
   this.moveLeft = function (animate, callback) {
     if (isMobile()) {
       var x = state.w / 2;
-      // var y = ($(window).height() * 0.6 - 90) / 2; // --- $mobile-h-d1 in index.scss
-      var y = ($(window).height() * 0.65 - 90) / 2;
+      var y = ($(window).height() * 0.6 - 90) / 2; // --- $mobile-h-d1 in index.scss
+
+      if (state.hTemp) {
+        y = (state.hTemp - 90) / 2;
+      }
 
       this.moveCenter(x, y, animate, function() {
         this.isInPosition = false;
@@ -1236,16 +1240,18 @@ function setStatePage (type, id) {
   $("body").removeClass("home").removeClass("area").removeClass("story");
   $("body").addClass(type);
 
-  
 
   // --- manage svg trees
 
   /* -------------------------------------------------- */
   if (isMobile()) {
     if (type == "area") {
-      var cntH = 150 /*mt*/ + 70 /*mb*/ + len0*5.5 /*tree*/;
-      $("#fill-window").height(cntH);
+      state.hTemp = 150 /*mt*/ + 70 /*mb*/ + len0*5.5 /*tree*/;
+      state.hTemp += apMap(state.w, 300, 600, 100, 0, true);
+      $("#fill-window").height(state.hTemp);
+console.log("set h "+ state.hTemp);
     } else if (type == "home" || type == "story") {
+      state.hTemp = null;
       $("#fill-window").attr('style', '');
     }
   }
@@ -1678,7 +1684,7 @@ function selectTree (id) {
     // all > select one
 
     state.selectedTree = id;
-    trees[state.selectedTree].moveLeft(true); 
+    trees[state.selectedTree].moveLeft(true);
     hideTrees();
     setTimeout(function() { 
       trees[state.selectedTree].show();
