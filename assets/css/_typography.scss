@@ -45,7 +45,7 @@ $font-sans: "Karla", sans-serif;
 }
 
 // --------------------------------------------------------- xs --- sm --- md --- lg --- xl ---- lsp -- lh ---- w --- style
-@mixin font-serif-xl    { @include font-style($font-serif,   30px,  30px,  40px,  40px,  40px,   0,     1.3em,  600,  normal); }
+@mixin font-serif-xl    { @include font-style($font-serif,   30px,  36px,  40px,  40px,  40px,   0,     1.3em,  600,  normal); }
 @mixin font-serif-l     { @include font-style($font-serif,   21px,  21px,  22px,  22px,  22px,   0,     1.3em,  600,  normal); }
 @mixin font-serif-m     { @include font-style($font-serif,   18px,  18px,  18px,  18px,  18px,   0,     1.2em,  600,  normal); }
 @mixin font-body        { @include font-style($font-serif,   18px,  18px,  18px,  18px,  18px,   0,     1.2em,  400,  normal); }
@@ -88,21 +88,16 @@ p.font-body {
 h2.font-serif-subtitle {
   @include font-body;
   font-size: 2vw !important;
-  border-left: 1px solid black;
-
-  // margin-top: 8px;
-  // margin-left: 14px;
-  // padding-left: 17px;
-
-  margin-left: 2.3vw;
-  padding-left: 2.3vw;
-  padding-top: 1vw;
-  @include media-breakpoint-up(lg) { 
-    margin-left: 17px;
-    padding-left: 17px;
-    padding-top: 6px;
-    font-size: 24px !important; 
-  }
+  // border-left: 1px solid black;
+  // margin-left: 2.3vw;
+  // padding-left: 2.3vw;
+  // padding-top: 1vw;
+  // @include media-breakpoint-up(lg) { 
+  //   margin-left: 17px;
+  //   padding-left: 17px;
+  //   padding-top: 6px;
+  //   font-size: 24px !important; 
+  // }
 }
 
 // h1 { 

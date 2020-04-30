@@ -51,10 +51,12 @@ var state = {
   lastDate: moment("2000-01-01"),
   // isMobile: isMobile(),
   currentPage: {},
+  isInitializing: null,
 };
 
 // releaseFolder = "content/200418-dev";
-releaseFolder = "content/200421-alpha";
+// releaseFolder = "content/200421-alpha";
+releaseFolder = "content/200430-v2";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -985,6 +987,8 @@ function Timeline (x, y1, y2) {
   this.x = x;
   this.y1 = y1;
   this.y2 = y2;
+  this.currentSlug = null;
+  this.timeout = null;
 
   this.svgGroup = svg.group().addClass("timeline").addClass("hide").addClass("hide-points");
   this.svgGroup.line(this.x, this.y1, this.x, this.y2).addClass("timeline-skeleton");
@@ -997,6 +1001,7 @@ function Timeline (x, y1, y2) {
   // methods
 
   this.update = function (area, stories) {
+    this.currentSlug = null;
     this.area = area;
     this.stories = stories;
     this.svgGroup.find(".points").remove();
@@ -1032,6 +1037,21 @@ function Timeline (x, y1, y2) {
         .attr({ "fill": "rgba(0,0,0,0)", "stroke": "none" });
       sgg.circle(6).cx(that.x).cy(y)
         .addClass("point");
+
+      // --- bind mouseover & mouseout
+      sgg
+        .on("mouseover", function(event) {
+          event.stopPropagation();
+          console.log("over", this.node.dataset.slug);
+          var group = this;
+          that.mouseover(group.node.dataset.slug);
+        })
+        .on("mouseout", function(event) {
+          event.stopPropagation();
+          console.log("out", this.node.dataset.slug);
+          var group = this;
+          that.mouseout(/*group.node.dataset.slug*/);
+        });
     });
   }
 
@@ -1044,8 +1064,64 @@ function Timeline (x, y1, y2) {
     $(".timeline g.point").removeClass("selected");
     point.addClass("selected");
 
+    if (this.dateHover) {
+      this.mouseout();
+    }
+
     this.selection.front().animate(animms).cy(point.cy());
     this.date.text(dateString).animate(animms).y(point.cy() - 15);
+    this.currentSlug = slug;
+  }
+
+  // this.mouseover = function (slug) {
+  //   var point = $(".timeline g.point[data-slug='"+ slug +"']")[0].instance;
+  //   var date = state.storiesMap[slug].date;
+  //   var dateString = date.format("D MMM") +"\n"+ date.format("YYYY");
+  //   this.date.text(dateString)/*.animate(animms)*/.y(point.cy() - 15);
+  //   if (this.timeout) {
+  //     clearTimeout(this.timeout);
+  //   }
+  // }
+
+  // this.mouseout = function () {
+  //   var slug = this.currentSlug;
+  //   var point = $(".timeline g.point[data-slug='"+ slug +"']")[0].instance;
+  //   var date = state.storiesMap[slug].date;
+  //   var dateString = date.format("D MMM") +"\n"+ date.format("YYYY");
+  //   var that = this;
+  //   if (this.timeout) {
+  //     clearTimeout(this.timeout);
+  //   }
+  //   this.timeout = setTimeout(function() {
+  //     that.date.text(dateString)/*.animate(animms)*/.y(point.cy() - 15);
+  //   }, animms);
+  // }
+  this.mouseover = function (slug) {
+    var point = $(".timeline g.point[data-slug='"+ slug +"']")[0].instance;
+    var date = state.storiesMap[slug].date;
+    var dateString = date.format("D MMM") +"\n"+ date.format("YYYY");
+
+    var selectedDateString = null;
+    if (this.currentSlug) {
+      var selectedPoint = $(".timeline g.point[data-slug='"+ this.currentSlug +"']")[0].instance;
+      var selectedDate = state.storiesMap[this.currentSlug].date;
+      selectedDateString = selectedDate.format("D MMM") +"\n"+ selectedDate.format("YYYY");
+    }
+
+    if (dateString != selectedDateString) {
+      this.dateHover = this.svgGroup.text("")
+        .addClass("point-date").addClass("font-small")
+        .font({ "anchor": "end", "leading": "1.1em" })
+        .x(this.x - 15).y(point.cy() - 15)
+        .text(dateString);
+    }
+  }
+
+  this.mouseout = function () {
+    if (this.dateHover) {
+      this.dateHover.remove();
+      this.dateHover = null;
+    }
   }
 
   this.showSelection = function () {
@@ -1089,6 +1165,7 @@ function Timeline (x, y1, y2) {
 
 function initialize () {
 
+  state.isInitializing = true;
   state.treePositions = updateTreesPos();
 
   showLegend();
@@ -1103,6 +1180,7 @@ function initialize () {
       Object.keys(trees).forEach(function (k) {
         svg.removeClass("hide-first");
         trees[k].show();
+        state.isInitializing = false;
       });
     } else {
       svg.removeClass("hide-first");
@@ -1112,6 +1190,7 @@ function initialize () {
           trees["latin-america"].show();
           trees["asia-oceania"].show();
           trees["africa"].show();
+          state.isInitializing = false;
         });
       });
     }
@@ -1216,6 +1295,10 @@ function setStatePage (type, id) {
     return;
   }
 
+  if (state.isInitializing === true) {
+    return;
+  }
+
   var oldPage = {
     "type":   state.currentPage.type,
     "id":     state.currentPage.id,
@@ -1249,7 +1332,6 @@ function setStatePage (type, id) {
       state.hTemp = 150 /*mt*/ + 70 /*mb*/ + len0*5.5 /*tree*/;
       state.hTemp += apMap(state.w, 300, 600, 100, 0, true);
       $("#fill-window").height(state.hTemp);
-console.log("set h "+ state.hTemp);
     } else if (type == "home" || type == "story") {
       state.hTemp = null;
       $("#fill-window").attr('style', '');
@@ -1761,9 +1843,7 @@ function addListeners () {
     handleMenuClick(target.dataset.type, target.dataset.value);
   });
 
-  $("#header .logo").click(function(e) {
-    // setStatePage("home", null);
-    // window.location.reload();
+  $("#header .logo .reset").click(function(e) {
     window.location = window.location.href.split("?")[0];
   });
 
@@ -1780,27 +1860,11 @@ function addListeners () {
   });
 
   $(window).resize(function() {
-    // if (cnt.offsetWidth != state.w){
-    //   svg.find("*").remove();
-    //   $("#content *").remove();
-    //   $("#story-title-lg").html("");
-    //   svg.text("Window width has changed, reloading.")
-    //     .addClass("font-serif-m").addClass("cursor-pointer")
-    //     .x(cnt.offsetWidth / 2).y(cnt.offsetHeight / 2)
-    //     .font({ "anchor": "middle" })
-    //     .click(function() {
-    //       window.location.reload();
-    //     });
-    //   // setTimeout(function() { window.location.reload(); }, 500);
-    // }
-
     if (cnt.offsetWidth != state.w){
       $("#container *").remove();
       $("body").addClass("will-reload");
       setTimeout(function() { window.location.reload(); }, 700);
     }
-
-
   });
 
   $(document).keydown(function(e) {
