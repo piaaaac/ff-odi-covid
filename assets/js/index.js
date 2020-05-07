@@ -54,9 +54,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/200418-dev";
-// releaseFolder = "content/200421-alpha";
-releaseFolder = "content/200430-v2";
+// releaseFolder = "content/200430-v2";
+releaseFolder = "content/200507-v3";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -222,6 +221,7 @@ function tooltipOff () {
   $(".tooltip").remove();
 }
 function tooltip (x, y, text) {
+  text = truncate (text, 80, true);
   var m = 5;
   var g = svg.group().addClass("tooltip");
   var t = g.text(text)
@@ -229,18 +229,23 @@ function tooltip (x, y, text) {
     .font({ "anchor": "middle", "fill": "white" })
     .addClass("font-small");
   var tbb = t.bbox();
-  g.rect(tbb.w + m*2 + 6, tbb.h + m*2)
+  var r = g.rect(tbb.w + m*2 + 6, tbb.h + m*2)
     .attr({ "fill": "black" })
     .cx(x).y(y + 3 - m)
     .radius(5)
     .back();
   var gbb = g.bbox();
+  if (gbb.y < 0) {
+    g.dmove(0, 60);
+  }
   if (gbb.x < 10) {
     g.x(10);
   }
   if (gbb.x + gbb.w + 10 > state.w) {
     g.x(state.w - gbb.w - 10);
   }
+  var rbb = r.bbox();
+  t.cx(rbb.cx).cy(rbb.cy);
 }
 
 
@@ -1395,7 +1400,7 @@ function setStatePage (type, id) {
         var countBy = _.countBy(stories, "sectorCopy");
         var sectors = Object.keys(countBy).map(function(sectorCopy) {
           // var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
-          var maxPx = 28;
+          var maxPx = 25;
           var factor = Math.min($("#container").width() * 0.04, maxPx);
           var circleDiameter = Math.sqrt(countBy[sectorCopy]) * factor;
           return { 

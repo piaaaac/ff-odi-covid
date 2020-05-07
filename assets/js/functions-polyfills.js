@@ -1,4 +1,14 @@
 
+// Truncate a string keeping full last word
+// via https://stackoverflow.com/a/1199420/2501713
+function truncate (str, n, useWordBoundary) {
+  if (str.length <= n) { return str; }
+  const subString = str.substr(0, n-1); // the original check
+  return (useWordBoundary 
+    ? subString.substr(0, subString.lastIndexOf(" ")) 
+    : subString) + "…";
+};
+
 // via p5 code
 // https://github.com/processing/p5.js/blob/master/src/math/calculation.js
 
