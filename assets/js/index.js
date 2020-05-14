@@ -54,8 +54,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/200430-v2";
-releaseFolder = "content/200507-v3";
+// releaseFolder = "content/200507-v3";
+releaseFolder = "content/200517-v4";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
