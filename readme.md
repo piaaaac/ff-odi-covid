@@ -40,3 +40,11 @@ The folder of the current version is referenced at the top of `index.js` and con
 - `maps-stories` folder
 	
 	One svg file for each story (eg: `story-lorem-ipsum.svg`, `story-blah-blah.svg`, ...)
+
+## Content versions
+
+- vX.X.1, initial data
+- vX.X.2, 24/04/20
+- vX.X.3, 01/05/20 (folder v2)
+- vX.X.4, 07/05/20 (folder v3)
+- vX.X.5, 14/05/20

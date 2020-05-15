@@ -55,7 +55,7 @@ var state = {
 };
 
 // releaseFolder = "content/200507-v3";
-releaseFolder = "content/200517-v4";
+releaseFolder = "content/200517-v5";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
