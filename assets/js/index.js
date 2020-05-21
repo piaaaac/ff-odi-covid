@@ -59,7 +59,7 @@ releaseFolder = "content/200520-v6";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
-  console.log("state.data", state.data);
+  // console.log("state.data", state.data);
   state.loadingData = false;
 });
 
@@ -282,7 +282,7 @@ var len0 = Math.min(lenW, lenH);
 if (isMobile()) {
   len0 = state.w * 0.06;
 }
-console.log("len0", len0);
+// console.log("len0", len0);
 
 function setup() {
   var cvs = createCanvas(100, 100);
@@ -306,7 +306,7 @@ function setup2 () {
 }
 
 function draw() {
-  console.log("loop n "+ frameCount);
+  // console.log("loop n "+ frameCount);
   if (state.loadingData) {
     return;
   }
@@ -713,7 +713,7 @@ function Tree (root, branch0) {
 
     traverse(this.id, 1, 0);
 
-    console.log("animations", animations);
+    // console.log("animations", animations);
     // throw "see animations array";
 
     // animate
@@ -1047,13 +1047,13 @@ function Timeline (x, y1, y2) {
       sgg
         .on("mouseover", function(event) {
           event.stopPropagation();
-          console.log("over", this.node.dataset.slug);
+          // console.log("over", this.node.dataset.slug);
           var group = this;
           that.mouseover(group.node.dataset.slug);
         })
         .on("mouseout", function(event) {
           event.stopPropagation();
-          console.log("out", this.node.dataset.slug);
+          // console.log("out", this.node.dataset.slug);
           var group = this;
           that.mouseout(/*group.node.dataset.slug*/);
         });
@@ -1359,7 +1359,7 @@ function setStatePage (type, id) {
   } else if (type == "story") {
 
     var story = state.storiesMap[id];
-    console.log("story", story);
+    // console.log("story", story);
 
     var wait = 0;
 
@@ -1541,7 +1541,7 @@ function setStatePage (type, id) {
 
       if (area !== timeline.area) {
         var stories = getAreaStories(area);
-        console.log("stories", stories);
+        // console.log("stories", stories);
         timeline.update(area, stories);
       }
 
@@ -1986,7 +1986,7 @@ function loadData (file, callback) {
       }
       middata[area][level][sector].push(d);
     }
-    console.log("middata", middata);
+    // console.log("middata", middata);
 
     // --- full tree data structure
 
