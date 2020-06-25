@@ -901,6 +901,7 @@ p.log {
 #cookies {
   background-color: #BDDDDC;
   position: fixed;
+  z-index: 2;
   width: 300px;
   bottom: 20px;
   left: 20px;
