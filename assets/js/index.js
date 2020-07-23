@@ -54,8 +54,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/200520-v6";
-releaseFolder = "content/200617-v7";
+// releaseFolder = "content/200617-v7";
+releaseFolder = "content/200722-v8";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -407,7 +407,7 @@ function Tree (root, branch0) {
     //   .attr({ "fill": "red", "opacity": 0 });
 
     // var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
-    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.5;
+    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.35;
 
     this.svgGroup
       .circle(circleDiameter)
@@ -916,7 +916,7 @@ function Branch (children, start, len, angle, props) {
         var chNum = countChildren(this.children[i], 0);
         var dimension = this.children[i].props.dimension;
         var newLen = (dimension == "area") ? len0 * 0.2 // never happens, defined on tree creation
-          : (dimension == "level") ? len0           * map(chNum, 1,25, 1, 2.5)  // level
+          : (dimension == "level") ? len0           * map(chNum, 1,45, 1, 2.5)  // level
           : (dimension == "sector") ? len0          * random(0.5, 0.8)  // sector
           : len0                                    * random(0.4, 0.6); // story
         
