@@ -916,9 +916,9 @@ function Branch (children, start, len, angle, props) {
         var chNum = countChildren(this.children[i], 0);
         var dimension = this.children[i].props.dimension;
         var newLen = (dimension == "area") ? len0 * 0.2 // never happens, defined on tree creation
-          : (dimension == "level") ? len0           * map(chNum, 1,45, 1, 2.5)  // level
-          : (dimension == "sector") ? len0          * random(0.5, 0.8)  // sector
-          : len0                                    * random(0.4, 0.6); // story
+          : (dimension == "level") ? len0           * map(chNum, 1,40, 1, 2.0)  // level
+          : (dimension == "sector") ? len0          * random(0.4, 0.7)  // sector
+          : len0                                    * random(0.3, 0.5); // story
         
         // total angle --- ( PI = 180° )
         var availableAngle = (dimension == "level") 
@@ -1400,7 +1400,7 @@ function setStatePage (type, id) {
         var countBy = _.countBy(stories, "sectorCopy");
         var sectors = Object.keys(countBy).map(function(sectorCopy) {
           // var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
-          var maxPx = 25;
+          var maxPx = 20;
           var factor = Math.min($("#container").width() * 0.04, maxPx);
           var circleDiameter = Math.sqrt(countBy[sectorCopy]) * factor;
           return { 
