@@ -13,7 +13,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.iom.int/news/mozambican-workers-returning-south-africa-engaged-check-covid-19s-spread",
-    "source": "International Organisation for Migration"
+    "source": "International Organisation for Migration",
+    "imported": "yes",
+    "category": "",
+    "tags": "returning migrants"
   },
   {
     "id": 2,
@@ -29,7 +32,10 @@
     "stats": "60,000",
     "stats-comment": "Tunisia employees at least 60,000 seasonal migrant workers (Brookings, 2019)\n1 dot = 1,000 people",
     "url": "https://www.tap.info.tn/en/Portal-Society/12550208-call-to-step-up",
-    "source": "Agence Tunis Afrique Presse"
+    "source": "Agence Tunis Afrique Presse",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 3,
@@ -45,7 +51,10 @@
     "stats": "60,000",
     "stats-comment": "Tunisia employees at least 60,000 seasonal migrant workers (Brookings, 2019)\n1 dot = 1,000 people",
     "url": "https://www.tap.info.tn/en/Portal-Society/12550208-call-to-step-up",
-    "source": "Agence Tunis Afrique Presse"
+    "source": "Agence Tunis Afrique Presse",
+    "imported": "yes",
+    "category": "",
+    "tags": "charity"
   },
   {
     "id": 4,
@@ -61,7 +70,10 @@
     "stats": "35%",
     "stats-comment": "of nurses in Australia are foreign-born (OECD, 2016)",
     "url": "https://www.smh.com.au/national/visa-work-restrictions-lifted-on-20-000-international-student-nurses-20200318-p54bfz.html",
-    "source": "The Sydney Morning Herald"
+    "source": "The Sydney Morning Herald",
+    "imported": "yes",
+    "category": "",
+    "tags": "students"
   },
   {
     "id": 5,
@@ -77,7 +89,10 @@
     "stats": "50%",
     "stats-comment": "of the labour force on Australian vegetable farms are temporary migrant workers (FAO, 2020)",
     "url": "https://ministers.dese.gov.au/cash/new-visa-support-australian-farmers",
-    "source": "Department of Education, Skills and Employment (Australia)"
+    "source": "Department of Education, Skills and Employment (Australia)",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 6,
@@ -93,7 +108,10 @@
     "stats": "51%",
     "stats-comment": "of Bahrain's population are foreign citizens (GLMM, 2015)",
     "url": "https://www.business-humanrights.org/en/bahrain-covid-19-labour-law-changes-welcome-but-ngo-calls-on-govt-to-provide-assistance-to-workers",
-    "source": "Business & Human Rights Resource Centre"
+    "source": "Business & Human Rights Resource Centre",
+    "imported": "yes",
+    "category": "",
+    "tags": "regularization"
   },
   {
     "id": 7,
@@ -109,7 +127,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.wsj.com/articles/chinese-doctors-and-supplies-arrive-in-italy-11584564673",
-    "source": "The Wall Street Journal"
+    "source": "The Wall Street Journal",
+    "imported": "yes",
+    "category": "",
+    "tags": "Italy-China"
   },
   {
     "id": 8,
@@ -125,7 +146,10 @@
     "stats": "83%",
     "stats-comment": "of Kuwait’s workforce is foreign-born (GLMM, 2012)",
     "url": "https://www.thedailystar.net/city/news/special-amnesty-undocumented-workers-kuwait-4300-bangladeshis-set-return-1894003",
-    "source": "The Daily Star"
+    "source": "The Daily Star",
+    "imported": "yes",
+    "category": "",
+    "tags": "amnesty"
   },
   {
     "id": 9,
@@ -141,7 +165,10 @@
     "stats": "11,078 workers",
     "stats-comment": "11,078 seasonal workers arrived in New Zealand in 2018 (New Zealand Immigration)\n1 dot = 1,000 people",
     "url": "https://www.immigration.govt.nz/about-us/covid-19/recognised-seasonal-employers-rse-covid-19-information",
-    "source": "New Zealand Immigration"
+    "source": "New Zealand Immigration",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 10,
@@ -157,7 +184,10 @@
     "stats": "94%",
     "stats-comment": "of workers in Qatar are migrants (Migrant Policy, 2013)",
     "url": "https://www.aljazeera.com/news/2020/04/qatar-pay-workers-quarantine-full-salaries-200401110548709.html",
-    "source": "Al Jazeera"
+    "source": "Al Jazeera",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 11,
@@ -173,7 +203,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://thehimalayantimes.com/nepal/south-korea-extends-visa-of-nepali-migrants/",
-    "source": "The Himalayan Times"
+    "source": "The Himalayan Times",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 12,
@@ -189,7 +222,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://en.vietnamplus.vn/labour-ministry-seeks-entry-for-nearly-8500-foreign-experts/171016.vnp",
-    "source": "VietnamPlus"
+    "source": "VietnamPlus",
+    "imported": "yes",
+    "category": "",
+    "tags": "high-skilled migrants"
   },
   {
     "id": 13,
@@ -205,7 +241,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.xinhuanet.com/english/2020-03/18/c_138892266.htm",
-    "source": "XinhuaNet"
+    "source": "XinhuaNet",
+    "imported": "yes",
+    "category": "",
+    "tags": "internal migrants"
   },
   {
     "id": 14,
@@ -221,7 +260,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.euronews.com/2020/03/28/albania-sends-30-doctors-and-nurses-to-italy-to-help-fight-the-covid-19-pandemic",
-    "source": "Euronews"
+    "source": "Euronews",
+    "imported": "yes",
+    "category": "",
+    "tags": "Italy-Albania"
   },
   {
     "id": 15,
@@ -237,7 +279,10 @@
     "stats": "28,000",
     "stats-comment": "Almost 28,000 people submitted an application for asylum in Belgium in 2019 (CGRA)\n1 dot = 1,000 people",
     "url": "https://www.rtbf.be/info/belgique/detail_moratoire-sur-les-faillites-d-entreprises-defiscalisation-des-heures-sup-voici-les-mesures-prises-par-le-kern-elargi?id=10480563",
-    "source": "RTBF"
+    "source": "RTBF",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 16,
@@ -253,7 +298,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.theguardian.com/world/2020/apr/01/a-beautiful-thing-the-african-migrants-getting-healthy-food-to-italians",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": "local food"
   },
   {
     "id": 17,
@@ -269,7 +317,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.iom.int/news/iom-calls-european-solidarity-and-action-mediterranean-rescue-amid-covid-19?utm_source=IOM%20External%20Mailing%20List&utm_campaign=293dc27d08-EMAIL_CAMPAIGN_2020_04_09_10_51&utm_medium=email&utm_term=0_9968056566-293dc27d08-43608941",
-    "source": "International Organisation for Migration"
+    "source": "International Organisation for Migration",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 18,
@@ -285,7 +336,10 @@
     "stats": "11%",
     "stats-comment": "of key workers in the EU are migrants (Joint Research Centre, 2020)",
     "url": "https://www.unhcr.org/news/press/2020/4/5e957e9611/council-europe-unhcr-support-member-states-bringing-refugee-health-workers.html",
-    "source": "UNHCR"
+    "source": "UNHCR",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 19,
@@ -301,7 +355,10 @@
     "stats": "11%",
     "stats-comment": "of French doctors are foreign-trained (Eurostat, 2018)",
     "url": "https://accueil-integration-refugies.fr/2020/04/14/les-refugies-peuvent-contribuer-au-service-public-de-sante/",
-    "source": "Government of France"
+    "source": "Government of France",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 20,
@@ -317,7 +374,10 @@
     "stats": "161,930 people",
     "stats-comment": "applied for asylum in Germany in 2018 (OECD, 2016)\n1 dot = 10,000 people",
     "url": "https://www.forbes.com/sites/freylindsay/2020/03/26/germanys-agriculture-minister-wants-asylum-seekers-to-help-with-coronavirus-labor-shortages/#5544df0a5e18",
-    "source": "Forbes"
+    "source": "Forbes",
+    "imported": "yes",
+    "category": "",
+    "tags": "seasonal work"
   },
   {
     "id": 21,
@@ -333,7 +393,10 @@
     "stats": "41%",
     "stats-comment": "of doctors in Ireland are foreign-born (OECD, 2016)",
     "url": "https://www.reuters.com/article/us-health-coronavirus-healthcare/retired-doctors-medics-abroad-answer-coronavirus-calls-idUSKBN21J5PD",
-    "source": "Reuters"
+    "source": "Reuters",
+    "imported": "yes",
+    "category": "",
+    "tags": "retirees"
   },
   {
     "id": 22,
@@ -349,7 +412,10 @@
     "stats": "41%",
     "stats-comment": "of doctors in Ireland are foreign-born (OECD, 2016)",
     "url": "https://www.irishtimes.com/news/health/coronavirus-refugee-and-asylum-seeker-medics-could-provide-essential-support-1.4208280",
-    "source": "The Irish Times"
+    "source": "The Irish Times",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 23,
@@ -365,7 +431,10 @@
     "stats": "25%",
     "stats-comment": "of key workers in Ireland are migrants (Joint Research Centre, 2020)",
     "url": "https://www.youtube.com/watch?v=NROg9_YEkRY",
-    "source": "IOM Ireland"
+    "source": "IOM Ireland",
+    "imported": "yes",
+    "category": "",
+    "tags": "access"
   },
   {
     "id": 24,
@@ -381,7 +450,10 @@
     "stats": "53,596 people",
     "stats-comment": "applied for asylum in Italy in 2018 (Asylum in Europe)\n1 dot = 1,000 people",
     "url": "https://coronavirus.jumamap.com/en/2020/04/07/info-curaitalia/",
-    "source": "JUMA: Refugees Map Services"
+    "source": "JUMA: Refugees Map Services",
+    "imported": "yes",
+    "category": "",
+    "tags": "child care"
   },
   {
     "id": 25,
@@ -397,7 +469,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://migracija.lrv.lt/en/news/legal-status-of-foreigners-in-the-republic-of-lithuania-during-the-quarantine",
-    "source": "Ministry of the Interior of the Republic of Lithuania"
+    "source": "Ministry of the Interior of the Republic of Lithuania",
+    "imported": "yes",
+    "category": "",
+    "tags": "amnesty"
   },
   {
     "id": 26,
@@ -413,7 +488,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://uk.reuters.com/article/us-health-coronavirus-italy-norway/solidarity-in-europe-norway-to-send-team-to-italy-to-help-fight-covid-19-idUKKBN21N0SO",
-    "source": "Reuters"
+    "source": "Reuters",
+    "imported": "yes",
+    "category": "",
+    "tags": "Ebola"
   },
   {
     "id": 27,
@@ -429,7 +507,10 @@
     "stats": "60%",
     "stats-comment": "More than 60% of farm workers in Odemira are foreign-born (NY Times, 2014)",
     "url": "https://ec.europa.eu/migrant-integration/news/portuguese-municipality-prepares-500-quarantine-places-for-foreign-agricultural-workers",
-    "source": "European Commission"
+    "source": "European Commission",
+    "imported": "yes",
+    "category": "",
+    "tags": "accomodation"
   },
   {
     "id": 28,
@@ -445,7 +526,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://ec.europa.eu/migrant-integration/news/poland-implements-special-measures-for-residence-permits-during-the-covid-19-pandemic",
-    "source": "European Commission"
+    "source": "European Commission",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 29,
@@ -461,7 +545,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.publico.pt/2020/03/28/sociedade/noticia/governo-regulariza-imigrantes-pedidos-pendentes-sef-1909791",
-    "source": "Público"
+    "source": "Público",
+    "imported": "yes",
+    "category": "",
+    "tags": "regularization"
   },
   {
     "id": 30,
@@ -477,7 +564,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.theguardian.com/world/2020/apr/14/germany-calls-on-migrant-medics-to-help-tackle-coronavirus",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 31,
@@ -493,7 +583,10 @@
     "stats": "200,000 workers",
     "stats-comment": "In March, 2020, France lacked 200,000 agricultural workers due to COVID-19 (Financial Times, 2020)\n1 dot = 10,000 people",
     "url": "http://www.seine-et-marne.gouv.fr/content/download/42625/319839/file/20200330-CP%20saisonnier%20refugies.pdf",
-    "source": "Préfecture de Seine-et-Marne"
+    "source": "Préfecture de Seine-et-Marne",
+    "imported": "yes",
+    "category": "",
+    "tags": "seasonal work"
   },
   {
     "id": 32,
@@ -509,7 +602,10 @@
     "stats": "14%",
     "stats-comment": "of doctors in Spain are foreign-born (OECD, 2016)",
     "url": "https://www.infosalus.com/actualidad/noticia-gobierno-incorpora-cerca-200-profesionales-sanitarios-extranjeros-sistema-nacional-salud-20200327095434.html",
-    "source": "Infosalus"
+    "source": "Infosalus",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 33,
@@ -525,7 +621,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.infomigrants.net/en/post/23946/spain-to-hire-foreign-workers-to-cover-agriculture-shortfall",
-    "source": "InfoMigrants"
+    "source": "InfoMigrants",
+    "imported": "yes",
+    "category": "",
+    "tags": "seasonal work"
   },
   {
     "id": 34,
@@ -541,7 +640,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://apnews.com/fd69797d6af1479c572b02aa75281bf9",
-    "source": "Associated Press News"
+    "source": "Associated Press News",
+    "imported": "yes",
+    "category": "",
+    "tags": "charity"
   },
   {
     "id": 35,
@@ -557,7 +659,10 @@
     "stats": "40%",
     "stats-comment": "of employees in food manufacturing in the UK are migrants (IPPR, 2019)",
     "url": "https://www.theguardian.com/world/2020/apr/15/romanian-fruit-pickers-flown-uk-crisis-farming-sector-coronavirus",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": "seasonal work"
   },
   {
     "id": 36,
@@ -573,7 +678,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.itv.com/news/central/2020-03-29/volunteers-deliver-food-and-treat-parcels-to-those-without-friends-or-family-to-rely-on/",
-    "source": "ITV"
+    "source": "ITV",
+    "imported": "yes",
+    "category": "",
+    "tags": "charity"
   },
   {
     "id": 37,
@@ -589,7 +697,10 @@
     "stats": "12%",
     "stats-comment": "of NHS healthcare workers are foreign-born (ONS, 2018)",
     "url": "https://www.independent.co.uk/news/uk/home-news/coronavirus-nhs-visa-doctor-nurse-paramedics-home-office-migrants-a9438211.html",
-    "source": "The Independent"
+    "source": "The Independent",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 38,
@@ -605,7 +716,10 @@
     "stats": "12%",
     "stats-comment": "of healthcare workers in the NHS are foreign-born (ONS, 2018)",
     "url": "https://www.theguardian.com/uk-news/2020/apr/07/foreign-nationals-nhs-indefinite-leave-remain-coronavirus-covid-19",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 39,
@@ -621,7 +735,10 @@
     "stats": "37,370 people",
     "stats-comment": "applied for asylum in the UK in 2018 (OECD, 2016)\n1 dot = 1,000 people",
     "url": "https://www.refugeecouncil.org.uk/latest/news/changes-to-home-office-asylum-resettlement-policy-and-practice-in-response-to-covid-19/",
-    "source": "Refugee Council"
+    "source": "Refugee Council",
+    "imported": "yes",
+    "category": "",
+    "tags": "amnesty"
   },
   {
     "id": 40,
@@ -637,7 +754,10 @@
     "stats": "33%",
     "stats-comment": "of doctors in the NHS are foreign-born (OECD, 2016)",
     "url": "https://www.theguardian.com/world/2020/mar/25/covid-19-call-for-fast-track-registration-of-refugee-doctors-in-uk?CMP=share_btn_tw",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 41,
@@ -653,7 +773,10 @@
     "stats": "15%",
     "stats-comment": "of key workers in Belgium are migrants (Joint Research Centre, 2020)",
     "url": "https://www.rtbf.be/info/belgique/detail_moratoire-sur-les-faillites-d-entreprises-defiscalisation-des-heures-sup-voici-les-mesures-prises-par-le-kern-elargi?id=10480563",
-    "source": "RTBF"
+    "source": "RTBF",
+    "imported": "yes",
+    "category": "",
+    "tags": "access"
   },
   {
     "id": 42,
@@ -669,7 +792,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.lanacion.com.ar/sociedad/coronavirus-municipios-provincia-buenos-aires-sumaran-medicos-nid2346577",
-    "source": "La Nacion"
+    "source": "La Nacion",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 43,
@@ -685,7 +811,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.economist.com/the-americas/2020/04/11/latin-americas-health-systems-brace-for-a-battering",
-    "source": "The Economist"
+    "source": "The Economist",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 44,
@@ -701,7 +830,10 @@
     "stats": "1,400,000",
     "stats-comment": "1,400,000 Venezuelans were living in Colombia in 2019 (United Nations)\n1 dot = 10,000 people",
     "url": "http://colombiasinfronteras.com/atencion-psicoemocional-para-migrantes-en-tiempos-de-covid-19/",
-    "source": "Colombia Sin Fronteras"
+    "source": "Colombia Sin Fronteras",
+    "imported": "yes",
+    "category": "",
+    "tags": "mental health"
   },
   {
     "id": 45,
@@ -717,7 +849,10 @@
     "stats": "1,400,000",
     "stats-comment": "1,400,000 Venezuelans were living in Colombia in 2019 (United Nations)\n1 dot = 10,000 people",
     "url": "http://colombiasinfronteras.com/el-gobierno-y-las-medidas-para-atender-a-los-migrantes-durante-crisis-del-covid-19/",
-    "source": "Colombia Sin Fronteras"
+    "source": "Colombia Sin Fronteras",
+    "imported": "yes",
+    "category": "",
+    "tags": "access"
   },
   {
     "id": 46,
@@ -733,7 +868,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.aljazeera.com/news/2020/03/cuban-doctors-head-italy-fight-coronavirus-200322135301675.html",
-    "source": "Al Jazeera"
+    "source": "Al Jazeera",
+    "imported": "yes",
+    "category": "",
+    "tags": "Italy-Cuba"
   },
   {
     "id": 47,
@@ -749,7 +887,10 @@
     "stats": "17,000 medical specialists",
     "stats-comment": "In 2018, Peru faced a deficit of almost 17,000 medical specialists (Peruvian Ministry of Health)\n1 dot = 1,000 people",
     "url": "https://twitter.com/Minsa_Peru/status/1249855633198911491",
-    "source": "Ministerio de Salud Perú"
+    "source": "Ministerio de Salud Perú",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 48,
@@ -765,7 +906,10 @@
     "stats": "39%",
     "stats-comment": "of doctors in Canada are foreign-born (OECD, 2016)",
     "url": "https://www.cpsbc.ca/about-us/laws-legislation/bylaw-amendments",
-    "source": "College of Physicians and Surgeons of British Columbia"
+    "source": "College of Physicians and Surgeons of British Columbia",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 49,
@@ -781,7 +925,10 @@
     "stats": "10%",
     "stats-comment": "of California’s workforce are irregular migrants. In 2019, they paid more than $2.5 billion in state and local taxes (TIME, 2020)",
     "url": "https://www.nytimes.com/2020/05/18/us/coronavirus-undocumented-california.html, New York Times",
-    "source": "Time"
+    "source": "Time",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 50,
@@ -797,7 +944,10 @@
     "stats": "1,000,000 migrants",
     "stats-comment": "One million migrants are projected to enter Canada between 2018-2020 (Canadian House of Commons, 2017)\n1 dot = 10,000 people",
     "url": "https://www.theglobeandmail.com/canada/article-provinces-urged-to-scrap-wait-period-for-newcomers-to-access-public/",
-    "source": "The Globe and Mail"
+    "source": "The Globe and Mail",
+    "imported": "yes",
+    "category": "",
+    "tags": "access"
   },
   {
     "id": 51,
@@ -813,7 +963,10 @@
     "stats": "140,000 people",
     "stats-comment": "travel to Canada as temporary foreign workers each year (CBC, 2020)\n1 dot = 10,000 people",
     "url": "https://www.thechronicleherald.ca/news/canada/temporary-foreign-workers-will-be-allowed-into-canada-428460/",
-    "source": "The Chronicle Herald"
+    "source": "The Chronicle Herald",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 52,
@@ -829,7 +982,10 @@
     "stats": "140,000 people",
     "stats-comment": "travel to Canada as temporary foreign workers each year (CBC, 2020)\n1 dot = 10,000 people",
     "url": "https://www.thestar.com/business/2020/04/13/migrant-farm-workers-fear-exposure-to-covid-19.html",
-    "source": "The Star"
+    "source": "The Star",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 53,
@@ -845,7 +1001,10 @@
     "stats": "140,000 people",
     "stats-comment": "travel to Canada as temporary foreign workers each year (CBC, 2020)\n1 dot = 10,000 people",
     "url": "https://www.thestar.com/news/canada/2020/04/13/federal-officials-to-provide-an-update-on-measures-for-seniors-home-care-and-temporary-foreign-workers-pope-francis-prays-for-countries-struggling-with-covid-19.html",
-    "source": "The Star"
+    "source": "The Star",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 54,
@@ -861,7 +1020,10 @@
     "stats": "30%",
     "stats-comment": "of doctors in the USA are foreign-born (OECD, 2016)",
     "url": "https://www.bostonherald.com/2020/04/09/baker-cuts-red-tape-to-allow-foreign-doctors-nursing-students-to-practice-on-front-lines-of-pandemic/",
-    "source": "Boston Herald"
+    "source": "Boston Herald",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 55,
@@ -877,7 +1039,10 @@
     "stats": "17%",
     "stats-comment": "of healthcare workers in the USA are foreign-born (MPI, 2016)",
     "url": "https://nevadanursingboard.org/wp-content/uploads/2020/04/Battle-Born-Medical-Corps-Release-and-Volunteer-Registration-Process.pdf",
-    "source": "Nevada Nursing Board"
+    "source": "Nevada Nursing Board",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 56,
@@ -893,7 +1058,10 @@
     "stats": "30%",
     "stats-comment": "of doctors in the USA are foreign-born (OECD, 2016)",
     "url": "https://www.nj.gov/governor/news/news/562020/20200401b.shtml",
-    "source": ""
+    "source": "",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 57,
@@ -909,7 +1077,10 @@
     "stats": "17%",
     "stats-comment": "of healthcare workers in the USA are foreign-born (MPI, 2015)",
     "url": "https://www.governor.ny.gov/news/no-20210-continuing-temporary-suspension-and-modification-laws-relating-disaster-emergency",
-    "source": "New York State"
+    "source": "New York State",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 58,
@@ -925,7 +1096,10 @@
     "stats": "27%",
     "stats-comment": "of agricultural workers in the USA are foreign-born (MPI, 2018)",
     "url": "https://www.cisa.gov/sites/default/files/publications/CISA-Guidance-on-Essential-Critical-Infrastructure-Workers-1-20-508c.pdf",
-    "source": "US Department of Homeland Security"
+    "source": "US Department of Homeland Security",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 59,
@@ -941,7 +1115,10 @@
     "stats": "17%",
     "stats-comment": "of healthcare workers in the USA are foreign-born (MPI, 2015)",
     "url": "https://travel.state.gov/content/travel/en/News/visas-news/update-on-h-and-j-visas-for-medical-professionals.html",
-    "source": "US Bureau of Consular Affairs"
+    "source": "US Bureau of Consular Affairs",
+    "imported": "yes",
+    "category": "",
+    "tags": "visas"
   },
   {
     "id": 60,
@@ -957,7 +1134,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.wsj.com/articles/states-new-york-city-seek-block-on-rules-that-penalize-immigrants-for-applying-for-public-benefits-11586822238",
-    "source": "Department of Education, Skills and Employment Australia"
+    "source": "Department of Education, Skills and Employment Australia",
+    "imported": "yes",
+    "category": "",
+    "tags": "access"
   },
   {
     "id": 61,
@@ -973,7 +1153,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "http://documents.worldbank.org/curated/en/428451587390154689/pdf/Potential-Responses-to-the-COVID-19-Outbreak-in-Support-of-Migrant-Workers-April-21-2020.pdf",
-    "source": "World Bank"
+    "source": "World Bank",
+    "imported": "yes",
+    "category": "",
+    "tags": "internal migrants"
   },
   {
     "id": 63,
@@ -989,7 +1172,10 @@
     "stats": "2.5 million",
     "stats-comment": "Foreign-born individuals resided in Japan in 2019 (IOM, 2019)\n1 dot = 10,000 people",
     "url": "https://metropolisjapan.com/covid-19-financial-relief/",
-    "source": "Metropolis"
+    "source": "Metropolis",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 64,
@@ -1005,7 +1191,10 @@
     "stats": "11.6 million",
     "stats-comment": "11.6 million foreign-born individuals were living in Russia in 2019 (UN DESA)\n1 dot = 100,000 people",
     "url": "http://kremlin.ru/acts/news/63216",
-    "source": "President of Russia"
+    "source": "President of Russia",
+    "imported": "yes",
+    "category": "",
+    "tags": "visa"
   },
   {
     "id": 65,
@@ -1021,7 +1210,10 @@
     "stats": "50%",
     "stats-comment": "of the labour force on Australian vegetable farms are temporary migrant workers (FAO, 2020)",
     "url": "https://www.abc.net.au/news/2020-04-22/financial-hardship-package-for-temporary-visa-holders/12171546",
-    "source": "ABC News"
+    "source": "ABC News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 66,
@@ -1037,7 +1229,10 @@
     "stats": "14%",
     "stats-comment": "of doctors in Spain are foreign-born (OECD, 2016)",
     "url": "https://www.elnacional.com/mundo/espana-abre-la-puerta-a-mas-de-2-000-medicos-venezolanos-para-la-lucha-contra-el-coronavirus/",
-    "source": "El Nacional"
+    "source": "El Nacional",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 67,
@@ -1053,7 +1248,10 @@
     "stats": "17%",
     "stats-comment": "of healthcare workers in the USA are foreign-born (MPI, 2015)",
     "url": "https://www.colorado.gov/governor/sites/default/files/inline-files/D%202020%20038%20Medical%20Surge.pdf",
-    "source": "State of Colorado"
+    "source": "State of Colorado",
+    "imported": "yes",
+    "category": "",
+    "tags": "licensing"
   },
   {
     "id": 68,
@@ -1069,7 +1267,10 @@
     "stats": "1,000,000 migrants",
     "stats-comment": "One million migrants are projected to enter Canada between 2018-2020 (Canadian House of Commons, 2017)\n1 dot = 10,000 people",
     "url": "https://www.cbc.ca/news/canada/calgary/cbsa-refugees-immigrants-deportations-1.5501334",
-    "source": "CBC News"
+    "source": "CBC News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 69,
@@ -1085,7 +1286,10 @@
     "stats": "39%",
     "stats-comment": "39% of doctors in Canada are foreign-born (OECD, 2016)",
     "url": "https://toronto.ctvnews.ca/ontario-asks-anyone-with-medical-background-to-step-forward-to-fight-covid-19-1.4885936",
-    "source": "CTV News"
+    "source": "CTV News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 70,
@@ -1101,7 +1305,10 @@
     "stats": "1,000,000 migrants",
     "stats-comment": "One million individuals are projected to enter Canada between 2018-2020 (Canadian House of Commons, 2017)\n1 dot = 10,000 people",
     "url": "https://www.theglobeandmail.com/politics/article-trudeau-unveils-82-billion-in-aid-tax-deferrals-for-coronavirus/",
-    "source": "Globe and Mail"
+    "source": "Globe and Mail",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 71,
@@ -1117,7 +1324,10 @@
     "stats": "50.7 million",
     "stats-comment": "Foreign-born individuals resided in the USA in 2019 (IOM, 2019)\n1 dot = 1,000,000 people",
     "url": "https://bass.house.gov/sites/bass.house.gov/files/4.13.20%20DHS%20AUTO%20RENEW%20EAD.pdf",
-    "source": "Representative Karen Bass"
+    "source": "Representative Karen Bass",
+    "imported": "yes",
+    "category": "",
+    "tags": "work authorization"
   },
   {
     "id": 72,
@@ -1133,7 +1343,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.theglobeandmail.com/canada/article-advocacy-group-says-undocumented-migrants-need-access-to-canadian/",
-    "source": "Globe and Mail"
+    "source": "Globe and Mail",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 73,
@@ -1149,7 +1362,10 @@
     "stats": "1,000,000 migrants",
     "stats-comment": "One million migrants are projected to enter Canada between 2018-2020 (Canadian House of Commons, 2017)\n1 dot = 10,000 people",
     "url": "https://ccrweb.ca/en/media/call-border-be-reopened-refugees-02-04-2020",
-    "source": "Canadian Council for Refugees"
+    "source": "Canadian Council for Refugees",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 74,
@@ -1165,7 +1381,10 @@
     "stats": "5.9 million",
     "stats-comment": "Foreign-born individuals living in Turkey in 2019 (UN DESA, 2019)\n1 dot = 100,000 people",
     "url": "http://kizilaytoplummerkezleri.org/en/announcements/turkish-red-crescent-community-centers-produce-masks-against-coronavirus",
-    "source": "Turkish Red Crescent"
+    "source": "Turkish Red Crescent",
+    "imported": "yes",
+    "category": "",
+    "tags": "Charity"
   },
   {
     "id": 75,
@@ -1181,7 +1400,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "https://www.bbc.com/news/amp/world-asia-india-52475387",
-    "source": "BBC"
+    "source": "BBC",
+    "imported": "yes",
+    "category": "",
+    "tags": "Internal migration"
   },
   {
     "id": 76,
@@ -1197,7 +1419,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.theguardian.com/global-development/2020/apr/17/refugees-among-hundreds-of-overseas-medics-to-respond-to-nhs-call",
-    "source": "Guardian"
+    "source": "Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 77,
@@ -1213,7 +1438,10 @@
     "stats": "12%",
     "stats-comment": "of healthcare workers in the NHS are foreign-born (ONS, 2018)",
     "url": "https://www.theguardian.com/society/2020/may/03/calls-grow-scrap-nhs-surcharge-migrant-healthcare-workers-coronavirus",
-    "source": "Guardian"
+    "source": "Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 78,
@@ -1229,7 +1457,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.ugogentilini.net/wp-content/uploads/2020/03/global-review-of-social-protection-responses-to-COVID-19-2.pdf",
-    "source": "World Bank Group"
+    "source": "World Bank Group",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 79,
@@ -1245,7 +1476,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://home.kpmg/xx/en/home/insights/2020/04/brazil-government-and-institution-measures-in-response-to-covid.html",
-    "source": "KPMG"
+    "source": "KPMG",
+    "imported": "yes",
+    "category": "",
+    "tags": "Informal workers"
   },
   {
     "id": 80,
@@ -1261,7 +1495,10 @@
     "stats": "3.7 million",
     "stats-comment": "3.7 million individuals emigrated from Myanmar in 2019 (UN DESA)\n1 dot = 100,000 people",
     "url": "https://reliefweb.int/report/myanmar/iom-myanmar-covid-19-response-situation-report-3-1-may-2020",
-    "source": "IOM"
+    "source": "IOM",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 81,
@@ -1277,7 +1514,10 @@
     "stats": "1.2 million",
     "stats-comment": "1.2 million migrants lived in Uzbekistan in 2019 (UN DESA) 1 dot = 100,000 people",
     "url": "https://www.dentons.com/en/insights/articles/2020/march/25/key-actions-for-covid19-prevention-in-uzbekistan",
-    "source": "Dentons"
+    "source": "Dentons",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 82,
@@ -1293,7 +1533,10 @@
     "stats": "5.4 million",
     "stats-comment": "5.4 million individuals emigrated from the Philippines in 2019 (UN DESA)\n1 dot = 100,000 people",
     "url": "https://www.pna.gov.ph/articles/1097814",
-    "source": "Philippine News Agency"
+    "source": "Philippine News Agency",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 83,
@@ -1309,7 +1552,10 @@
     "stats": "66,969",
     "stats-comment": "66,969 individuals applied for asylum in Greece in 2018 (Asylum in Europe, 2019)\n1 dot = 1,000 people",
     "url": "https://www.dailysabah.com/politics/un-calls-on-greece-to-integrate-migrants-into-society/news",
-    "source": "Daily Sabah"
+    "source": "Daily Sabah",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 84,
@@ -1325,7 +1571,10 @@
     "stats": "4.2 million",
     "stats-comment": "4.2 million migrants lived in South Africa in 2019 (UN DESA)\n1 dot = 100,000 people",
     "url": "https://taj-strategie.fr/south-africa-covid-19-immigration-update",
-    "source": "Deloitte"
+    "source": "Deloitte",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 85,
@@ -1341,7 +1590,10 @@
     "stats": "161,930 people",
     "stats-comment": "applied for asylum in Germany in 2018 (OECD, 2016)\n1 dot = 10,000 people",
     "url": "https://www.aljazeera.com/ajimpact/germany-lift-border-controls-imposed-virus-harvests-200402225621515.html",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 86,
@@ -1357,7 +1609,10 @@
     "stats": "118,500",
     "stats-comment": "118,500 migrants left The Gambia in 2019 (UN DESA)\n1 dot = 10,000 people",
     "url": "https://www.un.org/africarenewal/news/coronavirus/gambian-returnees-produce-protective-equipment-covid-19-frontline-border-officials",
-    "source": "United Nations"
+    "source": "United Nations",
+    "imported": "yes",
+    "category": "",
+    "tags": "Returning migrants"
   },
   {
     "id": 87,
@@ -1373,7 +1628,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.borderreport.com/health/forced-to-wait-in-mexico-migrant-medical-professionals-become-asset-in-fight-against-covid-19/",
-    "source": "Border Report"
+    "source": "Border Report",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 88,
@@ -1389,7 +1647,10 @@
     "stats": "140,000 individuals",
     "stats-comment": "travel to Canada as temporary foreign workers each year (CBC, 2020)\n1 dot = 10,000 people",
     "url": "https://www.immigration.ca/canadian-employers-must-pay-mandatory-14-day-quarantine-when-hiring-temporary-foreign-workers",
-    "source": "Immigration Canada"
+    "source": "Immigration Canada",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 89,
@@ -1405,7 +1666,10 @@
     "stats": "782,200",
     "stats-comment": "In 2019, Peru was home to 782,200 foreign-born individuals (UN DESA)\n1 dot = 10,000 people",
     "url": "https://reliefweb.int/report/peru/preparedness-and-mitigation-measures-covid-19-update-no-10-21-23-april-2020",
-    "source": "Relief Web"
+    "source": "Relief Web",
+    "imported": "yes",
+    "category": "",
+    "tags": "Regularization"
   },
   {
     "id": 90,
@@ -1421,7 +1685,10 @@
     "stats": "51%",
     "stats-comment": "of Bahrain's population are foreign citizens (GLMM, 2015)",
     "url": "https://openknowledge.worldbank.org/handle/10986/33625",
-    "source": "World Bank"
+    "source": "World Bank",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 91,
@@ -1437,7 +1704,10 @@
     "stats": "25%",
     "stats-comment": "Italy is at risk of losing 25 percent of its harvest due to shortages in migrant seasonal labour (Coldiretti, 2020)",
     "url": "https://www.aljazeera.com/news/2020/05/thousands-undocumented-migrants-italian-work-permits-200513181704599.html",
-    "source": "Al Jazeera"
+    "source": "Al Jazeera",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 92,
@@ -1453,7 +1723,10 @@
     "stats": "20%",
     "stats-comment": "20% of doctors in Germany are foreign-born (OECD, 2016)",
     "url": "https://www.euractiv.com/section/coronavirus/news/how-immigration-strengthens-the-german-healthcare-system/",
-    "source": "Euractiv"
+    "source": "Euractiv",
+    "imported": "yes",
+    "category": "",
+    "tags": "Licensing"
   },
   {
     "id": 93,
@@ -1469,7 +1742,10 @@
     "stats": "20%",
     "stats-comment": "20% of doctors in Germany are foreign-born (OECD, 2016)",
     "url": "https://www.euractiv.com/section/coronavirus/news/how-immigration-strengthens-the-german-healthcare-system/",
-    "source": "Euractiv"
+    "source": "Euractiv",
+    "imported": "yes",
+    "category": "",
+    "tags": "Licensing"
   },
   {
     "id": 94,
@@ -1485,7 +1761,10 @@
     "stats": "94%",
     "stats-comment": "of workers in Qatar are migrants (Migrant Policy, 2013)",
     "url": "https://www.theguardian.com/world/2020/may/19/qatar-is-protecting-migrant-workers-during-the-coronavirus-epidemic?CMP=fb_cif",
-    "source": "The Guardian"
+    "source": "The Guardian",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 95,
@@ -1501,7 +1780,10 @@
     "stats": "595,000",
     "stats-comment": "595,000 refugees were living in the main Kutupalong refugee camp in 2020 (UNHCR)\n1 dot = 10,000 people",
     "url": "https://www.pbs.org/wgbh/frontline/article/covid-coronavirus-rohingya-coxs-bazar-bangladesh/",
-    "source": "PBS News"
+    "source": "PBS News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 96,
@@ -1517,7 +1799,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://lethbridgenewsnow.com/2020/05/18/asylum-seekers-on-front-line-of-quebecs-covid-19-battle-in-care-homes/",
-    "source": "Lethbridge News"
+    "source": "Lethbridge News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 97,
@@ -1533,7 +1818,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.nytimes.com/2020/05/18/world/europe/coronavirus-german-farms-migrant-workers-airlift.html?smid=tw-share",
-    "source": "New York Times"
+    "source": "New York Times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 98,
@@ -1549,7 +1837,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/agri-food-immigration-pilot.html",
-    "source": "Government of Canada"
+    "source": "Government of Canada",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 99,
@@ -1565,7 +1856,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.bizjournals.com/washington/news/2020/04/09/events-d-c-approves-18m-in-coronavirus-relief.html",
-    "source": "Washington Business Journal"
+    "source": "Washington Business Journal",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 100,
@@ -1581,7 +1875,10 @@
     "stats": "12%",
     "stats-comment": "of healthcare workers in the NHS are foreign-born (ONS, 2018)",
     "url": "https://www.euronews.com/2020/05/21/uk-increase-of-healthcare-surcharge-for-foreign-workers-deemed-cruel-as-pm-refuses-to-waiv",
-    "source": "Euro News"
+    "source": "Euro News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 101,
@@ -1597,7 +1894,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://uz.usembassy.gov/usaid-commits-2-million-to-address-the-needs-of-central-asian-migrants-impacted-by-the-covid-19-pandemic/",
-    "source": "US Embassy to Uzbekistan"
+    "source": "US Embassy to Uzbekistan",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 102,
@@ -1613,7 +1913,10 @@
     "stats": "16,000",
     "stats-comment": "temporary migrants worked in Finnish agriculture in the summer of 2018 (Nordic Labour Journal)\n1 dot = 1,000 people",
     "url": "https://valtioneuvosto.fi/en/article/-/asset_publisher/10616/hallitus-linjasi-kausityovoiman-saatavuuden-turvaamisesta",
-    "source": "Government of Finland"
+    "source": "Government of Finland",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 103,
@@ -1629,7 +1932,10 @@
     "stats": "83%",
     "stats-comment": "of Kuwait’s workforce is foreign-born (GLMM, 2012)",
     "url": "https://www.shareweb.ch/site/Migration/partnership-migrant-workers-covid-19",
-    "source": "SDC Migration Network"
+    "source": "SDC Migration Network",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 104,
@@ -1645,7 +1951,10 @@
     "stats": "7.9%",
     "stats-comment": "Remittances accounted for 7.9% of Sri Lankan GDP in 2018 (World Bank)",
     "url": "https://www.imf.org/en/Topics/imf-and-covid19/Policy-Responses-to-COVID-19#S",
-    "source": "IMF"
+    "source": "IMF",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 105,
@@ -1661,7 +1970,10 @@
     "stats": "5.6%",
     "stats-comment": "Remittances accounted for 5.6% of Zimbabwean GDP in 2018 (World Bank)",
     "url": "https://www.businesslive.co.za/bd/world/africa/2020-04-07-zimbabwe-eases-lockdown-for-diaspora-payouts-and-fresh-market-produce/",
-    "source": "Business Live"
+    "source": "Business Live",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 106,
@@ -1677,7 +1989,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://eapmigrationpanel.org/en/news/moldovan-citizens-returned-abroad-can-receive-unemployment-benefits",
-    "source": "Eastern Partnership"
+    "source": "Eastern Partnership",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 107,
@@ -1693,7 +2008,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "https://www.thehindu.com/news/national/coronavirus-lockdown-dont-charge-migrant-workers-bus-or-train-fare-says-supreme-court/article31695545.ece",
-    "source": "The Hindu"
+    "source": "The Hindu",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 108,
@@ -1709,7 +2027,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.infomigrants.net/en/post/25278/iom-publishes-global-recruitment-guidelines?ref=tw",
-    "source": "Info Migrants"
+    "source": "Info Migrants",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 109,
@@ -1725,7 +2046,10 @@
     "stats": "50.7 million",
     "stats-comment": "Foreign-born individuals resided in the USA in 2019 (IOM, 2019)\n1 dot = 1,000,000 people",
     "url": "https://www.chicagotribune.com/coronavirus/ct-coronavirus-chicago-fund-lightfoot-20200610-ag4zcwhfb5hkvoxly5kynnwi6i-story.html",
-    "source": "Chicago Tribune"
+    "source": "Chicago Tribune",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 110,
@@ -1741,7 +2065,10 @@
     "stats": "50.7 million",
     "stats-comment": "Foreign-born individuals resided in the USA in 2019 (IOM, 2019)\n1 dot = 1,000,000 people",
     "url": "https://cronkitenews.azpbs.org/2020/06/09/community-groups-immigrants-covid-testing/",
-    "source": "Cronkite News"
+    "source": "Cronkite News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 111,
@@ -1757,7 +2084,10 @@
     "stats": "5.9 million",
     "stats-comment": "Foreign-born migrants living in Turkey in 2019 (UN DESA, 2019)\n1 dot = 100,000 people",
     "url": "https://www.aljazeera.com/programmes/peopleandpower/",
-    "source": "Al-Jazeera"
+    "source": "Al-Jazeera",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 112,
@@ -1773,7 +2103,10 @@
     "stats": "15,300 individuals",
     "stats-comment": "Have returned to Ethiopia since 1 April, 2020.\n1 dot = 1,000 people",
     "url": "https://www.iom.int/news/iom-ethiopia-assists-hundreds-returning-covid-19-affected-migrants",
-    "source": "IOM"
+    "source": "IOM",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 113,
@@ -1789,7 +2122,10 @@
     "stats": "1.5 million",
     "stats-comment": "Total foreign workforce in Singapore (Singapore Ministry of Manpower, 2019)\n1 dot = 100,000 people",
     "url": "https://www.reuters.com/article/us-health-coronavirus-singapore-trfn/singapore-calls-for-mindset-change-as-migrant-workers-are-rehoused-idUSKBN23H1EO",
-    "source": "Reuters"
+    "source": "Reuters",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 114,
@@ -1805,7 +2141,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "https://www.hindustantimes.com/india-news/rajasthan-creates-most-jobs-for-migrants-under-govt-plan/story-UzInXiEwoYp9aYN89di4TI.html",
-    "source": "Hindustan Times"
+    "source": "Hindustan Times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 115,
@@ -1821,7 +2160,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.gov.am/en/covid-19-cragrer./",
-    "source": "Government of the Republic of Armenia"
+    "source": "Government of the Republic of Armenia",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 116,
@@ -1837,7 +2179,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/428451587390154689/potential-responses-to-the-covid-19-outbreak-in-support-of-migrant-workers-april-21-2020",
-    "source": "World Bank"
+    "source": "World Bank",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 117,
@@ -1853,7 +2198,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.agid.gov.it/it/agenzia/stampa-e-comunicazione/notizie/2020/03/31/decreto-cura-italia-indennita-i-bonus-accessibili-spid",
-    "source": "Agency for Digital Italy"
+    "source": "Agency for Digital Italy",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 118,
@@ -1869,7 +2217,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.nationthailand.com/news/30383231",
-    "source": "The Nation Thailand"
+    "source": "The Nation Thailand",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 119,
@@ -1885,7 +2236,10 @@
     "stats": "1.5 million",
     "stats-comment": "Total foreign workforce in Singapore (Singapore Ministry of Manpower, 2019)\n1 dot = 100,000 people",
     "url": "https://twc2.org.sg/2020/04/13/covid-19-media-statement-13-april-2020/",
-    "source": "Transient Workers Count Too"
+    "source": "Transient Workers Count Too",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 120,
@@ -1901,7 +2255,10 @@
     "stats": "8.3%",
     "stats-comment": "International migrant stock as percentage of total population of Costa Rica (UN DESA, 2019)",
     "url": "https://www.proteger.go.cr/general",
-    "source": "Government of Costa Rica"
+    "source": "Government of Costa Rica",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 121,
@@ -1917,7 +2274,10 @@
     "stats": "14.4%",
     "stats-comment": "International migrant stock as percentage of total population of Estonia (UN DESA, 2019)",
     "url": "https://www.schengenvisainfo.com/news/estonia-extends-work-permits-for-aliens-working-in-agriculture/",
-    "source": "Schengen Visa Info"
+    "source": "Schengen Visa Info",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 122,
@@ -1933,7 +2293,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.weforum.org/agenda/2020/06/nepal-faces-a-crisis-as-covid-19-stems-the-flow-of-remittances/",
-    "source": "World Economic Forum"
+    "source": "World Economic Forum",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 123,
@@ -1949,7 +2312,10 @@
     "stats": "11.6%",
     "stats-comment": "International migrant stock as percentage of total population of Greece (UN DESA, 2019)",
     "url": "http://www.oecd.org/coronavirus/policy-responses/managing-international-migration-under-covid-19-6e914d57/",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 124,
@@ -1965,7 +2331,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "https://www.reuters.com/article/us-health-coronavirus-housing-trfn/india-plans-rental-homes-to-entice-migrant-workers-back-to-cities-idUSKBN24A1EW",
-    "source": "Reuters"
+    "source": "Reuters",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 125,
@@ -1981,7 +2350,10 @@
     "stats": "39%",
     "stats-comment": "of doctors in Canada are foreign-born (OECD, 2016)",
     "url": "https://www.csmonitor.com/World/Americas/2020/0707/Migrants-have-helped-Canada-weather-the-pandemic.-Will-it-return-the-favor?cmpid=shared-twitter",
-    "source": "Christian Science Monitor"
+    "source": "Christian Science Monitor",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 126,
@@ -1997,7 +2369,10 @@
     "stats": "450 million",
     "stats-comment": "India had 450 million internal migrants in 2011 (World Bank, 2019)\n1 dot = 10,000,000 people",
     "url": "https://www.hindustantimes.com/delhi-news/extra-pay-and-sense-of-service-make-workers-toil-hard-at-10-000-bed-facility-at-chhatarpur/story-q5uUWBrPzM9fI5zvgNBgXI.html",
-    "source": "Hindustan Times"
+    "source": "Hindustan Times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 127,
@@ -2013,7 +2388,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.thenewhumanitarian.org/news-feature/2020/07/14/Brazil-immigration-reform-coronavirus",
-    "source": "The New Humanitarian"
+    "source": "The New Humanitarian",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 128,
@@ -2029,7 +2407,10 @@
     "stats": "1.38 million",
     "stats-comment": "1.38 million people in the UK are subject to the NRPF condition (The Migration Observatory, 2020) \n1 dot = 100,000 people",
     "url": "https://www-independent-co-uk.cdn.ampproject.org/c/s/www.independent.co.uk/news/uk/home-news/coronavirus-uk-immigrants-financial-aid-no-recourse-to-public-funds-scotland-a9613541.html?amp",
-    "source": "The Independent"
+    "source": "The Independent",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 129,
@@ -2045,7 +2426,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.dw.com/en/strawberry-pickers-plight-exposes-modern-slavery-in-spain/a-54239756",
-    "source": "DW"
+    "source": "DW",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 130,
@@ -2061,7 +2445,10 @@
     "stats": "36%",
     "stats-comment": "36% of Agricultural Workers patients in the US lack health insurance (2018, National Center for Farmworker Health)",
     "url": "https://www.wyso.org/post/amid-covid-19-concerns-clinics-step-testing-migrant-farmworkers",
-    "source": "WYSO"
+    "source": "WYSO",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 131,
@@ -2077,7 +2464,10 @@
     "stats": "140,000 individuals",
     "stats-comment": "travel to Canada as temporary foreign workers each year (CBC, 2020)\n1 dot = 10,000 people",
     "url": "https://www.theglobeandmail.com/canada/british-columbia/article-bc-seen-as-model-for-how-to-treat-migrant-workers/",
-    "source": "Globe and Mail"
+    "source": "Globe and Mail",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 132,
@@ -2093,7 +2483,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.bonocovid.cl/",
-    "source": "Chile Atiende"
+    "source": "Chile Atiende",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 133,
@@ -2109,7 +2502,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://economictimes.indiatimes.com/news/politics-and-nation/india-sends-medical-team-to-kuwait-to-fight-covid-strengthening-neighbourhood-policy/articleshow/75097290.cms?from=mdr",
-    "source": "Economic Times"
+    "source": "Economic Times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 134,
@@ -2125,7 +2521,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.indiatoday.in/india/story/coronavirus-pandemic-mea-launches-helplines-for-those-seeking-assistance-1656212-2020-03-16",
-    "source": "India Today"
+    "source": "India Today",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 135,
@@ -2141,7 +2540,10 @@
     "stats": "850,000 individuals",
     "stats-comment": "from Venezuela now live in Peru (El Pitazo, 2020)\n1 dot = 10,000 people",
     "url": "https://elpitazo.net/migracion/peru-autoriza-contratacion-de-medicos-venezolanos-sin-homologar-titulo/",
-    "source": "El Pitazo"
+    "source": "El Pitazo",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 136,
@@ -2157,7 +2559,10 @@
     "stats": "64,050 asylum applications",
     "stats-comment": "were processed by Canada in 2019 (Government of Canada, 2020)\n1 dot = 10,000 people",
     "url": "https://www.cbc.ca/news/canada/montreal/asylum-seekers-guardian-angels-covid-19-permanent-residency-1.5686176?__vfz=medium%3Dsharebar",
-    "source": "CBC News"
+    "source": "CBC News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 137,
@@ -2173,7 +2578,10 @@
     "stats": "500,000 individuals",
     "stats-comment": "are undocumented residents of New Jersey (State of New Jersey, 2020)\n1 dot = 10,000 people",
     "url": "https://www.nj.com/news/2020/09/undocumented-immigrants-can-now-get-nj-professional-licenses-as-murphy-signs-law.html",
-    "source": "NJ News"
+    "source": "NJ News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 138,
@@ -2189,7 +2597,10 @@
     "stats": "600,000 individuals",
     "stats-comment": "live in 13 square km in the camp (CNN, 2020)\n1 dot = 10,000 people",
     "url": "https://edition.cnn.com/2020/08/27/opinions/pandemic-rohingya-refugees-hosseini/index.html",
-    "source": "CNN"
+    "source": "CNN",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 139,
@@ -2205,7 +2616,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.doctorsoftheworld.org.uk/key-covid-19-information-for-migrants/",
-    "source": "Doctors of the World"
+    "source": "Doctors of the World",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 140,
@@ -2221,7 +2635,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.independent.co.uk/voices/coronavirus-lisbon-portugal-airbnb-homes-key-workers-a9601246.html",
-    "source": "The Independent"
+    "source": "The Independent",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 141,
@@ -2237,7 +2654,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.coe.int/en/web/interculturalcities/covid-19-special-page#{%2262433518%22:[6]}",
-    "source": "Intercultural Cities"
+    "source": "Intercultural Cities",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 142,
@@ -2253,7 +2673,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.themayor.eu/bg/how-to-support-foreigners-in-a-pandemic-lessons-from-lublin",
-    "source": "The Mayor.eu"
+    "source": "The Mayor.eu",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 143,
@@ -2269,7 +2692,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.eco-business.com/opinion/refugees-are-essential-to-the-covid-19-response/",
-    "source": "Eco-Business"
+    "source": "Eco-Business",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 144,
@@ -2285,7 +2711,10 @@
     "stats": "18 million new healthcare workers",
     "stats-comment": "Are needed to reach universal health coverage by 2030 (WHO, 2020)\n1 dot = 1,000,000 people",
     "url": "https://www.cam.ac.uk/research/news/syrian-refugee-health-workers-can-help-europe-cope-with-covid-19",
-    "source": "Cambridge University"
+    "source": "Cambridge University",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 145,
@@ -2301,7 +2730,10 @@
     "stats": "2.17 million",
     "stats-comment": "Temporary migrants lived in Australia at the beginning of the COVID-19 pandemic (CEDA, 2020)\n1 dot = 100,000 people",
     "url": "https://www.sbs.com.au/news/australia-should-introduce-a-new-skilled-migrant-visa-as-part-of-coronavirus-recovery-report-finds",
-    "source": "SBS News"
+    "source": "SBS News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 146,
@@ -2317,7 +2749,10 @@
     "stats": "250,000",
     "stats-comment": "Nepalese working abroad have lost their job during the first two months of lockdown (Nepal Foreign Employment Board, 2020)\n1 dot = 10,000 people",
     "url": "https://www.mideq.org/en/blog/impact-covid-19-nepals-recruitment-sector/",
-    "source": "MIDEQ"
+    "source": "MIDEQ",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 147,
@@ -2326,14 +2761,17 @@
     "level": "International",
     "sector": "Healthcare",
     "location-text": "Germany",
-    "title": "Turkish immigrants' children invent successful Covid -19 vaccine (BioNTech-Pfizer vaccine)",
-    "text": "BioNTech has developed the 'BioNTech-Pfizer vaccine', with 90% effectiveness in fighting Covid-19. The company was founded by Ugur Sahin and Ozlem Tureci,  who are the children of Turkish migrants.",
-    "quote-text": "The first set of results from our Phase 3 Covid-19 vaccine trial provides the initial evidence of our vaccine's ability to prevent Covid-19",
-    "quote-author": "Pfizer Chairman and CEO Albert Bourla",
+    "title": "Turkish immigrants' children develop successful Covid -19 vaccine (BioNTech-Pfizer vaccine)",
+    "text": "BioNTech has developed the 'BioNTech-Pfizer vaccine', with 90% effectiveness in fighting Covid-19. The company was founded by Dr Ugur Sahin and Dr Ozlem Tureci, who are the children of Turkish migrants.",
+    "quote-text": "It could be the beginning of the end of the Covid era",
+    "quote-author": "Dr Ugur Sahin",
     "stats": "",
     "stats-comment": "",
-    "url": "https://www.trtworld.com/life/turkish-immigrants-children-behind-pfizer-s-covid-19-vaccine-41305",
-    "source": "TRT World"
+    "url": "https://www.nytimes.com/2020/11/10/business/biontech-covid-vaccine.html",
+    "source": "New York Times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 148,
@@ -2349,7 +2787,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.taiwannews.com.tw/en/news/4046259",
-    "source": "Taiwan News"
+    "source": "Taiwan News",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 149,
@@ -2365,7 +2806,10 @@
     "stats": "10 million",
     "stats-comment": "The new legislation is expected to benefit a third of Saudi Arabia’s total population, or approximately 10 million foreign workers in the kingdom.\n1 dot = 1,000,000 people",
     "url": "https://apnews.com/article/international-news-dubai-migrant-workers-saudi-arabia-united-arab-emirates-6cb5e681b00893e200fec707d92dba06",
-    "source": "Associated Press"
+    "source": "Associated Press",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 150,
@@ -2381,7 +2825,10 @@
     "stats": "Over a million guestworkers",
     "stats-comment": "Qatar relies on well over a million guest workers, many of them drawn from South Asian nations including India and Nepal. Rights activists long have criticized the “kafala” system as allowing abuses of those foreign workers.\n1 dot = 100,000 people",
     "url": "https://apnews.com/article/international-news-middle-east-business-united-nations-6e69edfb5d3bd9452540548625ef0ac8",
-    "source": "Associated Press"
+    "source": "Associated Press",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 151,
@@ -2397,7 +2844,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 152,
@@ -2413,7 +2863,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 153,
@@ -2429,7 +2882,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 154,
@@ -2445,7 +2901,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 155,
@@ -2461,7 +2920,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 156,
@@ -2477,7 +2939,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 157,
@@ -2493,7 +2958,10 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 158,
@@ -2509,13 +2977,16 @@
     "stats": "",
     "stats-comment": "",
     "url": "http://www.oecd.org/coronavirus/policy-responses/what-is-the-impact-of-the-covid-19-pandemic-on-immigrants-and-their-children-e7cbb7de/#section-d1e441",
-    "source": "OECD"
+    "source": "OECD",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   },
   {
     "id": 159,
     "date": "2020-10-15",
     "area": "Europe",
-    "level": "Ireland",
+    "level": "National",
     "sector": "Healthcare",
     "location-text": "Ireland",
     "title": "Ireland allows more foreign doctors to apply for trainee specialist schemes",
@@ -2525,6 +2996,9 @@
     "stats": "",
     "stats-comment": "",
     "url": "https://www.irishtimes.com/news/health/updated-legislation-means-non-eu-doctors-can-now-apply-for-trainee-schemes-1.4382334",
-    "source": "Irish times"
+    "source": "Irish times",
+    "imported": "yes",
+    "category": "",
+    "tags": ""
   }
 ]
