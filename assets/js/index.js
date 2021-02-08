@@ -927,7 +927,7 @@ function Branch (children, start, len, angle, props) {
           // ? PI * 0.45 * map(this.props.totalTreeStories, 1,35, 0.8, 1.6)
           ? PI * 0.45 * map(this.props.totalTreeStories, 1,55, 0.95, 1.3)
           
-          : PI * 0.55;
+          : PI * 0.60;
 
         var startAngle = -availableAngle/2;
         var newRelAngle = startAngle + availableAngle*normAngles[i];
