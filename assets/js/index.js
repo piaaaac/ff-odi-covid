@@ -54,8 +54,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/200722-v8";
-releaseFolder = "content/201109-v9";
+// releaseFolder = "content/201109-v9";
+releaseFolder = "content/210204-v10";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -407,7 +407,8 @@ function Tree (root, branch0) {
     //   .attr({ "fill": "red", "opacity": 0 });
 
     // var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.7;
-    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.35;
+    // var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.35;
+    var circleDiameter = Math.sqrt(this.storyCount/PI) * len0 * 0.25;
 
     this.svgGroup
       .circle(circleDiameter)
@@ -922,7 +923,10 @@ function Branch (children, start, len, angle, props) {
         
         // total angle --- ( PI = 180° )
         var availableAngle = (dimension == "level") 
-          ? PI * 0.45 * map(this.props.totalTreeStories, 1,35, 0.8, 1.6)
+          
+          // ? PI * 0.45 * map(this.props.totalTreeStories, 1,35, 0.8, 1.6)
+          ? PI * 0.45 * map(this.props.totalTreeStories, 1,55, 0.95, 1.3)
+          
           : PI * 0.55;
 
         var startAngle = -availableAngle/2;
