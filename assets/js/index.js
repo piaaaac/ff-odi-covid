@@ -1,3 +1,7 @@
+var coralHex = "#E75F52";
+
+// var coralHex = "#CB333B"; // new
+
 /* -------------------------------------
 
 To do
@@ -54,8 +58,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/201109-v9";
-releaseFolder = "content/210204-v10";
+// releaseFolder = "content/210204-v10";
+releaseFolder = "content/210603-v11";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -95,13 +99,13 @@ var svgStyles = {
   //   "stroke-linecap": "round"
   // },
   "friut": {
-    "fill": "#E75F52",
+    "fill": coralHex,
     "stroke": "#E6E7E7",
     "stroke-width": 1,
   },
   "friut-selected": {
     "fill": "none",
-    "stroke": "#E75F52",
+    "stroke": coralHex,
     "stroke-width": 1,
     "opacity": 0,
   },

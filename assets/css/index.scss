@@ -13,6 +13,12 @@ $color-green: #147666;
 // $color-green: lighten($color-blue, 3%);
 // $color-green: darken($color-blue, 5%);
 
+
+// new identity
+// $color-coral: #CB333B;
+// $color-green: #64CCC9;
+$color-green: #072442;
+
 $header-height: 90px;
 
 $mobile-h-d0: 143vw;
@@ -730,6 +736,9 @@ p.log {
     &.alpha {
       opacity: 0.5;
     }
+  }
+  img#footer-logo {
+    max-width: 115px;
   }
 }
 

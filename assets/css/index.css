@@ -4,8 +4,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+  box-sizing: border-box; }
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -45,6 +44,7 @@ input[type="search"]::-webkit-search-decoration {
   background-image: none;
   background-color: transparent !important;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none; }
 
 html body input:-internal-autofill-selected {
@@ -303,11 +303,6 @@ h2.font-serif-subtitle {
   @include animation('slide-down 5s 3');
 }
 */
-@-webkit-keyframes blink {
-  33% {
-    opacity: 0.15; }
-  66% {
-    opacity: 0.7; } }
 @keyframes blink {
   33% {
     opacity: 0.15; }
@@ -328,12 +323,8 @@ a {
     text-decoration: none; }
 
 a.btn {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   height: 35px;
   padding: 0 45px;
   border-radius: 20px;
@@ -347,6 +338,9 @@ a.btn {
   font-style: normal;
   font-stretch: normal;
   -webkit-transition: background-color 200ms, padding 200ms;
+  -moz-transition: background-color 200ms, padding 200ms;
+  -ms-transition: background-color 200ms, padding 200ms;
+  -o-transition: background-color 200ms, padding 200ms;
   transition: background-color 200ms, padding 200ms; }
   @media (min-width: 576px) {
     a.btn {
@@ -374,6 +368,9 @@ a.btn {
     font-size: 11px;
     opacity: 0;
     -webkit-transition: opacity 200ms, right 200ms;
+    -moz-transition: opacity 200ms, right 200ms;
+    -ms-transition: opacity 200ms, right 200ms;
+    -o-transition: opacity 200ms, right 200ms;
     transition: opacity 200ms, right 200ms; }
   a.btn.arrow-right::after {
     content: "→"; }
@@ -387,9 +384,9 @@ a.btn {
     background-color: white; }
   a.btn.green {
     color: white;
-    background-color: #147666; }
+    background-color: #072442; }
     a.btn.green:hover {
-      background-color: #106053; }
+      background-color: #05172b; }
   a.btn.nav-arrow, a.btn.nav-arrow:hover {
     padding: 0;
     padding-left: 12px;
@@ -422,6 +419,9 @@ a.btn {
 
 #header a.item, #header a.item span {
   -webkit-transition: color 400ms;
+  -moz-transition: color 400ms;
+  -ms-transition: color 400ms;
+  -o-transition: color 400ms;
   transition: color 400ms; }
 #header a.item.active, #header a.item.active span, #header a.item:hover, #header a.item:hover span {
   color: #E75F52; }
@@ -454,6 +454,9 @@ p.log {
   overflow: hidden;
   height: 100vh;
   -webkit-transition: height 400ms;
+  -moz-transition: height 400ms;
+  -ms-transition: height 400ms;
+  -o-transition: height 400ms;
   transition: height 400ms; }
   @media (max-width: 991.98px) {
     body.home #fill-window {
@@ -472,6 +475,9 @@ p.log {
       top: 0;
       pointer-events: none;
       -webkit-transition: opacity 600ms;
+      -moz-transition: opacity 600ms;
+      -ms-transition: opacity 600ms;
+      -o-transition: opacity 600ms;
       transition: opacity 600ms;
       left: calc(50vw - 160px);
       right: calc(50vw - 160px); }
@@ -491,6 +497,9 @@ p.log {
       /* >>>> */
       margin-top: 4vh;
       -webkit-transition: opacity 200ms;
+      -moz-transition: opacity 200ms;
+      -ms-transition: opacity 200ms;
+      -o-transition: opacity 200ms;
       transition: opacity 200ms; }
       #fill-window #container #story-title-lg.loading {
         opacity: 0; }
@@ -549,23 +558,15 @@ p.log {
       #fill-window #header .wrapper-menu-home a.item, #fill-window #header .wrapper-menu-full a.item {
         margin-left: 20px; }
     #fill-window #header .wrapper-menu-full {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center; }
+      justify-content: space-between;
+      align-items: center; }
       @media (min-width: 1200px) {
         #fill-window #header .wrapper-menu-full .logo {
           width: 33%;
           overflow: visible; } }
       #fill-window #header .wrapper-menu-full .center {
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
+        flex-grow: 1;
         white-space: nowrap;
         text-align: right; }
         @media (min-width: 1200px) {
@@ -620,6 +621,9 @@ p.log {
     padding-left: 20px;
     padding-right: 20px;
     -webkit-transition: opacity 200ms;
+    -moz-transition: opacity 200ms;
+    -ms-transition: opacity 200ms;
+    -o-transition: opacity 200ms;
     transition: opacity 200ms; }
     @media (min-width: 576px) {
       #content #content-wrapper {
@@ -643,6 +647,9 @@ p.log {
       bottom: 0;
       pointer-events: none;
       -webkit-transition: opacity 600ms;
+      -moz-transition: opacity 600ms;
+      -ms-transition: opacity 600ms;
+      -o-transition: opacity 600ms;
       transition: opacity 600ms; }
       body.home #content {
         opacity: 0; }
@@ -702,6 +709,9 @@ p.log {
   #content .area-stats .stat-wrapper {
     cursor: pointer;
     -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
     transition: opacity 400ms; }
     #content .area-stats .stat-wrapper.deselected {
       opacity: 0.5; }
@@ -710,15 +720,9 @@ p.log {
       #content .area-stats .stat-wrapper.selected .stat .circle, #content .area-stats .stat-wrapper:hover .stat .circle {
         opacity: 1; }
     #content .area-stats .stat-wrapper .stat {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+      align-items: center;
+      justify-content: center;
       height: 100px;
       position: relative;
       z-index: 1;
@@ -730,6 +734,9 @@ p.log {
         pointer-events: all;
         opacity: 0.25;
         -webkit-transition: opacity 400ms;
+        -moz-transition: opacity 400ms;
+        -ms-transition: opacity 400ms;
+        -o-transition: opacity 400ms;
         transition: opacity 400ms; }
       #content .area-stats .stat-wrapper .stat .number {
         position: absolute;
@@ -794,6 +801,9 @@ p.log {
 #ui-left {
   pointer-events: none;
   -webkit-transition: opacity 600ms;
+  -moz-transition: opacity 600ms;
+  -ms-transition: opacity 600ms;
+  -o-transition: opacity 600ms;
   transition: opacity 600ms;
   position: fixed;
   left: 0;
@@ -844,6 +854,9 @@ p.log {
   background-color: white;
   overflow: hidden;
   -webkit-transition: max-height 400ms;
+  -moz-transition: max-height 400ms;
+  -ms-transition: max-height 400ms;
+  -o-transition: max-height 400ms;
   transition: max-height 400ms; }
   body.home #about {
     max-height: 10000px; }
@@ -855,8 +868,11 @@ p.log {
 #footer {
   overflow: hidden;
   -webkit-transition: max-height 400ms;
+  -moz-transition: max-height 400ms;
+  -ms-transition: max-height 400ms;
+  -o-transition: max-height 400ms;
   transition: max-height 400ms;
-  background-color: #147666;
+  background-color: #072442;
   color: white; }
   body.home #footer {
     max-height: 500px; }
@@ -873,23 +889,22 @@ p.log {
       text-decoration: underline; }
     #footer .copy.alpha {
       opacity: 0.5; }
+  #footer img#footer-logo {
+    max-width: 115px; }
 
 #reloading {
   opacity: 0;
   display: none;
   pointer-events: none;
   -webkit-transition: opacity 400ms;
+  -moz-transition: opacity 400ms;
+  -ms-transition: opacity 400ms;
+  -o-transition: opacity 400ms;
   transition: opacity 400ms; }
   body.will-reload #reloading {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     right: 0;
@@ -929,6 +944,9 @@ svg.artboard {
   svg.artboard g.tree {
     cursor: pointer;
     -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
     transition: opacity 400ms; }
     svg.artboard g.tree.hide:not(.selected) {
       pointer-events: none;
@@ -951,6 +969,9 @@ svg.artboard {
         stroke: #E75F52; }
     svg.artboard g.tree circle.story-count {
       -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
       transition: opacity 400ms; }
       svg.artboard g.tree circle.story-count:hover {
         opacity: 0.5; }
@@ -958,11 +979,17 @@ svg.artboard {
       text-decoration: underline; }
     svg.artboard g.tree g.tree-label {
       -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
       transition: opacity 400ms; }
       body.story svg.artboard g.tree g.tree-label {
         opacity: 0; }
     svg.artboard g.tree .branch-g {
       -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
       transition: opacity 400ms; }
       svg.artboard g.tree .branch-g.selected, svg.artboard g.tree .branch-g.hovered {
         opacity: 1 !important; }
@@ -972,6 +999,9 @@ svg.artboard {
         opacity: 1; }
     svg.artboard g.tree .circle-blink {
       -webkit-animation: blink 2s linear infinite;
+      -moz-animation: blink 2s linear infinite;
+      -ms-animation: blink 2s linear infinite;
+      -o-animation: blink 2s linear infinite;
       animation: blink 2s linear infinite; }
     svg.artboard g.tree.faded {
       opacity: 0.25;
@@ -984,6 +1014,9 @@ svg.artboard {
   svg.artboard g.timeline {
     opacity: 1;
     -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
     transition: opacity 400ms; }
     svg.artboard g.timeline.hide {
       opacity: 0;
@@ -993,9 +1026,15 @@ svg.artboard {
       pointer-events: none; }
     svg.artboard g.timeline .points {
       -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
       transition: opacity 400ms; }
       svg.artboard g.timeline .points circle.point {
         -webkit-transition: fill 200ms;
+        -moz-transition: fill 200ms;
+        -ms-transition: fill 200ms;
+        -o-transition: fill 200ms;
         transition: fill 200ms;
         fill: #bbb;
         stroke: #E6E7E7;
@@ -1009,6 +1048,9 @@ svg.artboard {
     svg.artboard g.timeline .point-selection, svg.artboard g.timeline .point-date {
       pointer-events: none;
       -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      -ms-transition: opacity 400ms;
+      -o-transition: opacity 400ms;
       transition: opacity 400ms; }
       svg.artboard g.timeline .point-selection.hide, svg.artboard g.timeline .point-date.hide {
         opacity: 0;
@@ -1034,7 +1076,7 @@ svg.artboard {
   color: #E75F52; }
 
 .color-green {
-  color: #147666; }
+  color: #072442; }
 
 .cursor-pointer {
   cursor: pointer; }
