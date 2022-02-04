@@ -58,8 +58,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/210204-v10";
-releaseFolder = "content/210603-v11";
+// releaseFolder = "content/210603-v11";
+releaseFolder = "content/220131-v12";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -921,7 +921,7 @@ function Branch (children, start, len, angle, props) {
         var chNum = countChildren(this.children[i], 0);
         var dimension = this.children[i].props.dimension;
         var newLen = (dimension == "area") ? len0 * 0.2 // never happens, defined on tree creation
-          : (dimension == "level") ? len0           * map(chNum, 1,40, 1, 2.0)  // level
+          : (dimension == "level") ? len0           * map(chNum, 1,40, 1, 1.6)  // level
           : (dimension == "sector") ? len0          * random(0.4, 0.7)  // sector
           : len0                                    * random(0.3, 0.5); // story
         
@@ -2039,6 +2039,8 @@ function loadData (file, callback) {
           var sectorChildrenArray = middata[area][level][sector].map(function (d, di) {
             var storySlug = d.title.slug();
             var storyDate = moment(d.date);
+
+            console.log("debug", d)
 
             var stats = d["stats"].trim();
             var percentage = /[0-9.]%$/.test(stats); // ends with %
