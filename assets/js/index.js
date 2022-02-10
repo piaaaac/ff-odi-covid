@@ -34,6 +34,7 @@ checkBanner();
 var cnt = document.getElementById("container");
 var animms = 600;
 var animmsSelectTree = 900;
+// var animmsSelectTree = 0; /*** DEBUG ***/
 var templates = {};
 var releaseFolder;
 var trees;
