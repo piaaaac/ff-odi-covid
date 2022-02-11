@@ -1410,7 +1410,7 @@ function setStatePage (type, id) {
         var sectors = Object.keys(countBy).map(function(sectorCopy) {
           // var circleDiameter = Math.sqrt(countBy[sectorCopy]) * len0 * 0.7 / 2;
           var maxPx = 20;
-          var factor = Math.min($("#container").width() * 0.04, maxPx);
+          var factor = Math.min($("#container").width() * 0.01, maxPx); // <<< change 0.1 to proportionally reduce circles if more stories are added
           var circleDiameter = Math.sqrt(countBy[sectorCopy]) * factor;
           return { 
             "sectorCopy": sectorCopy, 
