@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="10px" viewBox="0 0 500 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>345</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.907 5.093 0.907 5.093 6 0 6"></polygon>
+        <polygon id="path-3" points="0.1271 0.907 5.2201 0.907 5.2201 6 0.1271 6"></polygon>
+        <polygon id="path-5" points="0.2543 0.907 5.3473 0.907 5.3473 6 0.2543 6"></polygon>
+        <polygon id="path-7" points="0.3814 0.907 5.4744 0.907 5.4744 6 0.3814 6"></polygon>
+        <polygon id="path-9" points="0.5085 0.907 5.6015 0.907 5.6015 6 0.5085 6"></polygon>
+        <polygon id="path-11" points="0.6357 0.907 5.7287 0.907 5.7287 6 0.6357 6"></polygon>
+        <polygon id="path-13" points="0.7628 0.907 5.8558 0.907 5.8558 6 0.7628 6"></polygon>
+        <polygon id="path-15" points="0.8899 0.907 5.9829 0.907 5.9829 6 0.8899 6"></polygon>
+        <polygon id="path-17" points="0.0171 0.907 5.1101 0.907 5.1101 6 0.0171 6"></polygon>
+        <polygon id="path-19" points="0.1442 0.907 5.2372 0.907 5.2372 6 0.1442 6"></polygon>
+        <polygon id="path-21" points="0.2713 0.907 5.3643 0.907 5.3643 6 0.2713 6"></polygon>
+        <polygon id="path-23" points="0.3985 0.907 5.4915 0.907 5.4915 6 0.3985 6"></polygon>
+        <polygon id="path-25" points="0.5256 0.907 5.6186 0.907 5.6186 6 0.5256 6"></polygon>
+        <polygon id="path-27" points="0.6527 0.907 5.7457 0.907 5.7457 6 0.6527 6"></polygon>
+        <polygon id="path-29" points="0.7799 0.907 5.8729 0.907 5.8729 6 0.7799 6"></polygon>
+        <polygon id="path-31" points="0.907 0.907 6 0.907 6 6 0.907 6"></polygon>
+        <polygon id="path-33" points="0.0341 0.907 5.1271 0.907 5.1271 6 0.0341 6"></polygon>
+        <polygon id="path-35" points="0.1613 0.907 5.2543 0.907 5.2543 6 0.1613 6"></polygon>
+        <polygon id="path-37" points="0.2884 0.907 5.3814 0.907 5.3814 6 0.2884 6"></polygon>
+        <polygon id="path-39" points="0.4155 0.907 5.5085 0.907 5.5085 6 0.4155 6"></polygon>
+        <polygon id="path-41" points="0.5427 0.907 5.6357 0.907 5.6357 6 0.5427 6"></polygon>
+        <polygon id="path-43" points="0.6698 0.907 5.7628 0.907 5.7628 6 0.6698 6"></polygon>
+        <polygon id="path-45" points="0.7969 0.907 5.8899 0.907 5.8899 6 0.7969 6"></polygon>
+        <polygon id="path-47" points="0.9241 0.907 6.0171 0.907 6.0171 6 0.9241 6"></polygon>
+        <polygon id="path-49" points="0.0512 0.907 5.1442 0.907 5.1442 6 0.0512 6"></polygon>
+        <polygon id="path-51" points="0.1783 0.907 5.2713 0.907 5.2713 6 0.1783 6"></polygon>
+        <polygon id="path-53" points="0.3055 0.907 5.3985 0.907 5.3985 6 0.3055 6"></polygon>
+        <polygon id="path-55" points="0.4326 0.907 5.5256 0.907 5.5256 6 0.4326 6"></polygon>
+        <polygon id="path-57" points="0.5597 0.907 5.6527 0.907 5.6527 6 0.5597 6"></polygon>
+        <polygon id="path-59" points="0.6869 0.907 5.7799 0.907 5.7799 6 0.6869 6"></polygon>
+        <polygon id="path-61" points="0.814 0.907 5.907 0.907 5.907 6 0.814 6"></polygon>
+        <polygon id="path-63" points="0.9411 0.907 6.0341 0.907 6.0341 6 0.9411 6"></polygon>
+        <polygon id="path-65" points="0.0683 0.907 5.1613 0.907 5.1613 6 0.0683 6"></polygon>
+        <polygon id="path-67" points="0.1954 0.907 5.2884 0.907 5.2884 6 0.1954 6"></polygon>
+        <polygon id="path-69" points="0.3225 0.907 5.4155 0.907 5.4155 6 0.3225 6"></polygon>
+        <polygon id="path-71" points="0.4497 0.907 5.5427 0.907 5.5427 6 0.4497 6"></polygon>
+        <polygon id="path-73" points="0.5768 0.907 5.6698 0.907 5.6698 6 0.5768 6"></polygon>
+        <polygon id="path-75" points="0.7039 0.907 5.7969 0.907 5.7969 6 0.7039 6"></polygon>
+        <polygon id="path-77" points="0.8311 0.907 5.9241 0.907 5.9241 6 0.8311 6"></polygon>
+        <polygon id="path-79" points="0.9582 0.907 6.0512 0.907 6.0512 6 0.9582 6"></polygon>
+        <polygon id="path-81" points="0.0853 0.907 5.1783 0.907 5.1783 6 0.0853 6"></polygon>
+        <polygon id="path-83" points="0.2125 0.907 5.3055 0.907 5.3055 6 0.2125 6"></polygon>
+        <polygon id="path-85" points="0.3396 0.907 5.4326 0.907 5.4326 6 0.3396 6"></polygon>
+        <polygon id="path-87" points="0.4667 0.907 5.5597 0.907 5.5597 6 0.4667 6"></polygon>
+        <polygon id="path-89" points="0.5939 0.907 5.6869 0.907 5.6869 6 0.5939 6"></polygon>
+        <polygon id="path-91" points="0.721 0.907 5.814 0.907 5.814 6 0.721 6"></polygon>
+        <polygon id="path-93" points="0.8481 0.907 5.9411 0.907 5.9411 6 0.8481 6"></polygon>
+        <polygon id="path-95" points="0.9753 0.907 6.0683 0.907 6.0683 6 0.9753 6"></polygon>
+        <polygon id="path-97" points="0.1024 0.907 5.1954 0.907 5.1954 6 0.1024 6"></polygon>
+        <polygon id="path-99" points="0.2295 0.907 5.3225 0.907 5.3225 6 0.2295 6"></polygon>
+        <polygon id="path-101" points="0.3567 0.907 5.4497 0.907 5.4497 6 0.3567 6"></polygon>
+        <polygon id="path-103" points="0.4838 0.907 5.5768 0.907 5.5768 6 0.4838 6"></polygon>
+        <polygon id="path-105" points="0.6109 0.907 5.7039 0.907 5.7039 6 0.6109 6"></polygon>
+        <polygon id="path-107" points="0.7381 0.907 5.8311 0.907 5.8311 6 0.7381 6"></polygon>
+        <polygon id="path-109" points="0.8652 0.907 5.9582 0.907 5.9582 6 0.8652 6"></polygon>
+        <polygon id="path-111" points="0.9923 0.907 6.0853 0.907 6.0853 6 0.9923 6"></polygon>
+        <polygon id="path-113" points="0.1195 0.907 5.2125 0.907 5.2125 6 0.1195 6"></polygon>
+        <polygon id="path-115" points="0.2466 0.907 5.3396 0.907 5.3396 6 0.2466 6"></polygon>
+        <polygon id="path-117" points="0.3737 0.907 5.4667 0.907 5.4667 6 0.3737 6"></polygon>
+        <polygon id="path-119" points="0.5009 0.907 5.5939 0.907 5.5939 6 0.5009 6"></polygon>
+        <polygon id="path-121" points="0.628 0.907 5.721 0.907 5.721 6 0.628 6"></polygon>
+        <polygon id="path-123" points="0.7551 0.907 5.8481 0.907 5.8481 6 0.7551 6"></polygon>
+        <polygon id="path-125" points="0.8823 0.907 5.9753 0.907 5.9753 6 0.8823 6"></polygon>
+        <polygon id="path-127" points="0.0094 0.907 5.1024 0.907 5.1024 6 0.0094 6"></polygon>
+        <polygon id="path-129" points="0.1365 0.907 5.2295 0.907 5.2295 6 0.1365 6"></polygon>
+        <polygon id="path-131" points="0.2637 0.907 5.3567 0.907 5.3567 6 0.2637 6"></polygon>
+        <polygon id="path-133" points="0.3908 0.907 5.4838 0.907 5.4838 6 0.3908 6"></polygon>
+    </defs>
+    <g id="345" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-202" transform="translate(0.000000, 2.000000)">
+            <g id="Group-3" transform="translate(0.000000, 0.093020)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M0,3.4535 C0,2.0475 1.14,0.9065 2.547,0.9065 C3.953,0.9065 5.093,2.0475 5.093,3.4535 C5.093,4.8595 3.953,6.0005 2.547,6.0005 C1.14,6.0005 0,4.8595 0,3.4535" id="Fill-1" fill="#65BDB8" mask="url(#mask-2)"></path>
+            </g>
+            <g id="Group-6" transform="translate(7.000000, 0.093020)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-5"></g>
+                <path d="M0.1271,3.4535 C0.1271,2.0475 1.2671,0.9065 2.6741,0.9065 C4.0801,0.9065 5.2201,2.0475 5.2201,3.4535 C5.2201,4.8595 4.0801,6.0005 2.6741,6.0005 C1.2671,6.0005 0.1271,4.8595 0.1271,3.4535" id="Fill-4" fill="#65BDB8" mask="url(#mask-4)"></path>
+            </g>
+            <g id="Group-9" transform="translate(14.000000, 0.093020)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Clip-8"></g>
+                <path d="M0.2543,3.4535 C0.2543,2.0475 1.3943,0.9065 2.8013,0.9065 C4.2073,0.9065 5.3473,2.0475 5.3473,3.4535 C5.3473,4.8595 4.2073,6.0005 2.8013,6.0005 C1.3943,6.0005 0.2543,4.8595 0.2543,3.4535" id="Fill-7" fill="#65BDB8" mask="url(#mask-6)"></path>
+            </g>
+            <g id="Group-12" transform="translate(21.000000, 0.093020)">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Clip-11"></g>
+                <path d="M0.3814,3.4535 C0.3814,2.0475 1.5214,0.9065 2.9284,0.9065 C4.3344,0.9065 5.4744,2.0475 5.4744,3.4535 C5.4744,4.8595 4.3344,6.0005 2.9284,6.0005 C1.5214,6.0005 0.3814,4.8595 0.3814,3.4535" id="Fill-10" fill="#65BDB8" mask="url(#mask-8)"></path>
+            </g>
+            <g id="Group-15" transform="translate(28.000000, 0.093020)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Clip-14"></g>
+                <path d="M0.5085,3.4535 C0.5085,2.0475 1.6485,0.9065 3.0555,0.9065 C4.4615,0.9065 5.6015,2.0475 5.6015,3.4535 C5.6015,4.8595 4.4615,6.0005 3.0555,6.0005 C1.6485,6.0005 0.5085,4.8595 0.5085,3.4535" id="Fill-13" fill="#65BDB8" mask="url(#mask-10)"></path>
+            </g>
+            <g id="Group-18" transform="translate(35.000000, 0.093020)">
+                <mask id="mask-12" fill="white">
+                    <use xlink:href="#path-11"></use>
+                </mask>
+                <g id="Clip-17"></g>
+                <path d="M0.6357,3.4535 C0.6357,2.0475 1.7757,0.9065 3.1827,0.9065 C4.5887,0.9065 5.7287,2.0475 5.7287,3.4535 C5.7287,4.8595 4.5887,6.0005 3.1827,6.0005 C1.7757,6.0005 0.6357,4.8595 0.6357,3.4535" id="Fill-16" fill="#65BDB8" mask="url(#mask-12)"></path>
+            </g>
+            <g id="Group-21" transform="translate(42.000000, 0.093020)">
+                <mask id="mask-14" fill="white">
+                    <use xlink:href="#path-13"></use>
+                </mask>
+                <g id="Clip-20"></g>
+                <path d="M0.7628,3.4535 C0.7628,2.0475 1.9028,0.9065 3.3098,0.9065 C4.7158,0.9065 5.8558,2.0475 5.8558,3.4535 C5.8558,4.8595 4.7158,6.0005 3.3098,6.0005 C1.9028,6.0005 0.7628,4.8595 0.7628,3.4535" id="Fill-19" fill="#65BDB8" mask="url(#mask-14)"></path>
+            </g>
+            <g id="Group-24" transform="translate(49.000000, 0.093020)">
+                <mask id="mask-16" fill="white">
+                    <use xlink:href="#path-15"></use>
+                </mask>
+                <g id="Clip-23"></g>
+                <path d="M0.8899,3.4535 C0.8899,2.0475 2.0299,0.9065 3.4369,0.9065 C4.8429,0.9065 5.9829,2.0475 5.9829,3.4535 C5.9829,4.8595 4.8429,6.0005 3.4369,6.0005 C2.0299,6.0005 0.8899,4.8595 0.8899,3.4535" id="Fill-22" fill="#65BDB8" mask="url(#mask-16)"></path>
+            </g>
+            <g id="Group-27" transform="translate(57.000000, 0.093020)">
+                <mask id="mask-18" fill="white">
+                    <use xlink:href="#path-17"></use>
+                </mask>
+                <g id="Clip-26"></g>
+                <path d="M0.0171,3.4535 C0.0171,2.0475 1.1571,0.9065 2.5641,0.9065 C3.9701,0.9065 5.1101,2.0475 5.1101,3.4535 C5.1101,4.8595 3.9701,6.0005 2.5641,6.0005 C1.1571,6.0005 0.0171,4.8595 0.0171,3.4535" id="Fill-25" fill="#65BDB8" mask="url(#mask-18)"></path>
+            </g>
+            <g id="Group-30" transform="translate(64.000000, 0.093020)">
+                <mask id="mask-20" fill="white">
+                    <use xlink:href="#path-19"></use>
+                </mask>
+                <g id="Clip-29"></g>
+                <path d="M0.1442,3.4535 C0.1442,2.0475 1.2842,0.9065 2.6912,0.9065 C4.0972,0.9065 5.2372,2.0475 5.2372,3.4535 C5.2372,4.8595 4.0972,6.0005 2.6912,6.0005 C1.2842,6.0005 0.1442,4.8595 0.1442,3.4535" id="Fill-28" fill="#65BDB8" mask="url(#mask-20)"></path>
+            </g>
+            <g id="Group-33" transform="translate(71.000000, 0.093020)">
+                <mask id="mask-22" fill="white">
+                    <use xlink:href="#path-21"></use>
+                </mask>
+                <g id="Clip-32"></g>
+                <path d="M0.2713,3.4535 C0.2713,2.0475 1.4113,0.9065 2.8183,0.9065 C4.2243,0.9065 5.3643,2.0475 5.3643,3.4535 C5.3643,4.8595 4.2243,6.0005 2.8183,6.0005 C1.4113,6.0005 0.2713,4.8595 0.2713,3.4535" id="Fill-31" fill="#65BDB8" mask="url(#mask-22)"></path>
+            </g>
+            <g id="Group-36" transform="translate(78.000000, 0.093020)">
+                <mask id="mask-24" fill="white">
+                    <use xlink:href="#path-23"></use>
+                </mask>
+                <g id="Clip-35"></g>
+                <path d="M0.3985,3.4535 C0.3985,2.0475 1.5385,0.9065 2.9455,0.9065 C4.3515,0.9065 5.4915,2.0475 5.4915,3.4535 C5.4915,4.8595 4.3515,6.0005 2.9455,6.0005 C1.5385,6.0005 0.3985,4.8595 0.3985,3.4535" id="Fill-34" fill="#65BDB8" mask="url(#mask-24)"></path>
+            </g>
+            <g id="Group-39" transform="translate(85.000000, 0.093020)">
+                <mask id="mask-26" fill="white">
+                    <use xlink:href="#path-25"></use>
+                </mask>
+                <g id="Clip-38"></g>
+                <path d="M0.5256,3.4535 C0.5256,2.0475 1.6656,0.9065 3.0726,0.9065 C4.4786,0.9065 5.6186,2.0475 5.6186,3.4535 C5.6186,4.8595 4.4786,6.0005 3.0726,6.0005 C1.6656,6.0005 0.5256,4.8595 0.5256,3.4535" id="Fill-37" fill="#65BDB8" mask="url(#mask-26)"></path>
+            </g>
+            <g id="Group-42" transform="translate(92.000000, 0.093020)">
+                <mask id="mask-28" fill="white">
+                    <use xlink:href="#path-27"></use>
+                </mask>
+                <g id="Clip-41"></g>
+                <path d="M0.6527,3.4535 C0.6527,2.0475 1.7927,0.9065 3.1997,0.9065 C4.6057,0.9065 5.7457,2.0475 5.7457,3.4535 C5.7457,4.8595 4.6057,6.0005 3.1997,6.0005 C1.7927,6.0005 0.6527,4.8595 0.6527,3.4535" id="Fill-40" fill="#65BDB8" mask="url(#mask-28)"></path>
+            </g>
+            <g id="Group-45" transform="translate(99.000000, 0.093020)">
+                <mask id="mask-30" fill="white">
+                    <use xlink:href="#path-29"></use>
+                </mask>
+                <g id="Clip-44"></g>
+                <path d="M0.7799,3.4535 C0.7799,2.0475 1.9199,0.9065 3.3269,0.9065 C4.7329,0.9065 5.8729,2.0475 5.8729,3.4535 C5.8729,4.8595 4.7329,6.0005 3.3269,6.0005 C1.9199,6.0005 0.7799,4.8595 0.7799,3.4535" id="Fill-43" fill="#65BDB8" mask="url(#mask-30)"></path>
+            </g>
+            <g id="Group-48" transform="translate(106.000000, 0.093020)">
+                <mask id="mask-32" fill="white">
+                    <use xlink:href="#path-31"></use>
+                </mask>
+                <g id="Clip-47"></g>
+                <path d="M0.907,3.4535 C0.907,2.0475 2.047,0.9065 3.454,0.9065 C4.86,0.9065 6,2.0475 6,3.4535 C6,4.8595 4.86,6.0005 3.454,6.0005 C2.047,6.0005 0.907,4.8595 0.907,3.4535" id="Fill-46" fill="#65BDB8" mask="url(#mask-32)"></path>
+            </g>
+            <g id="Group-51" transform="translate(114.000000, 0.093020)">
+                <mask id="mask-34" fill="white">
+                    <use xlink:href="#path-33"></use>
+                </mask>
+                <g id="Clip-50"></g>
+                <path d="M0.0341,3.4535 C0.0341,2.0475 1.1741,0.9065 2.5811,0.9065 C3.9871,0.9065 5.1271,2.0475 5.1271,3.4535 C5.1271,4.8595 3.9871,6.0005 2.5811,6.0005 C1.1741,6.0005 0.0341,4.8595 0.0341,3.4535" id="Fill-49" fill="#65BDB8" mask="url(#mask-34)"></path>
+            </g>
+            <g id="Group-54" transform="translate(121.000000, 0.093020)">
+                <mask id="mask-36" fill="white">
+                    <use xlink:href="#path-35"></use>
+                </mask>
+                <g id="Clip-53"></g>
+                <path d="M0.1613,3.4535 C0.1613,2.0475 1.3013,0.9065 2.7083,0.9065 C4.1143,0.9065 5.2543,2.0475 5.2543,3.4535 C5.2543,4.8595 4.1143,6.0005 2.7083,6.0005 C1.3013,6.0005 0.1613,4.8595 0.1613,3.4535" id="Fill-52" fill="#65BDB8" mask="url(#mask-36)"></path>
+            </g>
+            <g id="Group-57" transform="translate(128.000000, 0.093020)">
+                <mask id="mask-38" fill="white">
+                    <use xlink:href="#path-37"></use>
+                </mask>
+                <g id="Clip-56"></g>
+                <path d="M0.2884,3.4535 C0.2884,2.0475 1.4284,0.9065 2.8354,0.9065 C4.2414,0.9065 5.3814,2.0475 5.3814,3.4535 C5.3814,4.8595 4.2414,6.0005 2.8354,6.0005 C1.4284,6.0005 0.2884,4.8595 0.2884,3.4535" id="Fill-55" fill="#65BDB8" mask="url(#mask-38)"></path>
+            </g>
+            <g id="Group-60" transform="translate(135.000000, 0.093020)">
+                <mask id="mask-40" fill="white">
+                    <use xlink:href="#path-39"></use>
+                </mask>
+                <g id="Clip-59"></g>
+                <path d="M0.4155,3.4535 C0.4155,2.0475 1.5555,0.9065 2.9625,0.9065 C4.3685,0.9065 5.5085,2.0475 5.5085,3.4535 C5.5085,4.8595 4.3685,6.0005 2.9625,6.0005 C1.5555,6.0005 0.4155,4.8595 0.4155,3.4535" id="Fill-58" fill="#65BDB8" mask="url(#mask-40)"></path>
+            </g>
+            <g id="Group-63" transform="translate(142.000000, 0.093020)">
+                <mask id="mask-42" fill="white">
+                    <use xlink:href="#path-41"></use>
+                </mask>
+                <g id="Clip-62"></g>
+                <path d="M0.5427,3.4535 C0.5427,2.0475 1.6827,0.9065 3.0897,0.9065 C4.4957,0.9065 5.6357,2.0475 5.6357,3.4535 C5.6357,4.8595 4.4957,6.0005 3.0897,6.0005 C1.6827,6.0005 0.5427,4.8595 0.5427,3.4535" id="Fill-61" fill="#65BDB8" mask="url(#mask-42)"></path>
+            </g>
+            <g id="Group-66" transform="translate(149.000000, 0.093020)">
+                <mask id="mask-44" fill="white">
+                    <use xlink:href="#path-43"></use>
+                </mask>
+                <g id="Clip-65"></g>
+                <path d="M0.6698,3.4535 C0.6698,2.0475 1.8098,0.9065 3.2168,0.9065 C4.6228,0.9065 5.7628,2.0475 5.7628,3.4535 C5.7628,4.8595 4.6228,6.0005 3.2168,6.0005 C1.8098,6.0005 0.6698,4.8595 0.6698,3.4535" id="Fill-64" fill="#65BDB8" mask="url(#mask-44)"></path>
+            </g>
+            <g id="Group-69" transform="translate(156.000000, 0.093020)">
+                <mask id="mask-46" fill="white">
+                    <use xlink:href="#path-45"></use>
+                </mask>
+                <g id="Clip-68"></g>
+                <path d="M0.7969,3.4535 C0.7969,2.0475 1.9369,0.9065 3.3439,0.9065 C4.7499,0.9065 5.8899,2.0475 5.8899,3.4535 C5.8899,4.8595 4.7499,6.0005 3.3439,6.0005 C1.9369,6.0005 0.7969,4.8595 0.7969,3.4535" id="Fill-67" fill="#65BDB8" mask="url(#mask-46)"></path>
+            </g>
+            <g id="Group-72" transform="translate(163.000000, 0.093020)">
+                <mask id="mask-48" fill="white">
+                    <use xlink:href="#path-47"></use>
+                </mask>
+                <g id="Clip-71"></g>
+                <path d="M0.9241,3.4535 C0.9241,2.0475 2.0641,0.9065 3.4711,0.9065 C4.8771,0.9065 6.0171,2.0475 6.0171,3.4535 C6.0171,4.8595 4.8771,6.0005 3.4711,6.0005 C2.0641,6.0005 0.9241,4.8595 0.9241,3.4535" id="Fill-70" fill="#65BDB8" mask="url(#mask-48)"></path>
+            </g>
+            <g id="Group-75" transform="translate(171.000000, 0.093020)">
+                <mask id="mask-50" fill="white">
+                    <use xlink:href="#path-49"></use>
+                </mask>
+                <g id="Clip-74"></g>
+                <path d="M0.0512,3.4535 C0.0512,2.0475 1.1912,0.9065 2.5982,0.9065 C4.0042,0.9065 5.1442,2.0475 5.1442,3.4535 C5.1442,4.8595 4.0042,6.0005 2.5982,6.0005 C1.1912,6.0005 0.0512,4.8595 0.0512,3.4535" id="Fill-73" fill="#65BDB8" mask="url(#mask-50)"></path>
+            </g>
+            <g id="Group-78" transform="translate(178.000000, 0.093020)">
+                <mask id="mask-52" fill="white">
+                    <use xlink:href="#path-51"></use>
+                </mask>
+                <g id="Clip-77"></g>
+                <path d="M0.1783,3.4535 C0.1783,2.0475 1.3183,0.9065 2.7253,0.9065 C4.1313,0.9065 5.2713,2.0475 5.2713,3.4535 C5.2713,4.8595 4.1313,6.0005 2.7253,6.0005 C1.3183,6.0005 0.1783,4.8595 0.1783,3.4535" id="Fill-76" fill="#65BDB8" mask="url(#mask-52)"></path>
+            </g>
+            <g id="Group-81" transform="translate(185.000000, 0.093020)">
+                <mask id="mask-54" fill="white">
+                    <use xlink:href="#path-53"></use>
+                </mask>
+                <g id="Clip-80"></g>
+                <path d="M0.3055,3.4535 C0.3055,2.0475 1.4455,0.9065 2.8525,0.9065 C4.2585,0.9065 5.3985,2.0475 5.3985,3.4535 C5.3985,4.8595 4.2585,6.0005 2.8525,6.0005 C1.4455,6.0005 0.3055,4.8595 0.3055,3.4535" id="Fill-79" fill="#65BDB8" mask="url(#mask-54)"></path>
+            </g>
+            <g id="Group-84" transform="translate(192.000000, 0.093020)">
+                <mask id="mask-56" fill="white">
+                    <use xlink:href="#path-55"></use>
+                </mask>
+                <g id="Clip-83"></g>
+                <path d="M0.4326,3.4535 C0.4326,2.0475 1.5726,0.9065 2.9796,0.9065 C4.3856,0.9065 5.5256,2.0475 5.5256,3.4535 C5.5256,4.8595 4.3856,6.0005 2.9796,6.0005 C1.5726,6.0005 0.4326,4.8595 0.4326,3.4535" id="Fill-82" fill="#65BDB8" mask="url(#mask-56)"></path>
+            </g>
+            <g id="Group-87" transform="translate(199.000000, 0.093020)">
+                <mask id="mask-58" fill="white">
+                    <use xlink:href="#path-57"></use>
+                </mask>
+                <g id="Clip-86"></g>
+                <path d="M0.5597,3.4535 C0.5597,2.0475 1.6997,0.9065 3.1067,0.9065 C4.5127,0.9065 5.6527,2.0475 5.6527,3.4535 C5.6527,4.8595 4.5127,6.0005 3.1067,6.0005 C1.6997,6.0005 0.5597,4.8595 0.5597,3.4535" id="Fill-85" fill="#65BDB8" mask="url(#mask-58)"></path>
+            </g>
+            <g id="Group-90" transform="translate(206.000000, 0.093020)">
+                <mask id="mask-60" fill="white">
+                    <use xlink:href="#path-59"></use>
+                </mask>
+                <g id="Clip-89"></g>
+                <path d="M0.6869,3.4535 C0.6869,2.0475 1.8269,0.9065 3.2339,0.9065 C4.6399,0.9065 5.7799,2.0475 5.7799,3.4535 C5.7799,4.8595 4.6399,6.0005 3.2339,6.0005 C1.8269,6.0005 0.6869,4.8595 0.6869,3.4535" id="Fill-88" fill="#65BDB8" mask="url(#mask-60)"></path>
+            </g>
+            <g id="Group-93" transform="translate(213.000000, 0.093020)">
+                <mask id="mask-62" fill="white">
+                    <use xlink:href="#path-61"></use>
+                </mask>
+                <g id="Clip-92"></g>
+                <path d="M0.814,3.4535 C0.814,2.0475 1.954,0.9065 3.361,0.9065 C4.767,0.9065 5.907,2.0475 5.907,3.4535 C5.907,4.8595 4.767,6.0005 3.361,6.0005 C1.954,6.0005 0.814,4.8595 0.814,3.4535" id="Fill-91" fill="#65BDB8" mask="url(#mask-62)"></path>
+            </g>
+            <g id="Group-96" transform="translate(220.000000, 0.093020)">
+                <mask id="mask-64" fill="white">
+                    <use xlink:href="#path-63"></use>
+                </mask>
+                <g id="Clip-95"></g>
+                <path d="M0.9411,3.4535 C0.9411,2.0475 2.0811,0.9065 3.4881,0.9065 C4.8941,0.9065 6.0341,2.0475 6.0341,3.4535 C6.0341,4.8595 4.8941,6.0005 3.4881,6.0005 C2.0811,6.0005 0.9411,4.8595 0.9411,3.4535" id="Fill-94" fill="#65BDB8" mask="url(#mask-64)"></path>
+            </g>
+            <g id="Group-99" transform="translate(228.000000, 0.093020)">
+                <mask id="mask-66" fill="white">
+                    <use xlink:href="#path-65"></use>
+                </mask>
+                <g id="Clip-98"></g>
+                <path d="M0.0683,3.4535 C0.0683,2.0475 1.2083,0.9065 2.6153,0.9065 C4.0213,0.9065 5.1613,2.0475 5.1613,3.4535 C5.1613,4.8595 4.0213,6.0005 2.6153,6.0005 C1.2083,6.0005 0.0683,4.8595 0.0683,3.4535" id="Fill-97" fill="#65BDB8" mask="url(#mask-66)"></path>
+            </g>
+            <g id="Group-102" transform="translate(235.000000, 0.093020)">
+                <mask id="mask-68" fill="white">
+                    <use xlink:href="#path-67"></use>
+                </mask>
+                <g id="Clip-101"></g>
+                <path d="M0.1954,3.4535 C0.1954,2.0475 1.3354,0.9065 2.7424,0.9065 C4.1484,0.9065 5.2884,2.0475 5.2884,3.4535 C5.2884,4.8595 4.1484,6.0005 2.7424,6.0005 C1.3354,6.0005 0.1954,4.8595 0.1954,3.4535" id="Fill-100" fill="#65BDB8" mask="url(#mask-68)"></path>
+            </g>
+            <g id="Group-105" transform="translate(242.000000, 0.093020)">
+                <mask id="mask-70" fill="white">
+                    <use xlink:href="#path-69"></use>
+                </mask>
+                <g id="Clip-104"></g>
+                <path d="M0.3225,3.4535 C0.3225,2.0475 1.4625,0.9065 2.8695,0.9065 C4.2755,0.9065 5.4155,2.0475 5.4155,3.4535 C5.4155,4.8595 4.2755,6.0005 2.8695,6.0005 C1.4625,6.0005 0.3225,4.8595 0.3225,3.4535" id="Fill-103" fill="#65BDB8" mask="url(#mask-70)"></path>
+            </g>
+            <g id="Group-108" transform="translate(249.000000, 0.093020)">
+                <mask id="mask-72" fill="white">
+                    <use xlink:href="#path-71"></use>
+                </mask>
+                <g id="Clip-107"></g>
+                <path d="M0.4497,3.4535 C0.4497,2.0475 1.5897,0.9065 2.9967,0.9065 C4.4027,0.9065 5.5427,2.0475 5.5427,3.4535 C5.5427,4.8595 4.4027,6.0005 2.9967,6.0005 C1.5897,6.0005 0.4497,4.8595 0.4497,3.4535" id="Fill-106" fill="#65BDB8" mask="url(#mask-72)"></path>
+            </g>
+            <g id="Group-111" transform="translate(256.000000, 0.093020)">
+                <mask id="mask-74" fill="white">
+                    <use xlink:href="#path-73"></use>
+                </mask>
+                <g id="Clip-110"></g>
+                <path d="M0.5768,3.4535 C0.5768,2.0475 1.7168,0.9065 3.1238,0.9065 C4.5298,0.9065 5.6698,2.0475 5.6698,3.4535 C5.6698,4.8595 4.5298,6.0005 3.1238,6.0005 C1.7168,6.0005 0.5768,4.8595 0.5768,3.4535" id="Fill-109" fill="#65BDB8" mask="url(#mask-74)"></path>
+            </g>
+            <g id="Group-114" transform="translate(263.000000, 0.093020)">
+                <mask id="mask-76" fill="white">
+                    <use xlink:href="#path-75"></use>
+                </mask>
+                <g id="Clip-113"></g>
+                <path d="M0.7039,3.4535 C0.7039,2.0475 1.8439,0.9065 3.2509,0.9065 C4.6569,0.9065 5.7969,2.0475 5.7969,3.4535 C5.7969,4.8595 4.6569,6.0005 3.2509,6.0005 C1.8439,6.0005 0.7039,4.8595 0.7039,3.4535" id="Fill-112" fill="#65BDB8" mask="url(#mask-76)"></path>
+            </g>
+            <g id="Group-117" transform="translate(270.000000, 0.093020)">
+                <mask id="mask-78" fill="white">
+                    <use xlink:href="#path-77"></use>
+                </mask>
+                <g id="Clip-116"></g>
+                <path d="M0.8311,3.4535 C0.8311,2.0475 1.9711,0.9065 3.3781,0.9065 C4.7841,0.9065 5.9241,2.0475 5.9241,3.4535 C5.9241,4.8595 4.7841,6.0005 3.3781,6.0005 C1.9711,6.0005 0.8311,4.8595 0.8311,3.4535" id="Fill-115" fill="#65BDB8" mask="url(#mask-78)"></path>
+            </g>
+            <g id="Group-120" transform="translate(277.000000, 0.093020)">
+                <mask id="mask-80" fill="white">
+                    <use xlink:href="#path-79"></use>
+                </mask>
+                <g id="Clip-119"></g>
+                <path d="M0.9582,3.4535 C0.9582,2.0475 2.0982,0.9065 3.5052,0.9065 C4.9112,0.9065 6.0512,2.0475 6.0512,3.4535 C6.0512,4.8595 4.9112,6.0005 3.5052,6.0005 C2.0982,6.0005 0.9582,4.8595 0.9582,3.4535" id="Fill-118" fill="#65BDB8" mask="url(#mask-80)"></path>
+            </g>
+            <g id="Group-123" transform="translate(285.000000, 0.093020)">
+                <mask id="mask-82" fill="white">
+                    <use xlink:href="#path-81"></use>
+                </mask>
+                <g id="Clip-122"></g>
+                <path d="M0.0853,3.4535 C0.0853,2.0475 1.2253,0.9065 2.6323,0.9065 C4.0383,0.9065 5.1783,2.0475 5.1783,3.4535 C5.1783,4.8595 4.0383,6.0005 2.6323,6.0005 C1.2253,6.0005 0.0853,4.8595 0.0853,3.4535" id="Fill-121" fill="#65BDB8" mask="url(#mask-82)"></path>
+            </g>
+            <g id="Group-126" transform="translate(292.000000, 0.093020)">
+                <mask id="mask-84" fill="white">
+                    <use xlink:href="#path-83"></use>
+                </mask>
+                <g id="Clip-125"></g>
+                <path d="M0.2125,3.4535 C0.2125,2.0475 1.3525,0.9065 2.7595,0.9065 C4.1655,0.9065 5.3055,2.0475 5.3055,3.4535 C5.3055,4.8595 4.1655,6.0005 2.7595,6.0005 C1.3525,6.0005 0.2125,4.8595 0.2125,3.4535" id="Fill-124" fill="#65BDB8" mask="url(#mask-84)"></path>
+            </g>
+            <g id="Group-129" transform="translate(299.000000, 0.093020)">
+                <mask id="mask-86" fill="white">
+                    <use xlink:href="#path-85"></use>
+                </mask>
+                <g id="Clip-128"></g>
+                <path d="M0.3396,3.4535 C0.3396,2.0475 1.4796,0.9065 2.8866,0.9065 C4.2926,0.9065 5.4326,2.0475 5.4326,3.4535 C5.4326,4.8595 4.2926,6.0005 2.8866,6.0005 C1.4796,6.0005 0.3396,4.8595 0.3396,3.4535" id="Fill-127" fill="#65BDB8" mask="url(#mask-86)"></path>
+            </g>
+            <g id="Group-132" transform="translate(306.000000, 0.093020)">
+                <mask id="mask-88" fill="white">
+                    <use xlink:href="#path-87"></use>
+                </mask>
+                <g id="Clip-131"></g>
+                <path d="M0.4667,3.4535 C0.4667,2.0475 1.6067,0.9065 3.0137,0.9065 C4.4197,0.9065 5.5597,2.0475 5.5597,3.4535 C5.5597,4.8595 4.4197,6.0005 3.0137,6.0005 C1.6067,6.0005 0.4667,4.8595 0.4667,3.4535" id="Fill-130" fill="#65BDB8" mask="url(#mask-88)"></path>
+            </g>
+            <g id="Group-135" transform="translate(313.000000, 0.093020)">
+                <mask id="mask-90" fill="white">
+                    <use xlink:href="#path-89"></use>
+                </mask>
+                <g id="Clip-134"></g>
+                <path d="M0.5939,3.4535 C0.5939,2.0475 1.7339,0.9065 3.1409,0.9065 C4.5469,0.9065 5.6869,2.0475 5.6869,3.4535 C5.6869,4.8595 4.5469,6.0005 3.1409,6.0005 C1.7339,6.0005 0.5939,4.8595 0.5939,3.4535" id="Fill-133" fill="#65BDB8" mask="url(#mask-90)"></path>
+            </g>
+            <g id="Group-138" transform="translate(320.000000, 0.093020)">
+                <mask id="mask-92" fill="white">
+                    <use xlink:href="#path-91"></use>
+                </mask>
+                <g id="Clip-137"></g>
+                <path d="M0.721,3.4535 C0.721,2.0475 1.861,0.9065 3.268,0.9065 C4.674,0.9065 5.814,2.0475 5.814,3.4535 C5.814,4.8595 4.674,6.0005 3.268,6.0005 C1.861,6.0005 0.721,4.8595 0.721,3.4535" id="Fill-136" fill="#65BDB8" mask="url(#mask-92)"></path>
+            </g>
+            <g id="Group-141" transform="translate(327.000000, 0.093020)">
+                <mask id="mask-94" fill="white">
+                    <use xlink:href="#path-93"></use>
+                </mask>
+                <g id="Clip-140"></g>
+                <path d="M0.8481,3.4535 C0.8481,2.0475 1.9881,0.9065 3.3951,0.9065 C4.8011,0.9065 5.9411,2.0475 5.9411,3.4535 C5.9411,4.8595 4.8011,6.0005 3.3951,6.0005 C1.9881,6.0005 0.8481,4.8595 0.8481,3.4535" id="Fill-139" fill="#65BDB8" mask="url(#mask-94)"></path>
+            </g>
+            <g id="Group-144" transform="translate(334.000000, 0.093020)">
+                <mask id="mask-96" fill="white">
+                    <use xlink:href="#path-95"></use>
+                </mask>
+                <g id="Clip-143"></g>
+                <path d="M0.9753,3.4535 C0.9753,2.0475 2.1153,0.9065 3.5223,0.9065 C4.9283,0.9065 6.0683,2.0475 6.0683,3.4535 C6.0683,4.8595 4.9283,6.0005 3.5223,6.0005 C2.1153,6.0005 0.9753,4.8595 0.9753,3.4535" id="Fill-142" fill="#65BDB8" mask="url(#mask-96)"></path>
+            </g>
+            <g id="Group-147" transform="translate(342.000000, 0.093020)">
+                <mask id="mask-98" fill="white">
+                    <use xlink:href="#path-97"></use>
+                </mask>
+                <g id="Clip-146"></g>
+                <path d="M0.1024,3.4535 C0.1024,2.0475 1.2424,0.9065 2.6494,0.9065 C4.0554,0.9065 5.1954,2.0475 5.1954,3.4535 C5.1954,4.8595 4.0554,6.0005 2.6494,6.0005 C1.2424,6.0005 0.1024,4.8595 0.1024,3.4535" id="Fill-145" fill="#65BDB8" mask="url(#mask-98)"></path>
+            </g>
+            <g id="Group-150" transform="translate(349.000000, 0.093020)">
+                <mask id="mask-100" fill="white">
+                    <use xlink:href="#path-99"></use>
+                </mask>
+                <g id="Clip-149"></g>
+                <path d="M0.2295,3.4535 C0.2295,2.0475 1.3695,0.9065 2.7765,0.9065 C4.1825,0.9065 5.3225,2.0475 5.3225,3.4535 C5.3225,4.8595 4.1825,6.0005 2.7765,6.0005 C1.3695,6.0005 0.2295,4.8595 0.2295,3.4535" id="Fill-148" fill="#65BDB8" mask="url(#mask-100)"></path>
+            </g>
+            <g id="Group-153" transform="translate(356.000000, 0.093020)">
+                <mask id="mask-102" fill="white">
+                    <use xlink:href="#path-101"></use>
+                </mask>
+                <g id="Clip-152"></g>
+                <path d="M0.3567,3.4535 C0.3567,2.0475 1.4967,0.9065 2.9037,0.9065 C4.3097,0.9065 5.4497,2.0475 5.4497,3.4535 C5.4497,4.8595 4.3097,6.0005 2.9037,6.0005 C1.4967,6.0005 0.3567,4.8595 0.3567,3.4535" id="Fill-151" fill="#65BDB8" mask="url(#mask-102)"></path>
+            </g>
+            <g id="Group-156" transform="translate(363.000000, 0.093020)">
+                <mask id="mask-104" fill="white">
+                    <use xlink:href="#path-103"></use>
+                </mask>
+                <g id="Clip-155"></g>
+                <path d="M0.4838,3.4535 C0.4838,2.0475 1.6238,0.9065 3.0308,0.9065 C4.4368,0.9065 5.5768,2.0475 5.5768,3.4535 C5.5768,4.8595 4.4368,6.0005 3.0308,6.0005 C1.6238,6.0005 0.4838,4.8595 0.4838,3.4535" id="Fill-154" fill="#65BDB8" mask="url(#mask-104)"></path>
+            </g>
+            <g id="Group-159" transform="translate(370.000000, 0.093020)">
+                <mask id="mask-106" fill="white">
+                    <use xlink:href="#path-105"></use>
+                </mask>
+                <g id="Clip-158"></g>
+                <path d="M0.6109,3.4535 C0.6109,2.0475 1.7509,0.9065 3.1579,0.9065 C4.5639,0.9065 5.7039,2.0475 5.7039,3.4535 C5.7039,4.8595 4.5639,6.0005 3.1579,6.0005 C1.7509,6.0005 0.6109,4.8595 0.6109,3.4535" id="Fill-157" fill="#65BDB8" mask="url(#mask-106)"></path>
+            </g>
+            <g id="Group-162" transform="translate(377.000000, 0.093020)">
+                <mask id="mask-108" fill="white">
+                    <use xlink:href="#path-107"></use>
+                </mask>
+                <g id="Clip-161"></g>
+                <path d="M0.7381,3.4535 C0.7381,2.0475 1.8781,0.9065 3.2851,0.9065 C4.6911,0.9065 5.8311,2.0475 5.8311,3.4535 C5.8311,4.8595 4.6911,6.0005 3.2851,6.0005 C1.8781,6.0005 0.7381,4.8595 0.7381,3.4535" id="Fill-160" fill="#65BDB8" mask="url(#mask-108)"></path>
+            </g>
+            <g id="Group-165" transform="translate(384.000000, 0.093020)">
+                <mask id="mask-110" fill="white">
+                    <use xlink:href="#path-109"></use>
+                </mask>
+                <g id="Clip-164"></g>
+                <path d="M0.8652,3.4535 C0.8652,2.0475 2.0052,0.9065 3.4122,0.9065 C4.8182,0.9065 5.9582,2.0475 5.9582,3.4535 C5.9582,4.8595 4.8182,6.0005 3.4122,6.0005 C2.0052,6.0005 0.8652,4.8595 0.8652,3.4535" id="Fill-163" fill="#65BDB8" mask="url(#mask-110)"></path>
+            </g>
+            <g id="Group-168" transform="translate(391.000000, 0.093020)">
+                <mask id="mask-112" fill="white">
+                    <use xlink:href="#path-111"></use>
+                </mask>
+                <g id="Clip-167"></g>
+                <path d="M0.9923,3.4535 C0.9923,2.0475 2.1323,0.9065 3.5393,0.9065 C4.9453,0.9065 6.0853,2.0475 6.0853,3.4535 C6.0853,4.8595 4.9453,6.0005 3.5393,6.0005 C2.1323,6.0005 0.9923,4.8595 0.9923,3.4535" id="Fill-166" fill="#65BDB8" mask="url(#mask-112)"></path>
+            </g>
+            <g id="Group-171" transform="translate(399.000000, 0.093020)">
+                <mask id="mask-114" fill="white">
+                    <use xlink:href="#path-113"></use>
+                </mask>
+                <g id="Clip-170"></g>
+                <path d="M0.1195,3.4535 C0.1195,2.0475 1.2595,0.9065 2.6665,0.9065 C4.0725,0.9065 5.2125,2.0475 5.2125,3.4535 C5.2125,4.8595 4.0725,6.0005 2.6665,6.0005 C1.2595,6.0005 0.1195,4.8595 0.1195,3.4535" id="Fill-169" fill="#65BDB8" mask="url(#mask-114)"></path>
+            </g>
+            <g id="Group-174" transform="translate(406.000000, 0.093020)">
+                <mask id="mask-116" fill="white">
+                    <use xlink:href="#path-115"></use>
+                </mask>
+                <g id="Clip-173"></g>
+                <path d="M0.2466,3.4535 C0.2466,2.0475 1.3866,0.9065 2.7936,0.9065 C4.1996,0.9065 5.3396,2.0475 5.3396,3.4535 C5.3396,4.8595 4.1996,6.0005 2.7936,6.0005 C1.3866,6.0005 0.2466,4.8595 0.2466,3.4535" id="Fill-172" fill="#65BDB8" mask="url(#mask-116)"></path>
+            </g>
+            <g id="Group-177" transform="translate(413.000000, 0.093020)">
+                <mask id="mask-118" fill="white">
+                    <use xlink:href="#path-117"></use>
+                </mask>
+                <g id="Clip-176"></g>
+                <path d="M0.3737,3.4535 C0.3737,2.0475 1.5137,0.9065 2.9207,0.9065 C4.3267,0.9065 5.4667,2.0475 5.4667,3.4535 C5.4667,4.8595 4.3267,6.0005 2.9207,6.0005 C1.5137,6.0005 0.3737,4.8595 0.3737,3.4535" id="Fill-175" fill="#65BDB8" mask="url(#mask-118)"></path>
+            </g>
+            <g id="Group-180" transform="translate(420.000000, 0.093020)">
+                <mask id="mask-120" fill="white">
+                    <use xlink:href="#path-119"></use>
+                </mask>
+                <g id="Clip-179"></g>
+                <path d="M0.5009,3.4535 C0.5009,2.0475 1.6409,0.9065 3.0479,0.9065 C4.4539,0.9065 5.5939,2.0475 5.5939,3.4535 C5.5939,4.8595 4.4539,6.0005 3.0479,6.0005 C1.6409,6.0005 0.5009,4.8595 0.5009,3.4535" id="Fill-178" fill="#65BDB8" mask="url(#mask-120)"></path>
+            </g>
+            <g id="Group-183" transform="translate(427.000000, 0.093020)">
+                <mask id="mask-122" fill="white">
+                    <use xlink:href="#path-121"></use>
+                </mask>
+                <g id="Clip-182"></g>
+                <path d="M0.628,3.4535 C0.628,2.0475 1.768,0.9065 3.175,0.9065 C4.581,0.9065 5.721,2.0475 5.721,3.4535 C5.721,4.8595 4.581,6.0005 3.175,6.0005 C1.768,6.0005 0.628,4.8595 0.628,3.4535" id="Fill-181" fill="#65BDB8" mask="url(#mask-122)"></path>
+            </g>
+            <g id="Group-186" transform="translate(434.000000, 0.093020)">
+                <mask id="mask-124" fill="white">
+                    <use xlink:href="#path-123"></use>
+                </mask>
+                <g id="Clip-185"></g>
+                <path d="M0.7551,3.4535 C0.7551,2.0475 1.8951,0.9065 3.3021,0.9065 C4.7081,0.9065 5.8481,2.0475 5.8481,3.4535 C5.8481,4.8595 4.7081,6.0005 3.3021,6.0005 C1.8951,6.0005 0.7551,4.8595 0.7551,3.4535" id="Fill-184" fill="#65BDB8" mask="url(#mask-124)"></path>
+            </g>
+            <g id="Group-189" transform="translate(441.000000, 0.093020)">
+                <mask id="mask-126" fill="white">
+                    <use xlink:href="#path-125"></use>
+                </mask>
+                <g id="Clip-188"></g>
+                <path d="M0.8823,3.4535 C0.8823,2.0475 2.0223,0.9065 3.4293,0.9065 C4.8353,0.9065 5.9753,2.0475 5.9753,3.4535 C5.9753,4.8595 4.8353,6.0005 3.4293,6.0005 C2.0223,6.0005 0.8823,4.8595 0.8823,3.4535" id="Fill-187" fill="#65BDB8" mask="url(#mask-126)"></path>
+            </g>
+            <g id="Group-192" transform="translate(449.000000, 0.093020)">
+                <mask id="mask-128" fill="white">
+                    <use xlink:href="#path-127"></use>
+                </mask>
+                <g id="Clip-191"></g>
+                <path d="M0.0094,3.4535 C0.0094,2.0475 1.1494,0.9065 2.5564,0.9065 C3.9624,0.9065 5.1024,2.0475 5.1024,3.4535 C5.1024,4.8595 3.9624,6.0005 2.5564,6.0005 C1.1494,6.0005 0.0094,4.8595 0.0094,3.4535" id="Fill-190" fill="#65BDB8" mask="url(#mask-128)"></path>
+            </g>
+            <g id="Group-195" transform="translate(456.000000, 0.093020)">
+                <mask id="mask-130" fill="white">
+                    <use xlink:href="#path-129"></use>
+                </mask>
+                <g id="Clip-194"></g>
+                <path d="M0.1365,3.4535 C0.1365,2.0475 1.2765,0.9065 2.6835,0.9065 C4.0895,0.9065 5.2295,2.0475 5.2295,3.4535 C5.2295,4.8595 4.0895,6.0005 2.6835,6.0005 C1.2765,6.0005 0.1365,4.8595 0.1365,3.4535" id="Fill-193" fill="#65BDB8" mask="url(#mask-130)"></path>
+            </g>
+            <g id="Group-198" transform="translate(463.000000, 0.093020)">
+                <mask id="mask-132" fill="white">
+                    <use xlink:href="#path-131"></use>
+                </mask>
+                <g id="Clip-197"></g>
+                <path d="M0.2637,3.4535 C0.2637,2.0475 1.4037,0.9065 2.8107,0.9065 C4.2167,0.9065 5.3567,2.0475 5.3567,3.4535 C5.3567,4.8595 4.2167,6.0005 2.8107,6.0005 C1.4037,6.0005 0.2637,4.8595 0.2637,3.4535" id="Fill-196" fill="#65BDB8" mask="url(#mask-132)"></path>
+            </g>
+            <g id="Group-201" transform="translate(470.000000, 0.093020)">
+                <mask id="mask-134" fill="white">
+                    <use xlink:href="#path-133"></use>
+                </mask>
+                <g id="Clip-200"></g>
+                <path d="M0.3908,3.4535 C0.3908,2.0475 1.5308,0.9065 2.9378,0.9065 C4.3438,0.9065 5.4838,2.0475 5.4838,3.4535 C5.4838,4.8595 4.3438,6.0005 2.9378,6.0005 C1.5308,6.0005 0.3908,4.8595 0.3908,3.4535" id="Fill-199" fill="#65BDB8" mask="url(#mask-134)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

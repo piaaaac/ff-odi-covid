@@ -79,6 +79,7 @@
         <circle id="Oval-Copy-35" stroke="#FFFFFF" fill="#E75F52" cx="289.5" cy="354.5" r="3"></circle>
         <circle id="Oval-Copy-35" stroke="#FFFFFF" fill="#E75F52" cx="297.5" cy="356.5" r="3"></circle>
         <circle id="Oval-Copy-70" stroke="#FFFFFF" fill="#E75F52" cx="307.5" cy="360.5" r="3"></circle>
+        <circle id="Oval-Copy-90" stroke="#FFFFFF" fill="#E75F52" cx="313.5" cy="363.5" r="3"></circle>
         <circle id="Oval-Copy-48" stroke="#FFFFFF" fill="#E75F52" cx="293.5" cy="364.5" r="3"></circle>
         <circle id="Oval-Copy-34" stroke="#FFFFFF" fill="#E75F52" cx="264.5" cy="267.5" r="3"></circle>
         <circle id="Oval-Copy-83" stroke="#FFFFFF" fill="#E75F52" cx="269.5" cy="271.5" r="3"></circle>
@@ -134,6 +135,7 @@
         <circle id="Oval-Copy-24" stroke="#FFFFFF" fill="#E75F52" cx="196.5" cy="244.5" r="3"></circle>
         <circle id="Oval-Copy-59" stroke="#FFFFFF" fill="#E75F52" cx="198.5" cy="264.5" r="3"></circle>
         <circle id="Oval-Copy-87" stroke="#FFFFFF" fill="#E75F52" cx="202.5" cy="264.5" r="3"></circle>
+        <circle id="Oval-Copy-88" stroke="#FFFFFF" fill="#E75F52" cx="186.5" cy="287.5" r="3"></circle>
         <circle id="Oval-Copy-32" stroke="#FFFFFF" fill="#E75F52" cx="194.5" cy="236.5" r="3"></circle>
         <circle id="Oval-Copy-78" stroke="#FFFFFF" fill="#E75F52" cx="198.5" cy="238.5" r="3"></circle>
         <circle id="Oval-Copy-25" stroke="#FFFFFF" fill="#E75F52" cx="187.5" cy="240.5" r="3"></circle>
@@ -141,6 +143,8 @@
         <circle id="Oval-Copy-86" stroke="#FFFFFF" fill="#E75F52" cx="191.5" cy="228.5" r="3"></circle>
         <circle id="Oval-Copy-64" stroke="#FFFFFF" fill="#E75F52" cx="192.5" cy="240.5" r="3"></circle>
         <circle id="Oval-Copy-77" stroke="#FFFFFF" fill="#E75F52" cx="194.5" cy="248.5" r="3"></circle>
+        <circle id="Oval-Copy-91" stroke="#FFFFFF" fill="#E75F52" cx="198.5" cy="249.5" r="3"></circle>
+        <circle id="Oval-Copy-92" stroke="#FFFFFF" fill="#E75F52" cx="202.5" cy="245.5" r="3"></circle>
         <circle id="Oval-Copy-26" stroke="#FFFFFF" fill="#E75F52" cx="195.5" cy="255.5" r="3"></circle>
         <circle id="Oval-Copy-39" stroke="#FFFFFF" fill="#E75F52" cx="205.5" cy="257.5" r="3"></circle>
         <circle id="Oval-Copy-50" stroke="#FFFFFF" fill="#E75F52" cx="202.5" cy="254.5" r="3"></circle>
@@ -148,6 +152,7 @@
         <circle id="Oval-Copy-27" stroke="#FFFFFF" fill="#E75F52" cx="186.5" cy="252.5" r="3"></circle>
         <circle id="Oval-Copy-80" stroke="#FFFFFF" fill="#E75F52" cx="191.5" cy="254.5" r="3"></circle>
         <circle id="Oval-Copy-27" stroke="#FFFFFF" fill="#E75F52" cx="190.5" cy="246.5" r="3"></circle>
+        <circle id="Oval-Copy-89" stroke="#FFFFFF" fill="#E75F52" cx="188.5" cy="248.5" r="3"></circle>
         <circle id="Oval-Copy-27" stroke="#FFFFFF" fill="#E75F52" cx="184.5" cy="245.5" r="3"></circle>
         <circle id="Oval-Copy-82" stroke="#FFFFFF" fill="#E75F52" cx="180.5" cy="250.5" r="3"></circle>
         <circle id="Oval-Copy-27" stroke="#FFFFFF" fill="#E75F52" cx="177.5" cy="216.5" r="3"></circle>
@@ -174,5 +179,8 @@
         <circle id="Oval-Copy-4" stroke="#FFFFFF" fill="#E75F52" cx="226.5" cy="269.5" r="3"></circle>
         <circle id="Oval-Copy-28" stroke="#FFFFFF" fill="#E75F52" cx="236.5" cy="276.5" r="3"></circle>
         <circle id="Oval-Copy-68" stroke="#FFFFFF" fill="#E75F52" cx="154.5" cy="247.5" r="3"></circle>
+        <circle id="Oval-Copy-84" stroke="#FFFFFF" fill="#E75F52" cx="150.5" cy="250.5" r="3"></circle>
+        <circle id="Oval-Copy-5" stroke="#FFFFFF" fill="#E75F52" cx="285.5" cy="351.5" r="3"></circle>
+        <circle id="Oval-Copy-66" stroke="#FFFFFF" fill="#E75F52" cx="188.5" cy="243.5" r="3"></circle>
     </g>
 </svg>
