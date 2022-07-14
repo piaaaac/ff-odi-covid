@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="10px" viewBox="0 0 500 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>330</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.907 5.093 0.907 5.093 6 0 6"></polygon>
+        <polygon id="path-3" points="0.1271 0.907 5.2201 0.907 5.2201 6 0.1271 6"></polygon>
+        <polygon id="path-5" points="0.2543 0.907 5.3473 0.907 5.3473 6 0.2543 6"></polygon>
+        <polygon id="path-7" points="0.3814 0.907 5.4744 0.907 5.4744 6 0.3814 6"></polygon>
+        <polygon id="path-9" points="0.5085 0.907 5.6015 0.907 5.6015 6 0.5085 6"></polygon>
+        <polygon id="path-11" points="0.6357 0.907 5.7287 0.907 5.7287 6 0.6357 6"></polygon>
+    </defs>
+    <g id="330" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-19" transform="translate(0.000000, 2.000000)">
+            <g id="Group-3" transform="translate(0.000000, 0.093020)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M0,3.4535 C0,2.0475 1.14,0.9065 2.547,0.9065 C3.953,0.9065 5.093,2.0475 5.093,3.4535 C5.093,4.8595 3.953,6.0005 2.547,6.0005 C1.14,6.0005 0,4.8595 0,3.4535" id="Fill-1" fill="#65BDB8" mask="url(#mask-2)"></path>
+            </g>
+            <g id="Group-6" transform="translate(7.000000, 0.093020)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-5"></g>
+                <path d="M0.1271,3.4535 C0.1271,2.0475 1.2671,0.9065 2.6741,0.9065 C4.0801,0.9065 5.2201,2.0475 5.2201,3.4535 C5.2201,4.8595 4.0801,6.0005 2.6741,6.0005 C1.2671,6.0005 0.1271,4.8595 0.1271,3.4535" id="Fill-4" fill="#65BDB8" mask="url(#mask-4)"></path>
+            </g>
+            <g id="Group-9" transform="translate(14.000000, 0.093020)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Clip-8"></g>
+                <path d="M0.2543,3.4535 C0.2543,2.0475 1.3943,0.9065 2.8013,0.9065 C4.2073,0.9065 5.3473,2.0475 5.3473,3.4535 C5.3473,4.8595 4.2073,6.0005 2.8013,6.0005 C1.3943,6.0005 0.2543,4.8595 0.2543,3.4535" id="Fill-7" fill="#65BDB8" mask="url(#mask-6)"></path>
+            </g>
+            <g id="Group-12" transform="translate(21.000000, 0.093020)">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Clip-11"></g>
+                <path d="M0.3814,3.4535 C0.3814,2.0475 1.5214,0.9065 2.9284,0.9065 C4.3344,0.9065 5.4744,2.0475 5.4744,3.4535 C5.4744,4.8595 4.3344,6.0005 2.9284,6.0005 C1.5214,6.0005 0.3814,4.8595 0.3814,3.4535" id="Fill-10" fill="#65BDB8" mask="url(#mask-8)"></path>
+            </g>
+            <g id="Group-15" transform="translate(28.000000, 0.093020)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Clip-14"></g>
+                <path d="M0.5085,3.4535 C0.5085,2.0475 1.6485,0.9065 3.0555,0.9065 C4.4615,0.9065 5.6015,2.0475 5.6015,3.4535 C5.6015,4.8595 4.4615,6.0005 3.0555,6.0005 C1.6485,6.0005 0.5085,4.8595 0.5085,3.4535" id="Fill-13" fill="#65BDB8" mask="url(#mask-10)"></path>
+            </g>
+            <g id="Group-18" transform="translate(35.000000, 0.093020)">
+                <mask id="mask-12" fill="white">
+                    <use xlink:href="#path-11"></use>
+                </mask>
+                <g id="Clip-17"></g>
+                <path d="M0.6357,3.4535 C0.6357,2.0475 1.7757,0.9065 3.1827,0.9065 C4.5887,0.9065 5.7287,2.0475 5.7287,3.4535 C5.7287,4.8595 4.5887,6.0005 3.1827,6.0005 C1.7757,6.0005 0.6357,4.8595 0.6357,3.4535" id="Fill-16" fill="#65BDB8" mask="url(#mask-12)"></path>
+            </g>
+        </g>
+    </g>
+</svg>
