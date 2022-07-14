@@ -59,8 +59,8 @@ var state = {
   isInitializing: null,
 };
 
-// releaseFolder = "content/210603-v11";
-releaseFolder = "content/220131-v12";
+// releaseFolder = "content/220131-v12";
+releaseFolder = "content/220713-v13";
 
 loadData(releaseFolder +"/data.json", function (fullTreeData) {
   state.data = fullTreeData;
@@ -127,6 +127,7 @@ var csize = 5;
 var csize2 = 12;
 
 function svgBranchCurved (mx,my, x1,y1, x2,y2, x,y, props) {
+  console.log("debug", props)
   var g = svg.group()
     .addClass("branch-g").addClass(props.class)
     .attr("id", props.id)
@@ -2044,6 +2045,7 @@ function loadData (file, callback) {
             console.log("debug", d)
 
             var stats = d["stats"].trim();
+            // var stats = (d["stats"] + "").trim();
             var percentage = /[0-9.]%$/.test(stats); // ends with %
 
             var story = {
